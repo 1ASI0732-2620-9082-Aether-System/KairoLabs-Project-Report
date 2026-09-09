@@ -37,28 +37,28 @@ Asimismo, la plataforma busca fortalecer la coordinación entre los distintos ac
 <td><img src="../assets/images/team/sebastian.jpg" alt="Foto"></td>
 <td>Diaz Mendoza, Sebastian Victor Andre</td>
 <td>Ingeniería de Software</td>
-<td>Código: U202415638. Soy Sebastian Diaz, actualmente estudio la carrera de Ingeniería de Software y para el presente proyecto me he enfocado en diseño de experiencia de usuario (UX/UI), además soy responsable de la interacción y usabilidad. Cuento con dominio en estructura de datos, algoritmos y base de datos. Con una capacidad de razonamiento lógico y ordenado, con conocimiento en paradigmas como la programación orientada a objetos y técnicas de aplicación en la complejidad algorítmica. Aporte al equipo: Aporte en la presentación de idea y fundamento del proyecto además del desarrollo de los capítulos II y IV. Con alta proactividad en el desarrollo del proyecto.</td>
+<td>Código: U202415638. Soy Sebastian Diaz, actualmente estudio la carrera de Ingeniería de Software y para el presente proyecto me he enfocado en diseño de experiencia de usuario (UX/UI), además soy responsable de la interacción y usabilidad. Cuento con dominio en estructura de datos, algoritmos y base de datos. Con una capacidad de razonamiento lógico y ordenado, con conocimiento en paradigmas como la programación orientada a objetos y técnicas de aplicación en la complejidad algorítmica.</td>
 </tr>
 
 <tr>
 <td><img src="../assets/images/team/PLACEHOLDER.png" alt="Foto"></td>
 <td>[Apellidos, Nombres]</td>
 <td>[Carrera]</td>
-<td>Código: [Código de estudiante]. [Descripción de formación técnica y habilidades]. Aporte al equipo: [Descripción de las contribuciones específicas al proyecto].</td>
+<td>Código: [Código de estudiante]. [Descripción de formación técnica y habilidades]. Aporte al equipo: .</td>
 </tr>
 
 <tr>
 <td><img src="../assets/images/team/PLACEHOLDER.png" alt="Foto"></td>
 <td>[Apellidos, Nombres]</td>
 <td>[Carrera]</td>
-<td>Código: [Código de estudiante]. [Descripción de formación técnica y habilidades]. Aporte al equipo: [Descripción de las contribuciones específicas al proyecto].</td>
+<td>Código: [Código de estudiante]. [Descripción de formación técnica y habilidades]. Aporte al equipo:.</td>
 </tr>
 
 <tr>
 <td><img src="../assets/images/team/PLACEHOLDER.png" alt="Foto"></td>
 <td>[Apellidos, Nombres]</td>
 <td>[Carrera]</td>
-<td>Código: [Código de estudiante]. [Descripción de formación técnica y habilidades]. Aporte al equipo: [Descripción de las contribuciones específicas al proyecto].</td>
+<td>Código: [Código de estudiante]. [Descripción de formación técnica y habilidades]. Aporte al equipo:.</td>
 </tr>
 
 </tbody>
