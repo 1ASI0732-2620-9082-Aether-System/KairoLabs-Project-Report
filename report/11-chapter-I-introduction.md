@@ -171,62 +171,61 @@ A continuación, se presentan las principales suposiciones identificadas para el
 
 Estas suposiciones guían el desarrollo inicial de KairoLabs y permiten identificar los principales riesgos del proyecto, tanto a nivel de usuario, tecnología, mercado y modelo de negocio. No obstante, deberán ser validadas mediante entrevistas, prototipos y experimentación continua con los segmentos identificados, siguiendo los principios del enfoque Lean UX (Gothelf, 2013).
 
-### 1.2.2.3. Lean UX Hypothesis Statements
+#### 1.2.2.3. Lean UX Hypothesis Statements
 
-En coherencia con la naturaleza experimental del curso, las hipótesis se expresan de forma verificable y se tratarán como candidatos a evaluación mediante observación, instrumentación de producto y pruebas de software.
+A continuación, se presentan las hipótesis del proyecto KairoLabs, formuladas bajo el enfoque Lean UX, con el objetivo de validar las decisiones de diseño mediante métricas medibles (Gothelf, 2013).
 
-**Hipótesis 1 — Decisión operativa oportuna**
+**Hipótesis 1: Monitoreo en tiempo real y alertas para toma de decisiones**
+Creemos que:
+ Implementar una plataforma web con monitoreo en tiempo real de las condiciones de almacenamiento (temperatura, humedad y exposición a la luz) y alertas automáticas
+Para:
+ El personal encargado de almacenes farmacéuticos en hospitales y centros de distribución
+Lograremos:
+ Que el personal tome decisiones oportunas para evitar el deterioro de los productos farmacéuticos
+Sabremos que hemos tenido éxito cuando veamos:
+- Una mejora del 30 % en la reducción de incidentes relacionados con el deterioro de medicamentos durante los primeros 3 meses de uso de la plataforma.
 
-**Creemos que lograremos** mejorar la capacidad de decisión del personal de almacén para prevenir deterioro  
-**Si** dicho personal accede a KairoLabs con monitoreo en tiempo real de condiciones ambientales  
-**Alcanzan** decisiones oportunas ante desviaciones  
-**Con** dashboards de telemetría y alertas de temperatura, humedad y luz
+**Hipótesis 2: Alertas automáticas para reducción de riesgos**
+Creemos que:
+ Generar alertas automáticas mediante sensores ante variaciones de temperatura, humedad o luz
+Para:
+ Las entidades de salud responsables de la conservación de medicamentos
+Lograremos:
+ Que tomen decisiones rápidas ante variaciones críticas en las condiciones de almacenamiento, reduciendo los riesgos asociados a un almacenamiento inadecuado
+Sabremos que hemos tenido éxito cuando veamos:
+- Una mejora del 25 % en la reducción de incidentes de deterioro de medicamentos durante los primeros 3 meses de uso del sistema de alertas.
 
-> Criterio de verificación propuesto: reducción ≥ 30 % de incidentes de deterioro atribuibles a condiciones ambientales en los primeros tres meses. *(completar)*: protocolo de medición y línea base.
+**Hipótesis 3: Datos históricos y reportes para trazabilidad**
+Creemos que:
+ Habilitar la visualización de datos históricos y la generación de reportes automáticos sobre las condiciones de almacenamiento
+Para:
+ Los usuarios responsables de la trazabilidad y el cumplimiento normativo
+Lograremos:
+ Mejorar la trazabilidad y facilitar el cumplimiento de las normativas sanitarias de manera más eficiente
+Sabremos que hemos tenido éxito cuando veamos:
+- Una mejora del 20 % en la eficiencia de auditorías y cumplimiento normativo durante los primeros 3 meses de uso del sistema de reportes.
 
----
+**Hipótesis 4: Sensores IoT para reducir la dependencia manual**
+Creemos que:
+ Integrar sensores IoT a la plataforma digital, con registro automático de las condiciones ambientales
+Para:
+ El personal operativo de almacenes farmacéuticos
+Lograremos:
+ Reducir la carga operativa y mejorar la precisión del monitoreo, disminuyendo la dependencia de procesos manuales y los errores humanos
+Sabremos que hemos tenido éxito cuando veamos:
+- Una mejora del 25 % en la precisión del monitoreo.
+- Una reducción del 30 % en los errores operativos durante los primeros 3 meses de uso del sistema.
 
-**Hipótesis 2 — Respuesta ante alertas**
-
-**Creemos que lograremos** reducir el riesgo asociado a almacenamiento inadecuado  
-**Si** las entidades reciben alertas automáticas ante variaciones fuera de rango  
-**Alcanzan** tiempos de respuesta más cortos ante eventos críticos  
-**Con** un motor de alertas basado en umbrales configurables
-
-> Criterio de verificación propuesto: mejora ≥ 25 % en indicadores de respuesta oportuna durante los primeros tres meses. *(completar)*.
-
----
-
-**Hipótesis 3 — Trazabilidad y soporte a cumplimiento**
-
-**Creemos que lograremos** fortalecer la trazabilidad y el soporte a auditorías  
-**Si** los usuarios disponen de históricos y reportes de condiciones de conservación  
-**Alcanzan** mayor eficiencia en la reconstrucción de evidencia ante revisiones  
-**Con** módulos de histórico y generación de reportes
-
-> Criterio de verificación propuesto: mejora ≥ 20 % en eficiencia de preparación de auditorías en tres meses. *(completar)*.
-
----
-
-**Hipótesis 4 — Reducción de error humano por automatización**
-
-**Creemos que lograremos** disminuir la dependencia de registros manuales y los errores asociados  
-**Si** se integra telemetría IoT con registro automático en la plataforma  
-**Alcanzan** mayor precisión y menor carga operativa de monitoreo  
-**Con** captura continua y persistencia automatizada de mediciones
-
-> Criterio de verificación propuesto: mejora ≥ 25 % en precisión de monitoreo y reducción ≥ 30 % de errores operativos de registro en tres meses. *(completar)*.
-
----
-
-**Hipótesis 5 — Eficiencia multi-sede**
-
-**Creemos que lograremos** optimizar la gestión de recursos en redes con múltiples almacenes  
-**Si** las entidades operan un panel centralizado multi-sede  
-**Alcanzan** mejor coordinación y menor merma agregada  
-**Con** una vista consolidada de telemetría y estados por sede
-
-> Criterio de verificación propuesto: mejora ≥ 30 % en eficiencia operativa percibida/medida y reducción ≥ 20 % de pérdidas económicas asociadas en seis meses. *(completar)*.
+**Hipótesis 5: Plataforma centralizada multisede**
+Creemos que:
+ Ofrecer una plataforma centralizada para la gestión de múltiples almacenes o sedes, con acceso a datos en tiempo real
+Para:
+ Las entidades de salud con redes de distribución o múltiples establecimientos
+Lograremos:
+ Optimizar la gestión de recursos, reducir pérdidas económicas y mejorar la eficiencia operativa
+Sabremos que hemos tenido éxito cuando veamos:
+- Una mejora del 30 % en la eficiencia operativa.
+- Una reducción del 20 % en pérdidas económicas durante los primeros 6 meses de uso del sistema centralizado.
 
 ### 1.2.2.4. Lean UX Canvas
 
