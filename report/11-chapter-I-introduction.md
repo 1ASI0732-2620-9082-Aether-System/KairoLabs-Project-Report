@@ -4,13 +4,13 @@
 
 ### 1.1.1. Descripción de la Startup
 
-**Aether System** es un equipo académico de la Universidad Peruana de Ciencias Aplicadas, constituido en el marco del curso *Diseño de Experimentos de Ingeniería de Software* (1ASI0732), cuyo propósito es concebir, validar experimentalmente y evolucionar soluciones de software con criterios de verificación, validación y entrega continua.
+Aether System nace como una propuesta tecnológica enfocada en mejorar la conservación de medicamentos y otros productos termosensibles dentro de organizaciones del sector salud. Su objetivo principal es brindar a clínicas, farmacias, hospitales y operadores logísticos una herramienta digital que les permita anticiparse a desviaciones en las condiciones de almacenamiento y transporte, antes de que estas comprometan la calidad e inocuidad del producto.
 
-La misión de la startup es diseñar plataformas digitales que permitan a organizaciones del sector salud garantizar la conservación adecuada de medicamentos mediante el monitoreo continuo de variables ambientales críticas —temperatura, humedad y exposición a la luz—, fortaleciendo la trazabilidad, la toma de decisiones oportuna y el cumplimiento de estándares sanitarios.
+La solución, denominada KairoLabs, consiste en una plataforma compuesta por una aplicación web responsive y una aplicación móvil nativa que integran diversas funcionalidades orientadas a la trazabilidad sanitaria, tales como el monitoreo continuo de variables ambientales críticas (temperatura, humedad y exposición a la luz), la generación de alertas automáticas ante desviaciones respecto a los rangos permitidos y un histórico auditable de las condiciones de conservación por lote.
 
-La visión institucional consiste en contribuir a la modernización de la gestión logística farmacéutica en el Perú, impulsando la adopción de tecnologías IoT, arquitectura de software orientada a dominios y pipelines de DevOps que habiliten observación, experimentación y mejora incremental del producto.
+El valor diferencial de la propuesta radica en centralizar, dentro de una sola plataforma, tanto mecanismos de supervisión preventiva como de reacción ante incidentes de conservación. Esto es especialmente relevante en un contexto regulatorio donde el almacenamiento de productos termolábiles debe mantenerse dentro de rangos estrictos —usualmente entre 2 °C y 8 °C para cadena de frío— conforme a la normativa nacional de Buenas Prácticas de Almacenamiento (DIGEMID, 2015). Al automatizar este control, KairoLabs reduce la dependencia de registros manuales de temperatura, uno de los puntos críticos identificados en los procesos de fiscalización sanitaria.
 
-El producto principal es **KairoLabs**, una plataforma digital (aplicación web responsive y aplicación móvil nativa) orientada a clínicas, farmacias, hospitales y operadores de distribución. KairoLabs centraliza la supervisión en tiempo real de las condiciones de almacenamiento y transporte, genera alertas ante desviaciones, conserva históricos auditables y reduce la dependencia de controles manuales. En el contexto del presente curso, el producto se trata además como objeto de experimentación: se formularán hipótesis, se definirán métricas de calidad y se implementarán mecanismos de verificación y validación asociados a un entorno de entrega continua.
+Asimismo, la plataforma busca fortalecer la coordinación entre los distintos actores de la cadena de suministro farmacéutica, almacenes, transportistas y puntos de dispensación, promoviendo una gestión logística más trazable, oportuna y alineada con los estándares sanitarios vigentes en el país.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
@@ -24,51 +24,48 @@ El producto principal es **KairoLabs**, una plataforma digital (aplicación web 
 
 ### 1.2.1. Antecedentes y problemática
 
-### Contexto del mercado y oportunidad
+Para analizar el problema de forma estructurada, se aplica la metodología 5W2H, la cual permite identificar los aspectos clave del problema:
 
-En el Perú, el sector salud presenta brechas recurrentes en la gestión del almacenamiento de medicamentos. Evidencias documentadas en establecimientos de salud —incluyendo casos reportados en los que productos farmacéuticos se conservaron en condiciones inadecuadas, con exposición solar y sin control efectivo de temperatura y humedad— ilustran un problema sistémico que compromete la eficacia terapéutica y la seguridad del paciente.
+**What (¿Qué está ocurriendo?)**
+En establecimientos de salud del Perú persisten fallas recurrentes en el almacenamiento de medicamentos y productos termosensibles, incluyendo ambientes de cadena de frío sin condiciones restringidas ni adecuadas para su conservación (Contraloría General de la República, 2026a).
 
-Paralelamente, existe una oportunidad de mercado para soluciones tecnológicas que trasciendan la mera gestión de inventarios o facturación. El problema central no es únicamente administrativo: es la **ausencia de visibilidad en tiempo real** sobre condiciones ambientales críticas a lo largo de la cadena de conservación. Iniciativas de digitalización impulsadas por el sector público y la creciente disponibilidad de sensores IoT configuran un escenario favorable para plataformas como KairoLabs, capaces de combinar telemetría, alertas y evidencia histórica auditables.
+**Why (¿Por qué ocurre?)**
+Las principales causas identificadas incluyen:
+- Dependencia de registros manuales de temperatura, verificados solo al inicio y al final de la jornada, sin monitoreo continuo (DIGEMID, 2015).
+- Ausencia de áreas de cadena de frío exclusivas y de acceso restringido en establecimientos de menor complejidad (Contraloría General de la República, 2026b).
+- Escasa automatización de alertas ante desviaciones ambientales, lo que retrasa la detección de incidencias.
 
-Desde la perspectiva del curso, dicha oportunidad no se asume como válida *a priori*; se formula como conjunto de supuestos e hipótesis que deberán someterse a verificación experimental (pruebas de software, observación de uso y métricas de calidad) en un entorno de entrega continua.
+**Who (¿A quién afecta?)**
+- Hospitales, clínicas, farmacias, almacenes especializados y distribuidores farmacéuticos, sujetos a la supervisión de la Dirección General de Medicamentos, Insumos y Drogas (DIGEMID, 2015).
+- Pacientes, como stakeholders indirectos, en tanto dependen de que los medicamentos conserven su efectividad terapéutica hasta el punto de dispensación.
 
----
+**Where (¿Dónde ocurre?)**
+El problema se manifiesta en establecimientos de salud públicos de distintas regiones del país. Informes de control recientes documentan medicamentos almacenados en contacto directo con el piso y áreas de cadena de frío sin condiciones adecuadas en Arequipa y Huánuco (Contraloría General de la República, 2026b; 2026c), así como fármacos vencidos por fallas de almacenamiento en Piura (Contraloría General de la República, 2026d).
 
-#### Who (¿Quiénes son los involucrados?)
+**When (¿Cuándo ocurre?)**
+La necesidad de control es permanente a lo largo de todo el ciclo logístico —recepción, almacenamiento, distribución y dispensación—, tal como lo exige el Manual de Buenas Prácticas de Almacenamiento (DIGEMID, 2015), siendo la etapa de transporte la de mayor criticidad por su menor trazabilidad.
 
-Los actores principales comprenden hospitales, clínicas, farmacias, almacenes farmacéuticos, distribuidores, personal operativo de conservación y entidades regulatorias vinculadas a la vigilancia sanitaria. Los pacientes constituyen stakeholders indirectos, en tanto dependen de que los medicamentos preserven su integridad fisicoquímica hasta el punto de dispensación.
+**How (¿Cómo ocurre?)**
+Se han reportado casos de productos sin tarjetas de control visibles, lotes apilados sin parihuelas de soporte y almacenes sin señalización de umbrales de temperatura, lo que dificulta identificar oportunamente una desviación ambiental (Contraloría General de la República, 2026a).
 
-#### What (¿Qué se necesita?)
+**How Much (¿Cuánto impacto tiene?)**
+Según estimaciones difundidas a partir de datos de la Organización Mundial de la Salud, hasta el 25 % de las vacunas y el 20 % de los medicamentos termosensibles a nivel mundial pueden deteriorarse por desviaciones de temperatura durante su logística (Transporte.mx, 2025), lo que representa pérdidas económicas significativas y, sobre todo, un riesgo directo para la efectividad terapéutica y la seguridad del paciente.
 
-Se requiere un sistema de software que permita monitorear de forma continua las condiciones de almacenamiento y transporte de medicamentos —en particular temperatura, humedad y exposición lumínica—, emitir alertas ante desviaciones y conservar registros históricos para auditoría, aprendizaje organizacional y cumplimiento normativo.
+**Conclusión del análisis 5W2H:**
 
-#### Where (¿Dónde ocurre el problema?)
+Del análisis realizado se concluye que el problema no es únicamente administrativo, sino la ausencia de visibilidad en tiempo real sobre las condiciones ambientales críticas a lo largo de la cadena de conservación de medicamentos. Esta carencia incrementa el riesgo de pérdida de efectividad terapéutica, genera merma económica y expone a los establecimientos de salud a observaciones regulatorias. En este contexto, se identifica la oportunidad de desarrollar una plataforma tecnológica que centralice el monitoreo, la alerta temprana y la trazabilidad de las condiciones de conservación.
 
-El problema se manifiesta en establecimientos de salud, almacenes farmacéuticos y nodos de distribución a nivel nacional, con especial criticidad en provincias e instalaciones con infraestructura limitada. También se expresa durante el transporte, donde la exposición a condiciones no controladas suele carecer de telemetría confiable.
+**Enunciado del problema**
 
-#### When (¿Cuándo surge esta necesidad?)
+Actualmente, los establecimientos de salud, farmacias y operadores logísticos del sector farmacéutico no cuentan con una herramienta tecnológica integrada que les permita monitorear en tiempo real las condiciones ambientales críticas durante el almacenamiento y transporte de medicamentos, generar alertas automáticas ante desviaciones y mantener evidencia histórica auditable, lo que incrementa el riesgo de deterioro no detectado y compromete la calidad e inocuidad del producto.
 
-La necesidad es permanente a lo largo del ciclo logístico: desde el ingreso a almacén hasta la entrega final. Cada intervalo sin monitoreo introduce incertidumbre y riesgo de deterioro no detectado oportunamente.
+**Restricciones del proyecto**
 
-#### Why (¿Por qué existe esta necesidad?)
-
-Persisten limitaciones de infraestructura, escasa automatización del control ambiental y dependencia de registros manuales. Dichas condiciones elevan la probabilidad de incidencias, pérdidas económicas y exposición del paciente a productos con calidad comprometida.
-
-#### How (¿Cómo se manifiesta el problema?)
-
-Se observa conservación en ambientes no acondicionados, ausencia de umbrales alertables, demoras en la detección de anomalías y dificultad para reconstruir trazas históricas ante auditorías o eventos adversos.
-
-#### How Much (¿Cuánto cuesta o qué magnitud tiene el problema?)
-
-El impacto combina merma económica por productos inutilizables, costos de remediación operativa y, de mayor gravedad ética, riesgos sobre la efectividad terapéutica. La magnitud es nacional y afecta tanto al sector público como al privado, lo que justifica una intervención de ingeniería con evaluación explícita de impactos sociales y profesionales (ABET SO4).
-
----
-
-### Descripción de la Solución Propuesta
-
-**KairoLabs** propone un ecosistema de monitoreo continuo basado en sensores IoT integrados a una plataforma digital multiplataforma. Los sensores capturan variables ambientales críticas; la plataforma presenta dashboards en tiempo real, gestiona alertas, almacena históricos y soporta la supervisión multi-sede.
-
-La solución busca reducir la latencia de respuesta ante desviaciones, mejorar la trazabilidad y disminuir la dependencia de controles manuales. En el marco experimental del curso, cada capacidad clave se asociará a hipótesis verificables, métricas de calidad (por ejemplo, tasa de detección oportuna, precisión de alertas, cobertura de trazabilidad) y evidencias de verificación/validación dentro de un pipeline de entrega continua. *(completar)*: definir formalmente el conjunto inicial de métricas experimentales y el protocolo de medición tras el Needfinding.
+- El sistema depende de la disponibilidad y correcta calibración de los sensores IoT instalados.
+- Limitaciones en la cobertura de conectividad en zonas de menor infraestructura tecnológica.
+- Acceso restringido a datos oficiales de fiscalización sanitaria en tiempo real.
+- Tiempo de desarrollo acotado al ciclo académico.
+- Recursos técnicos y humanos limitados al equipo del curso.
 
 ## 1.2.2. Lean UX Process
 
