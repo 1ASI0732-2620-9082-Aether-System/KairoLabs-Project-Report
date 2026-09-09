@@ -329,35 +329,49 @@ Realizar entrevistas con personal de almacenes y profesionales de salud, además
 
 A continuación, se presenta el Lean UX Canvas del proyecto (ver enlace): ...
 
-## 1.3. Segmentos objetivo
+### 1.3. Segmentos objetivo
 
-**1. Personal operativo de almacenes farmacéuticos**  
-Operarios, técnicos y responsables de conservación en hospitales, clínicas y centros de distribución en el Perú.
+Los segmentos presentados en esta sección se derivan del análisis realizado en el Lean UX Process, donde se identificaron los principales grupos afectados por la problemática de conservación de medicamentos. A continuación, se detallan sus características demográficas, geográficas y organizacionales, así como información estadística relevante que sustenta la necesidad de la solución propuesta.
 
-**Características demográficas (estimación inicial):**
-- Edad: 25 – 50 años
-- Ubicación: Lima Metropolitana y principales regiones
-- Nivel socioeconómico: NSE B y C
-- Ocupación: técnicos en farmacia, operarios logísticos, encargados de almacén
+- **Segmento 1: Personal operativo de almacenes farmacéuticos**
 
-**Necesidad prioritaria:**  
-Herramientas simples de monitoreo en tiempo real, alertas automáticas y reducción de registros manuales.
+  - **Descripción:**
+  Operarios, técnicos y responsables del almacenamiento de medicamentos en hospitales, clínicas y centros de distribución en el Perú, encargados directos de supervisar las condiciones en las que se conservan los productos farmacéuticos.
+  - **Características demográficas:**
+    - Edad: 25 – 50 años
+    - Sexo: Masculino y femenino
+    - Nivel socioeconómico: B y C
+    - Ocupación: Técnicos en farmacia, operarios logísticos, encargados de almacén
+  - **Características geográficas:**
+    - Ubicación: Lima Metropolitana y principales regiones del país
+    - Regiones: Concentración en centros logísticos estratégicos (ej. Lurín) y ciudades con mayor densidad de establecimientos de salud
+  - **Características psicográficas:**
+    - Uso constante de dispositivos móviles y computadoras en el entorno laboral
+    - Preocupación por evitar pérdidas económicas y sanciones por incumplimiento normativo
+    - Interés en herramientas simples que no requieran capacitación técnica extensa
+    - Valoración de la tecnología como apoyo para reducir la carga operativa manual
+  - **Sustento estadístico:**
+  Según el diagnóstico del sector salud del Ministerio de Salud, el 97.7 % de los establecimientos de salud del primer nivel de atención presenta capacidad instalada inadecuada, cifra que llega a 97.6 % en hospitales (MINSA, 2023). A esto se suma que la Contraloría General de la República ha detectado de forma recurrente ambientes de cadena de frío sin condiciones restringidas ni adecuadas en distintas regiones del país (Contraloría General de la República, 2026b), evidenciando la necesidad de herramientas que compensen estas brechas de infraestructura mediante monitoreo automatizado.
 
-**Sustento:**  
-Reportes de control público han documentado deficiencias de almacenamiento y debilidades en el control ambiental en establecimientos de salud, lo que respalda la relevancia de este segmento. *(completar)*: actualizar referencias y contrastar con hallazgos de needfinding.
+- **Segmento 2: Entidades de salud y gestores farmacéuticos (MINSA, hospitales y clínicas)**
 
----
+  - **Descripción:**
+  Instituciones públicas y privadas responsables de la gestión, supervisión y distribución de medicamentos a nivel nacional, incluyendo el MINSA, hospitales, clínicas y centros de distribución.
+  - **Características organizacionales:**
+    - Tipo de entidad: Instituciones del sector salud, públicas y privadas
+    - Cobertura: Local, regional y nacional
+    - Ubicación: Principalmente zonas urbanas y centros logísticos
+    - Responsables: Químicos farmacéuticos, administradores, gestores logísticos
+  - **Sustento estadístico:**
+  El Perú cuenta con 24 839 IPRESS registradas, de las cuales el 62 % son privadas, e incluye 247 hospitales de segundo y tercer nivel de atención (MINSA, 2023). Asimismo, según el Repositorio Único Nacional de Información en Salud, a agosto de 2024 el 13.4 % de los establecimientos de salud públicos del país no alcanzaba el umbral mínimo de disponibilidad de medicamentos esenciales establecido por el MINSA (ComexPerú, 2024), lo que evidencia brechas en la gestión y trazabilidad que una plataforma de monitoreo centralizado podría contribuir a cerrar.
 
-**2. Entidades de salud y gestores farmacéuticos**  
-Instituciones públicas y privadas responsables de gestionar, supervisar y distribuir medicamentos (hospitales, clínicas, redes de distribución y áreas de gestión farmacéutica).
+A continuación, se presenta un dato estadístico que evidencia la magnitud de la problemática de infraestructura en el sector salud peruano, la cual impacta directamente en los segmentos identificados.
 
-**Características organizacionales (estimación inicial):**
-- Tipo: entidades del sector salud (públicas y privadas)
-- Cobertura: local, regional o nacional
-- Responsables: químicos farmacéuticos, administradores y gestores logísticos
+<p align="center">
+  <img src="../assets/images/statistics/figura1_infraestructura.png" alt="Figura 1" width="450">
+</p>
 
-**Necesidad prioritaria:**  
-Visibilidad multi-sede, evidencia de conservación durante almacenamiento/transporte y soporte a cumplimiento normativo.
+**Nota:** Porcentaje de establecimientos de salud con capacidad instalada inadecuada, por tipo de establecimiento (Perú, 2023).
+Fuente: Elaboración propia a partir de datos del Ministerio de Salud (MINSA, 2023).
 
-**Sustento:**  
-Iniciativas estatales de mejora de infraestructura logística farmacéutica y hallazgos de control institucional evidencian brechas persistentes en la gestión de condiciones de conservación. *(completar)*: incorporar fuentes actualizadas y validación cualitativa en Capítulo II.
+Como se observa en el gráfico, más del 95 % de los establecimientos de salud en cada categoría presenta condiciones de infraestructura inadecuadas, lo que evidencia una brecha estructural que compromete la conservación óptima de los medicamentos. Esta situación refuerza la necesidad de una solución tecnológica que permita compensar dichas limitaciones mediante monitoreo automatizado y trazabilidad en tiempo real.
