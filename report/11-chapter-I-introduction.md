@@ -71,72 +71,105 @@ Actualmente, los establecimientos de salud, farmacias y operadores logísticos d
 
 ### 1.2.2.1. Lean UX Problem Statements
 
-#### **Problem Statement 1 — Personal encargado de almacenes farmacéuticos**
+#### 1.2.2.1. Lean UX Problem Statements
 
-**Contexto:**
-En establecimientos de salud y nodos de distribución del Perú, la falta de monitoreo continuo de temperatura, humedad y luz limita la capacidad del personal operativo para prevenir el deterioro de medicamentos y documentar condiciones de conservación.
-
-**Problema:**
-El personal de almacenes farmacéuticos no dispone de un sistema automatizado que brinde visibilidad en tiempo real y alertas accionables sobre condiciones críticas de almacenamiento, lo que incrementa la vulnerabilidad operativa y el riesgo de merma.
-
-**Pregunta clave:**
-¿Cómo proporcionar a los encargados de almacén una solución que permita monitorear condiciones ambientales en tiempo real, reducir incidencias no detectadas y mejorar la trazabilidad en al menos un 30 % durante los primeros seis meses de adopción?
+En esta sección se analiza el problema desde el enfoque Lean UX, identificando por cada segmento clave el dominio, los puntos de dolor y la oportunidad de solución, con el objetivo de definir una propuesta de valor clara para el desarrollo del producto (Gothelf, 2013). Se plantean dos Problem Statements, correspondientes a los dos segmentos con mayor relación directa con el problema identificado.
 
 ---
 
-#### **Problem Statement 2 — Gestores sanitarios y entidades con responsabilidad regulatoria**
+##### Problem Statement 1 — Personal encargado de almacenes farmacéuticos
 
-**Contexto:**
-Hospitales, redes de distribución y actores con deberes de cumplimiento normativo requieren evidencia confiable de conservación. La dependencia de procesos manuales dificulta demostrar conformidad y gestionar riesgos de calidad de manera sistemática.
+**Domain (Dominio del problema)**
+Conservación de medicamentos y productos termosensibles en almacenes farmacéuticos de hospitales, clínicas y centros de distribución del sector salud en el Perú.
 
-**Problema:**
-Los gestores sanitarios y las entidades con responsabilidad de supervisión carecen de instrumentos digitales que automaticen el monitoreo, la generación de evidencia histórica y el soporte a auditorías de conservación.
+**Customer Segments (Segmentos de clientes)**
+Personal operativo responsable del almacenamiento y manipulación de medicamentos en almacenes farmacéuticos.
 
-**Pregunta clave:**
-¿Cómo diseñar un sistema que facilite el cumplimiento de lineamientos de conservación, de modo que una proporción creciente de lotes monitoreados se mantenga dentro de rangos admisibles durante el primer año de operación, con evidencia auditable?
+**Pain Points (Puntos de dolor)**
+- Ausencia de un sistema de monitoreo en tiempo real para condiciones críticas como temperatura, humedad y luz.
+- Dependencia de registros manuales, poco frecuentes y propensos a error.
+- Detección tardía de desviaciones ambientales, lo que aumenta el riesgo de deterioro de los medicamentos.
 
-> *(completar)*: contrastar ambos problem statements con hallazgos de entrevistas de campo (Capítulo II) y ajustar la formulación según evidencia empírica.
+**Gap (Brecha identificada)**
+No existe una herramienta automatizada que permita al personal de almacenes monitorear en tiempo real las condiciones críticas de almacenamiento, lo que genera vulnerabilidades en el proceso y compromete la efectividad de los medicamentos.
 
-### 1.2.2.2. Lean UX Assumptions
+**Vision / Strategy (Visión del producto)**
+KairoLabs busca dotar al personal de almacenes de un sistema de monitoreo continuo, basado en sensores IoT, que centralice la visualización de condiciones ambientales y emita alertas automáticas ante desviaciones.
 
-#### Supuestos de Negocio
+**Initial Segment (Segmento inicial)**
+Personal operativo de almacenes farmacéuticos de hospitales y clínicas, por ser los usuarios con interacción directa y frecuente sobre el control de las condiciones de conservación.
 
-- **Creemos que** el sector salud peruano demanda una solución que combine telemetría IoT y software de monitoreo para reducir riesgos de conservación farmacéutica.
-- **Creemos que** el valor percibido principal reside en la prevención de deterioro, la reducción de pérdidas y la disponibilidad de evidencia para auditoría.
-- **Creemos que** el modelo de negocio puede sustentarse en suscripción escalable según sedes y sensores conectados, con servicios complementarios de instalación y soporte.
-- **Creemos que** la diferenciación de KairoLabs radica en integrar monitoreo en tiempo real, alertas y trazabilidad histórica en un producto multiplataforma orientado al dominio farmacéutico.
-- **Creemos que** si no se observa reducción de incidentes o mejora operativa en los primeros tres meses, la renovación de la suscripción se verá comprometida.
-- **Creemos que** los almacenes prioritarios cuentan con conectividad suficiente para sincronizar telemetría hacia la nube. *(completar)*: validar cobertura de conectividad en sedes piloto.
-
----
-
-#### Supuestos de Usuario
-
-- **¿Quién es el usuario?** Personal operativo de almacenes farmacéuticos (operarios, técnicos y responsables de control), además de gestores sanitarios que supervisan cumplimiento.
-- **¿Dónde encaja el producto?** En la operación diaria de conservación y en la supervisión gerencial/auditora de condiciones ambientales.
-- **¿Qué problemas resuelve?** Falta de visibilidad en tiempo real, detección tardía de anomalías y ausencia de alertas automáticas.
-- **¿Cuándo y cómo se usa?** De forma continua durante la jornada, desde web y dispositivos móviles, con dashboards y notificaciones.
-- **¿Qué características son indispensables?** Telemetría en tiempo real, alertas por umbral, gestión multi-sede y reportes históricos.
-- **¿Cómo debe comportarse?** Interfaz clara, con semántica visual de estados (por ejemplo, normal / advertencia / crítico) y baja carga cognitiva.
+**Problem Statement (Pregunta de diseño)**
+¿Cómo podemos proporcionar a los encargados de almacenes una solución que permita monitorear las condiciones de almacenamiento de los medicamentos en tiempo real, reducir las incidencias operativas no detectadas y mejorar la trazabilidad de los productos en un 30 % durante los primeros 6 meses?
 
 ---
 
-#### Supuestos de Tecnología
+##### Problem Statement 2 — Personal de salud y entidades regulatorias
 
-- **Creemos que** las entidades objetivo están dispuestas a adoptar sensores IoT y una plataforma centralizada, siempre que la integración operativa sea gradual y confiable.
-- **Creemos que** es factible consolidar telemetría e históricos en una arquitectura cloud con acceso multi-dispositivo.
-- **Creemos que** la plataforma puede evolucionar hacia integración con sistemas de inventario existentes sin interrumpir la operación.
-- **Creemos que** los sensores pueden operar en rangos ambientales exigentes presentes en ciertos almacenes.
-- **Creemos que** la arquitectura debe ser escalable para agregar sedes y dispositivos. *(completar)*: definir criterios de calidad experimental (latencia de alerta, disponibilidad, tasa de falsos positivos) a evaluar en el pipeline de pruebas.
+**Domain (Dominio del problema)**
+Cumplimiento normativo de las condiciones de conservación de medicamentos, en el marco de la vigilancia sanitaria ejercida por entidades reguladoras del sector salud en el Perú.
 
----
+**Customer Segments (Segmentos de clientes)**
+Personal de salud responsable del cumplimiento normativo y entidades regulatorias vinculadas a la fiscalización de Buenas Prácticas de Almacenamiento.
 
-#### Supuestos del Mercado
+**Pain Points (Puntos de dolor)**
+- Carencia de un sistema automatizado que asegure y evidencie el cumplimiento de las normativas de conservación de medicamentos.
+- Dependencia de procesos manuales ineficaces para verificar el cumplimiento sanitario.
+- Dificultad para reconstruir evidencia histórica auditable ante fiscalizaciones.
 
-- **Creemos que** la presión por cumplimiento sanitario y digitalización favorece la adopción de soluciones de monitoreo ambiental.
-- **Creemos que** el nicho de monitoreo IoT farmacéutico aún presenta espacio para posicionamiento temprano.
-- **Creemos que** los clientes valoran soluciones configurables, auditables y fáciles de incorporar a procesos existentes.
-- **Creemos que** iniciativas públicas de mejora logística sanitaria refuerzan la pertinencia de productos como KairoLabs. *(completar)*: actualizar el mapa competitivo con fuentes vigentes en el Capítulo II.
+**Gap (Brecha identificada)**
+No existen herramientas automatizadas que permitan a las entidades de salud monitorear y garantizar, con evidencia auditable, el cumplimiento de las normativas de conservación de medicamentos, lo que pone en riesgo la calidad de los productos y la seguridad de los pacientes.
+
+**Vision / Strategy (Visión del producto)**
+KairoLabs busca ofrecer a las entidades de salud un registro histórico auditable y trazable de las condiciones de conservación, que facilite la verificación del cumplimiento normativo y la generación de reportes ante fiscalizaciones.
+
+**Initial Segment (Segmento inicial)**
+Personal de salud y responsables de cumplimiento normativo en hospitales y clínicas que forman parte del alcance inicial del producto.
+
+**Problem Statement (Pregunta de diseño)**
+¿Cómo podemos diseñar un sistema que permita a las entidades de salud cumplir con las normativas sanitarias de manera más eficiente, garantizando que el 100 % de los medicamentos se almacenen en condiciones adecuadas dentro de los primeros 12 meses de uso?
+
+#### 1.2.2.2. Lean UX Assumptions
+
+En el enfoque Lean UX, las assumptions (suposiciones) representan hipótesis iniciales sobre los usuarios, el problema, la solución, el valor percibido y el negocio, que orientan el desarrollo del producto antes de contar con evidencia validada. Estas suposiciones deben ser contrastadas posteriormente mediante pruebas con usuarios, prototipos y experimentación continua (Gothelf, 2013).
+
+A continuación, se presentan las principales suposiciones identificadas para el desarrollo de la solución KairoLabs:
+
+**1. Suposiciones sobre los usuarios**
+- El personal encargado de almacenes farmacéuticos (operarios, técnicos y responsables de control de medicamentos en hospitales y centros de distribución) constituye el usuario principal del producto.
+- Los usuarios utilizarán la plataforma durante toda la jornada operativa, tanto en dispositivos móviles como en computadoras, accediendo a un dashboard centralizado.
+- Los usuarios requieren una interfaz simple y clara, con codificación por colores (verde, amarillo, rojo), que no exija capacitación técnica extensa.
+- Los usuarios valoran contar con alertas automáticas que les permitan responder rápidamente ante condiciones fuera de rango.
+
+**2. Suposiciones sobre el problema**
+- La falta de visibilidad en tiempo real sobre las condiciones de almacenamiento de medicamentos incrementa el riesgo de deterioro de los productos.
+- La detección tardía de anomalías ambientales impide una respuesta oportuna por parte del personal de almacenes.
+- La ausencia de alertas automáticas ante condiciones no ideales limita la capacidad de prevención de pérdidas económicas.
+- Las entidades de salud carecen de una solución automatizada que les permita cumplir de forma eficiente con las normativas sanitarias relacionadas con el almacenamiento de medicamentos.
+
+**3. Suposiciones sobre la solución**
+- Un dashboard en tiempo real, alimentado por sensores IoT, permitirá al personal visualizar de forma inmediata el estado de conservación de los medicamentos.
+- Los sensores IoT podrán integrarse fácilmente a una plataforma centralizada, accesible desde cualquier dispositivo conectado, con datos históricos y en tiempo real.
+- La plataforma será compatible con los sistemas actuales de gestión de inventarios, permitiendo su integración sin interrumpir las operaciones diarias.
+- Los sensores IoT funcionarán de manera eficiente en condiciones ambientales extremas (temperaturas elevadas o alta humedad), comunes en algunos hospitales y almacenes.
+- La mayoría de los almacenes clave del sector salud cuentan con conexión a internet suficiente para sincronizar datos operativos en tiempo real.
+
+**4. Suposiciones sobre el valor del producto**
+- El valor principal que los clientes buscan obtener es la seguridad de los medicamentos, evitando pérdidas económicas por deterioro o vencimiento.
+- La ventaja competitiva de la solución radica en combinar monitoreo IoT en tiempo real con la gestión de condiciones ambientales, específicamente para el sector farmacéutico y de salud.
+- Si no se evidencia una reducción de pérdidas operativas dentro de los primeros 3 meses de uso, los clientes perderán confianza en la solución y no renovarán la suscripción.
+
+**5. Suposiciones sobre el negocio**
+- El modelo de negocio se basará en un sistema de suscripción mensual escalable según la cantidad de almacenes y sensores IoT conectados, con soporte adicional para instalación y mantenimiento.
+- La adopción de la tecnología será rápida en el sector, debido a la creciente demanda de soluciones que mejoren la seguridad del paciente y el cumplimiento normativo.
+- Las entidades de salud están cada vez más dispuestas a invertir en tecnologías que optimicen costos y mejoren la eficiencia operativa a largo plazo.
+- La competencia en el mercado de monitoreo IoT para el sector farmacéutico aún se encuentra en etapas tempranas, lo que representa una oportunidad de posicionamiento como líderes en el nicho.
+- Entidades reguladoras como el MINSA promueven iniciativas digitales para la gestión de medicamentos, lo que facilita la adopción de soluciones tecnológicas como KairoLabs.
+- La plataforma debe ser escalable para adaptarse al crecimiento de hospitales o redes de distribución, permitiendo agregar más sensores y almacenes sin dificultad.
+
+**Conclusión de las assumptions**
+
+Estas suposiciones guían el desarrollo inicial de KairoLabs y permiten identificar los principales riesgos del proyecto, tanto a nivel de usuario, tecnología, mercado y modelo de negocio. No obstante, deberán ser validadas mediante entrevistas, prototipos y experimentación continua con los segmentos identificados, siguiendo los principios del enfoque Lean UX (Gothelf, 2013).
 
 ### 1.2.2.3. Lean UX Hypothesis Statements
 
