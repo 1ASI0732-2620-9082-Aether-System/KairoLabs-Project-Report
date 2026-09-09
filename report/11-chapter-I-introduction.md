@@ -231,87 +231,103 @@ Sabremos que hemos tenido éxito cuando veamos:
 - Una mejora del 30 % en la eficiencia operativa.
 - Una reducción del 20 % en pérdidas económicas durante los primeros 6 meses de uso del sistema centralizado.
 
-### 1.2.2.4. Lean UX Canvas
+#### 1.2.2.4. Lean UX Canvas
+
+El Lean UX Canvas presentado a continuación sintetiza los principales elementos del modelo de negocio y la propuesta de valor de la solución KairoLabs. En este se integran el problema identificado, los resultados de negocio esperados, los segmentos de usuarios, los beneficios percibidos, las soluciones propuestas, las hipótesis formuladas y las prioridades de aprendizaje, permitiendo visualizar de manera estructurada la relación entre las necesidades del negocio, del usuario y las funcionalidades del producto. Este canvas sirve como base para la validación continua del proyecto mediante la experimentación y el enfoque iterativo propio de Lean UX.
 
 **1. Business Problem**
 
-La gestión de conservación farmacéutica fue concebida para preservar la calidad de los medicamentos a lo largo del almacenamiento y el transporte. No obstante, la ausencia de monitoreo continuo y la prevalencia de controles manuales debilitan ese propósito: variables críticas permanecen insuficientemente observadas, lo que eleva el riesgo de deterioro, merma y déficits de evidencia ante auditorías.
+La gestión del almacenamiento de medicamentos en el sistema de salud fue diseñada para conservar los productos farmacéuticos en condiciones seguras y garantizar su calidad durante el almacenamiento y transporte. Sin embargo, hemos observado que la falta de monitoreo en tiempo real y el uso de procesos manuales están afectando la eficacia de este sistema. Variables críticas como temperatura, humedad y exposición a la luz no están siendo controladas adecuadamente, lo que genera riesgos en la calidad de los medicamentos, tanto en los almacenes como durante su transporte.
 
-¿Cómo podría KairoLabs mejorar el sistema de gestión de conservación para que las entidades de salud reduzcan en torno a un 30 % los incidentes de deterioro asociados a condiciones ambientales, aceleren la respuesta ante desviaciones y fortalezcan el soporte al cumplimiento normativo?
-
----
+¿Cómo podríamos mejorar el sistema de gestión de almacenamiento de medicamentos para que las entidades de salud sean más exitosas, evidenciado por una reducción del 30 % en incidentes relacionados con el deterioro de los medicamentos, una mejora en la respuesta a desviaciones de condiciones ambientales y un aumento en el cumplimiento de las normativas de conservación?
 
 **2. Business Outcomes**
 
-1. **Contexto de valor.** KairoLabs busca garantizar conservación y trazabilidad, mejorar eficiencia operativa y sostener evidencia para cumplimiento.
-2. **Observación del problema actual.** El control insuficiente y la detección tardía incrementan pérdidas, brechas de cumplimiento y fragmentación de información entre sedes.
-3. **Resultados de negocio deseados (medibles):**
-   - Reducir la pérdida de medicamentos por condiciones inadecuadas en un 30 %.
-   - Reducir tiempos de gestión operativa asociados al monitoreo en un 20 % en seis meses.
-   - Disminuir el tiempo de respuesta ante incidencias ambientales (meta ilustrativa: de 15 a 10 minutos).
-   - Incrementar la proporción de sedes con telemetría activa y auditable (meta ilustrativa: 80 % de almacenes prioritarios conectados).
-   - *(completar)*: ajustar metas con línea base empírica post-entrevistas.
+Nuestro producto fue diseñado para lograr la conservación y trazabilidad de los medicamentos en condiciones óptimas dentro de los almacenes farmacéuticos, mejorando la eficiencia operativa y asegurando el cumplimiento de las normativas sanitarias.
 
----
+Hemos observado que el almacenamiento inadecuado y la falta de monitoreo en tiempo real están llevando a un aumento en las pérdidas económicas por medicamentos deteriorados, incumplimiento de las normativas de conservación y baja eficiencia en la gestión de los almacenes, lo que también afecta la trazabilidad y el control en múltiples sedes.
+
+¿Cómo podríamos mejorar el producto para que nuestros clientes sean más exitosos, según estos cambios medibles en su comportamiento?
+
+- Resultado de negocio 1: Reducir la pérdida de medicamentos por condiciones inadecuadas de almacenamiento en un 30 %.
+- Resultado de negocio 2: Mejorar la eficiencia en la gestión de almacenes farmacéuticos, alcanzando una reducción del 20 % en los tiempos de gestión operativa dentro de los primeros 6 meses.
+- Resultado de negocio 3: Disminuir el tiempo de respuesta ante incidencias relacionadas con condiciones ambientales de 15 a 10 minutos, mejorando la capacidad de reacción ante problemas críticos.
+- Resultado de negocio 4: Asegurar el cumplimiento del 100 % de las normativas sanitarias relacionadas con el almacenamiento de medicamentos dentro de los primeros 6 meses de uso.
+- Resultado de negocio 5: Optimizar la trazabilidad y control de los productos farmacéuticos en múltiples sedes, garantizando que el 80 % de los almacenes estén conectados y monitorizados en tiempo real.
 
 **3. Users**
 
-1. **Personal operativo de almacenes farmacéuticos**  
-   Compra: hospitales, clínicas y centros de distribución.  
-   Uso: operarios y técnicos de almacén.  
-   Configuración: administradores y soporte técnico.
+*Personal encargado de almacenes farmacéuticos*
+- ¿Quién compra el producto? Hospitales, clínicas y centros de distribución que necesitan optimizar el almacenamiento y monitoreo de medicamentos.
+- ¿Quién usa el producto? El personal operativo de los almacenes farmacéuticos: operarios, técnicos y encargados de la gestión de los productos.
+- ¿Quién configura el producto? Los administradores de las entidades de salud y el personal de soporte técnico en los almacenes.
 
-2. **Gestores sanitarios (farmacéuticos y administradores)**  
-   Compra: instituciones que requieren control de conservación.  
-   Uso: supervisión de condiciones y revisión de alertas/reportes.  
-   Configuración: administradores técnicos del sistema.
+*Personal de salud (farmacéuticos, administradores hospitalarios)*
+- ¿Quién compra el producto? Hospitales, farmacias y clínicas que necesitan asegurar la conservación de medicamentos en condiciones óptimas.
+- ¿Quién usa el producto? Farmacéuticos y administradores hospitalarios que supervisan la distribución de medicamentos.
+- ¿Quién configura el producto? Técnicos y administradores encargados de configurar el sistema de supervisión y gestión del almacenamiento.
 
-3. **Actores con función de supervisión/auditoría**  
-   Compra/uso: instancias que requieren evidencia de cumplimiento.  
-   Configuración: administradores de red o responsables de gobernanza de datos.  
-   *(completar)*: precisar roles tras el análisis de entrevistas.
-
----
+*Entidades regulatorias (MINSA y redes de salud)*
+- ¿Quién compra el producto? Instituciones gubernamentales o entidades regulatorias encargadas de supervisar las normativas sanitarias de almacenamiento y distribución de medicamentos.
+- ¿Quién usa el producto? Entidades gubernamentales que monitorean el cumplimiento de las normativas en centros de salud y almacenes farmacéuticos.
+- ¿Quién configura el producto? Administradores de las redes de salud que supervisan y regulan el cumplimiento normativo a nivel nacional.
 
 **4. User Benefits**
 
-1. **Operarios de almacén:** visibilidad continua, alertas accionables y menor dependencia de bitácoras manuales; comportamiento esperado: respuesta sistemática ante estados críticos.
-2. **Gestores sanitarios:** mayor confianza en la conservación y mejor soporte a decisiones de cumplimiento; comportamiento esperado: consulta recurrente de telemetría y reportes.
-3. **Supervisión/auditoría:** acceso a evidencia histórica consolidada; comportamiento esperado: verificación basada en registros digitales.
-4. **Pacientes (beneficio indirecto):** mayor probabilidad de recibir medicamentos conservados adecuadamente; impacto social alineado a SO4.
+*Personal encargado de almacenes farmacéuticos*
+- ¿Por qué buscan nuestro producto? Necesitan una solución eficiente para monitorear las condiciones de almacenamiento y evitar la pérdida de productos.
+- ¿Qué beneficio obtienen? Reducción de la pérdida de medicamentos y mejora de la eficiencia operativa en la gestión de almacenes.
+- Cambio de comportamiento observable: El personal adoptará prácticas más diligentes y sistemáticas en el monitoreo ambiental, registrando y respondiendo oportunamente ante desviaciones.
 
----
+*Personal de salud (farmacéuticos, administradores hospitalarios)*
+- ¿Por qué buscan nuestro producto? Buscan una herramienta confiable para asegurar el correcto almacenamiento de medicamentos, respetando las normativas sanitarias.
+- ¿Qué beneficio obtienen? Aseguran condiciones óptimas de conservación, cumpliendo con las normativas y mejorando la seguridad de los pacientes.
+- Cambio de comportamiento observable: El personal usará el sistema para verificar condiciones ambientales en tiempo real, asegurando que los productos no se deterioren.
+
+*Entidades regulatorias (MINSA y redes de salud)*
+- ¿Por qué buscan nuestro producto? Necesitan garantizar que las normativas sanitarias se sigan de manera efectiva en centros de salud y almacenes farmacéuticos.
+- ¿Qué beneficio obtienen? Mejora del cumplimiento normativo a nivel nacional, con capacidad de auditar y verificar fácilmente las condiciones de almacenamiento.
+- Cambio de comportamiento observable: Las entidades podrán verificar y reportar el cumplimiento normativo en tiempo real, evitando sanciones y mejorando la supervisión.
+
+*Pacientes*
+- ¿Por qué buscan nuestro producto? Aunque no usan el producto directamente, se benefician indirectamente al recibir medicamentos almacenados y distribuidos bajo condiciones controladas.
+- ¿Qué beneficio obtienen? Garantía de que los medicamentos consumidos sean efectivos y seguros.
+- Cambio de comportamiento observable: Mayor confianza en la seguridad de los medicamentos que consumen.
 
 **5. Solutions**
 
-1. Plataforma web con dashboards de condiciones ambientales en tiempo real.
-2. Integración con sensores IoT para captura de temperatura, humedad y luz.
-3. Motor de alertas automáticas ante umbrales fuera de rango.
-4. Módulo de históricos y reportes para auditoría.
-5. Gestión centralizada multi-sede.
-6. *(completar)*: aplicación móvil nativa para respuesta operativa en campo y pipeline experimental de pruebas automatizadas asociado a entrega continua.
-
----
+- Plataforma web con dashboards para visualizar en tiempo real las condiciones ambientales (temperatura, humedad y exposición a la luz) de forma sencilla y continua.
+- Integración con sensores IoT para capturar y registrar en tiempo real las condiciones ambientales críticas de los almacenes farmacéuticos.
+- Sistema de alertas automáticas que notifique a los usuarios cuando las condiciones se desvíen de los parámetros establecidos.
+- Módulo de reportes y almacenamiento de datos históricos que facilite auditorías y el cumplimiento normativo.
+- Gestión centralizada para múltiples almacenes o sedes, con visibilidad completa y en tiempo real sobre toda la organización.
 
 **6. Hypotheses**
 
-1. El monitoreo en tiempo real reduce el deterioro si habilita detección temprana.
-2. Las alertas automáticas reducen latencia de respuesta ante eventos críticos.
-3. La consolidación multi-sede mejora control y eficiencia agregada.
-4. La digitalización de registros mejora trazabilidad y reduce error humano.
-5. Una interfaz de baja fricción favorece la adopción frente a métodos manuales.
+- Creemos que la reducción del deterioro de medicamentos se logrará si el personal de almacenes detecta problemas antes de que afecten los medicamentos, mediante un sistema de monitoreo en tiempo real.
+- Creemos que la reducción del riesgo de deterioro se logrará si el personal recibe alertas automáticas ante condiciones críticas, reduciendo la falta de respuesta oportuna.
+- Creemos que la mejora del control y la eficiencia operativa se logrará si las entidades de salud centralizan la información de múltiples almacenes en una plataforma de monitoreo.
+- Creemos que la reducción de errores humanos y la mejora de la trazabilidad se lograrán si se digitalizan los registros de almacenamiento y se optimiza el seguimiento histórico.
+- Creemos que la adopción de la tecnología se logrará si el personal encuentra fácil de usar el sistema y reemplaza los métodos manuales mediante una interfaz intuitiva y accesible.
 
----
+**7. What's the most important thing we need to learn first?**
 
-**7. What’s the most important thing we need to learn first?**
+Primero necesitamos entender si el personal encargado de almacenes y las entidades de salud están dispuestos a adoptar una solución tecnológica para el monitoreo en tiempo real, así como identificar sus necesidades específicas y limitaciones en el uso de estas herramientas.
 
-Determinar si el personal operativo y los gestores sanitarios están dispuestos a adoptar una solución de monitoreo continuo, qué fricciones de uso anticipan y qué métricas consideran evidencia creíble de valor.
+**8. What's the least amount of work we need to do to learn the next most important thing?**
 
----
+Realizar entrevistas con personal de almacenes y profesionales de salud, además de pruebas de prototipos simples (mockups o dashboards básicos), para validar la utilidad del monitoreo en tiempo real y la aceptación del sistema. También se debe crear una landing page para obtener retroalimentación sobre el interés en la solución propuesta.
 
-**8. What’s the least amount of work we need to do to learn the next most important thing?**
+**Figura 1:**
 
-Ejecutar entrevistas estructuradas con personal de almacén y gestores sanitarios, evaluar prototipos de baja/media fidelidad (wireframes y mockups de dashboard) y publicar una landing page para captar señales de interés. *(completar)*: instrumento de entrevista, muestra objetivo y rúbrica de análisis (Capítulo II).
+*Lean UX Canvas*
+
+<p align="center">
+  <img src="" alt="Lean UX Canvas" width="700"><br>
+  Nota: Lean UX Canvas del proyecto KairoLabs, donde se resumen el problema, los resultados de negocio, los segmentos de usuarios, las soluciones propuestas, las hipótesis y las prioridades de aprendizaje.
+</p>
+
+A continuación, se presenta el Lean UX Canvas del proyecto (ver enlace): ...
 
 ## 1.3. Segmentos objetivo
 
