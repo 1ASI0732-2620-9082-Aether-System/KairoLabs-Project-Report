@@ -40,15 +40,19 @@ Las principales causas identificadas incluyen:
 - Pacientes, como stakeholders indirectos, en tanto dependen de que los medicamentos conserven su efectividad terapéutica hasta el punto de dispensación.
 
 **Where (¿Dónde ocurre?)**
+
 El problema se manifiesta en establecimientos de salud públicos de distintas regiones del país. Informes de control recientes documentan medicamentos almacenados en contacto directo con el piso y áreas de cadena de frío sin condiciones adecuadas en Arequipa y Huánuco (Contraloría General de la República, 2026b; 2026c), así como fármacos vencidos por fallas de almacenamiento en Piura (Contraloría General de la República, 2026d).
 
 **When (¿Cuándo ocurre?)**
+
 La necesidad de control es permanente a lo largo de todo el ciclo logístico —recepción, almacenamiento, distribución y dispensación—, tal como lo exige el Manual de Buenas Prácticas de Almacenamiento (DIGEMID, 2015), siendo la etapa de transporte la de mayor criticidad por su menor trazabilidad.
 
 **How (¿Cómo ocurre?)**
+
 Se han reportado casos de productos sin tarjetas de control visibles, lotes apilados sin parihuelas de soporte y almacenes sin señalización de umbrales de temperatura, lo que dificulta identificar oportunamente una desviación ambiental (Contraloría General de la República, 2026a).
 
 **How Much (¿Cuánto impacto tiene?)**
+
 Según estimaciones difundidas a partir de datos de la Organización Mundial de la Salud, hasta el 25 % de las vacunas y el 20 % de los medicamentos termosensibles a nivel mundial pueden deteriorarse por desviaciones de temperatura durante su logística (Transporte.mx, 2025), lo que representa pérdidas económicas significativas y, sobre todo, un riesgo directo para la efectividad terapéutica y la seguridad del paciente.
 
 **Conclusión del análisis 5W2H:**
