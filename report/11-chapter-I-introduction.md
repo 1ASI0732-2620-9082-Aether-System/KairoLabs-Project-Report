@@ -119,8 +119,6 @@ Actualmente, los establecimientos de salud, farmacias y operadores logísticos d
 
 ## 1.2.2. Lean UX Process
 
-### 1.2.2.1. Lean UX Problem Statements
-
 #### 1.2.2.1. Lean UX Problem Statements
 
 En esta sección se analiza el problema desde el enfoque Lean UX, identificando por cada segmento clave el dominio, los puntos de dolor y la oportunidad de solución, con el objetivo de definir una propuesta de valor clara para el desarrollo del producto (Gothelf, 2013). Se plantean dos Problem Statements, correspondientes a los dos segmentos con mayor relación directa con el problema identificado.
@@ -130,9 +128,11 @@ En esta sección se analiza el problema desde el enfoque Lean UX, identificando 
 ##### Problem Statement 1 — Personal encargado de almacenes farmacéuticos
 
 **Domain (Dominio del problema)**
+
 Conservación de medicamentos y productos termosensibles en almacenes farmacéuticos de hospitales, clínicas y centros de distribución del sector salud en el Perú.
 
 **Customer Segments (Segmentos de clientes)**
+
 Personal operativo responsable del almacenamiento y manipulación de medicamentos en almacenes farmacéuticos.
 
 **Pain Points (Puntos de dolor)**
@@ -141,15 +141,19 @@ Personal operativo responsable del almacenamiento y manipulación de medicamento
 - Detección tardía de desviaciones ambientales, lo que aumenta el riesgo de deterioro de los medicamentos.
 
 **Gap (Brecha identificada)**
+
 No existe una herramienta automatizada que permita al personal de almacenes monitorear en tiempo real las condiciones críticas de almacenamiento, lo que genera vulnerabilidades en el proceso y compromete la efectividad de los medicamentos.
 
 **Vision / Strategy (Visión del producto)**
+
 KairoLabs busca dotar al personal de almacenes de un sistema de monitoreo continuo, basado en sensores IoT, que centralice la visualización de condiciones ambientales y emita alertas automáticas ante desviaciones.
 
 **Initial Segment (Segmento inicial)**
+
 Personal operativo de almacenes farmacéuticos de hospitales y clínicas, por ser los usuarios con interacción directa y frecuente sobre el control de las condiciones de conservación.
 
 **Problem Statement (Pregunta de diseño)**
+
 ¿Cómo podemos proporcionar a los encargados de almacenes una solución que permita monitorear las condiciones de almacenamiento de los medicamentos en tiempo real, reducir las incidencias operativas no detectadas y mejorar la trazabilidad de los productos en un 30 % durante los primeros 6 meses?
 
 ---
@@ -157,9 +161,11 @@ Personal operativo de almacenes farmacéuticos de hospitales y clínicas, por se
 ##### Problem Statement 2 — Personal de salud y entidades regulatorias
 
 **Domain (Dominio del problema)**
+
 Cumplimiento normativo de las condiciones de conservación de medicamentos, en el marco de la vigilancia sanitaria ejercida por entidades reguladoras del sector salud en el Perú.
 
 **Customer Segments (Segmentos de clientes)**
+
 Personal de salud responsable del cumplimiento normativo y entidades regulatorias vinculadas a la fiscalización de Buenas Prácticas de Almacenamiento.
 
 **Pain Points (Puntos de dolor)**
@@ -168,15 +174,19 @@ Personal de salud responsable del cumplimiento normativo y entidades regulatoria
 - Dificultad para reconstruir evidencia histórica auditable ante fiscalizaciones.
 
 **Gap (Brecha identificada)**
+
 No existen herramientas automatizadas que permitan a las entidades de salud monitorear y garantizar, con evidencia auditable, el cumplimiento de las normativas de conservación de medicamentos, lo que pone en riesgo la calidad de los productos y la seguridad de los pacientes.
 
 **Vision / Strategy (Visión del producto)**
+
 KairoLabs busca ofrecer a las entidades de salud un registro histórico auditable y trazable de las condiciones de conservación, que facilite la verificación del cumplimiento normativo y la generación de reportes ante fiscalizaciones.
 
 **Initial Segment (Segmento inicial)**
+
 Personal de salud y responsables de cumplimiento normativo en hospitales y clínicas que forman parte del alcance inicial del producto.
 
 **Problem Statement (Pregunta de diseño)**
+
 ¿Cómo podemos diseñar un sistema que permita a las entidades de salud cumplir con las normativas sanitarias de manera más eficiente, garantizando que el 100 % de los medicamentos se almacenen en condiciones adecuadas dentro de los primeros 12 meses de uso?
 
 #### 1.2.2.2. Lean UX Assumptions
@@ -226,6 +236,7 @@ Estas suposiciones guían el desarrollo inicial de KairoLabs y permiten identifi
 A continuación, se presentan las hipótesis del proyecto KairoLabs, formuladas bajo el enfoque Lean UX, con el objetivo de validar las decisiones de diseño mediante métricas medibles (Gothelf, 2013).
 
 **Hipótesis 1: Monitoreo en tiempo real y alertas para toma de decisiones**
+
 Creemos que:
  Implementar una plataforma web con monitoreo en tiempo real de las condiciones de almacenamiento (temperatura, humedad y exposición a la luz) y alertas automáticas
 Para:
@@ -236,6 +247,7 @@ Sabremos que hemos tenido éxito cuando veamos:
 - Una mejora del 30 % en la reducción de incidentes relacionados con el deterioro de medicamentos durante los primeros 3 meses de uso de la plataforma.
 
 **Hipótesis 2: Alertas automáticas para reducción de riesgos**
+
 Creemos que:
  Generar alertas automáticas mediante sensores ante variaciones de temperatura, humedad o luz
 Para:
@@ -246,6 +258,7 @@ Sabremos que hemos tenido éxito cuando veamos:
 - Una mejora del 25 % en la reducción de incidentes de deterioro de medicamentos durante los primeros 3 meses de uso del sistema de alertas.
 
 **Hipótesis 3: Datos históricos y reportes para trazabilidad**
+
 Creemos que:
  Habilitar la visualización de datos históricos y la generación de reportes automáticos sobre las condiciones de almacenamiento
 Para:
@@ -256,6 +269,7 @@ Sabremos que hemos tenido éxito cuando veamos:
 - Una mejora del 20 % en la eficiencia de auditorías y cumplimiento normativo durante los primeros 3 meses de uso del sistema de reportes.
 
 **Hipótesis 4: Sensores IoT para reducir la dependencia manual**
+
 Creemos que:
  Integrar sensores IoT a la plataforma digital, con registro automático de las condiciones ambientales
 Para:
@@ -267,6 +281,7 @@ Sabremos que hemos tenido éxito cuando veamos:
 - Una reducción del 30 % en los errores operativos durante los primeros 3 meses de uso del sistema.
 
 **Hipótesis 5: Plataforma centralizada multisede**
+
 Creemos que:
  Ofrecer una plataforma centralizada para la gestión de múltiples almacenes o sedes, con acceso a datos en tiempo real
 Para:
