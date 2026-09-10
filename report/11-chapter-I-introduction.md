@@ -42,9 +42,9 @@ Asimismo, la plataforma busca fortalecer la coordinación entre los distintos ac
 
 <tr>
 <td><img src="../assets/images/team/PLACEHOLDER.png" alt="Foto"></td>
-<td>[Apellidos, Nombres]</td>
-<td>[Carrera]</td>
-<td>Código: [Código de estudiante]. [Descripción de formación técnica y habilidades]. Aporte al equipo: .</td>
+<td>Ramirez Escalante, Carlo Patricio</td>
+<td>Ingeniería de Software</td>
+<td>Código: U202210787. Soy estudiante de Ingeniería de Software. Me interesa el desarrollo de soluciones tecnológicas que puedan resolver problemas reales y mejorar procesos mediante el uso de la tecnología. A lo largo de mi formación he adquirido conocimientos en programación, desarrollo web, bases de datos y herramientas de trabajo colaborativo. He tenido la oportunidad de participar en proyectos donde he aplicado tecnologías como Java, Python, JavaScript, TypeScript, HTML, CSS y Flutter, fortaleciendo tanto mis habilidades técnicas como mi capacidad para trabajar en equipo.. Aporte al equipo:Me considero una persona responsable, adaptable y con muchas ganas de seguir aprendiendo, asumir nuevos retos y aportar en proyectos relacionados con la tecnología y el desarrollo de software. .</td>
 </tr>
 
 <tr>
