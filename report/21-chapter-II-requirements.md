@@ -300,10 +300,10 @@ Esta sección representa los principales perfiles de usuario que fueron creados 
 Para ello seleccionamos los siguientes perfiles:
 
 User Persona 1
-![User Persona 1](../assets/UserPersona1_Luis%20_Lucho_%20Mendoza.png)
+![User Persona 1](../assets/LISTO-PARA-SUBIR/assets/user-persona-1-luis-mendoza.png)
 
 User Persona 2
-![User Persona 2](../assets/UserPersona2_Omar%20Ruiz.png)
+![User Persona 2](../assets/LISTO-PARA-SUBIR/assets/user-persona-2-omar-ruiz.png)
 
 ---
 
@@ -340,21 +340,21 @@ User Persona 2
 ### 2.3.3. User Journey Mapping
 
 User Persona 1
-![User Persona 1 Journey map](../assets/User%20Persona%201%20Journey%20map.png)
+![User Persona 1 Journey map](../assets/LISTO-PARA-SUBIR/assets/journey-map-luis-mendoza.png)
 
 User Persona 2
 
-![User Persona 2 Journey map](../assets/User%20persona%202%20Journey%20map.png)
+![User Persona 2 Journey map](../assets/LISTO-PARA-SUBIR/assets/journey-map-omar-ruiz.png)
 
 ### 2.3.4. Empathy Mapping
 
 Empathy map 1
 
-![Empathy map 1](../assets/empathy%20map%201.jpeg)
+![Empathy map 1](../assets/LISTO-PARA-SUBIR/assets/empathy-map-luis-mendoza.png)
 
 Empathy map 2
 
-![Empathy map 2](../assets/Empathy%20map%202.png)
+![Empathy map 2](../assets/LISTO-PARA-SUBIR/assets/empathy-map-omar-ruiz.png)
 
 ### 2.3.5. As-is Scenario Maps
 
