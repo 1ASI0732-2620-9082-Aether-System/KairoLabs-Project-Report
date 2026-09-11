@@ -4,6 +4,15 @@
 
 ## 2.1. Competidores
 
+Para delimitar el espacio competitivo de KairoLabs se identificaron tres competidores directos que ofrecen soluciones de monitoreo ambiental para el sector salud y farmacéutico, seleccionados por su presencia en el mercado o por su accesibilidad para instituciones peruanas:
+
+**Sensitech (TempTale).** Empresa estadounidense parte de Carrier Global Corporation y referente mundial en monitoreo de cadena de frío farmacéutica, con más de 30 años de trayectoria, sensores TempTale y la plataforma SensiWatch
+
+**Monnit (iMonnit).** Fabricante estadounidense de sensores IoT inalámbricos de bajo costo para múltiples industrias, con plataforma en la nube iMonnit y aplicación móvil. Representa la alternativa profesional accesible, de amplio catálogo de sensores.
+
+**MOCREO.** Marca de origen chino con presencia global, orientada a sensores de temperatura y humedad de bajo costo bajo un modelo de pago único. Representa la opción más económica para farmacias y clínicas pequeñas.
+
+
 ### 2.1.1. Análisis competitivo
 
 <table>
@@ -177,53 +186,33 @@ los entrevistados.
 
 **Segmento 1: Personal operativo de almacenes farmacéuticos**
 
-Preguntas demográficas:
-1. ¿Cuál es su nombre, edad y distrito donde reside?
-2. ¿Cuál es su ocupación actual y en qué tipo de institución trabaja?
-3. ¿Cuánto tiempo lleva trabajando en el área de almacenamiento farmacéutico?
+1. ¿Cuál es su ocupación actual y en qué tipo de institución trabaja?
+2. ¿Cuánto tiempo lleva trabajando en el área de almacenamiento farmacéutico?
 
 Preguntas principales:
+
 1. ¿Cómo realiza actualmente el control de temperatura, humedad y luz en el almacén?
 2. ¿Con qué frecuencia registra las condiciones ambientales del almacén?
-3. ¿Ha tenido casos de medicamentos deteriorados por condiciones inadecuadas de
-   almacenamiento? ¿Qué pasó?
+3. ¿Ha tenido casos de medicamentos deteriorados por condiciones inadecuadas de almacenamiento? ¿Qué pasó?
 4. ¿Cómo se entera actualmente cuando algo sale mal con las condiciones del almacén?
-5. ¿Qué tan rápido puede reaccionar ante una variación crítica de temperatura o humedad?
-6. ¿Qué herramientas o equipos usa actualmente para el monitoreo?
-7. ¿Qué tan cómodo se siente usando Diseño de Experimentos de Ingeniería de Software o tecnología en su trabajo diario?
+5. Si tuviera una herramienta que le alertara automáticamente, ¿cómo cambiaría su trabajo?
+6. ¿Qué tan dispuesto estaría su institución a pagar por una solución de monitoreo digital?
 
-Preguntas complementarias:
-1. ¿Qué dispositivos usa con más frecuencia en su trabajo (computadora, celular, tablet)?
-2. ¿Qué navegador o aplicaciones usa habitualmente?
-3. ¿Qué tan frustrante es el proceso actual de registro manual?
-4. Si tuviera una herramienta que le alertara automáticamente, ¿cómo cambiaría su trabajo?
-5. ¿Qué tan dispuesto estaría su institución a pagar por una solución de monitoreo digital?
 
 **Segmento 2: Entidades de salud y gestores farmacéuticos**
 
-Preguntas demográficas:
-1. ¿Cuál es su nombre, edad y distrito donde reside?
-2. ¿Cuál es su cargo y en qué tipo de institución trabaja (hospital, clínica, MINSA)?
-3. ¿Cuántas sedes o almacenes supervisa actualmente?
+1. ¿Cuál es su cargo y en qué tipo de institución trabaja?
+2. ¿Cuántas sedes o almacenes supervisa actualmente?
 
 Preguntas principales:
+
 1. ¿Cómo supervisa actualmente las condiciones de almacenamiento en las sedes a su cargo?
 2. ¿Qué tan difícil es tener visibilidad del estado de múltiples almacenes al mismo tiempo?
-3. ¿Ha enfrentado problemas de incumplimiento normativo relacionados al almacenamiento?
-   ¿Cómo los manejó?
-4. ¿Qué tipo de reportes o registros le exigen las normativas sanitarias vigentes?
-5. ¿Cómo toma decisiones cuando recibe un reporte de condiciones inadecuadas?
-6. ¿Qué tan importante es para usted tener acceso a datos históricos de las condiciones
-   de almacenamiento?
-7. ¿Ha evaluado o usado alguna solución tecnológica para este problema?
-   ¿Cuál fue su experiencia?
+3. ¿Ha enfrentado problemas de incumplimiento normativo relacionados al almacenamiento? ¿Cómo los manejó?
+4. ¿Qué tan importante es para usted tener acceso a datos históricos de las condiciones de almacenamiento?
+5. ¿Qué tan abierta está su institución a adoptar nuevas tecnologías?
+6. ¿Qué funcionalidad consideraría indispensable en una plataforma de monitoreo?
 
-Preguntas complementarias:
-1. ¿Qué dispositivos prefiere para supervisar información de gestión (computadora, celular)?
-2. ¿Qué tan abierta está su institución a adoptar nuevas tecnologías?
-3. ¿Cuál sería el principal obstáculo para implementar una solución digital en su institución?
-4. ¿Qué funcionalidad consideraría indispensable en una plataforma de monitoreo?
-5. ¿Qué presupuesto aproximado destina su institución a herramientas de control de calidad?
 
 ### 2.2.2. Registro de entrevistas
 
@@ -233,10 +222,7 @@ Preguntas complementarias:
 * Edad : 62
 * Distrito : San Martín de Porres
 * Ocupación : Personal de salud asistencial
-* Browser: Google Chrome
-* Device : Computadora de escritorio
-* Minuto de Inicio :  [0 : 00]
-* Minuto de Fin : [6:45]
+
 ![Entrevista](../assets/segmento01-entrevista.png)
 
 
@@ -247,10 +233,7 @@ Dolores Álvarez Cabeza, de 62 años y residente en San Martín de Porres, se de
 * Edad : 34
 * Distrito : San Juan de Lurigancho
 * Ocupación : Tecnico de almacén en clínica privada
-* Browser: Google Chrome
-* Device : Computadora de escritorio
-* Minuto de Inicio :  [13: 15]
-* Minuto de Fin : [19:02]
+
 
 ![Entrevista](../assets/segmento01-entrevista02.png)
 
@@ -259,10 +242,7 @@ Dolores Álvarez Cabeza, de 62 años y residente en San Martín de Porres, se de
 * Edad : 20
 * Distrito : San Juan de Miraflores
 * Ocupación : Area logística de una farmacia 
-* Browser: Google Chrome
-* Device : Computadora de escritorio  y telefono celular
-* Minuto de Inicio :  [24: 49]
-* Minuto de Fin : [29:59]
+
 
 ![Entrevista](../assets/segmento01-entrevista03.png)
 Adriana Martínez, de 20 años, trabaja en el área logística de una farmacia, donde se encarga de la gestión y control de productos, enfocándose en asegurar que los medicamentos se mantengan en buen estado. Actualmente, realiza el control de temperatura, humedad y luz en el almacén revisando visualmente los termómetros e hidrómetros instalados y registrando los datos manualmente varias veces al día. Ha tenido casos de productos deteriorados debido a fallas en el aire acondicionado y alta humedad, y se entera de los problemas solo durante las revisiones anuales, lo que dificulta una reacción inmediata. Aunque se siente cómoda con la tecnología, actualmente utiliza equipos estándar y formatos de papel, y considera que una solución de monitoreo digital con alertas automáticas mejoraría significativamente su trabajo, permitiéndole actuar rápidamente ante emergencias sin depender de revisiones manuales. Adriana cree que su institución estaría dispuesta a implementar una herramienta digital que optimice los procesos y evite pérdidas de medicamentos, lo que generaría ahorros a largo plazo.
@@ -276,10 +256,6 @@ Adriana Martínez, de 20 años, trabaja en el área logística de una farmacia, 
 * Edad : 25
 * Distrito : La Molina
 * Ocupación : practicas farmaceuticas
-* Browser: Google Chrome
-* Device : Computadora de escritorio
-* Minuto de Inicio :  [6 : 45]
-* Minuto de Fin : [13:10]
 
 ![Entrevista](../assets/segmento02-entrevista.png)
 
@@ -289,10 +265,7 @@ Dayana Quispe, de 25 años y residente en La Molina, realiza prácticas farmacé
 * Edad : 30
 * Distrito : Surco
 * Ocupación : Qúimico farmacéutica y jefe de farmacia en hospital público
-* Browser: Google Chrome
-* Device : Computadora de escritorio y teléfono celular
-* Minuto de Inicio :  [19: 21]
-* Minuto de Fin : [24: 38]
+
 
 ![Entrevista](../assets/segmento02-entrevista02.png)
 El entrevistado, Omar, supervisa varios almacenes en un hospital público, incluyendo el central, el de biológicos y el de medicamentos de emergencia. El proceso de supervisión actual se basa en registros manuales de temperatura y humedad, los cuales son entregados en papel al final del día para su revisión, lo que lo hace lento y poco confiable. Ha enfrentado problemas de incumplimiento normativo, como cuando se encontraron registros de temperatura incompletos, lo que obligó a presentar un plan de mejora ante la autoridad sanitaria. Considera fundamental tener acceso a datos históricos para demostrar el cumplimiento de las normativas y evitar sanciones. Aunque evaluó una solución tecnológica hace dos años, el costo y la interfaz en inglés fueron obstáculos para su implementación. A pesar de la apertura institucional hacia nuevas tecnologías, los procesos administrativos y la desconfianza de algunos jefes hacia lo digital son barreras importantes. Omar destaca que las alertas en tiempo real son esenciales y que un presupuesto de entre 100 y 200 soles mensuales sería viable si se justifica adecuadamente ante la dirección.
@@ -302,59 +275,21 @@ El entrevistado, Omar, supervisa varios almacenes en un hospital público, inclu
 * Edad : 22
 * Distrito : San Juan de Miraflores
 * Ocupación : Infusora en el área farmacéutica de la clínica agroamericana 
-* Browser: Google Chrome
-* Device : Computadora de escritorio
-* Minuto de Inicio :  [30:06]
-* Minuto de Fin : [35:31]
+
 
 ![Entrevista](../assets/segmento02-entrevista03.png)
 Lucero Betis Morarizano, de 22 años, trabaja como infusora en el área farmacéutica de la clínica agroamericana, donde supervisa las áreas de dispensación directa. Su trabajo incluye rondas de inspección programadas y la revisión de reportes diarios de temperatura y humedad, los cuales son registrados por el personal operativo. A pesar de la dificultad de tener visibilidad centralizada de los almacenes, maneja los problemas de incumplimiento normativo, como variaciones térmicas, activando protocolos de cuarentena y notificando al área de calidad. Lucero considera esencial tener acceso a datos históricos para auditorías y detectar fallas en equipos de refrigeración. Ha evaluado algunos sensores, pero prefiere soluciones en la nube para monitorear desde cualquier lugar. Aunque su institución está abierta a adoptar nuevas tecnologías, el principal obstáculo es la integración con los sistemas de gestión existentes y la cobertura de red.
 ---
 
-Enlace de las entrevistas : https://goo.su/ANGn
+Enlace de las entrevistas : 
 
 ### 2.2.3. Análisis de entrevistas
 ### Segmento 01: Personal operativo de almacenes farmacéuticos
-**(Entrevistados: Luis Mendoza – hospital público, Jorge Pérez – clínica privada)**
-
-#### Características objetivas:
-* **Registro manual de condiciones ambientales:** 100% realizan control con termómetros/higrómetros y anotaciones en cuadernos o Excel.
-* **Frecuencia de registro limitada:** 100% registran entre 2–3 veces al día, sin monitoreo continuo.
-* **Uso de dispositivos:** 100% utilizan computadora y celular en su trabajo.
-* **Browser más usado:** 100% mencionan Google Chrome.
-* **Experiencia laboral:** Ambos tienen más de 6 años en el área (100%).
-
-#### Características subjetivas:
-* **Frustración con el proceso manual:** 100% lo consideran tedioso, repetitivo y propenso a errores.
-* **Casos de pérdida de medicamentos por fallas ambientales:** 100% han experimentado deterioro de lotes por variaciones no detectadas.
-* **Valoración de alertas automáticas:** 100% consideran que una solución digital con notificaciones inmediatas sería una mejora significativa.
-* **Disposición a aprender nuevas tecnologías:** 100% están abiertos a capacitación si la herramienta es sencilla.
-* **Disposición institucional a pagar por soluciones:** 100% creen que sus instituciones estarían interesadas, siempre que el costo sea razonable.
-
-> **Conclusión del segmento:** > El personal operativo se caracteriza por depender de procesos manuales, con registros limitados y alta exposición a errores. Existe frustración generalizada y experiencias negativas por pérdidas de medicamentos. Valoran la simplicidad tecnológica y muestran apertura a soluciones digitales, siempre que sean fáciles de usar y económicamente viables. Este segmento representa usuarios que necesitan automatización básica, alertas inmediatas y facilidad de uso.
 
 ---
 
 ### Segmento 02: Gestores y responsables de farmacia en instituciones de salud
-**(Entrevistado: Omar Ruiz – hospital público,Dayana Quispe-practicante de medicina ,Lucero Bella-Farnaceutica de una clínica)**
 
-#### Características objetivas:
-* **Supervisión de múltiples almacenes:** 100% supervisa más de un almacén (tres en total).
-* **Registro manual delegado:** 100% depende de reportes en papel entregados por personal operativo.
-* **Uso de dispositivos:** 100% prefiere computadora para reportes y celular para consultas rápidas.
-* **Browser más usado:** 100% utiliza Google Chrome.
-* **Experiencia profesional:** Más de 20 años en el área farmacéutica (deducido por edad y cargo).
-
-#### Características subjetivas:
-* **Dificultad de visibilidad en tiempo real:** 100% señala que depende de reportes manuales y carece de monitoreo simultáneo.
-* **Problemas de incumplimiento normativo:** 100% ha enfrentado observaciones por registros incompletos.
-* **Importancia de datos históricos:** 100% considera fundamental contar con historial para auditorías y evitar sanciones.
-* **Evaluación de soluciones tecnológicas previas:** 100% probó una solución importada, pero el costo y el idioma fueron barreras.
-* **Obstáculos institucionales:** 100% identifica presupuesto limitado y procesos administrativos lentos como principales trabas.
-* **Funcionalidad indispensable:** 100% prioriza alertas en tiempo real accesibles desde celular.
-* **Viabilidad económica:** 100% considera que un costo mensual entre 100–200 soles sería aceptable si se justifica.
-
-> **Conclusión del segmento:** > Los gestores farmacéuticos enfrentan el reto de supervisar múltiples almacenes con procesos manuales poco confiables. La visibilidad en tiempo real y los datos históricos son críticos para cumplir normativas y evitar sanciones. Valoran soluciones digitales que ofrezcan alertas inmediatas, reportes históricos y accesibilidad móvil, pero enfrentan barreras de presupuesto y burocracia. Este segmento representa usuarios que necesitan control centralizado, cumplimiento normativo y justificación de costo-beneficio.
 
 
 ## 2.3. Needfinding
@@ -374,12 +309,7 @@ User Persona 2
 
 ### 2.3.2. User Task Matrix
 
-Las siguientes matrices detallan las tareas críticas identificadas para cada arquetipo de usuario. La prioridad de desarrollo se establece mediante el cruce de importancia y frecuencia, permitiendo al equipo técnico identificar las funcionalidades de mayor impacto (Core Features).
 
-* **Importancia:** Escala del 1 al 5 (5 siendo crítico para la continuidad operativa).
-* **Frecuencia:** Periodicidad con la que el usuario realiza la acción (Diaria, Semanal, Mensual o Eventual).
-
----
 
 ### Matriz de Tareas: Luis Mendoza (El Guardián Operativo)
 *Enfoque: Monitoreo directo y acciones preventivas en el almacén.*
@@ -428,76 +358,63 @@ Empathy map 2
 
 ### 2.3.5. As-is Scenario Maps
 
-Los As-is Scenario Maps describen la experiencia actual de los usuarios **antes** de adoptar KairoLabs, identificando puntos de dolor en el flujo operativo.
+— Luis Mendoza, técnico de almacén farmacéutico**
 
-**Persona 1 — Operario de almacén farmacéutico (Luis Mendoza)**
+| **FASES** | **Inicio de turno** | **Ronda de medición** | **Detección de la desviación** | **Respuesta y acción correctiva** | **Registro y cierre del turno** |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| DOING | Recibo el turno del compañero y reviso el cuaderno por si anotó algo fuera de lo normal. Verifico que los equipos de frío estén encendidos y sin alarma. | Recorro las zonas con la planilla y leo el termómetro y el higrómetro de cada punto. Anoto los valores a mano, uno por uno. Si el día está cargado, dejo la anotación para el final. | Veo una lectura que me parece alta y la comparo de memoria con el rango que debería tener. Abro el equipo para confirmar. Reviso qué lotes sensibles hay en esa zona. | Aviso al jefe de farmacia por WhatsApp con una foto del termómetro. Llamo al técnico si el equipo no enfría. Separo los lotes de la zona afectada mientras espero indicación. | Completo la planilla del turno, a veces reconstruyendo las horas que no alcancé a anotar. Dejo la hoja en el file y le comento de palabra al del siguiente turno. |
+| THINKING | *"¿Habrá pasado algo de madrugada que nadie vio?"* *"Espero que el compañero haya anotado todo."* | *"Dos lecturas al día no dicen qué pasó entre una y otra."* *"Si hoy no alcanzo a hacer la ronda, ese dato se pierde."* | *"¿Esto está fuera de rango o es normal a esta hora?"* *"¿Desde cuándo está así? No tengo cómo saberlo."* | *"Ojalá vea el mensaje a tiempo."* *"Si el lote ya se malogró, no hay vuelta atrás."* | *"Si mañana preguntan por este día, ¿esto alcanza como respaldo?"* *"Estoy anotando de memoria y no debería ser así."* |
+| FEELING | Expectativa mezclada con inquietud. Alerta por lo que no pudo ver. | Rutina y cansancio. Resignación ante un control que sabe incompleto. | Duda e inseguridad. Sensación de llegar siempre tarde. | Impotencia y urgencia. Depende de que otro responda. | Fatiga y escepticismo sobre el valor del registro. Temor a que le observen la planilla. |
 
-| Paso | Acción del usuario | Pensamientos y emociones | Puntos de dolor |
-| :--- | :--- | :--- | :--- |
-| 1 | Revisa manualmente termómetros y registra temperatura en cuaderno | "Debo anotar cada lectura sin olvidar ninguna" | Riesgo de error humano y omisión de registros |
-| 2 | Compara valores con rangos permitidos mentalmente | "¿Está dentro del rango? No estoy seguro" | Sin alertas automáticas ante desviaciones |
-| 3 | Reporta anomalías al supervisor por WhatsApp o verbalmente | "Espero que el jefe lo vea a tiempo" | Comunicación lenta y sin trazabilidad |
-| 4 | Archiva registros en planillas Excel dispersas | "Buscar datos antiguos es tedioso" | Sin historial centralizado ni auditoría |
 
-**Persona 2 — Gestor farmacéutico (Omar Ruiz)**
+ — Omar Ruiz, químico farmacéutico y jefe de farmacia**
 
-| Paso | Acción del usuario | Pensamientos y emociones | Puntos de dolor |
-| :--- | :--- | :--- | :--- |
-| 1 | Supervisa múltiples almacenes visitando cada sede | "No puedo estar en todos lados a la vez" | Falta de visibilidad remota multi-sede |
-| 2 | Solicita reportes manuales a cada operario | "Los datos llegan tarde y en formatos distintos" | Información fragmentada y no estandarizada |
-| 3 | Evalúa pérdidas por medicamentos deteriorados | "No sé cuánto perdemos realmente" | Sin métricas en tiempo real para decisiones |
-| 4 | Prepara documentación para auditorías regulatorias | "Reconstruir el historial consume días" | Trazabilidad insuficiente para cumplimiento normativo |
+| **FASES** | **Recepción de reportes** | **Consolidación del período** | **Detección de vacíos y hallazgos** | **Decisión y acción correctiva** | **Sustentación ante la auditoría** |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| DOING | Al cierre del día recibo las planillas en papel de las tres sedes. Reviso por encima si vienen completas y legibles. Insisto por WhatsApp por las que faltan. | Transcribo las lecturas a mi hoja de cálculo, sede por sede. Las ordeno por fecha y armo los gráficos de tendencia del mes. | Marco los días sin ningún registro y los turnos sin cobertura. Detecto valores idénticos repetidos que delatan llenado de memoria. Consulto al personal qué ocurrió esos días. | Activo cuarentena sobre los lotes de la zona comprometida. Pido la revisión del equipo de frío y registro la incidencia. Decido si el lote se libera o se da de baja. | Armo la carpeta de evidencias del período solicitado. Respondo preguntas sobre fechas puntuales. Redacto el plan de mejora cuando hay observación. |
+| THINKING | *"Otra vez reviso el día cuando ya terminó."* *"¿Y los turnos de noche cómo los cubro?"* | *"Estoy digitando datos que ni siquiera puedo verificar."* *"Dos días completos en algo que debería ser automático."* | *"Estas lecturas son demasiado parejas para ser reales."* *"Los vacíos ya no los puedo llenar sin faltar a la verdad."* | *"Tengo que decidir sin saber cuánto tiempo estuvo fuera de rango."* *"Si me equivoco, pierdo el lote o expongo al paciente."* | *"Si no lo puedo demostrar con un registro, para el auditor no ocurrió."* *"Ojalá no pidan el detalle de las noches ni de los fines de semana."* |
+| FEELING | Frustración por recibir la información tarde. Dependencia de terceros que no comparten su urgencia. | Desgaste y desmotivación. Conciencia de invertir días en algo sin valor agregado. | Desconfianza sobre lo que le entregan. Alarma por la exposición que representan los vacíos. | Presión y urgencia. Peso de responder por la pérdida económica. | Exposición ante la autoridad. Alivio o temor según lo que el auditor decida revisar. |
 
-### 2.3.6. Transición a To-Be
 
-Los escenarios To-Be se especifican en el **Capítulo III (sección 3.1)**, donde se vinculan explícitamente a métricas experimentales de verificación y validación.
 
----
-
-### 2.3.7. EventStorming (artefacto de descubrimiento de dominio)
-
-### Big Picture EventStorming
-
-Event Storming
-
-![Event Storming](../assets/EventStorming.png)
 
 
 
 
 ## 2.4. Ubiquitous Language
-Este glosario define los términos fundamentales que deben ser utilizados de forma
-consistente por el equipo de desarrollo, expertos del dominio y en el código fuente.
+El siguiente glosario define los términos del dominio que deben emplearse de forma consistente por el equipo de desarrollo, los expertos del negocio y el propio código fuente.
 
-## 1. Monitoring Core (Núcleo de Monitoreo)
-Contexto encargado de la captura y procesamiento de señales ambientales.
+| **Término (Term)** | **Definición** |
+| :--- | :--- |
+| Healthcare Entity (Entidad de salud) | Organización cliente que contrata el servicio y bajo la cual se agrupan todas sus sedes, usuarios y dispositivos. |
+| Site (Sede) | Local físico de la entidad de salud dentro del cual se despliega el monitoreo. Una misma entidad puede administrar varias sedes bajo una sola cuenta. |
+| Storage Point (Punto de almacenamiento) | Ubicación concreta sometida a supervisión dentro de una sede: un refrigerador, una cámara de frío, un ambiente de almacén o un contenedor de transporte. Es la unidad sobre la que se contrata el servicio. |
+| Monitoring Zone (Zona de monitoreo) | Área de una sede que se comporta de forma ambiental homogénea y a la que se aplica un mismo juego de umbrales, por ejemplo una cámara de frío o un pasillo de estantería. |
+| Sensor Node (Nodo sensor) | Dispositivo IoT instalado en un punto de almacenamiento que captura de forma periódica las variables ambientales de ese punto y las transmite a la plataforma. |
+| Environmental Variable (Variable ambiental) | Magnitud física del entorno cuya evolución afecta la conservación del producto. En el alcance actual: temperatura, humedad relativa y exposición a la luz. |
+| Reading (Lectura) | Dato crudo que un nodo sensor entrega en un instante puntual, todavía sin validar ni corregir por calibración. |
+| Measurement (Medición) | Lectura que, una vez validada y corregida, queda asociada a un punto de almacenamiento y a una marca temporal, e ingresa al historial de la entidad. |
+| Sampling Interval (Intervalo de muestreo) | Frecuencia configurada con la que un nodo reporta sus lecturas. A menor intervalo, mayor detalle del historial y menor demora en advertir una desviación. |
+| Calibration (Calibración) | Contraste periódico de un nodo sensor contra un patrón de referencia, del que resulta el ajuste que se aplicará a sus lecturas posteriores. |
+| Coverage Gap (Vacío de cobertura) | Tramo de tiempo de un período sin ninguna medición válida, ya sea por desconexión del nodo o por ausencia de registro. Es el hallazgo que una auditoría no admite subsanar de forma retroactiva. |
+| Threshold (Umbral) | Límite superior o inferior fijado para una variable ambiental dentro de una zona; al ser cruzado, el sistema genera una alerta. |
+| Safe Range (Rango seguro) | Franja de valores delimitada por los umbrales, dentro de la cual el producto se considera correctamente conservado. En cadena de frío farmacéutica suele situarse entre 2 °C y 8 °C. |
+| Deviation (Desviación) | Medición que se ubica fuera del rango seguro definido para su zona. |
+| Excursion (Excursión) | Intervalo continuo que va desde que una variable abandona el rango seguro hasta que regresa a él. La auditoría evalúa la excursión completa, con su duración y magnitud, y no cada medición por separado. |
+| Cold Chain (Cadena de frío) | Proceso ininterrumpido de conservación a temperatura controlada que debe sostenerse desde la recepción del producto hasta su dispensación al paciente. |
+| Incident (Incidencia) | Registro que la plataforma crea automáticamente cuando una medición rompe un umbral, y que agrupa la excursión completa junto con las acciones tomadas sobre ella. |
+| Alert (Alerta) | Notificación emitida a los responsables designados tras la detección de una incidencia, entregada por aplicación móvil, correo electrónico o mensaje al celular. |
+| Acknowledgement (Reconocimiento) | Acción mediante la cual un responsable confirma haber recibido una alerta, dejando constancia del momento en que la atendió. |
+| Escalation (Escalado) | Mecanismo que eleva una alerta a un responsable de mayor jerarquía cuando no ha sido reconocida dentro del plazo definido. |
+| Action Plan (Plan de acción) | Protocolo de respuesta que se ejecuta para corregir una desviación y resguardar el inventario expuesto. |
+| Quarantine (Cuarentena) | Estado en el que se coloca un lote expuesto a una excursión, que lo retira de la dispensación hasta determinar si conserva su eficacia terapéutica. |
+| Batch (Lote) | Conjunto de medicamentos con las mismas características de fabricación, que se monitorea, se resguarda y se da de baja como una sola unidad. |
+| Thermosensitive Product (Producto termosensible) | Producto cuya eficacia terapéutica se degrada al quedar expuesto fuera de su rango de conservación permitido. |
+| Traceability (Trazabilidad) | Capacidad de reconstruir las condiciones ambientales a las que estuvo expuesto un lote durante todo el tiempo que permaneció almacenado. |
+| Auditable Evidence (Evidencia auditable) | Registro histórico íntegro y verificable, con marca temporal por medición, que sustenta el cumplimiento normativo ante una fiscalización sanitaria. |
+| DIGEMID | Dirección General de Medicamentos, Insumos y Drogas; autoridad peruana que fiscaliza el cumplimiento de las Buenas Prácticas de Almacenamiento. |
+| Good Storage Practices (Buenas prácticas de almacenamiento, BPA) | Conjunto de disposiciones que regulan las condiciones de conservación de productos farmacéuticos y cuyo cumplimiento la plataforma debe permitir evidenciar. |
+| Custodian (Custodio) | Usuario responsable directo de la supervisión de uno o varios puntos de almacenamiento; corresponde al perfil operativo del Segmento 1. |
+| Compliance Manager (Gestor de cumplimiento) | Usuario que supervisa varias sedes y responde por la evidencia de cumplimiento ante la autoridad sanitaria; corresponde al perfil de gestión del Segmento 2. |
+| Subscription Plan (Plan de suscripción) | Modalidad de contratación del servicio, escalonada según el número de sedes y de puntos de almacenamiento monitoreados. |
 
-- **Sensor**: Dispositivo físico o virtual encargado de medir las variables ambientales.
-- **Reading (Lectura)**: El valor puntual de una variable (temperatura, humedad) capturado en un momento específico.
-- **Environmental Condition (Condición Ambiental)**: Estado del entorno en un área monitoreada en un momento dado.
-- **Sampling Interval (Intervalo de Muestreo)**: Frecuencia configurada con la que el Sensor reporta lecturas.
-- **Threshold (Umbral)**: Rango de valores (mínimo/máximo) aceptables para una variable ambiental.
-
-## 2. Conservation & Quality (Conservación y Calidad)
-Lógica de negocio aplicada al resguardo de productos farmacéuticos.
-
-- **Storage Point (Punto de Almacenamiento)**: Ubicación física sujeta a supervisión (ej. refrigerador, almacén, contenedor).
-- **Cold Chain (Cadena de Frío)**: Proceso ininterrumpido de almacenamiento y distribución a temperaturas controladas.
-- **Temperature Excursion (Excursión de Temperatura)**: Evento donde un medicamento se expone a valores fuera de su rango de seguridad.
-- **Batch (Lote)**: Grupo de medicamentos con características de fabricación idénticas que se monitorean como una unidad.
-- **Traceability (Trazabilidad)**: Historial completo de las condiciones ambientales a las que ha estado expuesto un producto.
-
-## 3. Alerts & Remediation (Alertas y Remediación)
-Gestión de desviaciones y respuestas ante emergencias.
-
-- **Incident (Incidencia)**: Registro automático creado cuando una Reading rompe un Threshold.
-- **Alert (Alerta)**: Notificación enviada a los responsables tras la detección de una Incidencia.
-- **Escalation (Escalado)**: Mecanismo para elevar una Alerta a un nivel superior si no es atendida.
-- **Action Plan (Plan de Acción)**: Protocolo de respuesta para corregir una desviación ambiental y salvar el inventario.
-
-## 4. Organization & Actors (Organización y Actores)
-Estructura de entidades que operan en la plataforma.
-
-- **Healthcare Entity (Entidad de Salud)**: Organización cliente (clínica, farmacia, hospital).
-- **Distribution Hub (Centro de Distribución)**: Nodo logístico de alta rotación de medicamentos.
-- **Custodian (Custodio)**: Usuario responsable directo de la supervisión de un Punto de Almacenamiento.
