@@ -277,11 +277,6 @@ El entrevistado, Omar, supervisa varios almacenes en un hospital público, inclu
 * Ocupación : Infusora en el área farmacéutica de la clínica agroamericana 
 
 
-![Entrevista](../assets/segmento02-entrevista03.png)
-Lucero Betis Morarizano, de 22 años, trabaja como infusora en el área farmacéutica de la clínica agroamericana, donde supervisa las áreas de dispensación directa. Su trabajo incluye rondas de inspección programadas y la revisión de reportes diarios de temperatura y humedad, los cuales son registrados por el personal operativo. A pesar de la dificultad de tener visibilidad centralizada de los almacenes, maneja los problemas de incumplimiento normativo, como variaciones térmicas, activando protocolos de cuarentena y notificando al área de calidad. Lucero considera esencial tener acceso a datos históricos para auditorías y detectar fallas en equipos de refrigeración. Ha evaluado algunos sensores, pero prefiere soluciones en la nube para monitorear desde cualquier lugar. Aunque su institución está abierta a adoptar nuevas tecnologías, el principal obstáculo es la integración con los sistemas de gestión existentes y la cobertura de red.
----
-
-Enlace de las entrevistas : 
 
 ### 2.2.3. Análisis de entrevistas
 ### Segmento 01: Personal operativo de almacenes farmacéuticos
