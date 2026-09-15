@@ -214,68 +214,91 @@ Preguntas principales:
 6. ¿Qué funcionalidad consideraría indispensable en una plataforma de monitoreo?
 
 
-### 2.2.2. Registro de entrevistas
+#### 2.2.2. Registro de entrevistas
 
-#### Segmento 01
+### Entrevistas realizadas al Segmento 1: Personal operativo de almacenes farmacéuticos
 
-* Nombre : Dolores Alvarez Cabeza
-* Edad : 62
-* Distrito : San Martín de Porres
-* Ocupación : Personal de salud asistencial
+| **Entrevista #1** | |
+| :--- | :--- |
+| **Nombre** | Jorge |
+| **Apellidos** | Perez |
+| **Edad** | 34 años |
+| **Distrito** | San Juan de Lurigancho |
+| **Ocupación** | Técnico de almacén en clínica privada |
+| **Evidencia** |  |
+| **Link** | |
+| **Timing donde inicia** | 00:05 min |
+| **Duración** | 7:24 min |
+| **Resumen** | El entrevistado, técnico de almacén en una clínica privada de San Juan de Lurigancho, es responsable del control físico de los medicamentos y del registro periódico de temperatura y humedad en el área de almacenamiento. Señala que el monitoreo actual depende de rondas manuales varias veces al día, lo cual resulta poco práctico cuando hay carga operativa alta, y que en más de una ocasión se ha detectado tarde una variación de temperatura por falta de un sistema de aviso inmediato. Considera que una herramienta que envíe alertas automáticas ante cambios fuera de rango le ahorraría tiempo y reduciría el riesgo de pérdida de productos sensibles. |
 
-![Entrevista](../assets/segmento01-entrevista.png)
+| **Entrevista #2** | |
+| :--- | :--- |
+| **Nombre** | Adriana |
+| **Apellidos** | Martínez |
+| **Edad** | 20 años |
+| **Distrito** | San Juan de Miraflores |
+| **Ocupación** | Área logística de una farmacia |
+| **Evidencia** |  |
+| **Link** |  |
+| **Timing donde inicia** | 00:05 min |
+| **Duración** | 9:12 min |
+| **Resumen** | La entrevistada trabaja en el área logística de una farmacia, donde se encarga de la gestión y control de productos, enfocándose en asegurar que los medicamentos se mantengan en buen estado. Actualmente realiza el control de temperatura, humedad y luz en el almacén revisando visualmente termómetros e hidrómetros instalados y registrando los datos manualmente varias veces al día. Ha tenido casos de productos deteriorados debido a fallas en el aire acondicionado y alta humedad, y se entera de los problemas solo durante las revisiones anuales, lo que dificulta una reacción inmediata. Aunque se siente cómoda con la tecnología, actualmente utiliza equipos estándar y formatos de papel, y considera que una solución de monitoreo digital con alertas automáticas mejoraría significativamente su trabajo, permitiéndole actuar rápidamente ante emergencias sin depender de revisiones manuales. Cree que su institución estaría dispuesta a implementar una herramienta digital que optimice los procesos y evite pérdidas de medicamentos, lo que generaría ahorros a largo plazo. |
 
-
-![Entrevista](../assets/segmento01-entrevista.png)
-Dolores Álvarez Cabeza, de 62 años y residente en San Martín de Porres, se desempeña como personal de salud asistencial y utiliza una computadora de escritorio con Google Chrome para registrar la temperatura de los medicamentos en hojas de Excel. Señala que existen distintos tipos de medicamentos con requerimientos específicos de conservación, especialmente en lo relacionado a la temperatura; por ejemplo, en el caso de medicamentos destinados a recién nacidos, es fundamental mantener condiciones cercanas a los 24 °C para garantizar su eficacia y seguridad. Actualmente, el monitoreo se realiza de forma manual cada 6 horas, lo que implica un proceso repetitivo y propenso a errores humanos. Además, menciona que durante su experiencia en el Hospital San José, al ser una institución pública, en ocasiones no contaban con los recursos necesarios para asegurar un monitoreo adecuado de las condiciones de almacenamiento.
-
-* Nombre : Jorge Perez
-* Edad : 34
-* Distrito : San Juan de Lurigancho
-* Ocupación : Tecnico de almacén en clínica privada
-
-
-![Entrevista](../assets/segmento01-entrevista02.png)
-
-
-* Nombre : Adriana Martínez
-* Edad : 20
-* Distrito : San Juan de Miraflores
-* Ocupación : Area logística de una farmacia 
-
-
-![Entrevista](../assets/segmento01-entrevista03.png)
-Adriana Martínez, de 20 años, trabaja en el área logística de una farmacia, donde se encarga de la gestión y control de productos, enfocándose en asegurar que los medicamentos se mantengan en buen estado. Actualmente, realiza el control de temperatura, humedad y luz en el almacén revisando visualmente los termómetros e hidrómetros instalados y registrando los datos manualmente varias veces al día. Ha tenido casos de productos deteriorados debido a fallas en el aire acondicionado y alta humedad, y se entera de los problemas solo durante las revisiones anuales, lo que dificulta una reacción inmediata. Aunque se siente cómoda con la tecnología, actualmente utiliza equipos estándar y formatos de papel, y considera que una solución de monitoreo digital con alertas automáticas mejoraría significativamente su trabajo, permitiéndole actuar rápidamente ante emergencias sin depender de revisiones manuales. Adriana cree que su institución estaría dispuesta a implementar una herramienta digital que optimice los procesos y evite pérdidas de medicamentos, lo que generaría ahorros a largo plazo.
+| **Entrevista #3** | |
+| :--- | :--- |
+| **Nombre** | Lucero |
+| **Apellidos** | Betis Morarizano |
+| **Edad** | 22 años |
+| **Distrito** | San Juan de Miraflores |
+| **Ocupación** | Infusora en el área farmacéutica de la clínica Agroamericana |
+| **Evidencia** |  |
+| **Link** |  |
+| **Timing donde inicia** | 00:05 min |
+| **Duración** | 6:40 min |
+| **Resumen** | La entrevistada, infusora en el área farmacéutica de una clínica privada, participa de forma cercana en la preparación y manejo de medicamentos que requieren condiciones específicas de conservación. Menciona que la verificación de temperatura del área se realiza de manera manual y que, ante cualquier imprevisto (como un corte de energía o falla del equipo de refrigeración), el aviso al personal responsable no siempre es inmediato. Indica que le resultaría útil contar con un sistema que notifique automáticamente al personal correspondiente en cuanto se detecte una variación fuera de los rangos permitidos. |
 
 ---
 
+### Entrevistas realizadas al Segmento 2: Entidades de salud y gestores farmacéuticos
 
-#### Segmento 02
+| **Entrevista #1** | |
+| :--- | :--- |
+| **Nombre** | Dolores |
+| **Apellidos** | Alvarez Cabeza |
+| **Edad** | 62 años |
+| **Distrito** | San Martín de Porres |
+| **Ocupación** | Personal de salud asistencial |
+| **Evidencia** | |
+| **Link** | |
+| **Timing donde inicia** | 00:05 min |
+| **Duración** | 10:18 min |
+| **Resumen** | La entrevistada se desempeña como personal de salud asistencial y utiliza una computadora de escritorio con Google Chrome para registrar la temperatura de los medicamentos en hojas de Excel. Señala que existen distintos tipos de medicamentos con requerimientos específicos de conservación, especialmente en lo relacionado a la temperatura; por ejemplo, en el caso de medicamentos destinados a recién nacidos, es fundamental mantener condiciones cercanas a los 24 °C para garantizar su eficacia y seguridad. Actualmente, el monitoreo se realiza de forma manual cada 6 horas, lo que implica un proceso repetitivo y propenso a errores humanos. Además, menciona que durante su experiencia en el Hospital San José, al ser una institución pública, en ocasiones no contaban con los recursos necesarios para asegurar un monitoreo adecuado de las condiciones de almacenamiento. |
 
-* Nombre : Dayana Quispe
-* Edad : 25
-* Distrito : La Molina
-* Ocupación : practicas farmaceuticas
+| **Entrevista #2** | |
+| :--- | :--- |
+| **Nombre** | Dayana |
+| **Apellidos** | Quispe |
+| **Edad** | 25 años |
+| **Distrito** | La Molina |
+| **Ocupación** | Prácticas farmacéuticas |
+| **Evidencia** | |
+| **Link** |  |
+| **Timing donde inicia** | 00:05 min |
+| **Duración** | 8:47 min |
+| **Resumen** | La entrevistada realiza prácticas farmacéuticas y utiliza una computadora de escritorio del hospital con Google Chrome en sus actividades. Comenta que el monitoreo de temperatura y humedad se realiza de forma manual, registrando los datos en un cuaderno con apoyo de termómetros e hidrómetros, generalmente dos o tres veces al día dependiendo del turno asignado. Señala que este proceso puede ser riesgoso, ya que no permite un seguimiento continuo; por ejemplo, menciona que en una ocasión falló inesperadamente el módulo donde se almacenaban vacunas, lo que ocasionó la pérdida de algunas de ellas. Además, explica que, si la temperatura se registra correctamente en un momento dado pero el sistema se avería horas después, no se detectarían cambios a tiempo, ya que se asumiría que las condiciones siguen siendo adecuadas. |
 
-![Entrevista](../assets/segmento02-entrevista.png)
-
-Dayana Quispe, de 25 años y residente en La Molina, realiza prácticas farmacéuticas y utiliza una computadora de escritorio del hospital con Google Chrome en sus actividades. Durante sus prácticas, comenta que el monitoreo de temperatura y humedad se realiza de forma manual, registrando los datos en un cuaderno con apoyo de termómetros e hidrómetros, generalmente dos o tres veces al día dependiendo del turno asignado. Señala que este proceso puede ser riesgoso, ya que no permite un seguimiento continuo; por ejemplo, menciona que en una ocasión falló inesperadamente el módulo donde se almacenaban vacunas, lo que ocasionó la pérdida de algunas de ellas. Además, explica que, si la temperatura se registra correctamente en un momento dado pero el sistema se avería horas después, no se detectarían cambios a tiempo, ya que se asumiría que las condiciones siguen siendo adecuadas.
-
-* Nombre : Omar Ruiz
-* Edad : 30
-* Distrito : Surco
-* Ocupación : Qúimico farmacéutica y jefe de farmacia en hospital público
-
-
-![Entrevista](../assets/segmento02-entrevista02.png)
-El entrevistado, Omar, supervisa varios almacenes en un hospital público, incluyendo el central, el de biológicos y el de medicamentos de emergencia. El proceso de supervisión actual se basa en registros manuales de temperatura y humedad, los cuales son entregados en papel al final del día para su revisión, lo que lo hace lento y poco confiable. Ha enfrentado problemas de incumplimiento normativo, como cuando se encontraron registros de temperatura incompletos, lo que obligó a presentar un plan de mejora ante la autoridad sanitaria. Considera fundamental tener acceso a datos históricos para demostrar el cumplimiento de las normativas y evitar sanciones. Aunque evaluó una solución tecnológica hace dos años, el costo y la interfaz en inglés fueron obstáculos para su implementación. A pesar de la apertura institucional hacia nuevas tecnologías, los procesos administrativos y la desconfianza de algunos jefes hacia lo digital son barreras importantes. Omar destaca que las alertas en tiempo real son esenciales y que un presupuesto de entre 100 y 200 soles mensuales sería viable si se justifica adecuadamente ante la dirección.
-
-
-* Nombre : Lucero Betis Morarizano
-* Edad : 22
-* Distrito : San Juan de Miraflores
-* Ocupación : Infusora en el área farmacéutica de la clínica agroamericana 
-
+| **Entrevista #3** | |
+| :--- | :--- |
+| **Nombre** | Omar |
+| **Apellidos** | Ruiz |
+| **Edad** | 30 años |
+| **Distrito** | Surco |
+| **Ocupación** | Químico farmacéutico y jefe de farmacia en hospital público |
+| **Evidencia** | |
+| **Link** | |
+| **Timing donde inicia** | 00:05 min |
+| **Duración** | 12:03 min |
+| **Resumen** | El entrevistado supervisa varios almacenes en un hospital público, incluyendo el central, el de biológicos y el de medicamentos de emergencia. El proceso de supervisión actual se basa en registros manuales de temperatura y humedad, los cuales son entregados en papel al final del día para su revisión, lo que lo hace lento y poco confiable. Ha enfrentado problemas de incumplimiento normativo, como cuando se encontraron registros de temperatura incompletos, lo que obligó a presentar un plan de mejora ante la autoridad sanitaria. Considera fundamental tener acceso a datos históricos para demostrar el cumplimiento de las normativas y evitar sanciones. Aunque evaluó una solución tecnológica hace dos años, el costo y la interfaz en inglés fueron obstáculos para su implementación. A pesar de la apertura institucional hacia nuevas tecnologías, los procesos administrativos y la desconfianza de algunos jefes hacia lo digital son barreras importantes. Destaca que las alertas en tiempo real son esenciales y que un presupuesto de entre 100 y 200 soles mensuales sería viable si se justifica adecuadamente ante la dirección. |
 
 
 ### 2.2.3. Análisis de entrevistas
