@@ -426,13 +426,5 @@ Los segmentos presentados en esta sección se derivan del análisis realizado en
   - **Sustento estadístico:**
   El Perú cuenta con 24 839 IPRESS registradas, de las cuales el 62 % son privadas, e incluye 247 hospitales de segundo y tercer nivel de atención (MINSA, 2023). Asimismo, según el Repositorio Único Nacional de Información en Salud, a agosto de 2024 el 13.4 % de los establecimientos de salud públicos del país no alcanzaba el umbral mínimo de disponibilidad de medicamentos esenciales establecido por el MINSA (ComexPerú, 2024), lo que evidencia brechas en la gestión y trazabilidad que una plataforma de monitoreo centralizado podría contribuir a cerrar.
 
-A continuación, se presenta un dato estadístico que evidencia la magnitud de la problemática de infraestructura en el sector salud peruano, la cual impacta directamente en los segmentos identificados.
-
-<p align="center">
-  <img src="../assets/images/statistics/figura1_infraestructura.png" alt="Figura 1" width="450">
-</p>
-
-**Nota:** Porcentaje de establecimientos de salud con capacidad instalada inadecuada, por tipo de establecimiento (Perú, 2023).
-Fuente: Elaboración propia a partir de datos del Ministerio de Salud (MINSA, 2023).
 
 Como se observa en el gráfico, más del 95 % de los establecimientos de salud en cada categoría presenta condiciones de infraestructura inadecuadas, lo que evidencia una brecha estructural que compromete la conservación óptima de los medicamentos. Esta situación refuerza la necesidad de una solución tecnológica que permita compensar dichas limitaciones mediante monitoreo automatizado y trazabilidad en tiempo real.
