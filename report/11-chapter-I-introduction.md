@@ -56,8 +56,8 @@ Asimismo, la plataforma busca fortalecer la coordinación entre los distintos ac
 
 <tr>
 <td><img src="../assets/images/team/PLACEHOLDER.png" alt="Foto"></td>
-<td>[Apellidos, Nombres]</td>
-<td>[Carrera]</td>
+<td>[Dinklange Arevalo, Sandro ]</td>
+<td>[Ingeniería de Software]</td>
 <td>Código: U202313419. Soy un estudiante de Ingeniería de Software en la UPC especializado en desarrollo Full-Stack. Domino lenguajes como C++, C# y Python, y me destaco por mi proactividad y facilidad para trabajar en entornos colaborativos.. Aporte al equipo:.</td>
 </tr>
 
