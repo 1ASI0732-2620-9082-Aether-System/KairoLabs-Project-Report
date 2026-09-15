@@ -48,10 +48,10 @@ Asimismo, la plataforma busca fortalecer la coordinación entre los distintos ac
 </tr>
 
 <tr>
-<td><img src="../assets/images/team/PLACEHOLDER.png" alt="Foto"></td>
-<td>[Apellidos, Nombres]</td>
-<td>[Carrera]</td>
-<td>Código: [Código de estudiante]. [Descripción de formación técnica y habilidades]. Aporte al equipo:.</td>
+<td><img src="assets\OblitasRodrigo.png" alt="Foto"></td>
+<td>[Oblitas Alcalde, Rodrigo]</td>
+<td>[Ingenieria de Software]</td>
+<td>Código: U20221G185. Soy Estudiante de Ingenieria de Software, estoy interesado en el desarrollo de software y soluciones que aporten al mundo real, me apasiona el deporte, me gusta mucho ir al gimnasio, al box y sobre todo programar, tengo habilidades en diferentes legnguajes de programacion, tengo experiencia con bases de datos, maquinas virtuales, linux y docker, soy una persona que trabaj bien en equipo y me gusta escuchar a los demas.</td>
 </tr>
 
 <tr>
