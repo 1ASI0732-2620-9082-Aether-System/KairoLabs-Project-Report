@@ -379,16 +379,6 @@ Primero necesitamos entender si el personal encargado de almacenes y las entidad
 
 Realizar entrevistas con personal de almacenes y profesionales de salud, además de pruebas de prototipos simples (mockups o dashboards básicos), para validar la utilidad del monitoreo en tiempo real y la aceptación del sistema. También se debe crear una landing page para obtener retroalimentación sobre el interés en la solución propuesta.
 
-**Figura 1:**
-
-*Lean UX Canvas*
-
-<p align="center">
-  <img src="" alt="Lean UX Canvas" width="700"><br>
-  Nota: Lean UX Canvas del proyecto KairoLabs, donde se resumen el problema, los resultados de negocio, los segmentos de usuarios, las soluciones propuestas, las hipótesis y las prioridades de aprendizaje.
-</p>
-
-A continuación, se presenta el Lean UX Canvas del proyecto (ver enlace): ...
 
 ### 1.3. Segmentos objetivo
 
