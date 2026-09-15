@@ -1,7 +1,5 @@
 ﻿# Capítulo II: Requirements Elicitation & Analysis
 
-> **Nota metodológica (1ASI0732):** este capítulo documenta la elicitación y el análisis de requisitos como insumos del diseño experimental. Las entrevistas, personas y mapas As-is alimentan hipótesis verificables; los ítems marcados con `(completar)` requieren reforzamiento de evidencia de campo o actualización de métricas en sprints posteriores.
-
 ## 2.1. Competidores
 
 Para delimitar el espacio competitivo de KairoLabs se identificaron tres competidores directos que ofrecen soluciones de monitoreo ambiental para el sector salud y farmacéutico, seleccionados por su presencia en el mercado o por su accesibilidad para instituciones peruanas:
