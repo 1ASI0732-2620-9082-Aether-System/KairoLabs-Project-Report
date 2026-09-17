@@ -2,8 +2,10 @@
 Thumbs.db
 *.log
 .idea/
-.vscode/
-.vscode/*.code-workspace
 node_modules/
 prompt
 *.zip
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
