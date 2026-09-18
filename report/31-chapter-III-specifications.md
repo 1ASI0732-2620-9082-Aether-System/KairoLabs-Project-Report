@@ -1,6 +1,6 @@
 ﻿# Capítulo III: Requirements Specification
 
-Este capítulo traduce el needfinding del Capítulo II (User Personas, As-Is Scenario Maps y Ubiquitous Language) en especificaciones accionables para el producto **KairoLabs**. Las historias se alinean con la plataforma desplegada y con los bounded contexts del backend [medi-track-sensor-platform](https://github.com/1ASI0730-2610-12258-TBL-MediTrackSensor/medi-track-sensor-platform): **IAM**, **Establishments**, **Operators**, **Devices (Monitoring)**, **Transports (Logistics)** y **Subscriptions**.
+Este capítulo especifica los requisitos de **KairoLabs** a partir del needfinding del Capítulo II: User Personas, As-Is Scenario Maps y Ubiquitous Language. Incluye el escenario futuro (To-Be), las User Stories, el Product Backlog y el Impact Mapping.
 
 ---
 
@@ -8,79 +8,25 @@ Este capítulo traduce el needfinding del Capítulo II (User Personas, As-Is Sce
 
 ### Introducción
 
-Los **To-Be Scenario Maps** proyectan la experiencia futura de cada User Persona una vez integrado KairoLabs. A diferencia de los As-Is del Capítulo II (proceso manual con planillas, WhatsApp y consolidación tardía), el To-Be describe el mismo flujo de trabajo **después** de adoptar monitoreo continuo, alertas automáticas y evidencia digital auditable.
+Mientras el **As-Is** (Capítulo II) muestra cómo trabaja cada segmento hoy —planillas, rondas manuales y consolidación tardía—, el **To-Be** muestra cómo trabajarían con **KairoLabs**: monitoreo continuo, alertas y evidencia digital.
 
-Se elaboró un mapa por persona (**Luis Mendoza** — Custodio / personal operativo; **Omar Ruiz** — Compliance Manager / gestor farmacéutico), con las filas estándar:
+Se elaboró un To-Be Scenario Map por segmento, con las filas **Phases**, **Doing**, **Thinking** y **Feeling**, contrastado frente al As-Is correspondiente.
 
-| Fila | Significado |
-| :--- | :--- |
-| **Phases** | Etapas del escenario futuro |
-| **Doing** | Acciones concretas del usuario con la plataforma |
-| **Thinking** | Pensamientos en cada fase |
-| **Feeling** | Emociones resultantes |
+### Resumen del proceso
 
-Cada mapa se contrastó frente al As-Is correspondiente para evidenciar el salto de valor (de detección tardía y registro frágil → a detección oportuna y trazabilidad).
+Partiendo de los As-Is y de las entrevistas, el equipo rediseñó el flujo diario de cada persona en Lucidchart/Miro e incorporó las capturas a continuación.
 
-### Resumen del proceso realizado por el equipo
+### 3.1.1. Segmento 1 — Luis Mendoza (personal operativo)
 
-1. Se partió de los As-Is Scenario Maps y Empathy Maps del Capítulo II.
-2. Se identificaron los *pain points* por fase (vacíos de cobertura, dependencia de WhatsApp, consolidación manual, miedo a la auditoría).
-3. Se diseñó el escenario To-Be sustituyendo cada fricción por una capacidad de KairoLabs respaldada por User Stories y, cuando aplica, por endpoints del backend (`/api/v1/...`).
-4. Se documentaron las filas Phases / Doing / Thinking / Feeling en Lucidchart (o Miro) y se anexó la captura debajo de cada tabla textual.
+Con KairoLabs, Luis inicia turno en el dashboard, supervisa lecturas sin planilla, atiende alertas desde la plataforma y cierra el turno con evidencia digital.
 
-> **Evidencia visual:** pegar aquí las capturas exportadas desde Lucidchart/Miro. Instrucciones paso a paso en [`GUIA-CAPITULO-III.md`](GUIA-CAPITULO-III.md).
+![To-Be Scenario Mapping — Segmento 1](../assets/to-be-scenario-segmento1.jpg)
 
----
+### 3.1.2. Segmento 2 — Omar Ruiz (gestor farmacéutico)
 
-### 3.1.1. To-Be — Luis Mendoza (Custodio / técnico de almacén)
+Con KairoLabs, Omar supervisa varias sedes en una sola vista, gestiona establecimientos y personal, analiza desviaciones con datos consolidados y sustenta auditorías con historial exportable.
 
-**Comparación As-Is → To-Be (síntesis)**
-
-| Aspecto | As-Is (Cap. II) | To-Be (con KairoLabs) |
-| :--- | :--- | :--- |
-| Inicio de turno | Revisa cuaderno del compañero; inquietud por la madrugada | Abre el dashboard y ve el estado nocturno ya registrado |
-| Control ambiental | Rondas manuales con planilla; datos incompletos si hay carga | Monitoreo continuo; solo confirma excepciones |
-| Desviación | La descubre tarde, compara de memoria | Recibe alerta con valor, umbral, sensor y ubicación |
-| Respuesta | WhatsApp / llamada improvisada | Reconoce la alerta en plataforma y registra la acción |
-| Cierre | Reconstruye planilla de memoria | Bitácora digital exportable; entrega de turno con evidencia |
-
-**Mapa To-Be (contenido a reflejar en Lucidchart/Miro)**
-
-| | **Inicio de turno digital** | **Supervisión continua** | **Recepción de alerta** | **Acción correctiva** | **Cierre y evidencia** |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **DOING** | Inicia sesión en la Web App. Revisa el resumen del dashboard: sensores activos, última lectura y alertas de la madrugada. | Consulta temperatura, humedad y luz por dispositivo/ubicación sin recorrer el almacén con planilla. | Abre la notificación de desviación, localiza el Sensor Node y confirma el valor fuera de Safe Range. | Ejecuta el protocolo (cerrar puerta, revisar equipo, cuarentena si aplica). Marca la alerta como atendida (`alert-answered`). | Exporta o deja disponible la bitácora del turno. Comenta al relevo con el mismo estado visible en pantalla. |
-| **THINKING** | *"Si algo pasó de madrugada, ya debería estar en el historial."* | *"No dependo de dos mediciones al día."* | *"Sé exactamente desde cuándo está fuera de rango."* | *"Puedo demostrar que actué y cuándo lo hice."* | *"La entrega de turno ya no es de palabra."* |
-| **FEELING** | Seguridad y control. | Alivio y foco. | Urgencia canalizada (no pánico). | Empoderamiento. | Tranquilidad al cerrar el turno. |
-
-![To-Be Scenario Mapping — Luis Mendoza](../assets/to-be-scenario-luis-mendoza.png)
-
-> *Reemplazar la imagen anterior con tu captura real de Lucidchart/Miro. Mientras tanto, la tabla textual cumple el contenido analítico.*
-
----
-
-### 3.1.2. To-Be — Omar Ruiz (Compliance Manager / jefe de farmacia)
-
-**Comparación As-Is → To-Be (síntesis)**
-
-| Aspecto | As-Is (Cap. II) | To-Be (con KairoLabs) |
-| :--- | :--- | :--- |
-| Visibilidad | Planillas en papel al final del día | Dashboard multi-sede en tiempo real |
-| Consolidación | Digita lecturas a Excel sede por sede | Datos ya consolidados por Establishment / Device |
-| Hallazgos | Detecta vacíos y repeticiones sospechosas a mano | Coverage gaps y desviaciones visibles automáticamente |
-| Decisión | Decide sin saber duración de la excursión | Decide con duración, magnitud y ubicación |
-| Auditoría | Arma carpeta bajo presión | Exporta evidencia auditable del período |
-
-**Mapa To-Be (contenido a reflejar en Lucidchart/Miro)**
-
-| | **Supervisión remota** | **Gestión de sedes y personal** | **Análisis de desviaciones** | **Decisión y gobernanza** | **Sustentación DIGEMID / BPA** |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **DOING** | Inicia sesión como Admin/entidad. Ve el estado de todas las Sites en un solo dashboard. | Crea/consulta Establishments, Operators y Devices asociados. Revisa suscripciones del plan. | Filtra alertas e historial por sede/dispositivo. Identifica excursiones y sensores desconectados. | Aprueba acciones, ajusta umbrales cuando corresponda y prioriza intervenciones. | Exporta reportes/historial del período fiscalizado y responde con evidencia timestamped. |
-| **THINKING** | *"Ya no espero el cierre del día para saber qué pasó."* | *"Operadores y puntos de almacenamiento quedan trazables."* | *"Los vacíos de cobertura ya no se esconden en el papel."* | *"Decido con datos, no con intuición."* | *"Si el auditor pide una fecha, la tengo."* |
-| **FEELING** | Control y proyección. | Orden y confianza en el equipo. | Claridad ante el riesgo. | Responsabilidad respaldada. | Alivio ante la fiscalización. |
-
-![To-Be Scenario Mapping — Omar Ruiz](../assets/to-be-scenario-omar-ruiz.png)
-
-> *Reemplazar con captura real. Ver guía de elaboración en [`GUIA-CAPITULO-III.md`](GUIA-CAPITULO-III.md).*
+![To-Be Scenario Mapping — Segmento 2](../assets/to-be-scenario-segmento2.jpg)
 
 ---
 
@@ -88,7 +34,7 @@ Cada mapa se contrastó frente al As-Is correspondiente para evidenciar el salto
 
 ### Introducción
 
-A partir de los To-Be Scenario Maps y del alcance técnico del backend [medi-track-sensor-platform](https://github.com/1ASI0730-2610-12258-TBL-MediTrackSensor/medi-track-sensor-platform), el equipo redactó un **Product Backlog unificado** con:
+A partir de los To-Be Scenario Maps y del alcance de la plataforma KairoLabs, el equipo redactó un **Product Backlog unificado** con:
 
 - **User Stories (US01–US78)**: Landing Page + Web Application (incluye **Login** en US29–US30 y el resto del flujo IAM).
 - **Technical Stories (TS01–TS12)**: capacidades de API / infraestructura por bounded context.
@@ -351,12 +297,10 @@ El Product Backlog prioriza valor alineado a los To-Be y a los endpoints del bac
 
 Se mantiene el Product Backlog en herramienta colaborativa con columnas **Backlog / Ready / In Progress / Done**, etiquetas por Epic y Story Points.
 
-- **URL pública del tablero:** *[COMPLETAR — pegar enlace público de Trello/Jira/YouTrack]*
+- **URL pública del tablero:** *[Pendiente — se agregará al completar el Product Backlog en Trello]*
 - **Captura de pantalla:**
 
 ![Product Backlog en herramienta](../assets/product-backlog-trello.png)
-
-> Instrucciones detalladas: [`GUIA-CAPITULO-III.md`](GUIA-CAPITULO-III.md).
 
 ---
 
@@ -399,8 +343,6 @@ Business Goal (SMART)
 ![Impact Mapping — vista general](../assets/impact-mapping.png)
 
 ![Impact Mapping — detalle por goal (opcional)](../assets/impact-mapping-detail.png)
-
-> Sustituye/actualiza las capturas con el Impact Map real de UXPressia. Guía de armado: [`GUIA-CAPITULO-III.md`](GUIA-CAPITULO-III.md) (sección 3.4).
 
 ---
 

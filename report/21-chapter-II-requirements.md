@@ -374,22 +374,15 @@ Empathy map 2
 
 ### 2.3.5. As-is Scenario Maps
 
-— Luis Mendoza, técnico de almacén farmacéutico**
+Los As-Is Scenario Maps describen cómo trabaja hoy cada segmento, sin KairoLabs: fases del día, acciones (Doing), pensamientos (Thinking) y emociones (Feeling).
 
-| **FASES** | **Inicio de turno** | **Ronda de medición** | **Detección de la desviación** | **Respuesta y acción correctiva** | **Registro y cierre del turno** |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| DOING | Recibo el turno del compañero y reviso el cuaderno por si anotó algo fuera de lo normal. Verifico que los equipos de frío estén encendidos y sin alarma. | Recorro las zonas con la planilla y leo el termómetro y el higrómetro de cada punto. Anoto los valores a mano, uno por uno. Si el día está cargado, dejo la anotación para el final. | Veo una lectura que me parece alta y la comparo de memoria con el rango que debería tener. Abro el equipo para confirmar. Reviso qué lotes sensibles hay en esa zona. | Aviso al jefe de farmacia por WhatsApp con una foto del termómetro. Llamo al técnico si el equipo no enfría. Separo los lotes de la zona afectada mientras espero indicación. | Completo la planilla del turno, a veces reconstruyendo las horas que no alcancé a anotar. Dejo la hoja en el file y le comento de palabra al del siguiente turno. |
-| THINKING | *"¿Habrá pasado algo de madrugada que nadie vio?"* *"Espero que el compañero haya anotado todo."* | *"Dos lecturas al día no dicen qué pasó entre una y otra."* *"Si hoy no alcanzo a hacer la ronda, ese dato se pierde."* | *"¿Esto está fuera de rango o es normal a esta hora?"* *"¿Desde cuándo está así? No tengo cómo saberlo."* | *"Ojalá vea el mensaje a tiempo."* *"Si el lote ya se malogró, no hay vuelta atrás."* | *"Si mañana preguntan por este día, ¿esto alcanza como respaldo?"* *"Estoy anotando de memoria y no debería ser así."* |
-| FEELING | Expectativa mezclada con inquietud. Alerta por lo que no pudo ver. | Rutina y cansancio. Resignación ante un control que sabe incompleto. | Duda e inseguridad. Sensación de llegar siempre tarde. | Impotencia y urgencia. Depende de que otro responda. | Fatiga y escepticismo sobre el valor del registro. Temor a que le observen la planilla. |
+**Segmento 1 — Luis Mendoza (personal operativo de almacén)**
 
+![As-Is Scenario Mapping — Segmento 1](../assets/as-is-scenario-segmento1.jpg)
 
- — Omar Ruiz, químico farmacéutico y jefe de farmacia**
+**Segmento 2 — Omar Ruiz (gestor farmacéutico / entidad de salud)**
 
-| **FASES** | **Recepción de reportes** | **Consolidación del período** | **Detección de vacíos y hallazgos** | **Decisión y acción correctiva** | **Sustentación ante la auditoría** |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| DOING | Al cierre del día recibo las planillas en papel de las tres sedes. Reviso por encima si vienen completas y legibles. Insisto por WhatsApp por las que faltan. | Transcribo las lecturas a mi hoja de cálculo, sede por sede. Las ordeno por fecha y armo los gráficos de tendencia del mes. | Marco los días sin ningún registro y los turnos sin cobertura. Detecto valores idénticos repetidos que delatan llenado de memoria. Consulto al personal qué ocurrió esos días. | Activo cuarentena sobre los lotes de la zona comprometida. Pido la revisión del equipo de frío y registro la incidencia. Decido si el lote se libera o se da de baja. | Armo la carpeta de evidencias del período solicitado. Respondo preguntas sobre fechas puntuales. Redacto el plan de mejora cuando hay observación. |
-| THINKING | *"Otra vez reviso el día cuando ya terminó."* *"¿Y los turnos de noche cómo los cubro?"* | *"Estoy digitando datos que ni siquiera puedo verificar."* *"Dos días completos en algo que debería ser automático."* | *"Estas lecturas son demasiado parejas para ser reales."* *"Los vacíos ya no los puedo llenar sin faltar a la verdad."* | *"Tengo que decidir sin saber cuánto tiempo estuvo fuera de rango."* *"Si me equivoco, pierdo el lote o expongo al paciente."* | *"Si no lo puedo demostrar con un registro, para el auditor no ocurrió."* *"Ojalá no pidan el detalle de las noches ni de los fines de semana."* |
-| FEELING | Frustración por recibir la información tarde. Dependencia de terceros que no comparten su urgencia. | Desgaste y desmotivación. Conciencia de invertir días en algo sin valor agregado. | Desconfianza sobre lo que le entregan. Alarma por la exposición que representan los vacíos. | Presión y urgencia. Peso de responder por la pérdida económica. | Exposición ante la autoridad. Alivio o temor según lo que el auditor decida revisar. |
+![As-Is Scenario Mapping — Segmento 2](../assets/as-is-scenario-segmento2.jpg)
 
 
 
