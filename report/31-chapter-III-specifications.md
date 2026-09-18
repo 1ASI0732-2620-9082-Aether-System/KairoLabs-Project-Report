@@ -12,9 +12,11 @@ Mientras el **As-Is** (Capítulo II) muestra cómo trabaja cada segmento hoy —
 
 Se elaboró un To-Be Scenario Map por segmento, con las filas **Phases**, **Doing**, **Thinking** y **Feeling**, contrastado frente al As-Is correspondiente.
 
+**Tablero Miro (As-Is y To-Be):** [Abrir tablero en Miro](https://miro.com/app/board/uXjVHlWnLpg=/?share_link_id=67795494128)
+
 ### Resumen del proceso
 
-Partiendo de los As-Is y de las entrevistas, el equipo rediseñó el flujo diario de cada persona en Lucidchart/Miro e incorporó las capturas a continuación.
+Partiendo de los As-Is y de las entrevistas, el equipo rediseñó el flujo diario de cada persona en Miro e incorporó las capturas a continuación.
 
 ### 3.1.1. Segmento 1 — Luis Mendoza (personal operativo)
 

@@ -376,6 +376,8 @@ Empathy map 2
 
 Los As-Is Scenario Maps describen cómo trabaja hoy cada segmento, sin KairoLabs: fases del día, acciones (Doing), pensamientos (Thinking) y emociones (Feeling).
 
+**Tablero Miro (As-Is y To-Be):** [Abrir tablero en Miro](https://miro.com/app/board/uXjVHlWnLpg=/?share_link_id=67795494128)
+
 **Segmento 1 — Luis Mendoza (personal operativo de almacén)**
 
 ![As-Is Scenario Mapping — Segmento 1](../assets/as-is-scenario-segmento1.jpg)
