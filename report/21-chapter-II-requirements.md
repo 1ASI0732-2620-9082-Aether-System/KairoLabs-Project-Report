@@ -380,11 +380,11 @@ Los As-Is Scenario Maps describen cómo trabaja hoy cada segmento, sin KairoLabs
 
 **Segmento 1 — Luis Mendoza (personal operativo de almacén)**
 
-![As-Is Scenario Mapping — Segmento 1](../assets/as-is-scenario-segmento1.jpg)
+![As-Is Scenario Mapping — Segmento 1](../assets/LISTO-PARA-SUBIR/assets/as-is-scenario-segmento1.jpg)
 
 **Segmento 2 — Omar Ruiz (gestor farmacéutico / entidad de salud)**
 
-![As-Is Scenario Mapping — Segmento 2](../assets/as-is-scenario-segmento2.jpg)
+![As-Is Scenario Mapping — Segmento 2](../assets/LISTO-PARA-SUBIR/assets/as-is-scenario-segmento2.jpg)
 
 
 

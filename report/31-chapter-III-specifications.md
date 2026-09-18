@@ -22,13 +22,13 @@ Partiendo de los As-Is y de las entrevistas, el equipo rediseñó el flujo diari
 
 Con KairoLabs, Luis inicia turno en el dashboard, supervisa lecturas sin planilla, atiende alertas desde la plataforma y cierra el turno con evidencia digital.
 
-![To-Be Scenario Mapping — Segmento 1](../assets/to-be-scenario-segmento1.jpg)
+![To-Be Scenario Mapping — Segmento 1](../assets/LISTO-PARA-SUBIR/assets/to-be-scenario-segmento1.jpg)
 
 ### 3.1.2. Segmento 2 — Omar Ruiz (gestor farmacéutico)
 
 Con KairoLabs, Omar supervisa varias sedes en una sola vista, gestiona establecimientos y personal, analiza desviaciones con datos consolidados y sustenta auditorías con historial exportable.
 
-![To-Be Scenario Mapping — Segmento 2](../assets/to-be-scenario-segmento2.jpg)
+![To-Be Scenario Mapping — Segmento 2](../assets/LISTO-PARA-SUBIR/assets/to-be-scenario-segmento2.jpg)
 
 ---
 
