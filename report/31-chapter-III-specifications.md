@@ -309,52 +309,44 @@ El Product Backlog está en Trello, con columnas **Product Backlog / Ready / In 
 
 ### Explicación
 
-El **Impact Mapping** conecta objetivos de negocio con actores, impactos deseados y entregables (User Stories). Se elaboró en **UXPressia** (u equivalente) siguiendo esta estructura:
+El Impact Mapping relaciona los objetivos de negocio de KairoLabs con las User Personas, los impactos esperados en su trabajo diario y los entregables del Product Backlog (User Stories, Technical Stories y Spikes). Se elaboró en UXPressia con la estructura Goal → Actors → Impacts → Deliverables.
 
-```text
-Business Goal (SMART)
- └── Actor (User Persona)
-      └── Impact (cambio observable en su comportamiento/resultado)
-           └── Deliverable (Epic / User Story / Technical Story)
-```
+### Business Goals (SMART)
 
-### Business Goals (criterios SMART)
-
-| ID | Goal SMART |
+| ID | Objetivo |
 | :--- | :--- |
-| **BG01** | **Reducir el tiempo de detección de desviaciones ambientales** en almacenes piloto de **≤ 15 minutos** (vs. detección al turno siguiente en As-Is), medido en pruebas con usuarios del Segmento 1, **durante el ciclo académico 2026-20**. |
-| **BG02** | **Eliminar la dependencia de planillas manuscritas** para el registro rutinario en el flujo demo, de modo que **≥ 90%** de las lecturas del escenario To-Be provengan de `sensor-data` automatizado, **antes del cierre del avance de especificación/implementación**. |
-| **BG03** | **Habilitar supervisión multi-sede** para el Compliance Manager, permitiendo visualizar **al menos 2 Establishments** y sus Devices/Operators desde un solo login Admin, **en la Web App integrada al API v1**. |
-| **BG04** | **Convertir interés de visitantes** mediante Landing: que un visitante del segmento objetivo pueda **entender propuesta + contactar** en **≤ 3 minutos** de recorrido (prueba de usabilidad exploratoria). |
+| **BG01** | Reducir el tiempo de detección de desviaciones ambientales a **≤ 15 minutos** (frente a la detección al turno siguiente del As-Is), validado con el Segmento 1 en el ciclo 2026-20. |
+| **BG02** | Que **≥ 90%** de las lecturas del flujo To-Be provengan de registro automático (`sensor-data`), eliminando la dependencia de planillas manuscritas en el escenario demo. |
+| **BG03** | Permitir al gestor farmacéutico supervisar **al menos 2 establecimientos**, con sus operadores y dispositivos, desde un único login Admin en la Web App. |
+| **BG04** | Que un visitante del segmento objetivo comprenda la propuesta de KairoLabs y pueda contactar en **≤ 3 minutos** de recorrido por la Landing Page. |
 
-### Mapa Actor → Impact → Deliverables
+### Actor → Impact → Deliverables
 
-| Business Goal | Actor | Impact deseado | Deliverables (Stories) |
+| Goal | Actor | Impact | Deliverables |
 | :--- | :--- | :--- | :--- |
-| BG01 | Luis Mendoza (Custodio) | Detecta y atiende desviaciones sin rondas a ciegas | US30, US52, US53–US55, US57, US66, US67, TS01, TS07 |
-| BG01 | Omar Ruiz (Compliance Manager) | Ve excursiones a tiempo en cualquiera de sus sedes | US37, US50, US57, US65, US66, US68 |
-| BG02 | Luis Mendoza | Deja de reconstruir planillas de memoria al cierre | US52, US57, US60, US63, TS07, SP01 |
-| BG02 | Equipo de ingeniería | API confiable de lecturas | TS07, TS10, SP01 |
-| BG03 | Omar Ruiz | Supervisa Establishments, Operators y Devices centralizados | US30, US32, US35, US37–US45, US49–US50, US76, TS01–TS06 |
-| BG03 | Personal logístico | Extiende control a transportes | US71–US74, TS08 |
-| BG04 | Visitante / cliente potencial | Comprende valor y contacta | US01–US22, US24 |
+| BG01 | Luis Mendoza | Detecta y atiende desviaciones a tiempo | US30, US52, US53–US55, US57, US66, US67, TS01, TS07 |
+| BG01 | Omar Ruiz | Ve desviaciones en cualquiera de sus sedes | US37, US50, US57, US65, US66, US68 |
+| BG02 | Luis Mendoza | Cierra turno con evidencia digital, sin reconstruir planillas | US52, US57, US60, US63, TS07, SP01 |
+| BG02 | Equipo de desarrollo | Lecturas confiables vía API | TS07, TS10, SP01 |
+| BG03 | Omar Ruiz | Supervisa sedes, operadores y dispositivos en un solo lugar | US30, US32, US35, US37–US45, US49–US50, US76, TS01–TS06 |
+| BG03 | Personal logístico | Extiende el control a la cadena de frío en transporte | US71–US74, TS08 |
+| BG04 | Visitante / cliente potencial | Entiende el valor del producto y contacta | US01–US22, US24 |
 
-### Capturas UXPressia
+### Impact Map (UXPressia)
 
-![Impact Mapping — vista general](../assets/impact-mapping.png)
-
-![Impact Mapping — detalle por goal (opcional)](../assets/impact-mapping-detail.png)
+![Impact Mapping — KairoLabs](../assets/LISTO-PARA-SUBIR/assets/impact-mapping.png)
 
 ---
 
-### Trazabilidad rápida Backend ↔ Stories
+### Trazabilidad Backend ↔ Stories
 
-| Bounded context | Rutas principales | Stories |
+| Contexto | Rutas principales | Stories |
 | :--- | :--- | :--- |
-| IAM / Login | `/api/v1/users`, `/sign-in`, `/api/v1/admins` | **US29–US36**, **US48**, TS01–TS04, SP03 |
+| IAM / Login | `/api/v1/users`, `/sign-in`, `/api/v1/admins` | US29–US36, US48, TS01–TS04, SP03 |
 | Establishments | `/api/v1/establishments` | US37–US42, US65, TS05 |
-| Operators | `/operators`, `/establishments/{id}/operators`, `.../alert-answered` | US43–US47, US67, TS06 |
-| Monitoring / Devices | `/devices`, `/establishments/{id}/devices`, `.../sensor-data` | US49–US64, TS07, SP01–SP02 |
-| Logistics / Transports | `/transports`, `/establishments/{id}/transports`, `.../sensor-data` | US71–US74, TS08 |
+| Operators | `/operators`, `/establishments/{id}/operators`, `alert-answered` | US43–US47, US67, TS06 |
+| Devices | `/devices`, `/establishments/{id}/devices`, `sensor-data` | US49–US64, TS07, SP01–SP02 |
+| Transports | `/transports`, `/establishments/{id}/transports`, `sensor-data` | US71–US74, TS08 |
 | Subscriptions | `/api/v1/subscriptions` | US75–US78, TS09 |
 | Landing | sitio estático | US01–US28 |
+
