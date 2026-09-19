@@ -295,14 +295,13 @@ El Product Backlog prioriza valor alineado a los To-Be y a los endpoints del bac
 | SP04 | Spike exportación auditoría | 94 | 2 | Como equipo, deseo investigar CSV/PDF de historial, para US60. |
 | SP05 | Spike mapa multi-sede | 95 | 2 | Como equipo, deseo evaluar librería de mapas para US42/US65, para UX de Omar. |
 
-### Backlog en herramienta (Trello / Jira / Pivotal)
+### Backlog en herramienta (Trello)
 
-Se mantiene el Product Backlog en herramienta colaborativa con columnas **Backlog / Ready / In Progress / Done**, etiquetas por Epic y Story Points.
+El Product Backlog está en Trello, con columnas **Product Backlog / Ready / In Progress / Done** (95 tarjetas: US01–US78, TS01–TS12 y SP01–SP05).
 
-- **URL pública del tablero:** *[Pendiente — se agregará al completar el Product Backlog en Trello]*
-- **Captura de pantalla:**
+- **URL del tablero:** [KairoLabs Product Backlog en Trello](https://trello.com/invite/b/6aadc5316cf3b1b25172d115/ATTI62b2568d05f97578a9aaa820380a86ceF4D89A86/kairolabs-product-backlog)
 
-![Product Backlog en herramienta](../assets/product-backlog-trello.png)
+![Product Backlog en Trello](../assets/LISTO-PARA-SUBIR/assets/product-backlog-trello.png)
 
 ---
 
