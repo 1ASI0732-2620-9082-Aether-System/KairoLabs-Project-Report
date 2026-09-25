@@ -49,7 +49,7 @@ En este apartado, se mostrará de manera organizada los estilos y herramientas q
 </p>
 
 Logo:
-<img src="../assets/Logo-KairoLabs.png"/>
+<img src="../assets/Logo-KairoLabs.png" alt="Logo KairoLabs" width="220"/>
 
 <div style="border-left: 5px solid #3B82F6; padding: 14px 16px; border-radius: 8px; background: rgba(59,130,246,0.08); margin: 12px 0 14px 0;">
   <strong style="font-size: 1.05rem;">Typography Analysis</strong>
@@ -692,613 +692,500 @@ la precisión y la confiabilidad en el sector salud.
 
 ### 4.3.1. Landing Page Wireframe
 
-El wireframe de la página de inicio funciona como un mapa visual que define la estructura, jerarquía, distribución y flujo de la información dentro de la plataforma. Este esquema no solo organiza los elementos gráficos, sino que establece las bases funcionales de la experiencia de usuario, asegurando coherencia entre diseño, navegación y objetivos estratégicos del sistema.
+El wireframe de la Landing Page de KairoLabs define la estructura base de la experiencia de entrada al producto. Su propósito es organizar la información de manera progresiva, permitiendo que el visitante comprenda la propuesta de valor, identifique los segmentos atendidos y encuentre rutas claras hacia el registro, contacto o exploración de planes.
 
-En KairoLabs, el wireframe está diseñado bajo principios de usabilidad, claridad estructural y enfoque en la conversión. Cada sección cumple un propósito específico dentro del recorrido del usuario, guiándolo desde la comprensión inicial del problema hasta la interacción directa con la solución. La estructura general prioriza la propuesta de valor, la confianza institucional y la accesibilidad de la información.
-
-El diseño sigue un enfoque modular y jerárquico, permitiendo que cada bloque de contenido sea independiente, escalable y fácilmente adaptable a futuras mejoras o ampliaciones del sistema.
+El diseño se plantea como una secuencia de bloques independientes, pero conectados por una narrativa común: presentar el problema de conservación de medicamentos, explicar las capacidades tecnológicas de la solución, reforzar la confianza institucional y guiar al usuario hacia una acción concreta. Esta distribución facilita la lectura, reduce la carga cognitiva y permite validar la jerarquía de contenidos antes de aplicar la identidad visual final.
 
 ---
 
-**Nav y Hero**
+**Landing / Hero**
 
-La sección inicial representa el punto de entrada principal de la plataforma y tiene como objetivo generar impacto inmediato. Aquí se establece la identidad visual de KairoLabs mediante la incorporación del logotipo y un mensaje introductorio que comunica precisión, control y monitoreo inteligente en el almacenamiento de medicamentos.
+La sección inicial concentra los elementos de mayor prioridad para la primera impresión del usuario. Incluye una barra de navegación con accesos a las secciones principales, un espacio reservado para el logotipo, selector de idioma y un CTA visible para iniciar el recorrido de conversión.
 
-La barra de navegación superior permite acceder de manera directa a las secciones clave del sitio, asegurando una experiencia fluida y organizada. Entre las opciones disponibles se incluyen Tecnología, Beneficios, Sectores, Nosotros, Planes y Contacto. Esta estructura facilita la exploración progresiva del contenido sin generar sobrecarga informativa.
+El área Hero presenta el mensaje principal de la propuesta de valor: alertas en tiempo real para hospitales, farmacias y distribución. El wireframe reserva un bloque visual amplio para reforzar el contexto del producto y acompaña el mensaje con una bajada orientada a temperatura, humedad, luz, merma, trazabilidad y cumplimiento. Además, se incorpora una franja de marco regulatorio e instituciones para reforzar confianza desde el primer tramo de la página.
 
-El área Hero destaca la propuesta de valor principal del sistema: el monitoreo en tiempo real de variables críticas como temperatura, humedad y luz. Además, incorpora un llamado a la acción visible que orienta al usuario hacia la obtención de información adicional o el contacto directo con el equipo.
-
-El uso de un recurso visual relacionado al entorno farmacéutico refuerza el contexto del producto y genera una conexión inmediata con el sector salud.
-
-<img src="../assets/navYHero.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-wireframe-hero.png" alt="Wireframe Landing Hero KairoLabs" width="700">
 
 ---
 
-**Tecnología (How It Works)**
+**Nosotros / Proyecto**
 
-Esta sección explica el funcionamiento del sistema de manera estructurada y comprensible. Su objetivo es detallar cómo los sensores IoT integrados capturan datos ambientales y los transmiten hacia la plataforma web para su procesamiento y visualización en tiempo real.
+Esta sección funciona como bloque de credibilidad y explicación institucional. El wireframe organiza la información en dos zonas: una columna de tarjetas tipo acordeón para misión, visión, equipo académico y verificación continua; y un bloque principal donde se resume el enfoque del proyecto como solución tecnológica para la conservación de medicamentos.
 
-Se presentan las variables monitoreadas:
+La disposición permite presentar a KairoLabs no solo como producto, sino como iniciativa respaldada por un equipo, un propósito y un proceso de validación. El bloque inferior de contraste destaca el costo operativo de no contar con datos claros, conectando el problema con pérdidas por merma, desviaciones y auditoría.
 
-- Temperatura  
-- Humedad  
-- Luz  
-
-El contenido está organizado en bloques informativos que describen el flujo completo del sistema, desde la recolección de datos hasta su representación en dashboards interactivos. Esta estructura permite que el usuario comprenda claramente la arquitectura funcional sin necesidad de conocimientos técnicos avanzados.
-
-<img src="../assets/tecnologia.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-wireframe-nosotros.png" alt="Wireframe Nosotros Proyecto KairoLabs" width="700">
 
 ---
 
-**Beneficios del sistema**
+**Tecnología Inteligente**
 
-En esta sección se resaltan los principales valores agregados de KairoLabs. El objetivo es demostrar cómo la plataforma contribuye a la reducción de pérdidas, mejora la trazabilidad y fortalece el cumplimiento de normativas sanitarias.
+El bloque de tecnología presenta las capacidades centrales del sistema IoT en formato de tarjetas. La estructura permite que el usuario identifique rápidamente las funciones principales: temperatura, humedad, iluminación, conectividad, alertas, trazabilidad y operación multi-sede.
 
-Entre los beneficios destacados se incluyen:
+El uso de cards facilita el escaneo visual y permite separar cada capacidad sin sobrecargar la interfaz. Esta sección cumple una función educativa dentro del recorrido, ya que traduce la propuesta técnica del producto en beneficios comprensibles para usuarios operativos y gestores.
 
-- Alertas automáticas ante variaciones críticas.  
-- Acceso a datos en tiempo real.  
-- Historial de registros para auditorías.  
-- Mejora en la toma de decisiones.  
-- Supervisión centralizada.  
-- Prevención de deterioro de medicamentos.  
-
-La organización visual de esta sección permite una lectura clara y rápida, reforzando el impacto del sistema dentro del sector salud.
-
-<img src="../assets/sobrePlataforma.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
-
-<img src="../assets/comoFunciona.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-wireframe-tecnologia-inteligente.png" alt="Wireframe Tecnologia Inteligente KairoLabs" width="700">
 
 ---
 
-**Sectores (Aplicación del sistema)**
+**Sectores Objetivo**
 
-Esta sección demuestra la adaptabilidad y escalabilidad del sistema, mostrando los distintos contextos donde puede ser implementado.
+Esta sección segmenta la solución en dos públicos principales: personal operativo de almacenes y gestores responsables de farmacia. El wireframe utiliza dos cards grandes para comparar necesidades, contexto de uso y acciones esperadas de cada segmento.
 
-Los principales sectores incluyen:
+La estructura permite comunicar que KairoLabs atiende tanto la operación diaria como la supervisión institucional. Para el personal operativo se priorizan tiempo real, alertas y cadena de frío; para los gestores se resaltan auditoría, cumplimiento DIGEMID/MINSA y administración multi-sede.
 
-- Hospitales  
-- Clínicas  
-- Farmacias  
-- Centros de distribución  
-- Almacenes farmacéuticos  
-
-Cada segmento está presentado de manera breve y clara, permitiendo que el usuario identifique rápidamente la relevancia del sistema en su entorno operativo. Esto refuerza la flexibilidad del producto y su capacidad de integración en diferentes instituciones.
-
-<img src="../assets/paraQuien.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-wireframe-sector-objetivo.png" alt="Wireframe Sectores Objetivo KairoLabs" width="700">
 
 ---
 
-**Sobre el Equipo (Nosotros)**
+**Equipo**
 
-Esta sección tiene como finalidad generar confianza y credibilidad institucional. Presenta al equipo responsable del desarrollo de KairoLabs, destacando el compromiso con la innovación tecnológica y la mejora de procesos en el sector salud.
+El bloque de equipo está diseñado como un carrusel de integrantes, útil para presentar al grupo responsable del proyecto sin extender demasiado la longitud de la página. Cada tarjeta reserva espacio para foto o avatar, nombre del integrante, referencia al equipo Aether System y enlaces a evidencias complementarias.
 
-La inclusión de esta sección humaniza la solución y fortalece la percepción profesional del proyecto, elemento clave en plataformas tecnológicas orientadas a instituciones sanitarias.
+Esta sección aporta confianza y humaniza el producto, mostrando que la solución tiene responsables identificables. La presencia de botones para video e imagen también permite asociar el equipo con evidencias académicas o demostraciones del desarrollo.
 
-<img src="../assets/quienesSomos.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
-
----
-
-**Planes (Pricing)**
-
-La sección de planes está diseñada para facilitar la comparación entre las diferentes opciones de suscripción disponibles.
-
-Incluye información sobre:
-
-- Número de sedes permitidas.  
-- Acceso a monitoreo en tiempo real.  
-- Gestión centralizada.  
-- Reportes históricos.  
-- Sistema de alertas.  
-- Funcionalidades adicionales según el plan.  
-
-El diseño estructurado permite que el usuario evalúe rápidamente cuál opción se adapta mejor a sus necesidades operativas y presupuestarias.
-
-<img src="../assets/planesPagos.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-wireframe-equipo.png" alt="Wireframe Equipo KairoLabs" width="700">
 
 ---
 
-**Contacto**
+**Planes**
 
-La sección de contacto facilita la comunicación directa entre los interesados y el equipo de KairoLabs. Su objetivo es permitir que instituciones puedan solicitar información adicional, demostraciones del sistema o propuestas de implementación.
+La sección de planes organiza la oferta del producto mediante tarjetas de suscripción. El wireframe contempla cinco alternativas: Piloto, Básico, Profesional, Hospitalario y Premium, destacando el plan Profesional como recomendado.
 
-Se busca ofrecer un canal claro, accesible y confiable que apoye el proceso de adopción tecnológica dentro del sector salud.
+Esta composición permite comparar precios, características y llamadas a la acción de forma directa. La inclinación ligera de algunas tarjetas genera dinamismo visual, mientras que el plan central conserva mayor peso jerárquico para orientar la decisión del usuario hacia una opción principal.
 
-<img src="../assets/contacto.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
-
----
-
-**Footer**
-
-El pie de página cumple una función estructural y de cierre dentro del diseño. Incluye enlaces relevantes como términos de servicio, políticas de privacidad y medios de contacto.
-
-Este elemento permite acceder rápidamente a información complementaria sin afectar la jerarquía principal del contenido, manteniendo una experiencia organizada y profesional.
-
-<img src="../assets/footer.png" alt="Landing Page Wireframe" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-wireframe-planes.png" alt="Wireframe Planes KairoLabs" width="700">
 
 ---
 
-Este wireframe establece una estructura sólida que garantiza claridad, coherencia y orientación estratégica dentro de la Landing Page. Su diseño permite comunicar eficazmente la propuesta de valor de KairoLabs, guiando al usuario de manera progresiva desde la comprensión del problema hasta la interacción con la solución tecnológica.
+**CTA Final / Footer**
+
+El cierre de la Landing Page combina un CTA final con el footer institucional. El primer bloque refuerza el mensaje de valor: almacenes más inteligentes y conservación más segura, acompañado por un botón de acción orientado al inicio del registro o contacto.
+
+El footer agrupa accesos rápidos a las secciones principales, enlaces de navegación secundaria, botón de prueba del producto y espacio para redes sociales o copyright. Esta estructura asegura que el usuario conserve rutas de acción incluso al final del recorrido.
+
+<img src="../assets/landing-wireframe-footer.png" alt="Wireframe Footer KairoLabs" width="700">
+
+---
+
+En conjunto, estos wireframes permiten validar la arquitectura de información de la Landing Page antes de desarrollar la propuesta visual definitiva. La secuencia prioriza claridad, confianza, comprensión técnica y conversión, manteniendo una navegación lineal que acompaña al visitante desde el descubrimiento del problema hasta la acción final.
 
 ### 4.3.2. Landing Page Mock-up
 
-Los mockups de KairoLabs representan la versión visual de alta fidelidad de la Landing Page, incorporando la identidad gráfica, la paleta de colores definida en el sistema de diseño y el estilo visual final del producto. A diferencia del wireframe, que establece la estructura funcional, el mockup incorpora elementos reales de diseño como tipografía, colores, iconografía, imágenes y jerarquía visual definitiva.
+Los mockups de la Landing Page de KairoLabs representan la versión de alta fidelidad del diseño, incorporando la identidad visual final del producto, la paleta cromática, la jerarquía tipográfica, los componentes de interfaz y los elementos gráficos que comunican el enfoque tecnológico de la solución.
 
-La propuesta utiliza como colores principales el azul oscuro #1B304C, asociado a confianza, estabilidad y profesionalismo, y el naranja #E87239, utilizado estratégicamente para resaltar información importante, botones de acción y llamados a la conversión. Esta combinación cromática refuerza la identidad institucional del sistema y mantiene coherencia con el enfoque tecnológico y del sector salud.
+A diferencia del wireframe, que se centra en estructura y distribución, el mockup permite validar la experiencia visual completa. En esta etapa se observa cómo los colores, botones, tarjetas, contrastes, espaciados e imágenes refuerzan la percepción de confianza, innovación y control en el monitoreo de medicamentos.
 
-Asimismo, se incorporan imágenes relacionadas al entorno farmacéutico y al monitoreo de medicamentos, reforzando visualmente el propósito del sistema en la seguridad, supervisión y control dentro del almacenamiento de productos sensibles. La composición visual busca transmitir modernidad, precisión y confiabilidad.
-
-Los mockups permiten validar aspectos como:
-
-- Distribución final de los componentes.
-- Contraste visual y legibilidad.
-- Jerarquía tipográfica.
-- Ubicación estratégica de los CTAs.
-- Coherencia estética entre secciones.
-- Experiencia visual en distintos dispositivos.
-
-De esta manera, esta etapa representa la transición del diseño estructural a la experiencia visual completa del usuario.
+La propuesta visual utiliza una composición limpia, con predominio de tonos azul oscuro y fondos claros, complementados por acentos naranjas para destacar acciones principales, etiquetas y elementos de conversión. Esta combinación mantiene coherencia con el carácter institucional del producto y con el sector salud, sin perder dinamismo tecnológico.
 
 ---
 
-**Nav y Hero**
+**Landing / Hero final**
 
-La sección principal presenta una interfaz moderna, limpia y visualmente equilibrada que comunica de forma inmediata la propuesta de valor de KairoLabs. Se prioriza un mensaje claro orientado al monitoreo en tiempo real, acompañado de un llamado a la acción visible y destacado mediante el color de marca.
+El mockup del Hero presenta la primera experiencia visual del usuario con KairoLabs. La navegación superior integra el logotipo, accesos principales, selector de idioma y botón de inicio, manteniendo una estructura clara y compacta.
 
-El diseño del Hero incluye:
+El mensaje central se refuerza mediante una jerarquía tipográfica amplia, orientada a comunicar alertas en tiempo real para hospitales, farmacias y distribución. El uso de formas abstractas en el fondo aporta una lectura tecnológica sin distraer del contenido principal. Además, el bloque de respaldo institucional permite asociar la solución con cumplimiento, validación y confianza regulatoria.
 
-- Imagen contextual del sector farmacéutico.
-- Mensaje principal con jerarquía tipográfica destacada.
-- Botón de acción con alto contraste.
-- Espaciado adecuado para mejorar la lectura.
-- Distribución visual centrada en conversión.
-
-Este diseño busca captar la atención del usuario en los primeros segundos de interacción y facilitar la comprensión inmediata del sistema.
-
-<img src="../assets/navMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-mockup-hero.png" alt="Mockup Landing Hero KairoLabs" width="700">
 
 ---
 
-**Tecnología (How It Works)**
+**Nosotros / Proyecto final**
 
-El mockup de esta sección muestra de forma visual el funcionamiento del sistema y la integración con sensores IoT. Se utilizan tarjetas informativas, íconos representativos y una estructura organizada que facilita la comprensión del flujo de datos.
+Esta sección consolida la identidad institucional del proyecto. El mockup utiliza un esquema de tarjetas tipo acordeón para organizar misión, visión, equipo académico y verificación continua, permitiendo mostrar contenido relevante sin saturar la pantalla.
 
-La representación visual permite identificar claramente:
+La composición divide el bloque en información institucional, mensaje de valor y apoyo visual. El contraste entre el fondo claro y el bloque oscuro inferior enfatiza una idea crítica del producto: la falta de datos claros genera merma, desviaciones y riesgos de auditoría. De esta manera, el diseño conecta la presentación del equipo con el problema operativo que KairoLabs busca resolver.
 
-- Captura de datos mediante sensores.
-- Transmisión de información.
-- Procesamiento en la plataforma.
-- Visualización en dashboards.
-- Generación de alertas automáticas.
-
-El diseño refuerza la claridad técnica sin sobrecargar la interfaz, manteniendo un equilibrio entre información y estética.
-
-<img src="../assets/tecMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-mockup-nosotros.png" alt="Mockup Nosotros Proyecto KairoLabs" width="700">
 
 ---
 
-**Beneficios del sistema**
+**Tecnología Inteligente final**
 
-Esta sección resalta los beneficios principales mediante elementos visuales estructurados que permiten una lectura rápida y clara. El diseño enfatiza conceptos como monitoreo continuo, alertas automáticas, trazabilidad digital y cumplimiento normativo.
+El mockup de tecnología traduce las capacidades del sistema IoT en tarjetas visuales de fácil lectura. Cada card presenta una capacidad clave: temperatura, humedad, iluminación, conectividad 24/7, alertas accionables, trazabilidad auditable y supervisión multi-sede.
 
-Se destacan ventajas como:
+El diseño utiliza íconos y acentos naranjas para destacar cada capacidad, mientras que las franjas superiores en azul oscuro mantienen consistencia con la identidad de marca. La distribución en dos filas permite escanear rápidamente las funciones principales y entender el alcance técnico de la solución sin recurrir a explicaciones extensas.
 
-- Supervisión en tiempo real.
-- Prevención de pérdidas.
-- Acceso a historial de datos.
-- Soporte para auditorías.
-- Gestión centralizada.
-- Mayor eficiencia operativa.
-
-El uso de tarjetas y bloques diferenciados facilita la comprensión del valor agregado del sistema.
-
-<img src="../assets/sobrePlataformaMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
-
-<img src="../assets/comoFuncionaMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-mockup-tecnologia.png" alt="Mockup Tecnologia Inteligente KairoLabs" width="700">
 
 ---
 
-**Sectores (Aplicación del sistema)**
+**Sectores Objetivo final**
 
-El diseño presenta los diferentes entornos donde KairoLabs puede ser implementado, utilizando imágenes representativas y bloques visuales organizados.
+La sección de sectores objetivo presenta los dos perfiles principales atendidos por la solución: personal operativo de almacenes farmacéuticos y gestores responsables de farmacia. El mockup utiliza tarjetas amplias con imagen, etiqueta de segmento, iconografía central y una breve descripción del perfil objetivo.
 
-Esta sección permite identificar claramente la adaptabilidad del sistema en:
+La diferenciación visual entre segmentos facilita comprender que KairoLabs cubre necesidades operativas y de gestión. El diseño refuerza la idea de implementación estratégica, vinculando el control diario de condiciones ambientales con la supervisión institucional, auditoría y cumplimiento.
 
-- Hospitales.
-- Clínicas.
-- Farmacias.
-- Centros de distribución.
-- Almacenes farmacéuticos.
-
-El objetivo visual es demostrar escalabilidad y flexibilidad del producto dentro del sector salud.
-
-<img src="../assets/paraQuienMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-mockup-sectores-objetivo.png" alt="Mockup Sectores Objetivo KairoLabs" width="700">
 
 ---
 
-**Sobre el Equipo (Nosotros)**
+**Planes final**
 
-Esta sección adopta un diseño profesional y cercano para presentar al equipo responsable del desarrollo del sistema. Se busca fortalecer la confianza institucional mediante una presentación visual clara y coherente con la identidad del proyecto.
+El mockup de planes organiza la oferta comercial en tarjetas de suscripción claras y comparables. Se presentan los planes Piloto, Básico, Profesional, Hospitalario y Premium, manteniendo una jerarquía visual que resalta el plan Profesional como opción recomendada.
 
-El mockup incluye:
+El uso del naranja en el plan destacado orienta la atención del usuario hacia la alternativa principal sin romper la coherencia visual. Las listas de beneficios con íconos de validación facilitan la comparación rápida entre opciones y apoyan la toma de decisiones según número de sedes, sensores y necesidades de monitoreo.
 
-- Fotografías o representaciones del equipo.
-- Descripciones breves.
-- Diseño alineado con la identidad de marca.
-- Espacios bien definidos para generar orden visual.
-
-Este componente refuerza la credibilidad del producto.
-
-<img src="../assets/quienesSomosMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-mockup-planes.png" alt="Mockup Planes KairoLabs" width="700">
 
 ---
 
-**Planes (Pricing)**
+**CTA Final / Footer final**
 
-El mockup de planes organiza la información de manera estructurada y visualmente diferenciada, facilitando la comparación entre las distintas opciones de suscripción.
+El cierre de la Landing Page combina un llamado a la acción final con un footer funcional. El bloque superior refuerza el mensaje central del producto: almacenes más inteligentes y conservación más segura, invitando al usuario a comenzar el proceso.
 
-El diseño permite visualizar claramente:
+El footer utiliza un fondo azul oscuro para generar cierre visual y mantener contraste. Agrupa enlaces principales, navegación secundaria, botón de prueba del producto y accesos a redes sociales. Esta estructura conserva rutas de interacción al final del recorrido y refuerza la continuidad de marca hasta el último punto de contacto.
 
-- Características incluidas en cada plan.
-- Número de sedes.
-- Nivel de funcionalidades.
-- Acceso a reportes.
-- Sistema de alertas.
-- Opciones de gestión centralizada.
-
-La estructura está pensada para mejorar la toma de decisiones del usuario y orientar la conversión.
-
-<img src="../assets/planesPagosMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
+<img src="../assets/landing-mockup-footer.png" alt="Mockup Footer KairoLabs" width="700">
 
 ---
 
-**Contacto**
-
-La sección de contacto presenta un diseño accesible, ordenado y coherente con el resto de la plataforma. Su objetivo es facilitar la comunicación directa entre los usuarios interesados y el equipo de KairoLabs.
-
-Incluye:
-
-- Formulario estructurado.
-- Información de contacto.
-- Elementos visuales consistentes.
-- Distribución limpia y profesional.
-
-Esta sección cumple una función estratégica dentro del flujo de conversión.
-
-<img src="../assets/contactoMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
-
----
-
-**Footer**
-
-El footer mantiene una estructura limpia y funcional, integrando accesos rápidos a información relevante como términos de servicio, políticas de privacidad y enlaces institucionales.
-
-Su diseño asegura:
-
-- Cierre visual equilibrado.
-- Acceso a información legal.
-- Consistencia con la identidad gráfica.
-- Organización clara de enlaces secundarios.
-
-Este elemento completa la experiencia visual de la Landing Page, manteniendo coherencia y profesionalismo en todo el diseño.
-
-<img src="../assets/footerMU.png" alt="Landing Page Mock Up" style="max-width: 100%; height: auto;">
+En conjunto, los mockups permiten validar cómo la arquitectura definida en los wireframes se convierte en una interfaz visual coherente, moderna y orientada a conversión. Cada sección mantiene consistencia de marca, jerarquía clara y componentes diseñados para comunicar confianza, trazabilidad y monitoreo inteligente en el sector farmacéutico.
 
 ## 4.4. Web Applications UX/UI Design
 
 ### 4.4.1. Web Applications Wireframes
 
-En esta sección se presentan los wireframes de la versión web de KairoLabs,
-organizados según los dos perfiles principales de usuario: personal operativo de almacenes
-farmacéuticos y entidades de salud. Cada diseño está orientado a ofrecer una experiencia
-clara, coherente y centrada en las necesidades de cada segmento, facilitando la supervisión
-de condiciones ambientales, el acceso a información relevante y la toma de decisiones.
-Asimismo, se busca asegurar una navegación intuitiva y fluida a lo largo de la plataforma.
+Los wireframes de la Web Application de KairoLabs definen la estructura funcional de las pantallas principales antes de aplicar el diseño visual final. Su propósito es validar la distribución de navegación, formularios, módulos operativos y jerarquía de información dentro de una plataforma orientada al monitoreo farmacéutico.
 
-<img src="./../assets/WebApplicationWireframes.png" alt="WebApp Wireframes" width="700">
+La propuesta se organiza alrededor de un layout administrativo con barra lateral, encabezado superior y área principal de trabajo. Esta estructura permite mantener accesos constantes a los módulos clave, como inicio, establecimientos, asignación de operadores, mapa y planes. Los wireframes priorizan claridad, consistencia y reducción de fricción en tareas recurrentes.
+
+---
+
+**Login**
+
+La pantalla de login concentra el acceso inicial al sistema. Presenta campos para correo y contraseña, además de una selección de rol entre entidad y operador, lo que permite dirigir la experiencia hacia funcionalidades diferenciadas según el tipo de usuario.
+
+El diseño mantiene una estructura simple y directa, evitando elementos secundarios que puedan distraer durante el ingreso. Esta decisión favorece la seguridad, la comprensión rápida y la validación temprana del rol dentro de la plataforma.
+
+<img src="../assets/web-wireframe-login.png" alt="Wireframe Login Web Application KairoLabs" width="500">
+
+---
+
+**Registro**
+
+El wireframe de registro propone un formulario adaptable por rol. Incluye campos básicos como nombre completo, correo, contraseña y entidad o código de entidad, permitiendo que el sistema capture la información mínima necesaria para crear una cuenta.
+
+La estructura vertical facilita completar el formulario de forma ordenada y permite adaptar el contenido según el perfil seleccionado. Esta pantalla funciona como entrada para usuarios nuevos y conecta con el proceso posterior de selección de plan o acceso a módulos principales.
+
+<img src="../assets/web-wireframe-registro.png" alt="Wireframe Registro Web Application KairoLabs" width="500">
+
+---
+
+**Inicio**
+
+La pantalla de inicio funciona como dashboard de entrada luego de la autenticación. Incluye barra lateral de navegación, encabezado superior, bloque de bienvenida y tarjetas de acceso rápido hacia establecimientos, asignación de operadores, creación de sede y mapa.
+
+También se reserva un espacio para indicadores KPI, estado y tendencia, permitiendo que el usuario obtenga una visión general del estado operativo. Esta pantalla prioriza tareas frecuentes y reduce el número de pasos necesarios para acceder a funciones críticas.
+
+<img src="../assets/web-wireframe-inicio.png" alt="Wireframe Inicio Web Application KairoLabs" width="700">
+
+---
+
+**Establecimientos**
+
+El módulo de establecimientos organiza la información de sedes registradas. El wireframe incluye tarjetas de resumen por tipo de establecimiento, buscador por nombre o ciudad y una tabla para listar nombre, ubicación, tipo y acciones disponibles.
+
+Esta estructura facilita la supervisión administrativa de la red de establecimientos. Al combinar métricas resumidas con una tabla operativa, el usuario puede revisar el estado general y ejecutar acciones específicas desde una misma pantalla.
+
+<img src="../assets/web-wireframe-establecimientos.png" alt="Wireframe Establecimientos Web Application KairoLabs" width="700">
+
+---
+
+**Asignar Operador**
+
+La pantalla de asignación de operador divide el espacio principal en dos columnas: operadores y establecimientos. Esta distribución permite relacionar personal operativo con sedes específicas de manera clara y visual.
+
+El wireframe está pensado para una tarea administrativa concreta: seleccionar un operador y asociarlo a un establecimiento. La organización por listas paralelas reduce ambigüedad y facilita validar que cada sede cuente con responsables asignados.
+
+<img src="../assets/web-wireframe-asignar-operador.png" alt="Wireframe Asignar Operador Web Application KairoLabs" width="700">
+
+---
+
+**Agregar Establecimiento**
+
+El wireframe de agregar establecimiento presenta un formulario para registrar nuevos centros operativos dentro de la red. Incluye campos como nombre, tipo de establecimiento, ciudad o región, distrito y dirección.
+
+La pantalla incorpora una acción de retorno al inicio y un bloque inferior para establecimientos registrados, permitiendo que el usuario mantenga contexto sobre la gestión de sedes. El formulario prioriza datos esenciales para habilitar trazabilidad y posterior monitoreo.
+
+<img src="../assets/web-wireframe-agregar-establecimiento.png" alt="Wireframe Agregar Establecimiento Web Application KairoLabs" width="700">
+
+---
+
+**Mapa de Establecimientos**
+
+El mapa de establecimientos ofrece una vista geográfica de sedes y estado operativo. La pantalla combina filtros por establecimiento, estado, tipo y región con una zona central destinada al mapa.
+
+Esta composición permite analizar distribución territorial y ubicar rápidamente sedes monitoreadas. La presencia de una lista lateral mantiene acceso a establecimientos específicos mientras el mapa brinda contexto espacial para la toma de decisiones.
+
+<img src="../assets/web-wireframe-mapa-establecimientos.png" alt="Wireframe Mapa de Establecimientos Web Application KairoLabs" width="700">
+
+---
+
+**Perfil**
+
+La pantalla de perfil reúne los datos principales del usuario o entidad, incluyendo nombre, DNI, correo, teléfono, cargo, contraseña y plan actual. También incorpora acciones para editar información y actualizar el plan.
+
+El diseño ordena los campos en una grilla de dos columnas, lo que facilita lectura y mantenimiento de datos administrativos. Esta pantalla funciona como centro de configuración personal e institucional dentro de la plataforma.
+
+<img src="../assets/web-wireframe-perfil.png" alt="Wireframe Perfil Web Application KairoLabs" width="700">
+
+---
+
+**Planes + Billing**
+
+La sección de planes y billing presenta una vista simplificada para seleccionar plan y registrar datos de pago o referencia. El wireframe contempla tres tarjetas principales: Básico, Pro y Premium, acompañadas por un bloque de datos de tarjeta.
+
+Esta pantalla permite validar el flujo comercial dentro de la aplicación web, conectando la gestión de cuenta con la suscripción activa. La distribución por tarjetas facilita comparar opciones antes de confirmar la selección.
+
+<img src="../assets/web-wireframe-planes-billing.png" alt="Wireframe Planes y Billing Web Application KairoLabs" width="700">
+
+---
+
+**Elige un plan**
+
+La pantalla de selección de plan presenta una versión más detallada del proceso de suscripción. Incluye navegación lateral, botón de retorno al perfil y tarjetas con precios, características y acciones para confirmar la elección.
+
+Esta vista refuerza la toma de decisión del usuario al mostrar beneficios por plan, como monitoreo de sede, alertas avanzadas, historial e informes. El diseño está orientado a que el usuario pueda comparar alternativas y continuar con el flujo de actualización o contratación.
+
+<img src="../assets/web-wireframe-elige-plan.png" alt="Wireframe Elige un Plan Web Application KairoLabs" width="700">
+
+---
+
+En conjunto, estos wireframes permiten validar la arquitectura de la Web Application antes del diseño visual final. La estructura propuesta cubre autenticación, registro, panel principal, administración de establecimientos, asignación operativa, mapa, perfil y planes, asegurando que los flujos principales del producto estén representados de forma coherente y funcional.
 
 ### 4.4.2. Web Applications Wireflow Diagrams
 
-En esta sección se presentan los diagramas de flujo de interacción (wireflows) de 
-la aplicación web de KairoLabs, los cuales ilustran la navegación y las 
-principales acciones que pueden realizar los distintos segmentos de usuarios dentro 
-de la plataforma. Estos diagramas permiten visualizar cómo los usuarios interactúan con el sistema, 
-facilitando la comprensión de la estructura funcional y de la experiencia de uso orientada al 
-monitoreo de condiciones ambientales en tiempo real.
+Los wireflow diagrams de la aplicación web de KairoLabs permiten visualizar la relación entre pantallas, acciones del usuario y rutas de navegación esperadas dentro del sistema. A diferencia de un wireframe aislado, el wireflow muestra cómo cada vista se conecta con la siguiente, facilitando la validación de continuidad, jerarquía funcional y coherencia entre módulos.
 
-**Flujo tras inicio de sesión de Segmento Personal Operativo**
+Este flujo representa el recorrido principal del usuario desde el ingreso a la plataforma hasta la exploración de funcionalidades clave. La secuencia inicia con el acceso por login o registro, continúa con la selección de plan y habilita el ingreso a los módulos operativos de la aplicación. A partir del panel principal, el usuario puede desplazarse hacia secciones como perfil, establecimientos, almacenes, dispositivos y gestión de suscripción.
 
-Este flujo representa el recorrido del personal operativo de almacenes farmacéuticos, enfocado en
-la supervisión en tiempo real de condiciones ambientales. El usuario visualiza variables como 
-temperatura, humedad y luz, detecta variaciones fuera de rango y registra incidencias.
+El diagrama también evidencia decisiones importantes de navegación:
 
-<img src="./../assets/SegmentoPersonalOperativo.png" alt="Wireflow Personal Operativo" width="700">
+- El usuario puede ingresar o registrarse antes de acceder a las funciones principales.
+- El registro puede conducir al proceso de selección de plan o pago.
+- El inicio de entidad abre los módulos principales de administración.
+- El perfil permite actualizar información del usuario o institución.
+- Las flechas definen la navegación esperada entre pantallas y módulos.
 
-**Flujo tras inicio de sesión de Segmento Entidades de Salud**
+Esta representación ayuda a comprobar que la experiencia no dependa de pantallas aisladas, sino de un flujo ordenado, donde cada acción tiene una salida clara y una relación directa con los objetivos del usuario.
 
-Este flujo describe la experiencia de entidades de salud y gestores farmacéuticos, quienes 
-requieren una visión estratégica del sistema. Desde su panel, supervisan múltiples almacenes, 
-acceden a datos históricos, analizan tendencias y apoyan la toma de decisiones.
+<img src="../assets/web-application-wireflow.png" alt="Wireflow de la Web Application de KairoLabs" width="700">
 
-<img src="./../assets/SegmentoEntidadSalud.png" alt="Wireflow Entidad Salud" width="700">
-
+En conjunto, el wireflow permite validar la estructura lógica de la aplicación web antes de pasar a implementación. Su lectura confirma que los procesos de autenticación, registro, pago, actualización de perfil y navegación por módulos están conectados dentro de una ruta comprensible, reduciendo fricción y facilitando una experiencia coherente para los usuarios de KairoLabs.
 
 ### 4.4.3. Web Applications Mock-ups
 
-Esta sección presenta los mockups de la aplicación web de KairoLabs, diseñados para ofrecer una experiencia visual coherente con la identidad gráfica del producto y adaptada a las necesidades operativas de los usuarios. Los mockups representan la fase de diseño de alta fidelidad, donde se integran completamente la paleta de colores, la tipografía definida, los componentes UI y la estructura funcional establecida en los wireframes.
+Los mockups de la Web Application representan la versión visual de alta fidelidad de las pantallas principales de KairoLabs. En esta etapa se incorporan colores, tipografía, botones, estados activos, navegación lateral e indicadores visuales que permiten validar la experiencia final antes de la implementación.
 
-Cada pantalla ha sido diseñada considerando los dos perfiles principales del sistema: Personal Operativo y Entidades de Salud, asegurando que cada usuario acceda únicamente a las funcionalidades relevantes para su rol.
-
----
-
-### 🔹 Mockups de Autenticación y Gestión de Cuenta
-
-<img src="./../assets/login.png" alt="Mockups" width="700">
-
-**Login:**  
-Pantalla de inicio de sesión que permite el acceso seguro al sistema mediante credenciales. Incluye validación de datos y diseño centrado en simplicidad y seguridad.
-
-<img src="./../assets/entidadesLogin.png" alt="Mockups" width="700">
-
-**Login Entidades:**  
-Versión del inicio de sesión adaptada al perfil de entidades de salud, manteniendo coherencia visual y diferenciación funcional.
-
-<img src="./../assets/entidadesSignIn.png" alt="Mockups" width="700">
-
-**Registro de Entidades:**  
-Formulario de creación de cuenta para instituciones, estructurado de manera clara para facilitar el proceso de registro.
-
-<img src="./../assets/personalOSignin.png" alt="Mockups" width="700">
-
-**Registro Personal Operativo:**  
-Pantalla destinada al registro del personal operativo, permitiendo la creación de usuarios con permisos específicos.
-
-<img src="./../assets/personalOLogin.png" alt="Mockups" width="700">
-
-**Login Personal Operativo:**  
-Acceso específico para usuarios encargados del monitoreo diario de dispositivos y almacenes.
+El diseño mantiene una identidad consistente con la Landing Page: predominan fondos claros, paneles blancos, navegación lateral persistente, acentos naranjas para acciones principales y azul oscuro para elementos de jerarquía o confirmación. Esta combinación permite que la aplicación se perciba profesional, limpia y orientada al trabajo operativo.
 
 ---
 
-### 🔹 Mockups del Dashboard y Home
+**Login landing**
 
-<img src="./../assets/entidadHome.png" alt="Mockups" width="700">
+El mockup de login presenta una pantalla de acceso dividida en dos zonas: una sección visual de marca y un formulario de autenticación. Esta estructura refuerza la identidad de KairoLabs mientras mantiene el proceso de inicio de sesión simple y directo.
 
-**Home Entidades:**  
-Panel principal para gestores, donde se muestra una vista general del estado de múltiples sedes y métricas institucionales.
+El formulario incluye correo electrónico, contraseña, botón principal de inicio de sesión y enlace para crear cuenta. El uso del botón naranja destaca la acción principal y guía al usuario hacia el acceso seguro a la plataforma.
 
-<img src="./../assets/personalHome.png" alt="Mockups" width="700">
-
-**Home Personal Operativo:**  
-Vista principal enfocada en dispositivos activos, alertas y monitoreo en tiempo real.
+<img src="../assets/web-mockup-login.png" alt="Mockup Login Web Application KairoLabs" width="700">
 
 ---
 
-### 🔹 Gestión de Dispositivos y Sensores
+**Registro personal**
 
-<img src="./../assets/personalAddDevice.png" alt="Mockups" width="700">
+La pantalla de registro permite crear una cuenta seleccionando el perfil del usuario. El mockup incluye un selector entre gestor y personal de almacén, reforzando que la experiencia se adapta según el rol operativo.
 
-**Agregar Dispositivo:**  
-Permite registrar nuevos sensores IoT en el sistema, vinculándolos a un almacén específico.
+El formulario solicita nombre, correo electrónico, contraseña y código de entidad. Esta organización facilita capturar los datos esenciales sin sobrecargar la interfaz. Además, el botón de creación de cuenta mantiene la jerarquía visual mediante el color naranja.
 
-<img src="./../assets/personalViewDevice.png" alt="Mockups" width="700">
-
-**Vista de Dispositivo:**  
-Muestra información detallada del sensor, incluyendo estado, lecturas y configuración.
-
-<img src="./../assets/personalListDevices.png" alt="Mockups" width="700">
-
-**Listado de Dispositivos:**  
-Pantalla que organiza todos los sensores registrados para facilitar su administración.
+<img src="../assets/web-mockup-registro.png" alt="Mockup Registro Web Application KairoLabs" width="700">
 
 ---
 
-### 🔹 Gestión de Transporte
+**Inicio dashboard**
 
-<img src="./../assets/personalAddTransport.png" alt="Mockups" width="700">
+El dashboard inicial funciona como punto de control general tras la autenticación. El mockup muestra una navegación lateral persistente, encabezado superior con notificaciones e idioma, bloque de bienvenida y tarjetas de acceso rápido a los módulos principales.
 
-**Agregar Transporte:**  
-Permite registrar unidades de transporte utilizadas en distribución de medicamentos con monitoreo ambiental.
+La sección de centro de control operativo resume métricas en vivo sobre dispositivos, sedes, transportes y operadores. Esta pantalla prioriza visibilidad, acceso rápido y comprensión inmediata del estado del sistema.
 
-<img src="./../assets/personalViewTransports.png" alt="Mockups" width="700">
-
-**Lista de Transportes:**  
-Visualiza todos los medios de transporte monitoreados por el sistema.
-
-<img src="./../assets/personalViewsTransport.png" alt="Mockups" width="700">
-
-**Detalle de Transporte:**  
-Presenta información específica del vehículo y sus condiciones ambientales registradas.
+<img src="../assets/web-mockup-inicio.png" alt="Mockup Inicio Dashboard Web Application KairoLabs" width="700">
 
 ---
 
-### 🔹 Gestión de Sedes e Instituciones
+**Ver establecimientos**
 
-<img src="./../assets/entidadesAddEstablishment.png" alt="Mockups" width="700">
+Este mockup presenta la visualización y gestión de la red operativa. Incluye tarjetas resumen para total de sedes, hospitales, almacenes y otros tipos de establecimiento, además de un filtro por nombre o ciudad.
 
-**Agregar Establecimiento:**  
-Permite a entidades registrar nuevas sedes o almacenes dentro del sistema.
+La tabla central organiza información por nombre, ubicación, tipo y estado activo. Los badges visuales facilitan identificar rápidamente el tipo de sede y su condición operativa, apoyando tareas de supervisión institucional.
 
-<img src="./../assets/entidadesEstablisments.png" alt="Mockups" width="700">
-
-**Listado de Establecimientos:**  
-Muestra todas las sedes asociadas a una institución.
-
-<img src="./../assets/entidadEstablishmentInfo.png" alt="Mockups" width="700">
-
-**Información del Establecimiento:**  
-Detalle completo de una sede específica, incluyendo estado y dispositivos vinculados.
+<img src="../assets/web-mockup-ver-establecimientos.png" alt="Mockup Ver Establecimientos Web Application KairoLabs" width="700">
 
 ---
 
-### 🔹 Perfil y Configuración
+**Agregar establecimiento**
 
-<img src="./../assets/entidadEditProfile.png" alt="Mockups" width="700">
+La pantalla de agregar establecimiento permite registrar nuevos centros operativos dentro de la red. El mockup conserva la navegación lateral y presenta un formulario claro para nombre, tipo, ciudad, región y distrito.
 
-**Editar Perfil Entidades:**  
-Permite actualizar información institucional y datos de contacto.
+El bloque principal utiliza una tarjeta amplia con jerarquía centrada para reforzar la acción de registro. El botón naranja de registrar establecimiento marca la acción principal y mantiene consistencia con la identidad visual de KairoLabs.
 
-<img src="./../assets/personalEditProfile.png" alt="Mockups" width="700">
-
-**Editar Perfil Personal:**  
-Pantalla para modificar datos del usuario operativo.
-
-<img src="./../assets/entidadProfileBasic.png" alt="Mockups" width="700">
-
-**Perfil Básico:**  
-Vista de información estándar de la cuenta institucional.
-
-<img src="./../assets/entidadProfilePremiun.png" alt="Mockups" width="700">
-
-**Perfil Premium:**  
-Muestra beneficios adicionales según el plan contratado.
+<img src="../assets/web-mockup-agregar-establecimiento.png" alt="Mockup Agregar Establecimiento Web Application KairoLabs" width="700">
 
 ---
 
-### 🔹 Planes y Pagos
+**Asignar operador**
 
-<img src="./../assets/planes.png" alt="Mockups" width="700">
+El mockup de asignación de operador presenta una interacción enfocada en vincular personal calificado con establecimientos activos. La pantalla divide la información en dos bloques: operadores y establecimientos.
 
-**Planes:**  
-Presenta las opciones de suscripción disponibles con sus características diferenciadas.
+La selección visual resalta tanto el operador como la sede elegida, y el botón de confirmación permite cerrar la acción con claridad. Esta composición reduce ambigüedad y favorece una asignación rápida dentro de procesos administrativos.
 
-<img src="./../assets/pagarPlan.png" alt="Mockups" width="700">
-
-**Pagar Plan:**  
-Pantalla destinada al proceso de pago y activación del servicio.
-
-<img src="./../assets/cancelarPlan.png" alt="Mockups" width="700">
-
-**Cancelar Plan:**  
-Permite gestionar la cancelación de suscripción de manera controlada.
-
-<img src="./../assets/confirmarCancelar.png" alt="Mockups" width="700">
-
-**Confirmación de Cancelación:**  
-Modal de validación para evitar acciones accidentales.
+<img src="../assets/web-mockup-asignar-operador.png" alt="Mockup Asignar Operador Web Application KairoLabs" width="700">
 
 ---
 
-### 🔹 Gestión Operativa y Supervisión
+**Mapa de establecimientos**
 
-<img src="./../assets/entidadMap.png" alt="Mockups" width="700">
+La vista de mapa permite ubicar geográficamente las sedes registradas. El mockup combina una lista lateral de establecimientos con un mapa visual que muestra puntos por ciudad o ubicación.
 
-**Mapa de Sedes:**  
-Visualización geográfica de establecimientos para supervisión centralizada.
+Esta pantalla fortalece la supervisión multi-sede, ya que permite entender distribución territorial, consultar establecimientos específicos y relacionar el estado de operación con su ubicación geográfica.
 
-<img src="./../assets/entidadDeviceInfo.png" alt="Mockups" width="700">
-
-**Información de Dispositivo (Entidad):**  
-Detalle técnico de sensores asociados a la institución.
-
-<img src="./../assets/personalNoStablishment.png" alt="Mockups" width="700">
-
-**Sin Establecimiento:**  
-Pantalla que informa cuando el usuario aún no tiene sedes registradas.
+<img src="../assets/web-mockup-mapa-establecimientos.png" alt="Mockup Mapa de Establecimientos Web Application KairoLabs" width="700">
 
 ---
 
-En conjunto, estos mockups consolidan la identidad visual de KairoLabs dentro de la aplicación web, garantizando coherencia estética, claridad funcional y una experiencia optimizada para ambos segmentos de usuarios. Cada pantalla ha sido diseñada para cumplir un objetivo específico dentro del flujo operativo del sistema, reforzando la usabilidad, la organización y la eficiencia en el monitoreo de condiciones ambientales.
+**Elige un plan**
+
+La pantalla de selección de plan muestra las opciones disponibles para la cuenta: Básico, Profesional y Premium. El plan profesional se diferencia mediante borde y color naranja, indicando una alternativa recomendada o destacada.
+
+Cada tarjeta resume precio y beneficios principales, permitiendo comparar rápidamente las opciones antes de continuar. El mockup también contempla acciones diferenciadas como cancelar plan, comenzar ahora o contactar ventas.
+
+<img src="../assets/web-mockup-elige-plan.png" alt="Mockup Elige un Plan Web Application KairoLabs" width="700">
+
+---
+
+**Perfil usuario**
+
+El perfil de usuario centraliza datos de cuenta e información institucional. El mockup muestra nombre, correo, entidad, DNI, cargo y plan actual, además de una acción clara para editar datos o actualizar el plan.
+
+El bloque superior en azul oscuro refuerza la jerarquía del perfil y muestra información de horario, útil para usuarios operativos o gestores. La distribución de campos permite lectura rápida y facilita auditoría de datos personales.
+
+<img src="../assets/web-mockup-perfil.png" alt="Mockup Perfil Usuario Web Application KairoLabs" width="700">
+
+---
+
+**Perfil edición**
+
+La pantalla de edición activa los campos principales del perfil y presenta acciones de guardar o cancelar. Esta separación entre modo lectura y modo edición evita cambios accidentales y permite que el usuario confirme explícitamente sus modificaciones.
+
+El diseño mantiene la misma navegación lateral y estructura visual, asegurando continuidad con el resto de la aplicación. Los campos editables se organizan en dos columnas, lo que facilita modificar nombre, entidad, correo y contraseña sin perder claridad.
+
+<img src="../assets/web-mockup-edicion-perfil.png" alt="Mockup Edicion de Perfil Web Application KairoLabs" width="700">
+
+---
+
+En conjunto, estos mockups consolidan la experiencia visual de la Web Application de KairoLabs. La interfaz prioriza navegación persistente, acciones claras, estados activos reconocibles y módulos administrativos enfocados en la gestión de establecimientos, operadores, planes y perfil. Esto permite validar una experiencia coherente, funcional y alineada con el monitoreo operativo del producto.
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
-Los User Flow Diagrams de la aplicación web de KairoLabs representan la visualización estructurada de los recorridos que realizan los usuarios dentro del sistema para cumplir objetivos específicos. Estos diagramas permiten comprender la secuencia de acciones, decisiones y transiciones entre pantallas, facilitando el análisis de la experiencia de usuario y la validación de la lógica de navegación implementada.
+Los User Flow Diagrams de la Web Application de KairoLabs representan los recorridos principales que realiza el usuario dentro del sistema. Estos diagramas permiten visualizar decisiones, rutas alternativas y conexiones entre pantallas, asegurando que cada proceso tenga una secuencia clara y coherente.
 
-El diseño de los flujos está basado en los objetivos principales de cada tipo de usuario, asegurando que cada recorrido sea claro, eficiente y coherente con su rol dentro del sistema. De esta manera, se optimiza la interacción, se reducen pasos innecesarios y se mejora la usabilidad general de la plataforma.
+A diferencia del wireflow general, los user flows se enfocan en tareas específicas. Cada flujo permite validar si el usuario puede completar una acción concreta, como autenticarse, navegar por módulos, gestionar establecimientos, asignar operadores, revisar el perfil o consultar la red operativa desde el dashboard.
 
-Los User Flow Diagrams cumplen una función fundamental en el proceso de diseño, ya que permiten:
+Estos diagramas ayudan a:
 
-- Visualizar el camino completo desde el ingreso hasta la acción final.
-- Identificar puntos de decisión dentro del sistema.
-- Validar la estructura de navegación.
-- Detectar posibles mejoras en la experiencia.
-- Garantizar coherencia entre mockups y funcionalidad.
-- Asegurar una experiencia diferenciada por tipo de usuario.
-
-En KairoLabs, los flujos están organizados principalmente en torno a procesos clave como autenticación y edición de perfil, tanto para Entidades como para Personal Operativo. Estos recorridos representan acciones esenciales dentro del uso cotidiano de la plataforma.
+- Identificar puntos de decisión dentro de cada proceso.
+- Validar continuidad entre pantallas.
+- Reducir pasos innecesarios.
+- Detectar rutas de retorno o confirmación.
+- Asegurar que la navegación responda a objetivos reales del usuario.
+- Relacionar mockups y funcionalidades esperadas.
 
 ---
 
-### 🔹 User Flow – Login Entidades
+### 🔹 User Flow 1 – Autenticación, registro, planes y dashboard
 
-<img src="./../assets/userFlowLoginEntidades.png" alt="User Flow" width="700">
+Este flujo describe el acceso inicial a la plataforma. El recorrido inicia en la pantalla de login, donde el usuario decide si ya cuenta con una cuenta o necesita registrarse. Si no tiene cuenta, pasa al formulario de registro y selecciona su rol.
 
-Este flujo describe el proceso de inicio de sesión para usuarios pertenecientes al perfil de entidades (instituciones de salud). El recorrido inicia desde la pantalla de acceso, continúa con la validación de credenciales y finaliza en el acceso al panel principal.
+El diagrama contempla dos rutas principales: el gestor puede pasar por la selección de plan, mientras que el personal debe validar el código de entidad. Ambas rutas conducen finalmente al dashboard, garantizando que el sistema adapte la experiencia según el tipo de usuario.
 
-El diagrama permite visualizar:
+<img src="../assets/web-userflow-autenticacion.png" alt="User Flow Autenticacion Registro Planes y Dashboard KairoLabs" width="700">
 
-- Ingreso de credenciales.
-- Validación del sistema.
-- Acceso exitoso al dashboard institucional.
-- Manejo de posibles errores de autenticación.
-
-Este flujo garantiza seguridad, control de acceso y separación de roles dentro de la plataforma.
+Este flujo valida que la entrada al sistema sea ordenada, diferenciada por rol y conectada con las condiciones necesarias para acceder al panel principal.
 
 ---
 
-### 🔹 User Flow – Login Personal
+### 🔹 User Flow 2 – Dashboard y navegación principal
 
-<img src="./../assets/userFlowLoginPersonal.png" alt="User Flow" width="700">
+Este flujo representa la navegación desde el dashboard hacia los módulos clave del sistema. Desde el panel principal, el gestor puede acceder a ver establecimientos, asignar operador, agregar establecimiento, mapa y planes.
 
-Este diagrama representa el proceso de autenticación para el personal operativo. El flujo sigue una estructura similar al de entidades, pero dirigido a usuarios encargados del monitoreo diario y la gestión técnica de dispositivos.
+La estructura permite comprobar que el dashboard funciona como centro de control operativo. Cada acción principal conduce a una pantalla específica, reduciendo la dependencia de rutas ocultas y facilitando el acceso rápido a funciones recurrentes.
 
-El recorrido incluye:
+<img src="../assets/web-userflow-dashboard.png" alt="User Flow Dashboard y Navegacion Principal KairoLabs" width="700">
 
-- Pantalla de inicio de sesión.
-- Validación de datos.
-- Acceso al panel operativo.
-- Gestión de posibles errores o credenciales incorrectas.
-
-Este flujo asegura que únicamente usuarios autorizados puedan acceder a funciones de monitoreo y administración técnica.
+Este flujo valida que la navegación principal mantenga coherencia con la barra lateral y que el usuario pueda desplazarse entre módulos sin perder contexto.
 
 ---
 
-### 🔹 User Flow – Editar Perfil Entidades
+### 🔹 User Flow 3 – Gestión de establecimientos
 
-<img src="./../assets/userFlowEditarPerfilEntidades.png" alt="User Flow" width="700">
+Este diagrama muestra el proceso de consulta, búsqueda, registro y ubicación de establecimientos. El usuario inicia desde el dashboard, accede al módulo de establecimientos y puede filtrar la información o registrar un nuevo centro operativo.
 
-Este flujo describe el proceso mediante el cual los usuarios institucionales pueden modificar su información de perfil. El recorrido inicia desde el panel principal y conduce a la sección de configuración de cuenta.
+Después del registro, el flujo permite visualizar el establecimiento en el mapa o retornar al listado actualizado. Esta estructura asegura continuidad entre gestión administrativa y supervisión geográfica de la red.
 
-Incluye:
+<img src="../assets/web-userflow-gestion-establecimientos.png" alt="User Flow Gestion de Establecimientos KairoLabs" width="700">
 
-- Acceso a la sección de perfil.
-- Visualización de datos actuales.
-- Edición de información.
-- Confirmación de cambios.
-- Actualización exitosa del sistema.
-
-Este flujo garantiza que las instituciones puedan mantener su información actualizada de manera segura y controlada.
+El flujo valida que las tareas de alta, búsqueda y visualización de establecimientos estén conectadas de forma lógica dentro de la aplicación.
 
 ---
 
-### 🔹 User Flow – Editar Perfil Personal
+### 🔹 User Flow 4 – Asignación de operador
 
-<img src="./../assets/userFlowEditarPerfilPersonal.png" alt="User Flow" width="700">
+El flujo de asignación de operador describe cómo el gestor vincula personal operativo con una sede. Desde el dashboard, el usuario accede al módulo de asignación, selecciona un operador y elige el establecimiento correspondiente.
 
-Este diagrama representa el proceso de actualización de datos para usuarios del perfil personal operativo. El recorrido es similar al de entidades, pero adaptado a las funcionalidades disponibles para este tipo de usuario.
+El diagrama incluye una validación de datos antes de confirmar la asignación. Si los datos no son válidos, el flujo retorna a la revisión; si la selección es correcta, se confirma la relación entre operador y sede.
 
-El flujo contempla:
+<img src="../assets/web-userflow-asignacion-operador.png" alt="User Flow Asignacion de Operador KairoLabs" width="700">
 
-- Acceso al perfil.
-- Modificación de datos personales.
-- Validación de información.
-- Confirmación de cambios.
-
-Este proceso mejora la autonomía del usuario y mantiene la integridad de la información dentro del sistema.
+Este proceso garantiza que la asignación operativa tenga un punto de control antes de ejecutarse, reduciendo errores administrativos.
 
 ---
 
-En conjunto, los User Flow Diagrams permiten validar la estructura lógica de la aplicación web, asegurando que cada acción del usuario tenga una ruta clara y definida dentro del sistema. Estos diagramas fortalecen la planificación del diseño, mejoran la coherencia entre pantallas y garantizan una experiencia de usuario organizada, intuitiva y alineada con los objetivos funcionales de KairoLabs.
+### 🔹 User Flow 5 – Perfil, planes y suscripción
+
+Este flujo representa la gestión del perfil y la actualización de suscripción. Desde el dashboard, el usuario accede a su perfil, donde puede editar datos o actualizar el plan activo.
+
+Si decide cambiar de plan, el sistema conduce a la pantalla de selección de suscripción y luego retorna al perfil con la información actualizada. Esta ruta permite vincular configuración personal, estado de cuenta y gestión comercial en una misma experiencia.
+
+<img src="../assets/web-userflow-perfil.png" alt="User Flow Perfil Planes y Suscripcion KairoLabs" width="700">
+
+El flujo valida que el usuario pueda mantener sus datos actualizados y modificar su plan sin salir del contexto de cuenta.
+
+---
+
+### 🔹 User Flow 6 – Monitoreo operativo desde dashboard
+
+Este flujo muestra cómo el usuario consulta la red operativa desde el dashboard. El recorrido inicia con la revisión de establecimientos y puede continuar hacia el mapa si se requiere información de ubicación.
+
+El diagrama contempla una decisión: si el usuario necesita ubicación, accede al mapa de establecimientos; si no, puede retornar al dashboard. Esta ruta permite supervisar sedes y volver al centro operativo sin generar navegación innecesaria.
+
+<img src="../assets/web-userflow-monitoreo-operativo.png" alt="User Flow Monitoreo Operativo KairoLabs" width="700">
+
+Este flujo valida la relación entre indicadores operativos, listado de establecimientos y vista geográfica, fortaleciendo el monitoreo general del sistema.
+
+---
+
+En conjunto, los User Flow Diagrams permiten confirmar que la Web Application de KairoLabs mantiene recorridos claros para autenticación, navegación, gestión de sedes, asignación de operadores, perfil, suscripción y monitoreo operativo. Estos flujos refuerzan la coherencia entre pantallas y aseguran que cada tarea principal cuente con una ruta definida.
 
 ## 4.5. Web Applications Prototyping
 
-En esta etapa se ha desarrollado un prototipo interactivo de alta fidelidad utilizando **Figma**, con el objetivo de validar la experiencia de usuario (UX) y la interfaz (UI) de la plataforma KairoLabs. Este prototipo permite simular de manera precisa la navegación real, las transiciones de estado y la interacción con los dashboards de telemetría, asegurando que los flujos de trabajo diseñados para el personal operativo y las entidades de salud sean intuitivos y libres de fricciones operativas.
+En esta etapa se implementó el prototipo interactivo de la Web Application de KairoLabs en **Figma**, conectando las pantallas principales en un flujo continuo y ordenado. El prototipo permite validar la navegación desde el acceso inicial hasta la edición de perfil, pasando por registro, dashboard, gestión de establecimientos, asignación de operador, mapa, selección de plan y perfil de usuario.
 
-<img src="../assets/Prototyping.png" alt="Visualización del Prototipo" style="max-width: 100%; height: auto;"/>
+La secuencia del prototipo sigue el recorrido numérico de las pantallas diseñadas, lo que facilita evaluar la continuidad entre mockups y comprobar que las acciones principales del usuario mantengan una ruta clara dentro de la aplicación.
 
-La simulación abarca desde el flujo de autenticación hasta la gestión avanzada de alertas críticas, permitiendo testear la jerarquía visual y la efectividad del sistema de etiquetado antes de pasar a la fase de desarrollo.
+<img src="../assets/web-application-prototype.png" alt="Prototipo interactivo Web Application KairoLabs" width="700">
 
-> [Ver video del prototipo en Figma](https://drive.google.com/drive/folders/1i6KZDtYcAT-HQNS06tekE2Z9jYt_wBFw?usp=sharing)
+El prototipo permite revisar la experiencia completa de navegación antes de pasar a implementación, asegurando coherencia visual, consistencia en la estructura de módulos y correspondencia con los wireflows y user flows definidos previamente.
+
+> [Ver prototipo interactivo en Figma](https://www.figma.com/proto/fFGcLQGnLVFJOYDHAIwktD/Untitled?node-id=49-17&t=BzflcHXXl3OzPg6e-0&scaling=contain&content-scaling=fixed&page-id=3%3A2&starting-point-node-id=49%3A17)
 
 ## 4.6. Domain-Driven Software Architecture
 
@@ -1306,7 +1193,7 @@ La simulación abarca desde el flujo de autenticación hasta la gestión avanzad
 
 En esta sección se presenta el Design-Level EventStorming realizado para el sistema KairoLabs. A través de esta actividad, se identificaron detalladamente los eventos de dominio, comandos, actores, políticas y vistas que conforman cada Bounded Context, desde la ingesta de telemetría IoT hasta la gestión de cumplimiento regulatorio. El resultado permite visualizar la dinámica interna de la solución y la interacción entre sus componentes, facilitando un entendimiento profundo del dominio farmacéutico y garantizando una arquitectura reactiva capaz de mitigar riesgos críticos en tiempo real.
 
-<img src="../assets/Design-Level EventStorming.jpg"/>
+<img src="../assets/design-level-event-storming.jpg"/>
 
 Link del miro: 
 
@@ -1338,7 +1225,7 @@ A continuación, se presenta el diagrama de componentes para la API Application 
 
 El diagrama de clases de **KairoLabs** constituye la piedra angular del diseño orientado a objetos (SOOD) de la plataforma. Ha sido estructurado bajo principios de **Sólida Arquitectura** y **Alta Cohesión**, permitiendo modelar la complejidad del ecosistema IoT farmacéutico y garantizando la integridad de los datos en entornos de misión crítica.
 
-<img src="../assets/KairoLabs - class diagram.jpg" alt="Class Diagram de KairoLabs" style="max-width: 100%; height: auto;"/>
+<img src="../assets/kairolabs-class-diagram.jpg" alt="Class Diagram de KairoLabs" style="max-width: 100%; height: auto;"/>
 
 ---
 
@@ -1382,7 +1269,7 @@ Para soportar la sostenibilidad del modelo de negocio, la clase **Subscriptions*
 
 El diseño del esquema de base de datos de **KairoLabs** representa la infraestructura de persistencia robusta necesaria para garantizar la integridad y trazabilidad de los datos en el sector salud. El modelo ha sido normalizado siguiendo los estándares de la **Tercera Forma Normal (3NF)** para eliminar la redundancia y asegurar la consistencia transaccional durante el procesamiento de telemetría IoT masiva.
 
-<img src="../assets/KairoLabs - database_diagram.png" alt="Database Diagram de KairoLabs" style="max-width: 100%; height: auto;"/>
+<img src="../assets/kairolabs-database-diagram.png" alt="Database Diagram de KairoLabs" style="max-width: 100%; height: auto;"/>
 
 ---
 
