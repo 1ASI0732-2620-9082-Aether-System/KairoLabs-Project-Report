@@ -1,2270 +1,1052 @@
 # Capítulo V: Product Implementation
 
-En este capítulo se presenta el proceso de implementación y despliegue de los productos digitales que conforman KairoLabs. Se documentan las decisiones relacionadas con la configuración del entorno de desarrollo, el control de versiones, las convenciones de código y la configuración utilizada para desplegar los diferentes componentes de la solución.
+En este capítulo se presenta la implementación y el despliegue de los productos digitales que conforman **KairoLabs**, desarrollados por el equipo **Aether System** durante el **Sprint 1** del ciclo académico **2026-20** (curso 1ASI0732 – Diseño de Experimentos de Ingeniería de Software).
 
-Asimismo, se presentan las evidencias correspondientes al desarrollo incremental del producto durante cuatro Sprints, considerando la Landing Page, la Frontend Web Application y los Web Services RESTful. Cada incremento se encuentra respaldado mediante registros de desarrollo, evidencias visuales, repositorios, despliegues y resultados obtenidos durante el ciclo de implementación.
+Se documenta la configuración del entorno de desarrollo, la gestión del código fuente, las convenciones de codificación y la configuración de despliegue. Luego se presentan las evidencias de implementación de cada producto: **Landing Page**, **Frontend Web Application**, **Native-Mobile Application** (primer incremento) y **RESTful API**, junto con el Acuerdo de Servicio SaaS, la documentación de la API y los insights de colaboración del equipo.
 
-La solución se encuentra organizada en diferentes productos de software que trabajan en conjunto: una Landing Page orientada a comunicar la propuesta de valor de KairoLabs, una Web Application desarrollada para soportar la operación de los usuarios y una RESTful API encargada de gestionar la lógica de negocio y persistencia de información.
+Todos los repositorios del producto se encuentran en la organización de GitHub [`1ASI0732-2620-9082-Aether-System`](https://github.com/1ASI0732-2620-9082-Aether-System).
+
+| Producto | URL pública | Repositorio |
+| :--- | :--- | :--- |
+| Landing Page | https://landing-page-kairolabs.vercel.app | [`KairoLabs-Landing-Page`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Landing-Page) |
+| Frontend Web Application | https://kairo-labs-frontend.vercel.app | [`KairoLabs-Frontend`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend) |
+| Native-Mobile Application (incremento 1) | Ejecución local (`npm run dev`) | [`KairoLabs-Mobile`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Mobile) |
+| RESTful API (Swagger UI) | https://medi-track-sensor-platform.onrender.com/swagger/index.html | [`KairoLabs-Platform`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform) |
+| Project Report | — | [`KairoLabs-Project-Report`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Project-Report) |
 
 ---
 
 ## 5.1. Software Configuration Management
 
-La Gestión de Configuración de Software permite mantener organizados y controlados los diferentes artefactos que forman parte de KairoLabs durante su ciclo de desarrollo.
-
-En el proyecto se utilizan herramientas de gestión, diseño, desarrollo, documentación, control de versiones y despliegue que permiten mantener trazabilidad entre los cambios realizados por los integrantes del equipo.
-
-Las decisiones de configuración buscan asegurar que todos los miembros utilicen entornos y convenciones compatibles, reduciendo problemas durante la integración de funcionalidades y facilitando la evolución de los diferentes productos digitales.
-
----
+La gestión de configuración de software permite que los cinco integrantes del equipo trabajen sobre entornos, herramientas y convenciones comunes, manteniendo la trazabilidad de los cambios realizados sobre cada producto. En esta sección se describen las herramientas utilizadas, la estrategia de control de versiones, las convenciones de estilo y la configuración de despliegue.
 
 ### 5.1.1. Software Development Environment Configuration
 
-A continuación, se describen los principales productos de software empleados durante el desarrollo de KairoLabs. Las herramientas se organizan de acuerdo con la actividad del ciclo de vida en la cual son utilizadas.
+A continuación se presentan los productos de software utilizados por el equipo, organizados según la actividad del ciclo de vida en la que intervienen. Esta información permite que los integrantes actuales y futuros reproduzcan el entorno de trabajo.
 
 **Project Management**
 
-**Trello**
-
-Trello se utiliza como herramienta principal para organizar las actividades correspondientes a los diferentes Sprints. Mediante tableros se distribuyen las User Stories y Work Items según estados como pendiente, en proceso, revisión y terminado.
-
-Esta herramienta permite mantener visibilidad sobre el avance del equipo y facilita la asignación de actividades entre los integrantes.
-
-Referencia: https://trello.com/
-
-**Google Meet**
-
-Google Meet se utiliza para realizar reuniones de coordinación, Sprint Planning, revisiones de avance y otras sesiones que requieren comunicación sincrónica entre los integrantes.
-
-Referencia: https://meet.google.com/
-
----
+| Herramienta | Propósito en KairoLabs | Referencia |
+| :--- | :--- | :--- |
+| **Trello** | Gestión del Product Backlog y del Sprint Backlog mediante el tablero *KairoLabs — Product Backlog* con las columnas Product Backlog, Ready, In Progress y Done. | https://trello.com/ |
+| **GitHub Organization** | Organización `1ASI0732-2620-9082-Aether-System` que centraliza los cinco repositorios del producto. | https://github.com/1ASI0732-2620-9082-Aether-System |
+| **Google Meet** | Reuniones síncronas del equipo (planificación, revisión de avance y coordinación de entregables). | https://meet.google.com/ |
 
 **Requirements Management**
 
-**Google Docs**
-
-Google Docs se emplea como herramienta complementaria para redactar, revisar y coordinar información relacionada con requisitos y documentación antes de consolidarla dentro del Project Report.
-
-Su capacidad de edición colaborativa permite que diferentes integrantes puedan realizar observaciones y modificaciones durante el proceso.
-
-Referencia: https://docs.google.com/
-
-**UXPressia**
-
-UXPressia se utiliza para representar artefactos relacionados con investigación y experiencia de usuario, entre ellos User Personas, Journey Maps, Empathy Maps e Impact Mapping.
-
-Referencia: https://uxpressia.com/
-
----
+| Herramienta | Propósito en KairoLabs | Referencia |
+| :--- | :--- | :--- |
+| **Trello** | Registro de User Stories (US01–US78), Technical Stories (TS01–TS12) y Spikes (SP01–SP05) con su prioridad y Story Points. | https://trello.com/ |
+| **UXPressia** | Elaboración de User Personas, Empathy Maps, Journey Maps e Impact Mapping. | https://uxpressia.com/ |
+| **Miro** | As-Is y To-Be Scenario Mapping y EventStorming. | https://miro.com/ |
 
 **Product UX/UI Design**
 
-**Figma**
-
-Figma se emplea para elaborar wireframes, mock-ups y prototipos interactivos de la Landing Page y Web Application.
-
-La herramienta facilita el diseño colaborativo y permite validar la distribución visual de las interfaces antes de iniciar su implementación.
-
-Referencia: https://www.figma.com/
-
-**Miro**
-
-Miro se utiliza como pizarra colaborativa para la construcción y organización de artefactos asociados con el dominio y la arquitectura del proyecto.
-
-Dentro de KairoLabs fue utilizado para actividades relacionadas con EventStorming y la identificación de elementos del dominio.
-
-Referencia: https://miro.com/
-
-**Lucidchart**
-
-Lucidchart se emplea para la creación de diagramas como Wireflows, User Flows, diagramas UML y Database Diagrams.
-
-Referencia: https://www.lucidchart.com/
-
----
+| Herramienta | Propósito en KairoLabs | Referencia |
+| :--- | :--- | :--- |
+| **Figma** | Wireframes, mock-ups y prototipos de la Landing Page y la Web Application. | https://www.figma.com/ |
+| **Lucidchart** | Wireflows, User Flows, diagramas C4, diagramas de clases y de base de datos. | https://www.lucidchart.com/ |
 
 **Software Development**
 
-**Visual Studio Code**
+| Herramienta / Tecnología | Producto | Propósito |
+| :--- | :--- | :--- |
+| **Visual Studio Code** | Todos | Editor principal para HTML, CSS, JavaScript, Vue y Markdown. |
+| **HTML5, CSS3 y JavaScript (ES6+)** | Landing Page, Mobile | Estructura, estilos e interacción del sitio público y de la versión mobile-first. |
+| **Bootstrap 5.3 + Bootstrap Icons** | Landing Page | Grid responsive, componentes de navegación e iconografía. |
+| **Matter.js 0.19** | Landing Page | Animación física de los elementos decorativos del footer. |
+| **Vue.js 3 + Vite** | Web Application, Mobile | Framework SPA de la Web App y herramienta de construcción / servidor de desarrollo. |
+| **PrimeVue 4, PrimeIcons y PrimeFlex** | Web Application | Biblioteca de componentes UI (toasts, diálogos, selects) e iconografía. |
+| **Vue Router 5 y Pinia 3** | Web Application | Enrutamiento por bounded context y gestión de estado (`*.store.js`). |
+| **Axios** | Web Application | Cliente HTTP para consumir la RESTful API. |
+| **vue-i18n** | Web Application | Internacionalización español / inglés. |
+| **Chart.js + vue-chartjs** | Web Application | Gráficos de tendencias del Centro de Control. |
+| **Leaflet + OpenStreetMap** | Web Application | Mapa de establecimientos. |
+| **C# / ASP.NET Core (Kestrel)** | RESTful API | Implementación de los Web Services RESTful. |
+| **Entity Framework Core** | RESTful API | ORM para el acceso a datos. |
+| **MySQL (Filess.io)** | RESTful API | Base de datos relacional del backend. |
+| **Git** | Todos | Control de versiones distribuido. |
+| **Node.js / npm** | Web Application, Mobile | Gestión de dependencias y ejecución de scripts (`npm run dev`, `npm run build`). |
 
-Visual Studio Code se utiliza como editor para el desarrollo y mantenimiento de diferentes artefactos del proyecto.
+**Software Testing**
 
-Permite trabajar con tecnologías como HTML5, CSS3, JavaScript, Vue.js y archivos Markdown.
-
-Referencia: https://code.visualstudio.com/
-
-**HTML5, CSS3 y JavaScript**
-
-Estas tecnologías se utilizan principalmente en la implementación de la Landing Page.
-
-HTML5 define la estructura semántica del contenido, CSS3 controla la presentación visual y JavaScript permite incorporar interacciones dinámicas.
-
-**Vue.js 3**
-
-Vue.js 3 se utiliza como framework principal para la construcción de la Frontend Web Application de KairoLabs.
-
-Su arquitectura basada en componentes permite reutilizar elementos de interfaz y mantener una estructura organizada.
-
-Referencia: https://vuejs.org/
-
-**PrimeVue**
-
-PrimeVue se utiliza como biblioteca de componentes para complementar la Web Application desarrollada con Vue.js.
-
-Referencia: https://primevue.org/
-
-**Vue Router**
-
-Vue Router permite administrar las diferentes rutas y vistas que conforman la Web Application.
-
-**Pinia**
-
-Pinia se utiliza para gestionar el estado global de la aplicación frontend.
-
-**Axios**
-
-Axios facilita la comunicación entre la Web Application y los servicios proporcionados por la RESTful API.
-
-**vue-i18n**
-
-La aplicación incorpora vue-i18n para ofrecer soporte de internacionalización en español e inglés.
-
-**ASP.NET Core**
-
-ASP.NET Core se utiliza para implementar los Web Services RESTful que soportan la lógica de negocio de KairoLabs.
-
-Referencia: https://dotnet.microsoft.com/apps/aspnet
-
-**C#**
-
-C# es el lenguaje principal empleado para implementar el backend de la solución.
-
-Referencia: https://dotnet.microsoft.com/languages/csharp
-
-**Entity Framework Core**
-
-Entity Framework Core permite gestionar el acceso a datos desde los servicios desarrollados en ASP.NET Core.
-
-Referencia: https://learn.microsoft.com/ef/core/
-
-**PostgreSQL**
-
-PostgreSQL se utiliza como sistema gestor de base de datos relacional para almacenar la información utilizada por KairoLabs.
-
-La instancia utilizada por el backend se encuentra alojada mediante Filess.io.
-
-**Git**
-
-Git se utiliza como sistema distribuido de control de versiones para registrar y administrar los cambios realizados en el código fuente.
-
-Referencia: https://git-scm.com/
-
-**GitHub**
-
-GitHub funciona como plataforma central para alojar los repositorios del proyecto y coordinar el trabajo mediante ramas, commits y merges.
-
-Referencia: https://github.com/
-
----
+| Herramienta | Propósito |
+| :--- | :--- |
+| **Swagger UI** | Pruebas manuales de los endpoints publicados (opción *Try it out*). |
+| **Postman** | Pruebas de solicitudes HTTP durante la integración Web App ↔ API. |
+| **Modo demo del frontend (`VITE_USE_MOCKS=true`)** | Base de datos en memoria (`mock-database.js`) para probar la Web App sin depender del backend. |
+| **Chrome / Edge DevTools (Device Mode)** | Validación responsive en resoluciones de smartphone, tablet y desktop. |
 
 **Software Deployment**
 
-**Vercel**
-
-Vercel se utiliza para desplegar la Landing Page y la Frontend Web Application.
-
-Los proyectos se encuentran vinculados con sus respectivos repositorios de GitHub, permitiendo actualizar automáticamente los despliegues cuando se incorporan cambios a las ramas configuradas.
-
-Referencia: https://vercel.com/
-
-**Render**
-
-Render se utiliza para desplegar la RESTful API desarrollada con ASP.NET Core.
-
-El servicio mantiene el backend disponible públicamente y permite configurar variables de entorno necesarias para establecer la conexión con la base de datos.
-
-Referencia: https://render.com/
-
-**Filess.io**
-
-Filess.io se utiliza para alojar la base de datos PostgreSQL utilizada por el backend de KairoLabs.
-
-Las credenciales necesarias para establecer la conexión se configuran mediante variables de entorno en Render.
-
----
+| Herramienta | Propósito |
+| :--- | :--- |
+| **Vercel** | Hosting de la Landing Page (sitio estático) y de la Web Application (build de Vite). Despliegue automático al hacer push a la rama de producción. |
+| **GitHub Pages** | Publicación alternativa de la Landing Page (entorno `github-pages`). |
+| **Render** | Hosting de la RESTful API como Web Service con runtime Docker. |
+| **Filess.io** | Hosting de la base de datos relacional del backend. |
 
 **Software Documentation**
 
-**Swagger / OpenAPI**
-
-Swagger se utiliza para generar la documentación interactiva de los Web Services RESTful.
-
-Permite visualizar las operaciones disponibles, métodos HTTP, rutas, parámetros y estructuras de request y response.
-
-Referencia: https://swagger.io/
-
-**Markdown**
-
-Markdown se utiliza para desarrollar el Project Report dentro del repositorio de documentación del proyecto.
-
-Este formato permite mantener la documentación bajo control de versiones y facilitar su posterior exportación.
-
-Referencia: https://www.markdownguide.org/
+| Herramienta | Propósito |
+| :--- | :--- |
+| **Markdown + GitHub** | Redacción del Project Report bajo control de versiones (`report/*.md`). |
+| **Swagger / OpenAPI 3.0** | Documentación interactiva de la RESTful API (`MediTrack Sensor API v1`). |
+| **README.md por repositorio** | Instrucciones de ejecución de cada producto. |
 
 ---
 
 ### 5.1.2. Source Code Management
 
-En esta sección se establece el medio y esquema de organización utilizado por el equipo para realizar el seguimiento y control de las modificaciones efectuadas sobre el código fuente de KairoLabs. Para ello, se utiliza **GitHub** como plataforma de control de versiones y repositorio colaborativo.
+El equipo utiliza **GitHub** como plataforma de control de versiones. Todos los productos se alojan en la organización pública:
 
-La organización pública utilizada por el proyecto es:
+**Organización:** https://github.com/1ASI0732-2620-9082-Aether-System
 
-`1ASI0732-2610-9082-TBL-KairoLabs`
+![Organización Aether System en GitHub](../assets/chapter-5/gh-organizacion.png)
 
-Asimismo, el equipo aplica **GitFlow** como workflow de control de versiones, **Conventional Commits** para la escritura de mensajes de commit y **Semantic Versioning** para identificar las diferentes versiones liberadas de los productos.
+*Figura 5.1.2-1. Organización `1ASI0732-2620-9082-Aether-System` con los repositorios de KairoLabs.*
 
-Los productos que conforman KairoLabs se encuentran distribuidos en repositorios independientes, permitiendo mantener una separación clara entre documentación, Landing Page, Frontend Web Application y Web Services.
-
-| Producto | Repositorio |
-| :--- | :--- |
-| **Project Report** | https://github.com/1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Project-Report.git |
-| **Landing Page** | https://github.com/1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Landing-Page.git |
-| **Frontend Web Application** | https://github.com/1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Frontend.git |
-| **Web Services** | https://github.com/1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Backend.git |
-
-**Project Report**
-
-El repositorio `KairoLabs-Project-Report` contiene la documentación académica y técnica del proyecto. En este repositorio se mantiene el informe elaborado en Markdown, junto con las imágenes, diagramas, evidencias de implementación y demás recursos utilizados durante el ciclo de vida del producto.
-
-**Landing Page**
-
-El repositorio `KairoLabs-Landing-Page` contiene la implementación del sitio web público utilizado para presentar la propuesta de valor de KairoLabs. Incluye la estructura HTML, estilos CSS, scripts JavaScript y recursos multimedia correspondientes a las diferentes secciones de la página.
-
-**Frontend Web Application**
-
-El repositorio `KairoLabs-Frontend` contiene la implementación de la aplicación web desarrollada con Vue.js. En este repositorio se organizan las vistas, componentes, rutas, servicios, gestión de estado y lógica de interacción de la plataforma.
-
-**Web Services**
-
-El repositorio `KairoLabs-Backend` contiene la RESTful API implementada mediante ASP.NET Core y C#. Incluye la lógica de negocio, acceso a datos, autenticación, persistencia y los endpoints correspondientes a los diferentes Bounded Contexts de KairoLabs.
+| Producto | Repositorio | Rama por defecto | Contenido |
+| :--- | :--- | :---: | :--- |
+| **Project Report** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Project-Report | `main` | Informe en Markdown (`report/`), imágenes y evidencias (`assets/`). |
+| **Landing Page** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Landing-Page | `main` | Sitio estático: `index.html`, `css/`, `js/`, `Imagenes/`, `Videos/`. |
+| **Frontend Web Application** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend | `master` | SPA en Vue 3 organizada por bounded contexts (`iam`, `establishment`, `monitoring`, `logistics`, `subscriptions`, `shared`). |
+| **Native-Mobile Application** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Mobile | `main` | Primer incremento mobile-first (Vite + HTML/CSS/JS). |
+| **RESTful API** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform | `main` | Repositorio destinado al código fuente del backend ASP.NET Core. |
 
 **GitFlow Workflow**
 
-El equipo utiliza GitFlow como estrategia para organizar el desarrollo colaborativo. Este flujo permite mantener separadas las funcionalidades en desarrollo de las versiones estables del producto, facilitando la integración progresiva de cambios.
+El equipo aplica **GitFlow** (Driessen, 2010) para separar el trabajo en curso de las versiones estables:
 
-Las ramas principales utilizadas son:
-
-| Rama | Descripción |
+| Rama | Uso |
 | :--- | :--- |
-| **`main`** | Representa la versión estable del producto preparada para producción. |
-| **`develop`** | Funciona como rama de integración donde se incorporan las funcionalidades completadas antes de preparar una nueva versión. |
+| `main` / `master` | Versión estable y desplegada. Vercel publica en producción cada cambio integrado en esta rama. |
+| `develop` | Rama de integración. Recibe las *feature branches* terminadas antes de promoverlas a `main`. |
+| `feature/<nombre>` | Desarrollo aislado de una funcionalidad o capítulo. Se crea desde `develop` y vuelve a `develop` mediante merge o Pull Request. |
+| `release/<versión>` | Preparación de una versión (por ejemplo `release/1.0.0`) antes de integrarla a `main`. |
+| `hotfix/<descripción>` | Corrección urgente sobre `main`, que luego se integra también a `develop`. |
 
-Además, se utilizan ramas de soporte:
+En el repositorio del informe se aplicó este flujo con una rama por capítulo (`feature/chapter-1` … `feature/chapter-5`), integradas a `develop` y luego a `main` (por ejemplo, el Pull Request #1 `feature/chapter4 → main`).
 
-| Tipo de rama | Convención | Ejemplo |
-| :--- | :--- | :--- |
-| **Feature Branch** | `feature/<nombre-descriptivo>` | `feature/login-view` |
-| **Release Branch** | `release/<version>` | `release/1.0.0` |
-| **Hotfix Branch** | `hotfix/<descripcion>` | `hotfix/login-validation` |
+![Ramas del repositorio del informe](../assets/chapter-5/gh-report-branches.png)
 
-Las ramas `feature/*` se crean a partir de `develop` para implementar funcionalidades específicas sin afectar directamente la rama de integración.
-
-Ejemplos utilizados durante el proyecto:
-
-`feature/login-view`
-
-`feature/profile`
-
-`feature/subscriptions`
-
-`feature/monitoring`
-
-`feature/establishments`
-
-Una vez completada y revisada una funcionalidad, los cambios se integran nuevamente en `develop`.
-
-Las ramas `release/*` se utilizan para preparar una versión antes de integrarla en `main`.
-
-Ejemplo:
-
-`release/1.0.0`
-
-Las ramas `hotfix/*` se utilizan para resolver errores críticos identificados en versiones estables del producto.
-
-Ejemplo:
-
-`hotfix/login-validation`
+*Figura 5.1.2-2. Ramas `main`, `develop` y `feature/chapter-*` del repositorio `KairoLabs-Project-Report`.*
 
 **Conventional Commits**
 
-Los mensajes de commit siguen la especificación **Conventional Commits**, con el objetivo de mantener un historial de cambios uniforme, comprensible y trazable.
+Los mensajes de commit siguen la especificación **Conventional Commits 1.0.0**:
 
-La estructura utilizada es:
+```text
+<type>(<scope>): <description>
 
-`<type>(<scope>): <description>`
+[body opcional]
+```
 
-Los tipos considerados por el equipo son los siguientes:
-
-| Tipo | Uso |
-| :--- | :--- |
-| `feat` | Incorporación de una nueva funcionalidad. |
-| `fix` | Corrección de errores o comportamientos inesperados. |
-| `docs` | Modificaciones relacionadas con documentación. |
-| `style` | Cambios de presentación que no alteran la lógica del sistema. |
-| `refactor` | Reestructuración del código existente sin modificar su comportamiento externo. |
-| `test` | Incorporación o modificación de pruebas. |
-| `chore` | Tareas de configuración, mantenimiento o soporte. |
-
-Entre los mensajes registrados durante la evolución del proyecto se encuentran:
-
-`feat(profile): implement user profile management with editing capabilities`
-
-`feat(dashboard): refactor fetchDashboardData to improve error handling`
-
-`feat: connect control center to API and fix transport registration`
-
-`fix: register health entity in single POST /users call`
-
-`refactor(iam): align IAM bounded context with learning-center DDD pattern`
-
-`docs: add Sprint 4 details including planning, backlog, and collaboration insights`
-
-Estas convenciones permiten identificar rápidamente el propósito de cada modificación realizada en los repositorios.
+| Tipo | Uso | Ejemplo |
+| :--- | :--- | :--- |
+| `feat` | Nueva funcionalidad | `feat(landing): rebrand to KairoLabs with partner logos and scroll animations` |
+| `fix` | Corrección de errores | `fix(deploy): serve landing from repo root, not leftover public folder` |
+| `chore` | Configuración o mantenimiento | `chore: add Vercel static config so index.html is served at root` |
+| `docs` | Documentación | `docs: estudiante Rodrigo Oblitas` |
+| `refactor` | Reestructuración sin cambio de comportamiento | `refactor(iam): align IAM bounded context with learning-center DDD pattern` |
+| `style` | Cambios de formato o estilos sin lógica | `style(landing): improve responsive layout` |
+| `test` | Pruebas | `test(iam): add sign-in flow scenarios` |
 
 **Semantic Versioning**
 
-Para identificar las diferentes versiones liberadas del producto se utiliza **Semantic Versioning**, empleando la estructura:
+Las versiones liberadas de cada producto se identifican con **Semantic Versioning 2.0.0** (`MAJOR.MINOR.PATCH`):
 
-`MAJOR.MINOR.PATCH`
+- **MAJOR:** cambios incompatibles (por ejemplo, un cambio de contrato de la API).
+- **MINOR:** nuevas funcionalidades compatibles (por ejemplo, un nuevo módulo de la Web App).
+- **PATCH:** correcciones sin cambios funcionales.
 
-Cada componente representa un tipo diferente de modificación:
+Las versiones se publican mediante *tags* sobre `main` (`v1.0.0`, `v1.1.0`, `v1.1.1`). El Project Report mantiene además su propio registro de versiones (1.01, 1.02, …) en el `README.md` del repositorio.
 
-- **MAJOR:** se incrementa cuando se introducen cambios incompatibles con versiones anteriores.
-- **MINOR:** se incrementa cuando se incorporan nuevas funcionalidades manteniendo compatibilidad con la versión actual.
-- **PATCH:** se incrementa cuando se realizan correcciones de errores o mejoras menores.
-
-Ejemplos de versiones:
-
-`v1.0.0`
-
-`v1.1.0`
-
-`v1.1.1`
-
-La utilización conjunta de GitHub, GitFlow, Conventional Commits y Semantic Versioning permite mantener trazabilidad sobre la evolución de cada producto, facilita la integración del trabajo realizado por los diferentes integrantes y reduce conflictos durante el desarrollo colaborativo.
+---
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-En este apartado se definen los estándares de codificación y las convenciones adoptadas por el equipo para garantizar la legibilidad, mantenibilidad y consistencia del código fuente de KairoLabs.
-
-Estas convenciones se aplican a los diferentes productos de software desarrollados durante el proyecto, incluyendo la Landing Page, la Frontend Web Application y los Web Services.
-
-Como regla transversal, toda la nomenclatura técnica utilizada en el código fuente se redacta en **inglés**, incluyendo nombres de variables, funciones, métodos, clases, componentes, archivos y comentarios.
+Toda la nomenclatura técnica (variables, funciones, clases, componentes, archivos y comentarios de código) se escribe en **inglés**. El contenido visible para el usuario se escribe en español y se traduce al inglés mediante i18n.
 
 **Principios generales**
 
-Las siguientes reglas se aplican de manera transversal a los diferentes lenguajes y tecnologías utilizadas dentro del proyecto:
+- Nombres descriptivos que expresen la responsabilidad del elemento.
+- Indentación de 2 espacios en HTML, CSS, JavaScript y Vue; 4 espacios en C#.
+- Evitar duplicación: lógica reutilizable en servicios, stores o componentes compartidos.
+- Comentarios solo cuando aclaran una decisión no evidente.
+- Separación de responsabilidades por capa (`domain`, `application`, `infrastructure`, `presentation`).
 
-- Los nombres técnicos deben escribirse en inglés.
-- Los nombres de variables, funciones, clases y componentes deben ser descriptivos y representar claramente su responsabilidad.
-- Se debe evitar la duplicación innecesaria de código.
-- Se prioriza la creación de funciones, componentes y servicios reutilizables.
-- Se mantiene una estructura consistente dentro de cada repositorio.
-- El código debe mantener una indentación uniforme.
-- Los comentarios deben utilizarse únicamente cuando sean necesarios para aclarar una parte de la lógica.
-- Se busca mantener las responsabilidades de cada elemento claramente separadas.
+**HTML** (referencia: [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html))
 
-**HTML**
+- Declarar `<!DOCTYPE html>` y el idioma (`<html lang="es">`).
+- Etiquetas y atributos en minúsculas, valores entre comillas dobles.
+- Etiquetas semánticas: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
+- Atributo `alt` en todas las imágenes y `aria-label` en controles sin texto (por ejemplo, el botón de menú de la versión móvil).
+- Cada sección de la Landing tiene un `id` usado por la navegación (`#tecnologia`, `#sectores`, `#planes`, `#contacto`).
 
-HTML5 se utiliza principalmente para definir la estructura de la Landing Page.
-
-Las principales convenciones adoptadas son:
-
-- Utilizar HTML5 como estándar de marcado.
-- Mantener etiquetas y atributos escritos en minúsculas.
-- Utilizar comillas dobles para los valores de los atributos.
-- Priorizar el uso de etiquetas semánticas.
-- Incorporar el atributo `alt` en todas las imágenes.
-- Declarar `<!DOCTYPE html>` al inicio del documento.
-- Mantener una estructura jerárquica clara.
-- Evitar el uso excesivo de elementos `<div>` cuando existe una etiqueta semántica adecuada.
-
-Ejemplo:
-
-    <section class="monitoring-section">
-        <h2>Environmental Monitoring</h2>
-        <img src="sensor.png" alt="Environmental sensor">
-    </section>
-
-Las etiquetas semánticas utilizadas incluyen principalmente:
-
-`<header>`
-
-`<nav>`
-
-`<main>`
-
-`<section>`
-
-`<article>`
-
-`<footer>`
-
-Este criterio permite mantener una estructura HTML más comprensible y favorece la accesibilidad de la Landing Page.
+```html
+<section id="planes" class="pricing-section-premium">
+  <h2 data-i18n="plan_h2">Planes de Monitoreo</h2>
+</section>
+```
 
 **CSS**
 
-CSS se utiliza para controlar la presentación visual de la Landing Page y complementar los estilos de las interfaces web.
+- Clases en `kebab-case` con prefijo de componente cuando aplica (`site-header__bar`, `team-equipo-card__badge`, notación BEM).
+- Variables CSS en `:root` para los colores del design system (navy `#102635`, naranja `#f47a38`).
+- Diseño responsive con `@media` (mobile-first en `KairoLabs-Mobile`).
+- Evitar `!important` y selectores excesivamente específicos.
 
-Las principales convenciones utilizadas son:
+```css
+:root {
+  --ink: #102635;
+  --orange: #f47a38;
+  --radius: 24px;
+}
+```
 
-- Mantener una indentación uniforme.
-- Utilizar nombres descriptivos para las clases.
-- Mantener las clases y selectores escritos en inglés.
-- Evitar selectores excesivamente específicos.
-- Evitar el uso innecesario de `!important`.
-- Utilizar variables CSS para colores, tipografías y valores reutilizables.
-- Mantener cada propiedad en una línea independiente.
-- Agrupar las propiedades de forma coherente.
-- Utilizar nombres de clases consistentes con la función que representa cada componente.
+**JavaScript** (referencia: [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html))
 
-Ejemplo:
+- `camelCase` para variables y funciones, `PascalCase` para clases, `UPPER_SNAKE_CASE` para constantes.
+- `const` por defecto, `let` solo si hay reasignación; no se usa `var`.
+- Módulos ES (`import` / `export`) y `async/await` para llamadas HTTP.
 
-    :root {
-        --primary-color: #f37021;
-        --secondary-color: #112433;
-        --background-color: #ffffff;
-    }
+**Vue.js (Web Application)** (referencia: [Vue Style Guide](https://vuejs.org/style-guide/))
 
-    .monitoring-card {
-        padding: 16px;
-        border-radius: 8px;
-        background-color: var(--background-color);
-    }
+- Componentes *Single File Component* con `<script setup>`.
+- Archivos de vistas y componentes en `kebab-case` (`view-establishments.vue`, `control-center-panel.vue`).
+- Estructura por bounded context y capa:
 
-Las variables CSS permiten mantener consistencia con el Design System definido previamente para KairoLabs y facilitan la modificación global de determinados estilos.
+```text
+src/
+├── iam/                 # Identity & Access Management
+│   ├── application/     # iam.store.js (Pinia)
+│   ├── domain/          # entidades y comandos (sign-in.command.js)
+│   ├── infrastructure/  # iam-api.js, assemblers, guard, interceptor
+│   └── presentation/    # vistas y rutas
+├── establishment/
+├── monitoring/
+├── logistics/
+├── subscriptions/
+└── shared/              # layout, componentes comunes, base-api.js, mocks
+```
 
-**JavaScript**
+- Entidades en `*.entity.js`, *assemblers* en `*.assembler.js`, clientes HTTP en `*-api.js` y stores en `*.store.js`.
 
-JavaScript se utiliza principalmente para implementar comportamiento dinámico en la Landing Page y para complementar determinadas funcionalidades del Frontend Web Application.
+**C# / ASP.NET Core (RESTful API)** (referencia: [C# Coding Conventions – Microsoft](https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/coding-conventions))
 
-Las convenciones utilizadas son:
-
-- Variables y funciones en `camelCase`.
-- Clases y componentes en `PascalCase`.
-- Constantes globales en `UPPER_SNAKE_CASE`.
-- Utilizar `const` como declaración predeterminada.
-- Utilizar `let` únicamente cuando una variable requiera reasignación.
-- Evitar el uso de `var`.
-- Mantener nombres descriptivos.
-- Evitar funciones excesivamente extensas.
-- Separar responsabilidades cuando una función realiza múltiples operaciones.
-
-Ejemplo de constante:
-
-    const API_BASE_URL = '/api/v1';
-
-Ejemplo de función:
-
-    function fetchSensorData() {
-        // Implementation
-    }
-
-Ejemplo de nombres utilizados:
-
-`fetchSensorData`
-
-`loadEstablishments`
-
-`updateUserProfile`
-
-`validateCredentials`
-
-`API_BASE_URL`
-
-Estas convenciones facilitan la interpretación del código y permiten mantener uniformidad entre los diferentes integrantes del equipo.
-
-**Vue.js**
-
-La Frontend Web Application de KairoLabs se desarrolla utilizando Vue.js 3.
-
-Los componentes utilizan nombres descriptivos en `PascalCase`, relacionados directamente con la funcionalidad que representan.
-
-Ejemplos:
-
-`MonitoringView.vue`
-
-`EstablishmentsView.vue`
-
-`SubscriptionsView.vue`
-
-`UserProfile.vue`
-
-`DashboardView.vue`
-
-La estructura del frontend busca mantener separación entre vistas, componentes reutilizables, servicios, rutas y gestión de estado.
-
-La lógica que puede reutilizarse en diferentes vistas debe mantenerse fuera de los componentes específicos cuando corresponda.
-
-Asimismo, los componentes deben evitar concentrar demasiadas responsabilidades dentro de un único archivo.
-
-La navegación entre vistas se administra mediante Vue Router y el estado compartido de la aplicación se gestiona mediante Pinia.
-
-**C# / ASP.NET Core**
-
-Para los Web Services desarrollados con ASP.NET Core y C# se utilizan las convenciones habituales del ecosistema .NET.
-
-Las reglas principales son:
-
-- Clases en `PascalCase`.
-- Métodos en `PascalCase`.
-- Propiedades en `PascalCase`.
-- Interfaces en `PascalCase`, utilizando el prefijo `I`.
-- Variables locales en `camelCase`.
-- Parámetros en `camelCase`.
-- Uso de nombres descriptivos.
-- Mantener separación entre controladores, servicios, repositorios y entidades.
-- Mantener métodos con responsabilidades claramente definidas.
-
-Ejemplo:
-
-    public class DeviceService
-    {
-        public async Task<Device> GetDeviceByIdAsync(long deviceId)
-        {
-            // Implementation
-        }
-    }
-
-Ejemplo de interfaz:
-
-    public interface IDeviceRepository
-    {
-        Task<Device> GetByIdAsync(long deviceId);
-    }
-
-La utilización de `PascalCase` para clases, métodos y propiedades mantiene coherencia con las convenciones del lenguaje C#.
+- `PascalCase` para clases, métodos y propiedades; prefijo `I` en interfaces (`IDeviceRepository`).
+- `camelCase` para parámetros y variables locales.
+- Sufijo `Async` en métodos asíncronos.
+- Recursos de entrada y salida con sufijo `Resource` (`SignInResource`, `CreateNestedDeviceResource`).
 
 **RESTful API**
 
-Los endpoints implementados en la RESTful API siguen una estructura consistente basada en recursos.
+- Recursos en plural y minúsculas: `/api/v1/devices`, `/api/v1/transports`.
+- Rutas anidadas para expresar pertenencia: `/api/v1/establishments/{establishmentId}/devices`.
+- Atributos JSON en `snake_case` (`establishment_name`, `door_status`).
+- Verbos HTTP según la operación: `GET` (consultar), `POST` (crear), `PUT` (actualizar), `DELETE` (eliminar).
 
-Las rutas utilizan nombres en plural y minúsculas.
+**Gherkin**
 
-Ejemplos:
+Los criterios de aceptación se redactan con **Gherkin** (`Given / When / Then`), en Happy Path y Unhappy Path, tal como se especificó en el Capítulo III.
 
-`/api/v1/users`
-
-`/api/v1/devices`
-
-`/api/v1/establishments`
-
-`/api/v1/operators`
-
-`/api/v1/transports`
-
-`/api/v1/subscriptions`
-
-Los métodos HTTP se utilizan de acuerdo con la operación realizada:
-
-| Método | Uso |
-| :--- | :--- |
-| `GET` | Obtener uno o más recursos. |
-| `POST` | Crear nuevos recursos. |
-| `PUT` | Actualizar recursos existentes. |
-| `DELETE` | Eliminar recursos. |
-
-Ejemplos:
-
-`GET /api/v1/devices`
-
-`POST /api/v1/devices`
-
-`PUT /api/v1/devices/{id}/sensor-data`
-
-`DELETE /api/v1/establishments/{id}`
-
-Esta estructura permite mantener consistencia entre los diferentes Bounded Contexts implementados en el backend.
-
-**Organización de archivos y componentes**
-
-La organización de los archivos se mantiene de acuerdo con la responsabilidad de cada componente.
-
-En el Frontend Web Application, los archivos se distribuyen principalmente entre vistas, componentes, rutas, stores y servicios.
-
-Una estructura referencial es:
-
-    src/
-    ├── components/
-    ├── views/
-    ├── router/
-    ├── stores/
-    ├── services/
-    └── assets/
-
-En los Web Services, la organización responde a las responsabilidades correspondientes a la arquitectura implementada.
-
-Una estructura referencial es:
-
-    Backend/
-    ├── Controllers/
-    ├── Domain/
-    ├── Application/
-    ├── Infrastructure/
-    └── Persistence/
-
-Esta organización facilita la localización de archivos y permite que los integrantes del equipo puedan identificar rápidamente la ubicación de una funcionalidad.
-
-**Convenciones de control de versiones**
-
-Las convenciones de estilo del código se complementan con el uso de Conventional Commits definido en la sección anterior.
-
-Los mensajes deben ser breves, descriptivos y representar de manera clara el propósito de cada modificación.
-
-Ejemplos:
-
-`feat(profile): implement user profile management`
-
-`fix(auth): correct sign-in validation`
-
-`docs(report): update implementation evidence`
-
-`refactor(iam): reorganize bounded context structure`
-
-`style(landing): improve responsive layout`
-
-En conjunto, estas convenciones permiten mantener una base de código coherente entre los diferentes productos de KairoLabs, facilitan las revisiones realizadas por el equipo y reducen inconsistencias durante la integración de nuevas funcionalidades.
+---
 
 ### 5.1.4. Software Deployment Configuration
 
-La configuración de despliegue de KairoLabs define las plataformas, servicios y configuraciones utilizadas para publicar los diferentes componentes que conforman la solución desarrollada.
+Cada producto se despliega de forma independiente. Los repositorios de la Landing Page y de la Web Application están conectados a Vercel, que genera un despliegue de **Production** cada vez que se integra un cambio en la rama principal. La API se ejecuta en Render y persiste en una base de datos de Filess.io.
 
-Debido a que el producto está compuesto por una Landing Page, una Frontend Web Application y una RESTful API, cada componente cuenta con una configuración de despliegue independiente, permitiendo mantener una arquitectura modular y facilitar la actualización de cada servicio sin afectar al resto de componentes.
-
-La estrategia de despliegue utilizada permite integrar los repositorios alojados en GitHub con plataformas cloud, logrando automatizar la publicación de nuevas versiones cuando se incorporan cambios en las ramas configuradas.
-
-La infraestructura utilizada para el despliegue de KairoLabs se resume en la siguiente tabla:
-
-| Componente | Tecnología | Plataforma de despliegue | Estado |
-| :--- | :--- | :--- | :--- |
-| Landing Page | HTML5, CSS3, JavaScript | Vercel | Desplegado |
-| Frontend Web Application | Vue.js 3 | Vercel | Desplegado |
-| RESTful API | ASP.NET Core / C# | Render | Desplegado |
-| Base de datos | PostgreSQL | Filess.io | Configurada |
-
----
-
-## Landing Page Deployment
-
-La Landing Page de KairoLabs se encuentra desplegada utilizando la plataforma **Vercel**, la cual permite alojar aplicaciones frontend y sitios web estáticos mediante integración directa con repositorios GitHub.
-
-El despliegue se encuentra vinculado al repositorio:
-
-```text
-KairoLabs-Landing-Page
+```mermaid
+flowchart LR
+    U([Usuario]) --> L[Landing Page<br/>Vercel]
+    U --> M[Mobile App<br/>incremento 1]
+    L -- "Comienza ahora" --> W[Web Application<br/>Vue 3 · Vercel]
+    M -- "Comienza ahora" --> W
+    W -- "HTTPS / JSON<br/>Axios" --> A[RESTful API<br/>ASP.NET Core · Render]
+    A --> D[(Base de datos<br/>Filess.io)]
+    G[GitHub<br/>Aether System] -. push a main/master .-> L
+    G -. push a main/master .-> W
 ```
 
-La configuración utilizada es:
+*Figura 5.1.4-1. Arquitectura de despliegue de KairoLabs.*
 
-| Configuración | Valor |
-| :--- | :--- |
-| Plataforma | Vercel |
-| Tecnología | HTML5, CSS3 y JavaScript |
-| Repositorio | KairoLabs-Landing-Page |
-| Rama utilizada | main |
-| Tipo de despliegue | Automático mediante integración con GitHub |
+| Componente | Tecnología | Plataforma | URL | Rama | Configuración |
+| :--- | :--- | :--- | :--- | :---: | :--- |
+| Landing Page | HTML5, CSS3, JS, Bootstrap | Vercel (+ GitHub Pages) | https://landing-page-kairolabs.vercel.app | `main` | `vercel.json` con `outputDirectory: "."` y `cleanUrls: true` (sitio estático servido desde la raíz). |
+| Web Application | Vue 3 + Vite | Vercel | https://kairo-labs-frontend.vercel.app | `master` | Build `vite build`; `vercel.json` con *rewrite* `/(.*) → /index.html` para el enrutamiento SPA. |
+| Mobile (incremento 1) | Vite + HTML/CSS/JS | Local | `http://<ip-local>:5173` | `main` | `npm run dev` ejecuta `vite --host 0.0.0.0` para probar desde un smartphone en la misma red. |
+| RESTful API | ASP.NET Core | Render (Docker) | https://medi-track-sensor-platform.onrender.com | — | Web Service con Swagger UI publicado en `/swagger/index.html`. |
+| Base de datos | MySQL | Filess.io | — | — | Cadena de conexión inyectada como variable de entorno en Render. |
 
-La Landing Page permite presentar la propuesta de valor de KairoLabs, incluyendo información relacionada con la plataforma, tecnología utilizada, sectores objetivo, planes y medios de contacto.
+**Variables de entorno de la Web Application**
 
-La URL pública del despliegue es:
+La URL del backend no se escribe en el código: se define por ambiente en archivos `.env`, que Vite expone mediante `import.meta.env`.
 
-```text
-https://KairoLabs-sensor.vercel.app/
-```
-
-<p align="center">
-  <img src="../assets/landing-page-deployment.png" alt="Despliegue Landing Page KairoLabs" width="700"><br>
-  <em>Nota: Evidencia del despliegue de la Landing Page mediante Vercel.</em>
-</p>
-
----
-
-## Frontend Web Application Deployment
-
-La Frontend Web Application de KairoLabs se encuentra desarrollada utilizando **Vue.js 3** y desplegada mediante la plataforma **Vercel**.
-
-La aplicación frontend mantiene comunicación con la RESTful API mediante solicitudes HTTP utilizando Axios, permitiendo consumir los servicios implementados en el backend.
-
-El despliegue se encuentra conectado con el repositorio:
-
-```text
-KairoLabs-Frontend
-```
-
-La configuración utilizada es:
-
-| Configuración | Valor |
-| :--- | :--- |
-| Plataforma | Vercel |
-| Framework | Vue.js 3 |
-| Repositorio | KairoLabs-Frontend |
-| Rama utilizada | main |
-| Gestor de paquetes | npm |
-| Tipo de despliegue | Integración continua con GitHub |
-
-La aplicación web se encuentra disponible mediante:
-
-```text
-https://kairolabs-frontend.vercel.app/login
-```
-
-Durante la configuración del despliegue se utilizan variables de entorno para definir la URL del backend.
-
-La variable principal configurada es:
-
-```text
-VITE_API_BASE_URL
-```
-
-Esta variable permite modificar la dirección del servicio backend sin realizar cambios directamente dentro del código fuente.
-
-<p align="center">
-  <img src="../assets/frontend-deployment.png" alt="Despliegue Frontend Web Application KairoLabs" width="700"><br>
-  <em>Nota: Evidencia del despliegue de la Frontend Web Application.</em>
-</p>
-
----
-
-## RESTful API Deployment
-
-La RESTful API de KairoLabs fue implementada utilizando **ASP.NET Core** y **C#**, siendo responsable de manejar la lógica de negocio, comunicación con la base de datos y exposición de servicios utilizados por la aplicación frontend.
-
-El backend se encuentra desplegado mediante la plataforma **Render**.
-
-El repositorio asociado es:
-
-```text
-KairoLabs-Backend
-```
-
-La configuración utilizada es:
-
-| Configuración | Valor |
-| :--- | :--- |
-| Plataforma | Render |
-| Framework | ASP.NET Core |
-| Lenguaje | C# |
-| Tipo de servicio | Web Service |
-| Repositorio | KairoLabs-Backend |
-| Rama utilizada | main |
-
-La URL pública del servicio es:
-
-```text
-https://kairolabs-platform.onrender.com
-```
-
-Para la ejecución del servicio se configuran variables de entorno relacionadas con el ambiente de ejecución y la conexión con PostgreSQL.
-
-Las principales variables utilizadas son:
-
-```text
-ASPNETCORE_ENVIRONMENT
-
-ConnectionStrings__DefaultConnection
-```
-
-La utilización de variables de entorno evita almacenar información sensible dentro del repositorio del proyecto.
-
-<p align="center">
-  <img src="../assets/backend-deployment.png" alt="Despliegue RESTful API KairoLabs" width="700"><br>
-  <em>Nota: Evidencia del despliegue de la RESTful API mediante Render.</em>
-</p>
-
----
-
-## Database Deployment
-
-La solución utiliza **PostgreSQL** como sistema gestor de base de datos relacional para almacenar la información utilizada por KairoLabs.
-
-La base de datos se encuentra configurada mediante el servicio **Filess.io**, permitiendo la conexión remota desde la RESTful API desplegada en Render.
-
-La configuración principal es:
-
-| Configuración | Valor |
-| :--- | :--- |
-| Motor de base de datos | PostgreSQL |
-| Plataforma | Filess.io |
-| Acceso | Remoto mediante cadena de conexión |
-| ORM utilizado | Entity Framework Core |
-
-La conexión entre el backend y la base de datos se realiza mediante Entity Framework Core utilizando una cadena de conexión configurada como variable de entorno.
-
-De esta manera, los datos sensibles como credenciales y parámetros de conexión no son almacenados directamente dentro del código fuente.
-
-<p align="center">
-  <img src="../assets/database-deployment.png" alt="Base de Datos PostgreSQL KairoLabs" width="700"><br>
-  <em>Nota: Configuración de la base de datos PostgreSQL utilizada por KairoLabs.</em>
-</p>
-
----
-
-## Environment Configuration
-
-Para mantener una configuración segura y adaptable entre ambientes, KairoLabs utiliza variables de entorno durante el despliegue.
-
-Las variables principales utilizadas son:
-
-| Variable | Componente | Función |
+| Variable | `.env.development` | `.env.production` |
 | :--- | :--- | :--- |
-| `VITE_API_BASE_URL` | Frontend Web Application | Define la dirección pública de la RESTful API. |
-| `ConnectionStrings__DefaultConnection` | RESTful API | Permite establecer conexión con PostgreSQL. |
-| `ASPNETCORE_ENVIRONMENT` | RESTful API | Define el ambiente de ejecución del backend. |
+| `VITE_USE_MOCKS` | `true` (base de datos en memoria) | `false` |
+| `VITE_API_BASE_URL` | `http://localhost:5000/api/v1` | `https://medi-track-sensor-platform.onrender.com/api/v1` |
+| `VITE_IAM_ENDPOINT_PATH` | `/users` | `/users` |
+| `VITE_ESTABLISHMENT_ENDPOINT_PATH` | `/establishments` | `/establishments` |
+| `VITE_MONITORING_ENDPOINT_PATH` | `/devices` | `/devices` |
+| `VITE_LOGISTICS_ENDPOINT_PATH` | `/transports` | `/transports` |
+| `VITE_SUBSCRIPTIONS_ENDPOINT_PATH` | `/subscriptions` | `/subscriptions` |
 
-Esta estrategia permite modificar parámetros de configuración sin realizar cambios directamente en el código fuente.
+**Variables de entorno de la RESTful API (Render)**
 
----
+| Variable | Función |
+| :--- | :--- |
+| `ASPNETCORE_ENVIRONMENT` | Ambiente de ejecución del servicio. |
+| `ConnectionStrings__DefaultConnection` | Cadena de conexión hacia la base de datos de Filess.io. |
 
-## Deployment Architecture
+**Procedimiento de despliegue (Vercel)**
 
-La arquitectura de despliegue final de KairoLabs se representa de la siguiente manera:
-
-```text
-                         Usuario
-                            |
-                            |
-                    Landing Page
-                         Vercel
-                            |
-                            |
-             Frontend Web Application
-                         Vercel
-                            |
-                            |
-                    RESTful API
-                         Render
-                            |
-                            |
-                  PostgreSQL Database
-                       Filess.io
-```
-
-La separación de componentes permite mantener responsabilidades independientes:
-
-- La Landing Page gestiona la presentación pública del producto.
-- La Frontend Web Application proporciona la interfaz utilizada por los usuarios.
-- La RESTful API concentra la lógica de negocio y comunicación con datos.
-- La Base de Datos PostgreSQL almacena la información persistente del sistema.
-
-Esta configuración permite que cada componente pueda evolucionar y desplegarse de manera independiente, facilitando el mantenimiento y escalabilidad de KairoLabs.
-
-
-### 5.2.1. Sprint 1
-
-En este Sprint se desarrolló e implementó la primera versión de la **Landing Page de KairoLabs**, incluyendo su despliegue en un entorno accesible públicamente.
-
-El objetivo principal fue establecer la primera versión funcional de la presencia digital del producto, permitiendo presentar la propuesta de valor de KairoLabs, explicar su funcionamiento, mostrar sus principales características y comunicar la solución a los segmentos objetivo.
-
-Asimismo, durante este Sprint se desarrollaron actividades relacionadas con la definición de User Stories, entrevistas, User Personas, Journey Maps y el diseño de la experiencia visual del producto.
+1. Iniciar sesión en Vercel con la cuenta de GitHub e importar el repositorio (*Add New → Project*).
+2. Seleccionar el *framework preset*: **Other** para la Landing Page (estático) y **Vite** para la Web Application.
+3. Registrar las variables `VITE_*` en *Settings → Environment Variables* (solo Web Application).
+4. Confirmar *Deploy*. A partir de ese momento cada push a la rama principal genera un nuevo despliegue de producción, registrado por `vercel[bot]` en la pestaña *Deployments* del repositorio.
 
 ---
 
-#### Sprint Planning 1
+## 5.2. Product Implementation & Deployment
 
-A continuación se presenta el resumen del Sprint Planning Meeting realizado para el Sprint 1.
+### 5.2.1. Sprint Backlogs
+
+En esta sección se presenta el Sprint Backlog del **Sprint 1**, que corresponde al primer incremento del producto para el Sprint Review de la semana 4 (AVANCE 1). Las User Stories provienen del Product Backlog priorizado del Capítulo III y se gestionaron en Trello.
 
 | Sprint # | Sprint 1 |
 | :--- | :--- |
-| **Sprint Planning Background** |  |
-| **Date** | 15/04/2026 |
-| **Time** | 04:30 PM |
-| **Location** | Reunión virtual vía Google Meet |
-| **Prepared By** | Diaz Mendoza, Sebastian Victor Andre |
-| **Attendees** | Mallqui Vilca, Dhilsen Armil; Diaz Mendoza, Sebastian Victor Andre; Ramirez Escalante, Carlo Patricio; Oblitas Alcalde, Rodrigo; Dinklange Arevalo, Sandro |
-| **Sprint Goal & User Stories** |  |
-| **Sprint 1 Goal** | Our goal is to lay the groundwork for the project and launch the first version of the Landing Page. We believe this page will allow healthcare providers and pharmacy managers to better understand KairoLabs, which measures the status of medications in their storage environment. This will be confirmed once the Landing Page is live and contains relevant content for both target groups. |
-| **Sprint 1 Velocity** | 21 |
-| **Sum of Story Points** | 21 |
+| **Periodo** | 06/09/2026 – 30/09/2026 |
+| **Sprint 1 Goal** | Our focus is to deliver the first increment of the KairoLabs ecosystem for cycle 2026-20: the rebranded Landing Page, the Web Application authentication flow aligned with the new design system, and the first mobile-first version of the mobile app. We believe it delivers a clear and consistent entry point to KairoLabs for pharmacy managers and warehouse staff. This will be confirmed when the Landing Page and the Web Application are deployed on Vercel and the mobile version runs correctly on smartphone viewports. |
+| **Sum of Story Points** | 50 |
 
----
+**Tablero en Trello**
 
-#### Aspect Leaders and Collaborators
+![Sprint Backlog en Trello](../assets/chapter-5/sprint1-trello-product-backlog.png)
 
-En esta sección se detalla la matriz de liderazgo y colaboración para el Sprint 1. Cada aspecto representa una fase relevante de la entrega, donde se designa un líder (L) responsable de orientar el desarrollo del entregable y colaboradores (C) que apoyan en su ejecución.
+*Figura 5.2.1-1. Tablero KairoLabs — Product Backlog en Trello (columnas Product Backlog, Ready, In Progress y Done).*
 
-| Team Member (Last Name, First Name) | GitHub Username | Idea de Negocio y Bases | Diseño de App Web (Figma) | Contenido y Despliegue Landing | User Stories y Funciones | Análisis de Usuario y Needfinding |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Mallqui Vilca, Dhilsen Armil** | `Dhilsen18` | C | C | **L** | C | **L** |
-| **Diaz Mendoza, Sebastian Victor Andre** | `DiazDeveloper` | C | **L** | C | C | C |
-| **Ramirez Escalante, Carlo Patricio** | `Dhilsen18` | **L** | C | C | **L** | C |
-| **Oblitas Alcalde, Rodrigo** | `DiazDeveloper` | C | C | C | C | C |
-| **Dinklange Arevalo, Sandro** | `Dhilsen18` | C | C | C | C | C |
+**Enlace del tablero:** https://trello.com/invite/b/6aadc5316cf3b1b25172d115/ATTI62b2568d05f97578a9aaa820380a86ceF4D89A86/kairolabs-product-backlog
 
-**Sustento de los aspectos de liderazgo:**
-
-- **Mallqui Vilca, Dhilsen Armil – Contenido y Despliegue Landing / Análisis de Usuario:** lideró la implementación de la Landing Page y su configuración para el despliegue en Vercel. Asimismo, participó en el análisis de los usuarios objetivo y en la elaboración de los artefactos relacionados con User Personas y Journey Maps.
-
-- **Diaz Mendoza, Sebastian Victor Andre – Diseño de App Web (Figma):** lideró la organización visual de la propuesta, trabajando sobre los mock-ups y la definición de los elementos visuales utilizados como referencia para la implementación de la Landing Page.
-
-- **Ramirez Escalante, Carlo Patricio – Idea de Negocio y Bases / User Stories y Funciones:** lideró la conceptualización de la propuesta de negocio y la organización de las User Stories que sirvieron como base para la planificación del Sprint.
-
-- **Oblitas Alcalde, Rodrigo:** colaboró en las actividades de diseño, definición de funcionalidades y desarrollo de la Landing Page, participando en la integración de los diferentes elementos de la propuesta.
-
-- **Dinklange Arevalo, Sandro:** colaboró en las actividades de diseño, documentación y revisión de los artefactos desarrollados durante el Sprint.
-
----
-
-#### Sprint Backlog 1
-
-Durante el primer Sprint, el equipo tuvo como objetivo principal desarrollar la Landing Page de KairoLabs y establecer las bases iniciales de la aplicación web.
-
-Para la organización y gestión de las actividades se utilizó **Trello**, permitiendo dividir las User Stories en tareas manejables y asignarlas a los integrantes del equipo.
-
-El propósito de este Sprint fue construir una primera versión funcional de la Landing Page, asegurando que fuera atractiva, funcional y alineada con la propuesta de valor de KairoLabs.
-
-![Sprint Backlog 1](../assets/Sprint%20Backlog%201.png)
-
-**Enlace de Trello:**
-
-https://trello.com/invite/b/69e9e940d5d58b559007b0af/ATTIbc7fef21e3ae9af5f9b1524a8311a897E9406869/KairoLabs-sensor
-
-A continuación se presenta la descomposición de User Stories en tareas correspondientes al Sprint 1:
+**Sprint Backlog 1**
 
 | Sprint # | Sprint 1 | | | | | | |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- | :---: | :--- | :---: |
 | **User Story** | | **Work-Item / Task** | | | | | |
 | **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
-| US25 | Adaptación a dispositivos | T01 | Implementar diseño responsive | Configurar media queries y hacer la Landing Page adaptable a móviles, tablets y desktop. | 8 | Mallqui Vilca, Dhilsen Armil | Done |
-| US01 | Navegación clara | T02 | Desarrollar navbar sticky | Implementar barra de navegación fija con smooth scroll. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US06 | Mensaje principal claro | T03 | Implementar sección Hero | Desarrollar Hero Section con typing animation y tagline. | 5 | Mallqui Vilca, Dhilsen Armil | Done |
-| US13 | Presentación profesional | T04 | Diseñar mock-ups en Figma | Crear el diseño visual profesional de las diferentes secciones. | 10 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US13 | Presentación profesional | T05 | Aplicar Design System | Implementar colores, tipografía Outfit y elementos visuales. | 6 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US10 | Botón de contacto visible | T06 | Implementar CTAs | Añadir botones de contacto en navbar y Hero. | 2 | Oblitas Alcalde, Rodrigo | Done |
-| US11 | Acceso a contacto | T07 | Desarrollar formulario de contacto | Crear formulario con campos de nombre, empresa, email, teléfono y mensaje. | 4 | Oblitas Alcalde, Rodrigo | Done |
-| US21 | Información de monitoreo | T08 | Implementar dashboard IoT simulado | Desarrollar tarjetas con datos simulados de temperatura, humedad y luz. | 6 | Ramirez Escalante, Carlo Patricio | Done |
-| US02 | Acceso a sección de tecnología | T09 | Desarrollar sección Tecnología | Crear sección con explicación del sistema y features. | 4 | Ramirez Escalante, Carlo Patricio | Done |
-| US03 | Acceso a sectores | T10 | Desarrollar sección Sectores | Implementar cards de hospitales, distribución y farmacias. | 5 | Ramirez Escalante, Carlo Patricio | Done |
-| US16 | Contenido para almacenes | T11 | Redactar contenido segmento operativo | Escribir textos orientados a personal de almacén. | 3 | Dinklange Arevalo, Sandro | Done |
-| US17 | Contenido para entidades | T12 | Redactar contenido segmento gestores | Escribir textos orientados a entidades de salud. | 3 | Dinklange Arevalo, Sandro | Done |
-| US07 | Identificación del problema | T13 | Desarrollar sección Problema | Implementar floating cards con la problemática identificada. | 4 | Ramirez Escalante, Carlo Patricio | Done |
-| US04 | Información del equipo | T14 | Desarrollar sección Nosotros | Crear sección con misión, visión y equipo KairoLabs. | 4 | Dinklange Arevalo, Sandro | Done |
-| US22 | Incentivo a contacto | T15 | Implementar planes de suscripción | Desarrollar pricing cards con planes Básico, Profesional y Premium. | 5 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US15 | Coherencia visual | T16 | Implementar animaciones | Añadir reveal animations mediante IntersectionObserver. | 4 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US12 | Respuesta visual a interacción | T17 | Añadir efectos hover | Implementar transiciones y efectos en botones y cards. | 3 | Oblitas Alcalde, Rodrigo | Done |
-| US26 | Carga eficiente | T18 | Optimizar assets | Comprimir imágenes y optimizar la carga de fuentes. | 3 | Oblitas Alcalde, Rodrigo | Done |
-| US05 | Visualización de beneficios | T19 | Implementar sección Stats | Desarrollar contador animado con métricas clave. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US14 | Información estructurada | T20 | Organizar contenido | Estructurar las secciones en orden lógico y establecer una jerarquía visual. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| - | - | T21 | Configurar despliegue en Vercel | Conectar el repositorio y configurar el deployment automático. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| - | - | T22 | Definir User Stories | Documentar 27 User Stories con criterios de aceptación. | 6 | Ramirez Escalante, Carlo Patricio | Done |
-| - | - | T23 | Realizar entrevistas | Conducir entrevistas con ambos segmentos objetivo. | 8 | Ramirez Escalante, Carlo Patricio / Dinklange Arevalo, Sandro | Done |
-| - | - | T24 | Elaborar User Personas | Crear arquetipos basados en las entrevistas realizadas. | 4 | Dinklange Arevalo, Sandro | Done |
-| - | - | T25 | Crear Journey Maps | Mapear la experiencia de los usuarios. | 4 | Dinklange Arevalo, Sandro | Done |
+| US01 | Navegación clara | T01 | Rediseñar header y navegación | Barra de navegación fija con resaltado de la sección activa y selector ES/EN. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
+| US02 | Mensaje hero claro | T02 | Implementar hero de KairoLabs | Hero con video de fondo, tagline y CTA principal. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
+| US03 | Acceso a sección tecnología | T03 | Implementar sección Tecnología | Carrusel de capacidades, resultados esperados y video demostrativo. | 6 | Mallqui Vilca, Dhilsen Armil | Done |
+| US04 | Acceso a sectores objetivo | T04 | Implementar sección Sectores | Tarjetas para personal operativo de almacenes y gestores de farmacia. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US06 | Información del equipo | T05 | Actualizar sección Equipo | Tarjetas de los integrantes de Aether System. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US16 | Información de planes y precios | T06 | Implementar deck de planes | Planes Piloto, Básico, Profesional, Hospitalario y Premium. | 5 | Mallqui Vilca, Dhilsen Armil | Done |
+| US20 | Información de la empresa | T07 | Implementar sección Nosotros | Acordeón con misión, visión y equipo académico. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US21 | Botón de contacto visible | T08 | Enlazar CTAs a la plataforma | Botones "Comienza ahora" dirigidos a la Web Application. | 1 | Mallqui Vilca, Dhilsen Armil | Done |
+| US27 | Carga eficiente | T09 | Optimizar recursos y despliegue | Retiro del video de 62 MB y configuración estática de Vercel (`vercel.json`). | 2 | Mallqui Vilca, Dhilsen Armil | Done |
+| US26 | Adaptación responsive | T10 | Ajustar responsive de la Landing | Corrección del header y de las secciones en pantallas pequeñas. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US26 | Adaptación responsive | T11 | Construir versión mobile-first | Repositorio `KairoLabs-Mobile`: menú táctil, acordeón, carruseles deslizables y CTA a la Web App. | 8 | Oblitas Alcalde, Rodrigo | Done |
+| US29 | Pantalla de Login | T12 | Rediseñar vistas de autenticación | Login y registro con el design system navy/naranja y panel visual lateral. | 5 | Mallqui Vilca, Dhilsen Armil | Done |
+| US31 | Registro Sign Up operador/usuario | T13 | Registro de personal de almacén | Formulario con código de entidad de salud. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
+| US32 | Registro Sign Up entidad Admin | T14 | Registro de gestor de farmacia | Formulario con nombre de la entidad y paso a selección de plan. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
+| US30 | Inicio de sesión (Login) | T15 | Integrar sign-in con la API | Consumo de `POST /api/v1/users/sign-in` y persistencia de la sesión. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US34 | Protección de rutas privadas | T16 | Validar guard de autenticación | Redirección a `/login` cuando no existe sesión activa. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
+| US48 | Login diferenciado personal vs entidad | T17 | Redirección según rol | Home de entidad de salud u home de personal operativo según el rol. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| TS10 | Swagger/OpenAPI publish | T18 | Verificar API desplegada | Revisión de Swagger UI y ejecución de endpoints de lectura en producción. | 3 | Dinklange Arevalo, Sandro | Done |
+| — | Documentación | T19 | Capítulo I | Revisión de la introducción, 5W2H y Lean UX. | 6 | Diaz Mendoza, Sebastian Victor Andre | Done |
+| — | Documentación | T20 | Capítulo II | Actualización de entrevistas y análisis de requisitos. | 5 | Dinklange Arevalo, Sandro | Done |
+| — | Documentación | T21 | Capítulo III | User Stories, Product Backlog, To-Be Scenario Mapping e Impact Mapping. | 8 | Mallqui Vilca, Dhilsen Armil | Done |
+| — | Documentación | T22 | Capítulo IV | Documentación del diseño del producto. | 6 | Ramirez Escalante, Carlo Patricio | Done |
+| — | Documentación | T23 | Capítulo V | Evidencias de implementación, despliegue y documentación de la API. | 8 | Dinklange Arevalo, Sandro | Done |
 
 ---
-
-#### Development Evidence for Sprint Review
-
-Durante el Sprint 1, el equipo utilizó GitHub como sistema de control de versiones, siguiendo el flujo de trabajo GitFlow para asegurar una integración ordenada del código.
-
-La evidencia de desarrollo se concentra principalmente en el repositorio de la Landing Page, donde se registraron los cambios relacionados con la estructura, diseño, correcciones y preparación de la primera versión.
-
-**Repository:**
-
-`1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Landing-Page`
-
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `KairoLabs-Landing-Page` | `main` | `cf30ba5` | `feat: implement team section` | `Added specific content and layout for the startup team profiles.` | 19/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `e6420c0` | `chore: finalize landing page structure` | `Final adjustments to the HTML structure for the initial release.` | 12/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `965dc26` | `fix: resolve remaining layout issues` | `Ensured all sections are correctly aligned after final review.` | 11/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `03e62cb` | `fix: clean up code and remove errors` | `General debugging of CSS and HTML validation issues.` | 11/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `5d82cf0` | `docs: add project readme file` | `Initial documentation of the repository and project description.` | 11/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `4c8156b` | `feat: update landing page and design` | `Applied general style updates and design refinements for UX.` | 11/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `74dba14` | `chore: initial commit` | `Initial repository setup with base project files.` | 10/04/2026 |
-
-Estos commits evidencian la evolución de la Landing Page desde la configuración inicial del repositorio hasta la implementación de sus principales secciones, corrección de problemas visuales, incorporación de documentación y preparación de la primera versión desplegable.
-
----
-
-#### Execution Evidence for Sprint Review
-
-En esta sección se presenta la evidencia de la ejecución del Sprint 1, demostrando el cumplimiento del objetivo establecido y el despliegue de la Landing Page en un entorno de producción accesible.
-
-![Landing Page Evidence](../assets/Landing%20pAge%20EVIDENCE.png)
-
-**Enlace de la Landing Page:**
-
-https://KairoLabs-sensor.vercel.app/
-
-**Evidencia de despliegue mediante Vercel:**
-
-A continuación, se presenta la captura del dashboard de Vercel que confirma el despliegue exitoso de la Landing Page desde el repositorio oficial de GitHub.
-
-![Deploy Landing](../assets/Deploy%20Landing.jpeg)
-
-El resultado del Sprint permite disponer de una primera versión pública de KairoLabs en la que se presenta la propuesta de valor del producto y la información dirigida a sus segmentos objetivo.
-
----
-
-#### Services Documentation Evidence for Sprint Review
-
-Para el presente Sprint 1, el alcance se centró exclusivamente en la implementación y despliegue de la **Landing Page**, correspondiente a un sitio web estático.
-
-Por lo tanto, durante esta etapa no se desarrollaron servicios RESTful API.
-
-La documentación detallada de los endpoints mediante **OpenAPI (Swagger)** se incorporaría en los siguientes Sprints, una vez iniciada la fase de implementación de los Web Services.
-
----
-
-#### Software Deployment Evidence for Sprint Review
-
-El despliegue de la Landing Page se realizó utilizando Vercel y se configuró mediante el repositorio de GitHub correspondiente.
-
-**Paso 1: Agregar el proyecto**
-
-![Agregar proyecto](../assets/Agregar%20proyecto.png)
-
-**Paso 2: Agregar el repositorio**
-
-![Agregar repositorio](../assets/Agregar%20repositorio.png)
-
-**Paso 3: Realizar el deploy con HTML, CSS y JavaScript**
-
-![Deploy Landing](../assets/Deploy%20Landing.jpeg)
-
-La configuración permitió publicar la Landing Page en un entorno accesible mediante Internet y establecer una conexión entre el repositorio de GitHub y la plataforma de despliegue.
-
----
-
-#### Team Collaboration Insights during Sprint
-
-La implementación del Sprint 1 fue un esfuerzo conjunto que integró el desarrollo técnico de la Landing Page, la definición de la propuesta de valor, el diseño de la interfaz, la investigación de usuarios y la elaboración del reporte de ingeniería.
-
-El equipo aplicó un esquema de liderazgo compartido, distribuyendo responsabilidades entre los cinco integrantes de acuerdo con las principales áreas de trabajo del Sprint.
-
-**Mallqui Vilca, Dhilsen Armil — `Dhilsen18`**
-
-Participó principalmente en la implementación y despliegue de la Landing Page, además de colaborar en el análisis de usuarios. Sus actividades incluyeron la adaptación responsive, navegación, Hero, optimización de recursos y configuración del despliegue en Vercel.
-
-**Diaz Mendoza, Sebastian Victor Andre — `DiazDeveloper`**
-
-Participó principalmente en el diseño visual y la implementación de elementos relacionados con el Design System. Sus actividades incluyeron la elaboración de mock-ups, aplicación de la identidad visual, planes de suscripción y animaciones.
-
-**Ramirez Escalante, Carlo Patricio — `Dhilsen18`**
-
-Participó en la definición de la idea de negocio y User Stories, además de colaborar en la implementación de secciones relacionadas con tecnología, sectores, monitoreo y problemática.
-
-**Oblitas Alcalde, Rodrigo — `DiazDeveloper`**
-
-Participó en la implementación de elementos de interacción y contacto de la Landing Page, incluyendo CTAs, formulario de contacto, efectos hover y optimización de recursos.
-
-**Dinklange Arevalo, Sandro — `Dhilsen18`**
-
-Participó en la elaboración de contenido orientado a los segmentos objetivo, la sección institucional del equipo y actividades relacionadas con entrevistas, User Personas y Journey Maps.
-
-**Evidencia de contribuciones en el código de la Landing Page:**
-
-![Deploy Contributors del repositorio de la Landing Page](../assets/Deploy%20Contributors%20del%20repositorio%20de%20la%20Landing%20Page.png)
-
-**Evidencia de contribuciones en el reporte:**
-
-![Contributors del repositorio del informe](../assets/Contributors%20del%20repositorio%20del%20informe.png)
-
-Estas evidencias permiten mostrar la participación del equipo tanto en el repositorio correspondiente al código fuente de la Landing Page como en el repositorio destinado a la documentación del proyecto.
-
-### 5.2.2. Sprint 2
-
-En esta sección se registra y explica el avance en términos de producto y trabajo colaborativo para el **Sprint 2**. Durante esta iteración, el equipo pasó de la primera versión de la Landing Page a la implementación de la primera versión funcional de la **Web Application de KairoLabs**, desarrollada con Vue.js.
-
-El trabajo se organizó por bounded contexts, permitiendo avanzar en los módulos de autenticación, monitoreo, establecimientos, logística, suscripciones y perfil de usuario. Asimismo, se mantuvo la utilización de GitHub y GitFlow para organizar las ramas de desarrollo y posteriormente integrar los cambios.
-
----
-
-#### 5.2.2.1. Sprint Planning 2
-
-A continuación se presenta el resumen del Sprint Planning Meeting realizado para el Sprint 2.
-
-| Sprint # | Sprint 2 |
-| :--- | :--- |
-| **Sprint Planning Background** |  |
-| **Date** | 11/05/2026 |
-| **Time** | Según planificación del Sprint 2 |
-| **Location** | Reunión virtual |
-| **Prepared By** | Diaz Mendoza, Sebastian Victor Andre |
-| **Attendees** | Mallqui Vilca, Dhilsen Armil; Diaz Mendoza, Sebastian Victor Andre; Ramirez Escalante, Carlo Patricio; Oblitas Alcalde, Rodrigo; Dinklange Arevalo, Sandro |
-| **Sprint 2 – Review Summary** | Sprint 1 was very well coordinated; however, we failed to meet the requirements, resulting in a noticeable decrease in the quality of the content and the software product delivered during this sprint. The Landing Page was of good quality; however, the established requirements regarding commits and product development were not followed. Team members are aware of these errors thanks to feedback provided by the Product Owner. |
-| **Sprint 2 – Retrospective Summary** | The team admits that the development of the previous sprint was not fully aligned with the requested requirements. We recognize that the software products were correctly oriented in terms of the stated objectives; however, its implementation and development presented deficiencies. The Product Owner provided important support through constant feedback, which allowed the team to identify errors and make the necessary corrections to improve the quality of the product. |
-| **Sprint Goal & User Stories** |  |
-| **Sprint 2 Goal** | Our goal is to develop our first version of the frontend of our web application. We believe that this application will allow entity pharmacy administrators to manage data within the establishments belonging to the health entity, as well as its operators and devices. Likewise, operators will be able to manage the data received by the devices and transports according to the metrics received by them. |
-| **Sprint 2 Velocity** | 20 |
-| **Sum of Story Points** | 20 |
-
-Como acción de mejora derivada de la retrospectiva, durante el Sprint 2 se reforzó el uso de **GitFlow, Conventional Commits y las evidencias de trabajo en GitHub**. El resultado fue una primera versión funcional del frontend desplegada en Vercel, incorporando los principales módulos definidos para la aplicación.
-
----
-
-#### 5.2.2.2. Aspect Leaders and Collaborators
-
-En esta sección se presenta la matriz de liderazgo y colaboración para el Sprint 2. Cada aspecto corresponde a una actividad relevante del desarrollo del frontend y se identifica un líder (L) y los colaboradores (C) que participaron en la actividad.
-
-| Team Member (Last Name, First Name) | GitHub Username | Frontend Development | IAM Module | Subscriptions Module | Monitoring Module | Establishment Module | Logistics Module | Frontend UI/Design | Report & Documentation |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Mallqui Vilca, Dhilsen Armil** | `Dhilsen18` | C | C | **L** | **L** | **L** | C | C | C |
-| **Diaz Mendoza, Sebastian Victor Andre** | `DiazDeveloper` | C | **L** | C | C | C | **L** | C | C |
-| **Ramirez Escalante, Carlo Patricio** | `Dhilsen18` | **L** | C | C | C | C | C | C | **L** |
-| **Oblitas Alcalde, Rodrigo** | `DiazDeveloper` | C | C | C | C | C | **L** | **L** | C |
-| **Dinklange Arevalo, Sandro** | `Dhilsen18` | C | C | C | C | C | C | C | C |
-
-**Sustento de los aspectos de liderazgo:**
-
-- **Mallqui Vilca, Dhilsen Armil – Subscriptions, Monitoring y Establishment:** dirigió la implementación de los módulos de planes y suscripciones, monitoreo y establecimientos, participando en la construcción de las vistas, indicadores y elementos de interacción de cada módulo.
-
-- **Diaz Mendoza, Sebastian Victor Andre – IAM y Frontend UI/Design:** lideró la estructuración visual de la aplicación y participó en el módulo de autenticación, contribuyendo a la coherencia visual entre las diferentes vistas del frontend.
-
-- **Ramirez Escalante, Carlo Patricio – Frontend Development y Report & Documentation:** coordinó actividades de integración general del frontend y participó en la organización de la documentación correspondiente al Sprint.
-
-- **Oblitas Alcalde, Rodrigo – Logistics y Frontend UI/Design:** lideró las actividades relacionadas con logística y transportes, además de participar en la adaptación visual y responsive de los componentes.
-
-- **Dinklange Arevalo, Sandro:** colaboró en las actividades de implementación, revisión visual, documentación y pruebas funcionales de los diferentes módulos.
-
----
-
-#### 5.2.2.3. Sprint Backlog 2
-
-Durante el segundo Sprint, el equipo tuvo como objetivo principal desarrollar la primera versión funcional de la **Aplicación Web de KairoLabs**. Para organizar el trabajo se utilizó Trello, permitiendo dividir las User Stories en tareas manejables y asignarlas a los integrantes de acuerdo con las áreas funcionales del sistema.
-
-El propósito de este Sprint fue construir parcialmente la aplicación web, incorporando los principales módulos de monitoreo, autenticación, establecimientos, logística, suscripciones y elementos responsive.
-
-![Sprint Backlog 2](../assets/Sprint%20Backlog%202.png)
-
-**Enlace de Trello:**
-
-https://trello.com/invite/b/6a02a35d4f75f7ddabeabe1c/ATTIbbc3193b48f5acf5194c54a2233ca38e2EFFB77A/KairoLabs
-
-| Sprint # | Sprint 2 | | | | | | |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **User Story** | | **Work-Item / Task** | | | | | |
-| **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-001 | Crear widget de temperatura | Desarrollar componente visual para mostrar temperatura en tiempo real. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-003 | Mostrar timestamp de última lectura | Implementar visualización de fecha y hora de la última actualización del sensor. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US30 | Monitoreo de luz | TS-US30-001 | Crear widget de intensidad lumínica | Desarrollar componente visual para mostrar niveles de luz. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US42 | Identificación de desviaciones visuales | TS-US42-002 | Resaltar sensores críticos con colores de alerta | Aplicar indicadores visuales para sensores fuera de rango. | 3 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US33 | Identificación por ubicación | TS-US33-005 | Validar legibilidad de ubicaciones en móviles | Verificar la correcta visualización responsive de ubicaciones. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US25 | Adaptación a dispositivos | TS-US25-001 | Implementar media queries principales | Configurar estilos responsive para dashboard y módulos. | 5 | Mallqui Vilca, Dhilsen Armil | Done |
-| US25 | Adaptación a dispositivos | TS-US25-002 | Adaptar navbar para dispositivos móviles | Ajustar navegación responsive para smartphones y tablets. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US25 | Adaptación a dispositivos | TS-US25-007 | Realizar pruebas responsive en múltiples resoluciones | Validar funcionamiento visual en distintos tamaños de pantalla. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US28 | Visualización de sensores activos | TS-US28-005 | Integrar estilos responsive | Aplicar diseño adaptable al panel de sensores. | 3 | Oblitas Alcalde, Rodrigo | Done |
-| US30 | Monitoreo de luz | TS-US30-004 | Implementar indicador visual de rango seguro | Mostrar estado seguro o crítico de niveles lumínicos. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US34 | Estado general del sistema | TS-US34-002 | Mostrar total de sensores activos | Implementar contador general de sensores conectados. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US37 | Visualización de gráficos | TS-US37-001 | Crear gráfico de temperatura | Desarrollar gráfico dinámico de tendencias de temperatura. | 5 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US42 | Identificación de desviaciones visuales | TS-US42-001 | Crear lógica visual para valores fuera de rango | Implementar detección visual de valores críticos. | 4 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US28 | Visualización de sensores activos | TS-US28-007 | Validar visualización responsive de sensores | Verificar correcta adaptación responsive de tarjetas de sensores. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-006 | Validar visualización en dispositivos móviles | Probar visualización responsive del módulo de temperatura. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US34 | Estado general del sistema | TS-US34-004 | Implementar indicador general de estado | Mostrar estado global mediante indicadores visuales. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US42 | Identificación de desviaciones visuales | TS-US42-001 | Crear lógica visual para valores fuera de rango | Revisar funcionamiento de detección visual de alertas. | 4 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US30 | Monitoreo de luz | TS-US30-006 | Validar adaptación responsive del módulo | Validar adaptación responsive del widget lumínico. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US37 | Visualización de gráficos | TS-US37-002 | Diseñar estilos responsive para gráficos | Corregir problemas visuales y adaptación responsive de gráficos. | 3 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US28 | Visualización de sensores activos | TS-US28-003 | Mostrar nombre y estado del sensor | Implementar visualización de información principal de sensores. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US28 | Visualización de sensores activos | TS-US28-004 | Implementar indicador visual activo/inactivo | Mostrar estado activo o desconectado mediante colores e íconos. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US28 | Visualización de sensores activos | TS-US28-005 | Consumir datos mock de sensores | Integrar datos simulados para pruebas del dashboard. | 3 | Oblitas Alcalde, Rodrigo | Done |
-| US28 | Visualización de sensores activos | TS-US28-006 | Aplicar estilos al panel de sensores | Diseñar interfaz visual del módulo de sensores. | 3 | Oblitas Alcalde, Rodrigo | Done |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-002 | Mostrar valor actual en °C | Implementar lectura actual de temperatura con unidad. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-005 | Actualizar estilos visuales según rango | Aplicar estilos dinámicos según valores críticos o normales. | 3 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| US34 | Estado general del sistema | TS-US34-001 | Diseñar sección resumen del dashboard | Crear layout general del resumen del sistema. | 4 | Ramirez Escalante, Carlo Patricio | Done |
-| US33 | Identificación por ubicación | TS-US33-001 | Mostrar ubicación física de sensores | Implementar etiquetas de ubicación física de sensores. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US33 | Identificación por ubicación | TS-US33-002 | Diseñar etiqueta visual de ubicación | Crear estilos visuales para etiquetas de ubicación. | 2 | Ramirez Escalante, Carlo Patricio | Done |
-| US33 | Identificación por ubicación | TS-US33-003 | Implementar agrupación visual por ubicación | Agrupar sensores visualmente según su área física. | 3 | Ramirez Escalante, Carlo Patricio | Done |
-
----
-
-#### 5.2.2.4. Development Evidence for Sprint Review
-
-Durante el Sprint 2, el equipo utilizó **GitHub** como sistema de control de versiones, siguiendo la estrategia **GitFlow** para organizar el trabajo mediante branches asociadas a los diferentes bounded contexts.
-
-El desarrollo se concentró en el repositorio:
-
-`1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Frontend`
-
-![Development Evidence TB1](../assets/Development%20Evidence%20TB1.png)
-
-**Link del despliegue en Vercel:**
-
-https://kairolabs-frontend.vercel.app/login
-
-Los principales commits registrados durante el Sprint fueron:
-
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `KairoLabs-Frontend` | `feature/iam` | `385fda5` | `Merge branch 'feature/iam' into develop` | Integración del módulo IAM con autenticación y registro de usuarios. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/monitoring` | `fa859b5` | `feat(monitoring): finalize devices view with data integration and premium UI` | Vista de dispositivos con integración de datos y UI premium. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/monitoring` | `33911c5` | `feat(control-center): implement control center panel with KPI charts` | Panel de control central con gráficos KPI y visualización de datos. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/monitoring` | `7b10919` | `feat(monitoring): add dashboard styles and responsive design configuration` | Estilos del dashboard y configuración responsive. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/establishments` | `642bdf1` | `Merge branch 'feature/establishments' into develop` | Integración del módulo de gestión de establecimientos. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/establishments` | `d2a12e6` | `feat(establishments): rename and refactor establishment detail view` | Refactorización de la vista de detalle de establecimientos. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/logistics` | `8d2c1b8` | `Merge branch 'feature/logistics' into develop` | Integración del módulo de logística y transportes. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/subscriptions` | `4b851ae` | `feat: Implement plans selection view with plan management` | Vista de selección de planes con gestión de suscripción. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/profile` | `d0dc7f4` | `feat(profile): implement user profile management with editing capabilities` | Gestión de perfil de usuario con edición y UI mejorada. | 12/05/2026 |
-| `KairoLabs-Frontend` | `develop` | `327a143` | `feat: update routing, styles, and multi-language support` | Actualización de rutas, estilos y soporte multiidioma mediante vue-i18n. | 13/05/2026 |
-| `KairoLabs-Frontend` | `develop` | `f3d3b34` | `feat(vercel): add initial configuration for URL rewrites` | Configuración inicial de despliegue en Vercel. | 12/05/2026 |
-| `KairoLabs-Frontend` | `develop` | `1515e1a` | `feat(dashboard): refactor fetchDashboardData to improve error handling` | Mejora del manejo de errores en consumo de datos del dashboard. | 12/05/2026 |
-| `KairoLabs-Frontend` | `release/1.0.0` | `cc5b4f6` | `Merge branch 'release/1.0.0'` | Consolidación de release del Sprint 2 con todos los módulos integrados. | 12/05/2026 |
-
-Estos registros evidencian la evolución del frontend mediante branches independientes por funcionalidad y su posterior integración en las ramas de desarrollo y release.
-
----
-
-#### 5.2.2.5. Execution Evidence for Sprint Review
-
-Después de finalizar el Sprint 2, se implementó la primera versión funcional del **frontend de KairoLabs**.
-
-Esta entrega consolida las principales pantallas definidas en los wireframes y mock-ups del capítulo de diseño, permitiendo una navegación coherente entre autenticación, visualización de información y gestión operativa para los segmentos objetivo del sistema.
-
-A continuación se presentan las principales evidencias de ejecución.
-
-**1. Login y registro**
-
-Pantalla de acceso para que los usuarios puedan iniciar sesión y autenticarse dentro de la plataforma.
-
-![Login y registro](../assets/login_front.png)
-
-*Figura 5.2.2.5-1. Pantalla de login y registro del frontend de KairoLabs.*
-
----
-
-**2. Dashboard principal**
-
-Panel central donde se visualiza el estado general del sistema y los indicadores más relevantes del monitoreo.
-
-![Dashboard principal](../assets/dashboard_front.png)
-
-*Figura 5.2.2.5-2. Vista principal del dashboard del frontend de KairoLabs.*
-
-![Dashboard secundario](../assets/dashboard2_front.png)
-
-*Figura 5.2.2.5-3. Vista complementaria del dashboard con información operativa adicional.*
-
----
-
-**3. Gestión de establecimientos**
-
-Sección orientada a registrar y consultar la información de las sedes o almacenes farmacéuticos vinculados a la entidad.
-
-![Gestión de establecimientos](../assets/gestion_estable_front.png)
-
-*Figura 5.2.2.5-4. Vista de gestión de establecimientos del frontend de KairoLabs.*
-
-![Gestión de establecimientos 2](../assets/gestion_estable2_front.png)
-
-*Figura 5.2.2.5-5. Vista complementaria de gestión de establecimientos con información ampliada.*
-
----
-
-**4. Gestión de dispositivos y transportes**
-
-Espacio destinado al control de los equipos y unidades asociadas al seguimiento de las condiciones ambientales.
-
-![Gestión de dispositivos](../assets/gestion_dispo.png)
-
-*Figura 5.2.2.5-6. Vista de gestión de dispositivos del frontend de KairoLabs.*
-
-![Gestión de transportes](../assets/gestion_transp_front.png)
-
-*Figura 5.2.2.5-7. Vista de gestión de transportes del frontend de KairoLabs.*
-
-![Gestión de transportes 2](../assets/gestion_transp2_front.png)
-
-*Figura 5.2.2.5-8. Vista complementaria de gestión de transportes con mayor detalle.*
-
----
-
-**5. Perfil de usuario**
-
-Módulo destinado a revisar y actualizar la información personal y la configuración de la cuenta.
-
-![Perfil de usuario](../assets/perfil_usuario_front.png)
-
-*Figura 5.2.2.5-9. Pantalla de perfil de usuario del frontend de KairoLabs.*
-
----
-
-**6. Alertas e incidencias**
-
-Vista enfocada en la notificación de eventos críticos y su seguimiento oportuno.
-
-![Alertas e incidencias](../assets/alertas%20_ins_front.png)
-
-*Figura 5.2.2.5-10. Pantalla de alertas e incidencias del frontend de KairoLabs.*
-
----
-
-**7. Planes y suscripción**
-
-Sección que presenta el estado del plan activo y las opciones de suscripción disponibles.
-
-![Planes y suscripción](../assets/planes_suscrip_front.png)
-
-*Figura 5.2.2.5-11. Pantalla principal de planes y suscripción del frontend de KairoLabs.*
-
-![Planes y suscripción 2](../assets/planes_suscrip2_front.png)
-
-*Figura 5.2.2.5-12. Vista complementaria de planes y suscripción del frontend de KairoLabs.*
-
----
-
-#### 5.2.2.6. Services Documentation Evidence for Sprint Review
-
-Durante el Sprint 2, el alcance se centró en el **frontend web desarrollado con Vue.js**.
-
-En esta iteración todavía no se desarrollaron servicios RESTful. Para validar la experiencia de usuario de los módulos de dashboard, monitoreo, establecimientos y suscripciones se utilizaron **mocks locales**.
-
-Por este motivo, la documentación mediante OpenAPI/Swagger no corresponde todavía a este Sprint.
-
-La documentación de los servicios RESTful se implementó durante el **Sprint 3** y posteriormente se consolidó en el **Sprint 4** con la API desplegada e integrada con el frontend.
-
----
-
-#### 5.2.2.7. Software Deployment Evidence for Sprint Review
-
-El frontend de KairoLabs se desplegó en **Vercel** como primera versión de la Web Application.
-
-| Componente | Plataforma | URL de producción |
-| :--- | :--- | :--- |
-| Frontend Web Application | Vercel | https://kairolabs-frontend.vercel.app/login |
-| Repositorio | GitHub | `1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Frontend` |
-| Rama de despliegue | `main` | Auto-deploy activo |
-
-El despliegue permitió validar visualmente los módulos desarrollados durante el Sprint, incluyendo:
-
-- Autenticación.
-- Dashboard.
-- Monitoreo.
-- Establecimientos.
-- Dispositivos.
-- Transportes.
-- Perfil de usuario.
-- Alertas e incidencias.
-- Planes y suscripciones.
-
-La aplicación quedó disponible en Vercel para las pruebas correspondientes de la primera versión del frontend.
-
----
-
-#### 5.2.2.8. Team Collaboration Insights during Sprint
-
-La implementación del Sprint 2 fue un esfuerzo conjunto orientado al desarrollo de la primera versión del frontend de KairoLabs, así como a la coordinación del reporte y la continuidad de la Landing Page.
-
-La organización del trabajo se realizó mediante **bounded contexts**, permitiendo dividir el desarrollo de las funcionalidades y mantener una estructura ordenada en el repositorio.
-
-**Repositorio de Frontend:** `KairoLabs-Frontend`
-
-- **Mallqui Vilca, Dhilsen Armil — `Dhilsen18`:** desarrolló la lógica y presentación de las vistas asociadas a planes y suscripciones. También participó en la construcción del módulo de monitoreo y en las vistas relacionadas con establecimientos.
-
-- **Diaz Mendoza, Sebastian Victor Andre — `DiazDeveloper`:** participó en la estructuración del módulo IAM y en la definición de la interfaz visual del frontend, además de contribuir con elementos gráficos, responsive y componentes de interacción.
-
-- **Ramirez Escalante, Carlo Patricio — `Dhilsen18`:** participó en la implementación general del frontend y en la organización de la documentación del Sprint.
-
-- **Oblitas Alcalde, Rodrigo — `DiazDeveloper`:** apoyó la implementación del módulo de logística y transportes, además de participar en la construcción y adaptación visual de componentes.
-
-- **Dinklange Arevalo, Sandro — `Dhilsen18`:** participó en las actividades de revisión, documentación, pruebas y soporte a la integración de los módulos desarrollados.
-
-**Repositorio del Reporte:** `KairoLabs-Project-Report`
-
-El equipo coordinó la elaboración del reporte de manera conjunta, manteniendo la correspondencia entre las tareas registradas en Trello, los cambios realizados en GitHub y las evidencias del producto.
-
-**Repositorio de Landing Page:** `KairoLabs-Landing-Page`
-
-La Landing Page continuó siendo mantenida y desplegada durante esta etapa, conservando la base visual y comunicacional establecida durante el Sprint 1.
-
-En conjunto, la colaboración del Sprint 2 permitió avanzar desde la Landing Page hacia una primera versión funcional de la aplicación web, manteniendo una distribución de responsabilidades por módulos y una estrategia de integración basada en GitFlow.
-
-
-### 5.2.3. Sprint 3
-
-En esta sección se registra y explica el avance en términos de producto backend y trabajo colaborativo para el Sprint 3. Durante esta iteración, el equipo tuvo como objetivo principal implementar los Web Services y la API RESTful de KairoLabs, desarrollando los endpoints necesarios para los principales bounded contexts de la plataforma.
-
-El trabajo se concentró en los módulos de IAM, Monitoring, Establishments, Subscriptions y Logistics, incorporando persistencia de datos, autenticación, operaciones CRUD y documentación mediante OpenAPI/Swagger.
-
----
-
-#### 5.2.3.1. Sprint Planning 3
-
-A continuación se presenta el resumen del Sprint Planning Meeting realizado para el Sprint 3.
-
-| Sprint # | Sprint 3 |
-| :--- | :--- |
-| **Sprint Planning Background** |  |
-| **Date** | 2026-06-12 |
-| **Time** | Según planificación del Sprint |
-| **Location** | Reunión virtual |
-| **Prepared By** | *(completar: integrante del equipo)* |
-| **Attendees** | Mallqui Vilca, Dhilsen Armil / *(completar: integrante del equipo)* / *(completar: integrante del equipo)* |
-| **Sprint Goal & User Stories** |  |
-| **Sprint 3 Goal** | Our goal is to develop the backend API and web services for the KairoLabs platform. We believe that this implementation will provide the core functionality required by the frontend application, enabling data persistence, authentication, and RESTful API endpoints for managing subscriptions, devices, establishments, operators, and logistics. This will be confirmed once all microservices are deployed and integrated with the frontend application. |
-| **Sprint 3 Velocity** | 18 |
-| **Sum of Story Points** | 18 |
-
-El Sprint 3 representó el paso de una aplicación frontend basada en mocks hacia la implementación de los servicios backend necesarios para soportar la persistencia y gestión de información de KairoLabs.
-
----
-
-#### 5.2.3.2. Aspect Leaders and Collaborators
-
-En esta sección se detalla la matriz de liderazgo y colaboración (LACX) para el Sprint 3. Cada aspecto representa una fase crítica de la entrega del backend, donde se designa un líder (L) responsable de la dirección del entregable y colaboradores (C) que apoyaron en su ejecución.
-
-| Team Member (Last Name, First Name) | GitHub Username | Backend Architecture | IAM Module | Subscriptions Module | Monitoring Module | Establishments Module | Logistics Module | Database Design | Services Deployment |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| *(completar: integrante del equipo)* | completar-integrante | **L** | **L** | C | **L** | **L** | C | **L** | C |
-| Mallqui Vilca, Dhilsen Armil | `Dhilsen18` | C | C | **L** | C | C | C | C | C |
-| *(completar: integrante del equipo)* | completar-integrante | C | C | C | C | C | **L** | C | **L** |
-
-**Sustento de los Aspectos de Liderazgo:**
-
-- ***(completar: integrante del equipo) — Backend Architecture, IAM, Monitoring, Establishments & Database:* lideró la arquitectura general de microservicios, la implementación del módulo de autenticación, el diseño de la base de datos relacional y los endpoints relacionados con dispositivos y establecimientos.
-
-- **Mallqui Vilca, Dhilsen Armil — Subscriptions Module:** fue responsable de la implementación de la lógica de planes de suscripción, integrando endpoints para la creación, consulta y eliminación de suscripciones vinculadas a administradores.
-
-- ***(completar: integrante del equipo) — Logistics Module & Services Deployment:* lideró la implementación de los endpoints de logística y transportes, además de coordinar el despliegue en Render y la configuración de infraestructura.
-
----
-
-#### 5.2.3.3. Sprint Backlog 3
-
-Durante el tercer Sprint, el equipo tuvo como objetivo principal implementar los Web Services y la API RESTful de KairoLabs, completando los endpoints principales para las cinco áreas funcionales del sistema.
-
-Para la organización y gestión se utilizó Trello, permitiendo dividir las tareas de desarrollo backend en incrementos manejables y asignarlas según la especialidad técnica de cada integrante.
-
-![Sprint Backlog 3 Trello](../assets/sprint-backlog-3-trello.png)
-
-**Enlace de Trello:**
-
-https://trello.com/invite/b/6a2997ef988f03df0e99f5ba/ATTIe7076c2890011c022be6d9d46ec8740b24ABF214/sprint-3
-
-| Sprint # | Sprint 3 | | | | | | |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **User Story / Endpoint** | | **Work-Item / Task** | | | | | |
-| **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
-| EP01 | GET /api/v1/admins | TS-EP01-001 | Implementar endpoint GET Admins | Desarrollar endpoint para listar administradores | 4 | *(completar: integrante del equipo)* | Done |
-| EP02 | POST /api/v1/admins | TS-EP02-001 | Implementar endpoint POST Admins | Desarrollar endpoint para crear nuevo administrador | 6 | *(completar: integrante del equipo)* | Done |
-| EP03 | GET /api/v1/devices | TS-EP03-001 | Implementar endpoint GET Devices | Desarrollar endpoint para listar dispositivos | 4 | *(completar: integrante del equipo)* | Done |
-| EP04 | POST /api/v1/devices | TS-EP04-001 | Implementar endpoint POST Devices | Desarrollar endpoint para crear nuevo dispositivo | 6 | *(completar: integrante del equipo)* | Done |
-| EP05 | PUT /api/v1/devices/{id}/sensor-data | TS-EP05-001 | Implementar endpoint PUT Sensor Data | Desarrollar endpoint para actualizar datos de sensores | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP06 | DELETE /api/v1/devices/{id} | TS-EP06-001 | Implementar endpoint DELETE Devices | Desarrollar endpoint para eliminar dispositivo | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP07 | GET /api/v1/establishments | TS-EP07-001 | Implementar endpoint GET Establishments | Desarrollar endpoint para listar establecimientos | 4 | *(completar: integrante del equipo)* | Done |
-| EP08 | POST /api/v1/establishments | TS-EP08-001 | Implementar endpoint POST Establishments | Desarrollar endpoint para crear establecimiento | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP09 | DELETE /api/v1/establishments/{id} | TS-EP09-001 | Implementar endpoint DELETE Establishments | Desarrollar endpoint para eliminar establecimiento | 4 | *(completar: integrante del equipo)* | Done |
-| EP10 | GET /api/v1/operators | TS-EP10-001 | Implementar endpoint GET Operators | Desarrollar endpoint para listar operadores | 4 | *(completar: integrante del equipo)* | Done |
-| EP11 | POST /api/v1/operators | TS-EP11-001 | Implementar endpoint POST Operators | Desarrollar endpoint para crear operador | 6 | *(completar: integrante del equipo)* | Done |
-| EP12 | PUT /api/v1/operators/{id} | TS-EP12-001 | Implementar endpoint PUT Operators | Desarrollar endpoint para actualizar operador | 5 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP13 | DELETE /api/v1/operators/{id} | TS-EP13-001 | Implementar endpoint DELETE Operators | Desarrollar endpoint para eliminar operador | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP14 | PUT /api/v1/operators/{id}/alert-answered | TS-EP14-001 | Implementar endpoint PUT Alert Answered | Desarrollar endpoint para incrementar conteo de alertas respondidas | 5 | *(completar: integrante del equipo)* | Done |
-| EP15 | GET /api/v1/subscriptions | TS-EP15-001 | Implementar endpoint GET Subscriptions | Desarrollar endpoint para recuperar lista de suscripciones | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP16 | POST /api/v1/subscriptions | TS-EP16-001 | Implementar endpoint POST Subscriptions | Desarrollar endpoint para crear nueva suscripción | 6 | *(completar: integrante del equipo)* | Done |
-| EP17 | DELETE /api/v1/subscriptions/{id} | TS-EP17-001 | Implementar endpoint DELETE Subscriptions | Desarrollar endpoint para eliminar suscripción | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP18 | GET /api/v1/transports | TS-EP18-001 | Implementar endpoint GET Transports | Desarrollar endpoint para listar transportes | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP19 | POST /api/v1/transports | TS-EP19-001 | Implementar endpoint POST Transports | Desarrollar endpoint para crear transporte | 6 | *(completar: integrante del equipo)* | Done |
-| EP20 | PUT /api/v1/transports/{id}/sensor-data | TS-EP20-001 | Implementar endpoint PUT Transport Sensor Data | Desarrollar endpoint para actualizar datos de sensores en transporte | 6 | *(completar: integrante del equipo)* | Done |
-| EP21 | DELETE /api/v1/transports/{id} | TS-EP21-001 | Implementar endpoint DELETE Transports | Desarrollar endpoint para eliminar transporte | 4 | *(completar: integrante del equipo)* | Done |
-| EP22 | GET /api/v1/users | TS-EP22-001 | Implementar endpoint GET Users | Desarrollar endpoint para listar usuarios | 4 | *(completar: integrante del equipo)* | Done |
-| EP23 | POST /api/v1/users | TS-EP23-001 | Implementar endpoint POST SignUp | Desarrollar endpoint para registrar nuevos usuarios | 6 | *(completar: integrante del equipo)* | Done |
-| EP24 | POST /api/v1/users/sign-in | TS-EP24-001 | Implementar endpoint POST SignIn | Desarrollar endpoint para autenticación y generación JWT | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP25 | DELETE /api/v1/users/{id} | TS-EP25-001 | Implementar endpoint DELETE Users | Desarrollar endpoint para eliminar usuario | 4 | *(completar: integrante del equipo)* | Done |
-
----
-
-#### 5.2.3.4. Development Evidence for Sprint Review
-
-Durante el Sprint 3, el equipo de backend utilizó GitHub como sistema de control de versiones, siguiendo la estrategia **GitFlow** con branches por bounded context.
-
-El repositorio `KairoLabs-Backend` es privado; por ello, la evidencia principal de desarrollo se documenta mediante el despliegue en Render, la especificación OpenAPI en Swagger y la verificación de endpoints en producción.
-
-**Repository:**
-
-`1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Backend`
-
-**Evidencia de despliegue y documentación:**
-
-| Evidencia | URL / descripción | Fecha |
-| :--- | :--- | :--- |
-| Swagger UI (OpenAPI 3.0) | https://kairolabs-platform.onrender.com/swagger/index.html | 23/06/2026 |
-| API en producción | `kairolabs-platform.onrender.com` | 23/06/2026 |
-| Base de datos PostgreSQL | Filess.io — persistencia de entidades IAM, dispositivos, establecimientos, operadores, suscripciones y transportes | 23/06/2026 |
-
-**Endpoints implementados y verificados mediante Swagger:**
-
-| Módulo | Endpoints | Métodos |
-| :--- | :--- | :--- |
-| IAM | `/api/v1/users`, `/api/v1/users/sign-in`, `/api/v1/admins` | GET, POST, DELETE |
-| Monitoring | `/api/v1/devices`, `/api/v1/devices/{id}/sensor-data` | GET, POST, PUT, DELETE |
-| Establishments | `/api/v1/establishments` | GET, POST, DELETE |
-| Subscriptions | `/api/v1/subscriptions` | GET, POST, DELETE |
-| Logistics | `/api/v1/operators`, `/api/v1/transports` | GET, POST, PUT, DELETE |
-
-La evidencia demuestra la implementación de los servicios backend correspondientes a los bounded contexts definidos para la plataforma.
-
----
-
-#### 5.2.3.5. Execution Evidence for Sprint Review
-
-Después de finalizar el Sprint 3, se implementó la versión inicial del backend de KairoLabs con los principales endpoints funcionando.
-
-Esta entrega consolida los Web Services necesarios para integrar la aplicación frontend con la base de datos persistente, permitiendo operaciones CRUD en los cinco módulos principales del sistema.
-
-**Enlace de despliegue:**
-
-https://kairolabs-platform.onrender.com/swagger/index.html
-
-**Endpoints implementados y funcionales:**
-
-- `POST /api/v1/subscriptions` — Creación de suscripciones.
-- `POST /api/v1/devices` — Registro de dispositivos de monitoreo.
-- `PUT /api/v1/devices/{id}/sensor-data` — Actualización de datos de sensores.
-- `POST /api/v1/users/sign-in` — Autenticación de usuarios con JWT.
-- `POST /api/v1/establishments` — Creación de establecimientos.
-- `DELETE /api/v1/establishments/{id}` — Eliminación de establecimientos.
-- `GET /api/v1/operators` — Consulta de operadores del sistema.
-- `PUT /api/v1/operators/{id}` — Actualización de información de operadores.
-
-La ejecución de estos servicios permitió establecer la base backend sobre la cual posteriormente se realizaría la integración con la aplicación frontend.
-
----
-
-#### 5.2.3.6. Services Documentation Evidence for Sprint Review
-
-Durante el Sprint 3 se generó la documentación de los servicios mediante **OpenAPI/Swagger**.
-
-La especificación técnica contempla los siguientes elementos:
-
-- **Autenticación:** esquema JWT Bearer mediante headers.
-- **Validación:** reglas de negocio y restricciones de datos.
-- **Respuestas:** códigos HTTP y formatos de payload según REST standards.
-- **Modelos:** definiciones de entidades y value objects del dominio.
-
-La documentación interactiva se encuentra disponible en Swagger UI:
-
-https://kairolabs-platform.onrender.com/swagger/index.html
-
-Esta documentación permite consultar los endpoints disponibles, revisar sus parámetros y estructuras de respuesta y realizar pruebas manuales de los servicios.
-
----
-
-#### 5.2.3.7. Software Deployment Evidence for Sprint Review
-
-El despliegue del backend de KairoLabs se realizó utilizando **Render** para el Web Service y **Filess.io** para la base de datos relacional.
-
-##### 1. Database Configuration — Filess.io
-
-Se configuró una base de datos PostgreSQL remota en Filess.io.
-
-![Database Configuration Filess](../assets/database-filess-config.png)
-
-*Figura 5.2.3.7-1. Configuración de credenciales de base de datos en Filess.io.*
-
-**Configuración registrada:**
-
-- **Host:** `ryne-j.h.filess.io`
-- **Port:** `3306`
-- **Database:** `medi_track_sensor_db_homeworth`
-- **User:** `medi_track_sensor_db_homeworth`
-
-##### 2. Web Service Deployment — Render
-
-Se creó un Web Service en Render conectado al repositorio backend.
-
-![Render Web Service Configuration](../assets/render-new-web-service.png)
-
-*Figura 5.2.3.7-2. Panel de creación del Web Service en Render.*
-
-**Configuración:**
-
-- **Name:** `kairolabs-platform`
-- **Runtime:** Docker
-- **Source Code Repository:** `1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Backend`
-- **Branch:** `master`
-- **Region:** Virginia (US East)
-- **Instance Type:** Free plan with upgradeable capacity
-
-##### 3. Deployment Status
-
-El servicio fue desplegado en Render.
-
-![Render Deployment Status](../assets/render-deployment-status.png)
-
-*Figura 5.2.3.7-3. Estado de deployment del backend en Render.*
-
-**Datos registrados:**
-
-- **Service Name:** `kairolabs-platform`
-- **Status:** Deployed
-- **Runtime:** Docker
-- **Region:** Virginia
-
-##### 4. Environment Variables Configuration
-
-Se configuraron variables de entorno para permitir la conexión del backend con la base de datos.
-
-![Render Environment Variables](../assets/render-env-variables.png)
-
-*Figura 5.2.3.7-4. Variables de entorno configuradas en Render.*
-
-Entre las variables configuradas se encuentran:
-
-- `DATABASE_HOST`
-- `DATABASE_PORT`
-- `DATABASE_NAME`
-- `DATABASE_USER`
-- `DATABASE_PASSWORD`
-- Variables adicionales relacionadas con la configuración de seguridad y autenticación.
-
-##### 5. API Documentation & Swagger UI
-
-El backend se documentó mediante Swagger/OpenAPI.
-
-![Swagger API Documentation](../assets/swagger-api-docs.png)
-
-*Figura 5.2.3.7-5. Documentación interactiva de API en Swagger UI.*
-
-**URL de producción:**
-
-https://kairolabs-platform.onrender.com/swagger/index.html
-
-**Endpoints desplegados y accesibles:**
-
-- `POST /api/v1/subscriptions`
-- `POST /api/v1/devices`
-- `PUT /api/v1/devices/{id}/sensor-data`
-- `POST /api/v1/users/sign-in`
-- `POST /api/v1/establishments`
-- `DELETE /api/v1/establishments/{id}`
-- `GET /api/v1/operators`
-- `PUT /api/v1/operators/{id}`
-
-**Deployment Summary:**
-
-| Componente | Plataforma | Status | URL |
-| :--- | :--- | :--- | :--- |
-| Backend API | Render | Active | https://kairolabs-platform.onrender.com |
-| Swagger UI | Render | Active | https://kairolabs-platform.onrender.com/swagger/index.html |
-| Database | Filess.io | Connected | PostgreSQL |
-| Repository | GitHub | Linked | `KairoLabs-Backend` |
-| CI/CD | Render | Auto-Deploy | Automatic on push to master |
-
----
-
-#### 5.2.3.8. Team Collaboration Insights during Sprint
-
-En esta sección se evidencia la colaboración del equipo durante el Sprint 3 en el desarrollo del backend de KairoLabs, con una distribución de módulos por bounded context y responsabilidades técnicas.
-
-**Repositorio de Backend:** `KairoLabs-Backend`
-
-- ***(completar: integrante del equipo) — IAM & Backend Architecture:* lideró la arquitectura general de microservicios y la implementación del módulo de autenticación, estableciendo patrones de seguridad y estructuras de control.
-
-- **Mallqui Vilca, Dhilsen Armil — Subscriptions Module:** implementó los endpoints de gestión de planes de suscripción, asegurando persistencia y validación de datos.
-
-- ***(completar: integrante del equipo) — Monitoring Module & Database Design:* diseñó la estructura de la base de datos relacional e implementó los endpoints correspondientes a dispositivos, establecimientos y datos de sensores.
-
-- ***(completar: integrante del equipo) — Logistics Module & Deployment:* implementó los endpoints relacionados con operadores y transportes, además de coordinar la estrategia de deployment en Render.
-
-### Contribuciones y Participación
-
-El equipo mantuvo comunicación mediante Discord y reuniones sincrónicas, colaborando en diferentes actividades técnicas:
-
-- Code reviews antes de realizar merges hacia `develop`.
-- Resolución de conflictos Git en features complejas.
-- Testing manual de endpoints mediante Postman y Swagger UI.
-- Documentación de cambios mediante Conventional Commits.
-- Coordinación entre los módulos backend y el frontend desarrollado durante el Sprint 2.
-
-En conjunto, el Sprint 3 permitió consolidar las bases técnicas del backend y establecer los servicios necesarios para la posterior integración con el frontend, manteniendo la organización del desarrollo mediante bounded contexts y GitFlow.
-
-
-### 5.2.4. Sprint 4
-
-En esta sección se registra y explica el avance correspondiente al Sprint 4, orientado a la integración final del producto KairoLabs. Durante esta iteración, el equipo concentró sus actividades en finalizar los servicios backend, integrar la aplicación frontend con la API REST, validar la persistencia de datos, completar la documentación de servicios y realizar el despliegue final del ecosistema.
-
-El Sprint 4 permitió consolidar los componentes desarrollados durante los Sprints anteriores, integrando la Landing Page, la Web Application, la RESTful API y la base de datos PostgreSQL en un entorno de producción.
-
----
-
-#### 5.2.4.1. Sprint Planning 4
-
-A continuación se presenta el resumen del Sprint Planning Meeting realizado para el Sprint 4.
-
-| Sprint # | Sprint 4 |
-| :--- | :--- |
-| **Sprint Planning Background** |  |
-| **Date** | 2026-07-05 |
-| **Time** | Reunión virtual |
-| **Location** | Reunión virtual |
-| **Prepared By** | Diaz Mendoza, Sebastian Victor Andre |
-| **Attendees** | Mallqui Vilca, Dhilsen Armil / Diaz Mendoza, Sebastian Victor Andre / Ramirez Escalante, Carlo Patricio / Oblitas Alcalde, Rodrigo / Dinklange Arevalo, Sandro |
-| **Sprint Goal & User Stories** |  |
-| **Sprint 4 Goal** | Our goal is to finalize the backend API and web services for the KairoLabs platform, and ensure their seamless integration with the frontend application. We believe that uniting these components will deliver a complete and functional ecosystem, enabling data persistence, authentication, and RESTful API endpoints for managing subscriptions, devices, establishments, operators, and logistics. This will be confirmed once both the frontend and all backend microservices are correctly deployed, connected, and fully operational. |
-| **Sprint 4 Velocity** | 16 |
-| **Sum of Story Points** | 16 |
-
-El objetivo principal del Sprint 4 fue completar la integración full-stack de KairoLabs. Para ello, se consideraron actividades relacionadas con la conexión del frontend con la API, validación de autenticación, verificación de operaciones CRUD, finalización de endpoints, documentación OpenAPI, persistencia de datos y despliegue de los componentes en producción.
-
----
-
-#### 5.2.4.2. Aspect Leaders and Collaborators
-
-En esta sección se presenta la matriz de liderazgo y colaboración (LACX) correspondiente al Sprint 4. Cada aspecto representa una actividad relevante para el cierre del producto, asignando un líder (L) y colaboradores (C) de acuerdo con las responsabilidades distribuidas durante el Sprint.
-
-| Team Member (Last Name, First Name) | GitHub Username | Backend Finalization | Frontend Integration | Database Optimization | Services Documentation | Full-Stack Deployment | Report & Conclusions |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| Mallqui Vilca, Dhilsen Armil | `Dhilsen18` | C | **L** | C | C | **L** | C |
-| Diaz Mendoza, Sebastian Victor Andre | `DiazDeveloper` | **L** | C | C | **L** | C | C |
-| Ramirez Escalante, Carlo Patricio | `Dhilsen18` | C | C | **L** | C | C | C |
-| Oblitas Alcalde, Rodrigo | `DiazDeveloper` | C | C | C | C | **L** | **L** |
-| Dinklange Arevalo, Sandro | `Dhilsen18` | C | C | C | C | C | **L** |
-
-**Sustento de los Aspectos de Liderazgo:**
-
-- **Mallqui Vilca, Dhilsen Armil — Frontend Integration & Full-Stack Deployment:** lideró las actividades relacionadas con la conexión de la aplicación frontend con la API REST desplegada en Render, así como la validación de los flujos de autenticación y navegación entre los diferentes módulos.
-
-- **Diaz Mendoza, Sebastian Victor Andre — Backend Finalization & Services Documentation:** lideró la finalización de los endpoints pendientes del backend y la documentación de los servicios mediante Swagger/OpenAPI.
-
-- **Ramirez Escalante, Carlo Patricio — Database Optimization:** participó en la validación de las relaciones entre las entidades y en las actividades relacionadas con la persistencia de información en PostgreSQL.
-
-- **Oblitas Alcalde, Rodrigo — Full-Stack Deployment & Report:** lideró actividades relacionadas con el despliegue final y la consolidación de evidencias utilizadas en el informe del proyecto.
-
-- **Dinklange Arevalo, Sandro — Report & Conclusions:** participó en la organización de la documentación final, actualización del informe y elaboración de las conclusiones correspondientes al cierre del proyecto.
-
-La distribución de responsabilidades permitió mantener una participación colaborativa durante el Sprint, evitando concentrar todas las actividades en un único integrante y facilitando la integración entre frontend, backend, base de datos y documentación.
-
----
-
-#### 5.2.4.3. Sprint Backlog 4
-
-![Sprint Backlog 4 Trello](../assets/sprint-backlog-4-trello.png)
-
-**Enlace de Trello:**
-
-https://trello.com/invite/b/6a4aec825530c3b6ab9db1b7/ATTI2034d17571ccf6acbefeae2e9ecfb71e4BAC22E5/sprint-4
-
-Durante el Sprint 4, el equipo priorizó la integración full-stack y el cierre del ciclo de vida del proyecto. Las actividades fueron organizadas en tareas relacionadas con la integración del frontend, finalización del backend, persistencia de datos, despliegue y documentación.
-
-| Sprint # | Sprint 4 | | | | | | |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **User Story / Objetivo** | | **Work-Item / Task** | | | | | |
-| **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
-| INT01 | Integración full-stack | T01 | Configurar URL de API en frontend | Conectar `VITE_API_BASE_URL` al backend en Render | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| INT02 | Integración full-stack | T02 | Validar flujo de autenticación | Probar login, JWT y redirección post sign-in | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| INT03 | Integración full-stack | T03 | Validar módulos CRUD en frontend | Verificar establecimientos, dispositivos, operadores y transportes | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| API01 | Finalización backend | T04 | Completar endpoints pendientes | Finalizar endpoints REST de todos los bounded contexts | 8 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| API02 | Finalización backend | T05 | Documentar API en Swagger | Completar especificación OpenAPI de todos los servicios | 4 | Diaz Mendoza, Sebastian Victor Andre | Done |
-| DB01 | Persistencia de datos | T06 | Optimizar esquema de base de datos | Validar relaciones y persistencia en Filess.io | 4 | Ramirez Escalante, Carlo Patricio | Done |
-| DEP01 | Despliegue producción | T07 | Desplegar frontend final en Vercel | Publicar versión integrada con API en producción | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| DEP02 | Despliegue producción | T08 | Desplegar backend final en Render | Verificar pipeline CI/CD y variables de entorno | 4 | Oblitas Alcalde, Rodrigo | Done |
-| DOC01 | Cierre del proyecto | T09 | Actualizar informe TB2 | Registro de versiones, Student Outcome y Sprint 4 | 6 | Dinklange Arevalo, Sandro | Done |
-| DOC02 | Cierre del proyecto | T10 | Redactar conclusiones finales | Conclusiones, recomendaciones y validación del producto | 4 | Oblitas Alcalde, Rodrigo / Dinklange Arevalo, Sandro | Done |
-
-El Sprint Backlog permitió organizar las actividades de cierre en cuatro grupos principales: integración frontend-backend, finalización de servicios, persistencia y despliegue, y documentación final.
-
----
-
-#### 5.2.4.4. Development Evidence for Sprint Review
-
-Durante el Sprint 4, el equipo consolidó la integración entre los tres repositorios de producto y el repositorio del informe.
-
-Las evidencias de desarrollo muestran cambios realizados tanto en el frontend como en la documentación del proyecto. Los commits utilizaron mensajes descriptivos siguiendo la convención empleada durante el desarrollo.
-
-##### Repository — Project Report
-
-**Repository:**
-
-`1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Project-Report`
-
-| Repository | Branch | Commit Id | Commit Message | Committed on (Date) |
-| :--- | :--- | :--- | :--- | :--- |
-| `KairoLabs-Project-Report` | `main` | `970794a` | `fix(main): update version project` | 05/07/2026 |
-| `KairoLabs-Project-Report` | `main` | `908a6f2` | `add: include evidence and links for Sprint 4 frontend and backend deployments` | 05/07/2026 |
-| `KairoLabs-Project-Report` | `main` | `b777a05` | `docs: add Sprint 4 details including planning, backlog, and collaboration insights` | 05/07/2026 |
-
-##### Repository — Frontend
-
-**Repository:**
-
-`1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Frontend`
-
-| Repository | Branch | Commit Id | Commit Message | Committed on (Date) |
-| :--- | :--- | :--- | :--- | :--- |
-| `KairoLabs-Frontend` | `main` | `705a464` | `feat: connect control center to API and fix transport registration` | 05/07/2026 |
-| `KairoLabs-Frontend` | `main` | `e048b3f` | `fix: treat billing as design-only mock gateway separate from API sign-up` | 05/07/2026 |
-| `KairoLabs-Frontend` | `main` | `48bc7d2` | `fix: register health entity in single POST /users call` | 04/07/2026 |
-| `KairoLabs-Frontend` | `main` | `ebb2ced` | `feat: improve UX with sidebar, semantic routes, delete devices and map filters` | 04/07/2026 |
-| `KairoLabs-Frontend` | `main` | `f39624a` | `refactor(iam): align IAM bounded context with learning-center DDD pattern` | 01/07/2026 |
-
-Los cambios registrados evidencian la integración progresiva entre el frontend y los servicios backend, incluyendo la conexión con la API, la corrección del registro de entidades, la mejora de navegación y la organización de las rutas de la aplicación.
-
-##### Repositorios de producto
-
-| Producto | Repositorio GitHub | URL de producción |
-| :--- | :--- | :--- |
-| Landing Page | `KairoLabs-Landing-Page` | https://KairoLabs-sensor.vercel.app/ |
-| Frontend | `KairoLabs-Frontend` | https://kairolabs-frontend.vercel.app/login |
-| Backend API | `KairoLabs-Backend` | https://kairolabs-platform.onrender.com/swagger/index.html |
-
----
-
-#### 5.2.4.5. Execution Evidence for Sprint Review
-
-En esta sección se documenta la ejecución del producto final integrado. Durante el Sprint 4 se validaron los principales flujos funcionales sobre los componentes desplegados.
-
-| Flujo validado | Descripción | URL de evidencia |
-| :--- | :--- | :--- |
-| Login y autenticación | Acceso con credenciales y generación de sesión JWT | https://kairolabs-frontend.vercel.app/login |
-| Dashboard de monitoreo | Visualización de sensores, temperatura y humedad | https://kairolabs-frontend.vercel.app/login |
-| Gestión de establecimientos | CRUD de establecimientos | https://kairolabs-frontend.vercel.app/login |
-| Gestión de dispositivos | Consulta y administración de dispositivos IoT | https://kairolabs-frontend.vercel.app/login |
-| Gestión de operadores | Consulta y administración de operadores | https://kairolabs-frontend.vercel.app/login |
-| Gestión de transportes | Consulta y gestión de transportes | https://kairolabs-frontend.vercel.app/login |
-| API REST documentada | Consulta y prueba de endpoints mediante Swagger UI | https://kairolabs-platform.onrender.com/swagger/index.html |
-| Landing Page final | Presentación del producto y propuesta de valor | https://KairoLabs-sensor.vercel.app/ |
-
-**Endpoints verificados en producción:**
-
-- `POST /api/v1/users/sign-in` — Autenticación con JWT.
-- `GET /api/v1/devices` — Listado de dispositivos IoT.
-- `POST /api/v1/devices` — Registro de dispositivos.
-- `PUT /api/v1/devices/{id}/sensor-data` — Actualización de telemetría.
-- `GET /api/v1/establishments` — Consulta de establecimientos.
-- `POST /api/v1/establishments` — Creación de establecimientos.
-- `GET /api/v1/operators` — Listado de operadores.
-- `GET /api/v1/subscriptions` — Consulta de suscripciones.
-- `GET /api/v1/transports` — Listado de transportes.
-
-La ejecución del Sprint 4 permitió verificar la comunicación entre la aplicación frontend y la RESTful API desplegada, así como la disponibilidad de los servicios y la persistencia de información mediante PostgreSQL.
-
----
-
-#### 5.2.4.6. Services Documentation Evidence for Sprint Review
-
-La documentación completa de la API REST se encuentra disponible mediante Swagger UI, utilizando la especificación OpenAPI 3.0.
-
-**URL:**
-
-https://kairolabs-platform.onrender.com/swagger/index.html
-
-| Módulo (Bounded Context) | Endpoints principales | Métodos |
-| :--- | :--- | :--- |
-| IAM (Users & Admins) | `/api/v1/users`, `/api/v1/users/sign-in`, `/api/v1/admins` | GET, POST, DELETE |
-| Subscriptions | `/api/v1/subscriptions` | GET, POST, DELETE |
-| Monitoring (Devices) | `/api/v1/devices`, `/api/v1/devices/{id}/sensor-data` | GET, POST, PUT, DELETE |
-| Establishments | `/api/v1/establishments` | GET, POST, DELETE |
-| Logistics (Operators & Transports) | `/api/v1/operators`, `/api/v1/transports` | GET, POST, PUT, DELETE |
-
-La especificación de servicios incluye:
-
-- Esquema JWT Bearer para autenticación.
-- Modelos de entidades correspondientes al dominio.
-- Parámetros de entrada de los endpoints.
-- Estructuras de respuesta.
-- Códigos HTTP utilizados por los servicios.
-- Reglas de validación correspondientes a cada recurso.
-
-La documentación interactiva permite consultar los servicios disponibles y realizar pruebas directamente sobre la API desplegada.
-
----
-
-#### 5.2.4.7. Software Deployment Evidence for Sprint Review
-
-Durante el Sprint 4 se consolidó el despliegue del ecosistema KairoLabs, compuesto por la Landing Page, la Web Application, la RESTful API y la base de datos PostgreSQL.
-
-| Componente | Plataforma | URL | Estado |
-| :--- | :--- | :--- | :--- |
-| Landing Page | Vercel | https://KairoLabs-sensor.vercel.app/ | Activo |
-| Web Application | Vercel | https://kairolabs-frontend.vercel.app/login | Activo |
-| Backend API | Render | https://kairolabs-platform.onrender.com | Activo |
-| Swagger UI | Render | https://kairolabs-platform.onrender.com/swagger/index.html | Activo |
-| Base de datos | Filess.io | PostgreSQL | Conectada |
-
-**Configuración de despliegue:**
-
-- **Backend:** Runtime Docker en Render.
-- **Backend Branch:** `master`.
-- **Backend Region:** Virginia (US East).
-- **Backend CI/CD:** auto-deploy desde GitHub.
-- **Frontend:** aplicación Vue.js desplegada en Vercel.
-- **Frontend configuration:** variable `VITE_API_BASE_URL` apuntando al backend en Render.
-- **Base de datos:** PostgreSQL remota en Filess.io.
-- **Database connection:** gestionada mediante variables de entorno.
-- **API documentation:** Swagger/OpenAPI disponible desde el servicio desplegado.
-
-La configuración permite mantener separados los componentes de presentación, aplicación y persistencia, facilitando la actualización independiente de cada servicio.
-
----
-
-#### 5.2.4.8. Team Collaboration Insights during Sprint
-
-En esta sección se evidencia la colaboración del equipo durante el Sprint 4, principalmente en las actividades de integración full-stack, despliegue, documentación y cierre del proyecto KairoLabs.
-
-##### Repositorio de Frontend — `KairoLabs-Frontend`
-
-- **Mallqui Vilca, Dhilsen Armil (`Dhilsen18`):** lideró la conexión del frontend con la API en producción y participó en la validación de los flujos de autenticación, navegación y operaciones CRUD.
-
-- **Oblitas Alcalde, Rodrigo (`DiazDeveloper`):** colaboró en la revisión de la interfaz, consistencia de navegación y validación de los módulos integrados.
-
-##### Repositorio de Backend — `KairoLabs-Backend`
-
-- **Diaz Mendoza, Sebastian Victor Andre (`DiazDeveloper`):** lideró la finalización de los endpoints pendientes y la organización de la documentación de los servicios mediante Swagger/OpenAPI.
-
-- **Ramirez Escalante, Carlo Patricio (`Dhilsen18`):** participó en la validación de la persistencia y relaciones de las entidades utilizadas por los servicios backend.
-
-- **Dinklange Arevalo, Sandro (`Dhilsen18`):** colaboró en las pruebas funcionales de los servicios y en la revisión de la integración entre backend y frontend.
-
-##### Repositorio del Reporte — `KairoLabs-Project-Report`
-
-- **Oblitas Alcalde, Rodrigo (`DiazDeveloper`):** participó en la consolidación de las evidencias correspondientes al Sprint 4.
-
-- **Dinklange Arevalo, Sandro (`Dhilsen18`):** participó en la actualización de la documentación, conclusiones y organización final del informe.
-
-##### Coordinación del equipo
-
-Durante el Sprint 4, el equipo mantuvo coordinación mediante reuniones virtuales y comunicación sincrónica para organizar las actividades de integración y cierre.
-
-Las principales actividades colaborativas fueron:
-
-- Revisión de cambios antes de realizar merges.
-- Validación conjunta de los flujos de autenticación.
-- Pruebas de los módulos CRUD del frontend.
-- Verificación de los endpoints mediante Swagger.
-- Revisión de la conexión entre frontend, backend y PostgreSQL.
-- Validación del despliegue en Vercel y Render.
-- Consolidación de evidencias para el informe final.
-- Organización de las conclusiones y documentación correspondiente al Sprint 4.
-
-En conjunto, el Sprint 4 permitió integrar los componentes desarrollados durante las iteraciones anteriores y consolidar el producto KairoLabs en un entorno desplegado, conectando la aplicación frontend con la RESTful API y la base de datos PostgreSQL.
-
 
 ### 5.2.2. Implemented Landing Page Evidence
 
-**(Anexar evidencias)**
+La Landing Page presenta la propuesta de valor de KairoLabs a los dos segmentos objetivo (personal operativo de almacenes farmacéuticos y gestores de farmacia). En el Sprint 1 se realizó el *rebranding* a KairoLabs / Aether System, se incorporaron los logos de las instituciones del marco regulatorio, las animaciones de scroll y la configuración de despliegue estático en Vercel.
+
+| Elemento | Detalle |
+| :--- | :--- |
+| **URL (Vercel)** | https://landing-page-kairolabs.vercel.app |
+| **URL alternativa (GitHub Pages)** | https://1asi0732-2620-9082-aether-system.github.io/KairoLabs-Landing-Page/ |
+| **Repositorio** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Landing-Page |
+| **Tecnologías** | HTML5, CSS3, JavaScript, Bootstrap 5.3, Bootstrap Icons, Matter.js, i18n ES/EN |
+| **Despliegue de producción (`vercel[bot]`)** | Commit `34434e8`, 14/09/2026 10:04 (hora de Lima), entorno *Production* |
+
+**Commits del Sprint 1**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :---: | :--- | :--- | :--- | :---: |
+| KairoLabs-Landing-Page | main | `f0dfc9a` | feat(landing): rebrand to KairoLabs with partner logos and scroll animations | Replace MediTrack branding with Aether System copy, institution logos, and expand and story interactions. | 13/09/2026 |
+| KairoLabs-Landing-Page | main | `cc153f1` | fix(landing): drop heavy video-5 until it is compressed | Use video-3 in the expand section so Vercel can deploy without the 62 MB file. | 13/09/2026 |
+| KairoLabs-Landing-Page | main | `02b2707` | chore: add Vercel static config so index.html is served at root | — | 13/09/2026 |
+| KairoLabs-Landing-Page | main | `0376bd1` | fix(deploy): serve landing from repo root, not leftover public folder | — | 14/09/2026 |
+| KairoLabs-Landing-Page | main | `34434e8` | fix: design in the header | — | 14/09/2026 |
+
+**Evidencias de la Landing Page desplegada**
+
+![Hero de la Landing Page](../assets/chapter-5/landing-hero.jpg)
+
+*Figura 5.2.2-1. Sección Inicio (hero) con navegación, selector ES/EN y CTA "¡Comienza hoy mismo!" (US01, US02).*
+
+![Instituciones del marco regulatorio](../assets/chapter-5/landing-instituciones.png)
+
+*Figura 5.2.2-2. Franja "Respaldados por instituciones líderes" con MINSA, DIGEMID, SUSALUD, CENARES, CONCYTEC y Osinergmin.*
+
+![Sección Nosotros](../assets/chapter-5/landing-nosotros.png)
+
+*Figura 5.2.2-3. Sección Nosotros con misión, visión y equipo académico (US20).*
+
+![Sección Tecnología](../assets/chapter-5/landing-tecnologia.jpg)
+
+*Figura 5.2.2-4. Sección Tecnología Inteligente: capacidades, resultados esperados y video demostrativo (US03).*
+
+![Sección Sectores](../assets/chapter-5/landing-sectores.jpg)
+
+*Figura 5.2.2-5. Sección Sectores objetivo (US04).*
+
+![Sección Equipo](../assets/chapter-5/landing-equipo.png)
+
+*Figura 5.2.2-6. Sección Integrantes del Equipo (US06).*
+
+![Sección Planes](../assets/chapter-5/landing-planes.png)
+
+*Figura 5.2.2-7. Deck de planes de monitoreo (US16).*
+
+![Sección Contacto](../assets/chapter-5/landing-contacto.png)
+
+*Figura 5.2.2-8. Llamado a la acción final (US21).*
+
+![Footer](../assets/chapter-5/landing-footer.jpg)
+
+*Figura 5.2.2-9. Footer con navegación, redes y términos y condiciones.*
+
+<p align="center">
+  <img src="../assets/chapter-5/landing-responsive-mobile.jpg" alt="Landing Page en smartphone" width="300"><br>
+  <em>Figura 5.2.2-10. Landing Page en un viewport de smartphone de 390 × 844 px (US26).</em>
+</p>
+
+![Repositorio de la Landing Page](../assets/chapter-5/gh-landing-repo.png)
+
+*Figura 5.2.2-11. Repositorio `KairoLabs-Landing-Page` vinculado al despliegue en Vercel.*
+
+![Commits de la Landing Page](../assets/chapter-5/gh-landing-commits.png)
+
+*Figura 5.2.2-12. Historial de commits del Sprint 1 en la rama `main`.*
 
 ---
 
 ### 5.2.3. Implemented Frontend-Web Application Evidence
 
-**(Anexar evidencias)**
+La Web Application es la plataforma operativa de KairoLabs. Está construida con **Vue 3 + Vite** y organizada por bounded contexts (IAM, Establishment, Monitoring, Logistics y Subscriptions). En el Sprint 1 se unificó la interfaz bajo el design system navy/naranja de KairoLabs, se rediseñaron el login y el registro, y se reemplazaron varias navegaciones por diálogos de inspección (modales).
+
+| Elemento | Detalle |
+| :--- | :--- |
+| **URL (Vercel)** | https://kairo-labs-frontend.vercel.app |
+| **Repositorio** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend |
+| **Tecnologías** | Vue 3, Vite, PrimeVue 4, Pinia, Vue Router, Axios, vue-i18n, Chart.js, Leaflet |
+| **Backend consumido** | `https://medi-track-sensor-platform.onrender.com/api/v1` |
+| **Despliegue de producción (`vercel[bot]`)** | Commit `ffadea8`, 14/09/2026 19:03 (hora de Lima), entorno *Production* |
+
+**Commits del Sprint 1**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :---: | :--- | :--- | :--- | :---: |
+| KairoLabs-Frontend | master | `ad01cfd` | feat: rebrand KairoLabs UI with modals, branded selects, and control center polish | Unify auth, profile, establishments, devices, transports, and operators under the navy/orange design system, replace page navigations with inspect modals, and harden mock flows for local demos. | 14/09/2026 |
+| KairoLabs-Frontend | master | `ffadea8` | fix: responsive | Ajustes responsive de `auth-panel`, `register` y `layout`. | 14/09/2026 |
+
+**Vistas públicas (aplicación desplegada en Vercel)**
+
+![Login](../assets/chapter-5/web-login.jpg)
+
+*Figura 5.2.3-1. Inicio de sesión (US29, US30).*
+
+![Registro de gestor de farmacia](../assets/chapter-5/web-register-entidad.jpg)
+
+*Figura 5.2.3-2. Registro como Gestor de farmacia (US32).*
+
+![Registro de personal de almacén](../assets/chapter-5/web-register-personal.jpg)
+
+*Figura 5.2.3-3. Registro como Personal de almacén con código de entidad de salud (US31).*
+
+**Vistas internas**
+
+Las siguientes capturas se obtuvieron ejecutando la aplicación en **modo demo** (`VITE_USE_MOCKS=true`), que utiliza los datos de prueba de `src/shared/infrastructure/mocks/mock-database.js`. Así se muestran todos los módulos con datos representativos sin alterar la información de producción.
+
+![Home de la entidad de salud](../assets/chapter-5/web-home-entidad.png)
+
+*Figura 5.2.3-4. Inicio del gestor de farmacia: accesos rápidos, Centro de Control Operativo y KPIs (US48, US57).*
+
+![Listado de establecimientos](../assets/chapter-5/web-establecimientos.png)
+
+*Figura 5.2.3-5. Ver Establecimientos con filtros y contadores por tipo (US37, US41).*
+
+![Detalle de establecimiento](../assets/chapter-5/web-establecimiento-detalle.png)
+
+*Figura 5.2.3-6. Detalle de establecimiento en modal de inspección (US39).*
+
+![Agregar establecimiento](../assets/chapter-5/web-establecimiento-nuevo.png)
+
+*Figura 5.2.3-7. Agregar Establecimiento (US38).*
+
+![Mapa de establecimientos](../assets/chapter-5/web-mapa-establecimientos.jpg)
+
+*Figura 5.2.3-8. Mapa de Establecimientos con Leaflet / OpenStreetMap (US42, US65).*
+
+![Operadores](../assets/chapter-5/web-operadores.png)
+
+*Figura 5.2.3-9. Ver Operadores con turno, alertas atendidas y establecimiento asignado (US43).*
+
+![Detalle de operador](../assets/chapter-5/web-operador-detalle.png)
+
+*Figura 5.2.3-10. Información del operador (US47).*
+
+![Dispositivos](../assets/chapter-5/web-dispositivos.png)
+
+*Figura 5.2.3-11. Ver Dispositivos con lecturas de temperatura y humedad (US50, US53, US54).*
+
+![Detalle de dispositivo](../assets/chapter-5/web-dispositivo-detalle.png)
+
+*Figura 5.2.3-12. Lecturas del dispositivo con estados OK / Atención / Crítico (US51, US66).*
+
+![Registrar dispositivo](../assets/chapter-5/web-dispositivo-nuevo.png)
+
+*Figura 5.2.3-13. Registrar dispositivo con selección de sensores habilitados (US49).*
+
+![Centro de Control](../assets/chapter-5/web-centro-control.png)
+
+*Figura 5.2.3-14. Centro de Control: KPIs, sensores por sede e índice ambiental (US57, US59).*
+
+![Transportes](../assets/chapter-5/web-transportes.png)
+
+*Figura 5.2.3-15. Ver Transportes con alertas críticas de cadena de frío (US72).*
+
+![Detalle de transporte](../assets/chapter-5/web-transporte-detalle.png)
+
+*Figura 5.2.3-16. Lecturas de sensores de una unidad de transporte (US73).*
+
+![Planes](../assets/chapter-5/web-planes.png)
+
+*Figura 5.2.3-17. Elige un plan (US75, US78).*
+
+![Perfil](../assets/chapter-5/web-perfil.png)
+
+*Figura 5.2.3-18. Perfil de usuario con plan activo (US35, US36).*
+
+![Home del personal operativo](../assets/chapter-5/web-home-personal.png)
+
+*Figura 5.2.3-19. Inicio del personal de almacén con módulos de su sede (US48).*
+
+![Repositorio del frontend](../assets/chapter-5/gh-frontend-repo.png)
+
+*Figura 5.2.3-20. Repositorio `KairoLabs-Frontend`.*
+
+![Commits del frontend](../assets/chapter-5/gh-frontend-commits.png)
+
+*Figura 5.2.3-21. Historial de commits de la rama `master`.*
 
 ---
 
 ### 5.2.4. Acuerdo de Servicio - SaaS
 
-KairoLabs plantea su producto bajo un modelo de **Software as a Service (SaaS)**, mediante el cual los usuarios pueden acceder a la plataforma web para gestionar y supervisar información relacionada con el monitoreo de las condiciones de almacenamiento y transporte de medicamentos.
+KairoLabs se ofrece bajo el modelo **Software as a Service (SaaS)**: la entidad de salud accede por suscripción a la plataforma desde un navegador o smartphone, sin instalar ni mantener infraestructura propia. El presente acuerdo define el alcance, los niveles de servicio y las responsabilidades de las partes.
 
-La solución contempla un modelo de suscripción orientado principalmente a entidades de salud y gestores farmacéuticos, permitiendo utilizar las funcionalidades de la plataforma mediante un navegador web, sin requerir la instalación local del sistema.
+#### 1. Partes
 
-#### Descripción del servicio
-
-KairoLabs proporciona una plataforma digital compuesta por una **Landing Page**, una **Web Application** y servicios backend que permiten gestionar información relacionada con establecimientos, dispositivos, operadores, transportes y suscripciones.
-
-El acceso a la aplicación se realiza mediante navegador web y la información es gestionada mediante los servicios RESTful implementados por la plataforma.
-
-#### Modalidad de servicio
-
-| Característica | Descripción |
+| Parte | Descripción |
 | :--- | :--- |
-| **Modelo** | Software as a Service (SaaS) |
-| **Acceso** | Mediante navegador web |
-| **Aplicación web** | Vue.js |
-| **Backend** | ASP.NET Core / C# |
-| **Base de datos** | PostgreSQL |
-| **API** | RESTful API |
-| **Autenticación** | JWT |
-| **Despliegue frontend** | Vercel |
-| **Despliegue backend** | Render |
-| **Persistencia** | Filess.io |
-| **Modalidad de uso** | Suscripción |
+| **Proveedor** | KairoLabs, producto desarrollado por el equipo Aether System. |
+| **Cliente** | Entidad de salud contratante (hospital, clínica, farmacia, almacén o distribuidora farmacéutica) que se registra como *Gestor de farmacia* (rol `Admin`). |
+| **Usuarios autorizados** | Gestores (`Admin`) y personal operativo (`Operator`) registrados por el Cliente mediante su código de entidad. |
 
-#### Planes de suscripción
+#### 2. Objeto y descripción del servicio
 
-La propuesta comercial de KairoLabs contempla diferentes niveles de suscripción, permitiendo adaptar el servicio a las necesidades de las entidades usuarias.
+El servicio permite monitorear las condiciones de conservación de medicamentos (temperatura, humedad, luz, calidad del aire, vibración, presión, partículas y estado de puertas) en establecimientos y unidades de transporte, gestionar sedes, operadores y dispositivos IoT, y recibir alertas cuando una lectura sale del rango seguro.
 
-| Plan | Descripción |
+| Componente | Función | Acceso |
+| :--- | :--- | :--- |
+| Landing Page | Información comercial, planes y contacto | https://landing-page-kairolabs.vercel.app |
+| Web Application | Operación diaria: establecimientos, operadores, dispositivos, transportes, Centro de Control, planes y perfil | https://kairo-labs-frontend.vercel.app |
+| Aplicación móvil | Consulta rápida y acceso a la plataforma desde smartphone | Incremento 1 (mobile-first) |
+| RESTful API | Lógica de negocio y persistencia | https://medi-track-sensor-platform.onrender.com |
+
+#### 3. Planes y tarifas
+
+Los planes publicados en la Landing Page son la referencia comercial del servicio. Los montos están expresados en dólares estadounidenses por mes.
+
+| Plan | Precio | Dirigido a | Incluye |
+| :--- | :---: | :--- | :--- |
+| **Piloto** | US$ 0 (14 días) | Validación inicial en una cámara fría | 1 sensor · 1 área, alertas por email, onboarding incluido. |
+| **Básico** | US$ 49 / mes | Farmacias y clínicas con una sede | Monitoreo de 1 sede, visualización en tiempo real, alertas por email, 30 días de historial. |
+| **Profesional** | US$ 149 / mes | Centros de distribución y hospitales con varias áreas | Varias áreas, alertas SMS/WhatsApp, 1 año de historial, reportes y dashboards, integración con sistemas. |
+| **Hospitalario** | US$ 249 / mes | Hospitales y farmacias clínicas con vacunas y biológicos | Varias cámaras y pabellones, rangos 2–8 °C, roles operador/gestor, evidencia para auditorías, soporte clínico. |
+| **Premium** | Personalizado | Cadenas farmacéuticas y redes de salud multisede | Monitoreo multisede, gestión centralizada, análisis de tendencias, soporte prioritario 24/7, cumplimiento DIGEMID/MINSA. |
+
+En la API, la suscripción se registra con el recurso `/api/v1/admins/{adminId}/subscriptions` indicando `plan` (`Basic`, `Premium` o `Enterprise`), `start_date` y `end_date`.
+
+#### 4. Vigencia, renovación y cancelación
+
+- La suscripción es **mensual** y se renueva automáticamente al término de cada periodo.
+- El servicio es **sin permanencia**: el Cliente puede cancelar desde *Elige un plan → Cancelar plan*. La cancelación se aplica al cierre del periodo pagado.
+- El plan Piloto dura 14 días calendario. Al finalizar, el Cliente puede contratar cualquiera de los planes de pago.
+- El Cliente puede cambiar de plan en cualquier momento. El nuevo plan rige desde el siguiente periodo de facturación.
+
+#### 5. Disponibilidad del servicio
+
+| Indicador | Compromiso (versión comercial) |
 | :--- | :--- |
-| **Básico** | Acceso a las funcionalidades esenciales de monitoreo y gestión de información. |
-| **Profesional** | Acceso ampliado a funcionalidades de gestión y monitoreo de la plataforma. |
-| **Premium** | Acceso a las funcionalidades disponibles para una gestión más completa del sistema. |
+| Disponibilidad mensual de la Web Application y la API | ≥ 99.5 % |
+| Ventana de mantenimiento programado | Domingos de 00:00 a 04:00 (hora de Lima), con aviso de 48 horas |
+| Tiempo máximo de recuperación ante incidentes (RTO) | 4 horas |
+| Pérdida máxima de datos ante incidentes (RPO) | 24 horas (respaldo diario de la base de datos) |
 
-El proyecto considera como referencia un modelo de suscripción mensual escalable. Durante la validación del proyecto se consideró un rango aproximado de **S/ 100 a S/ 200 mensuales**, sujeto a las características y alcance del servicio contratado.
+Se excluyen del cálculo de disponibilidad el mantenimiento programado, las fallas de conectividad del Cliente o de sus dispositivos IoT y los casos de fuerza mayor.
 
-#### Alcance del servicio
+> **Entorno académico actual:** en el Sprint 1 la API se ejecuta en una instancia gratuita de Render, que se suspende tras un periodo de inactividad. La primera solicitud después de la suspensión puede tardar alrededor de 30 segundos (en la verificación del 30/09/2026 la carga inicial de Swagger UI tomó 33 s y las solicitudes siguientes entre 0.5 s y 0.7 s). Los compromisos de la tabla aplican a la versión comercial con infraestructura dedicada.
 
-El servicio contempla el acceso a las funcionalidades implementadas en la plataforma:
+#### 6. Soporte y tiempos de respuesta
 
-- Autenticación de usuarios.
-- Gestión de establecimientos.
-- Gestión de dispositivos.
-- Monitoreo de información proveniente de sensores.
-- Gestión de operadores.
-- Gestión de transportes.
-- Gestión de suscripciones.
-- Visualización de información mediante dashboard.
-- Acceso a los servicios RESTful de la plataforma.
+| Severidad | Ejemplo | Básico / Piloto | Profesional / Hospitalario | Premium |
+| :--- | :--- | :---: | :---: | :---: |
+| **Crítica** | La plataforma no está disponible o no se registran lecturas | 8 h | 4 h | 1 h (24/7) |
+| **Alta** | Un módulo no funciona (por ejemplo, alertas o transportes) | 24 h | 8 h | 4 h |
+| **Media / Baja** | Consultas, errores visuales o solicitudes de mejora | 72 h | 48 h | 24 h |
 
-#### Disponibilidad del servicio
+Canales de soporte: correo electrónico (todos los planes), WhatsApp (Profesional, Hospitalario y Premium) y soporte telefónico 24/7 (Premium). La atención es en español.
 
-La plataforma se encuentra desplegada utilizando servicios cloud, permitiendo acceder a los componentes principales del sistema mediante Internet.
+#### 7. Seguridad y protección de datos
 
-| Componente | Servicio utilizado |
+- Todo el tráfico entre el navegador, la Web Application y la API viaja cifrado por **HTTPS**.
+- El acceso a la plataforma requiere autenticación con correo y contraseña (`POST /api/v1/users/sign-in`), y cada rol solo accede a los módulos que le corresponden.
+- Las credenciales de la base de datos y demás secretos se gestionan como variables de entorno y no se almacenan en el código fuente.
+- KairoLabs trata los datos personales de los usuarios conforme a la **Ley N.° 29733, Ley de Protección de Datos Personales**, y su reglamento. Los datos de lecturas y establecimientos pertenecen al Cliente.
+- Al finalizar el contrato, el Cliente puede solicitar la exportación de su información durante 30 días. Vencido ese plazo, los datos se eliminan.
+
+#### 8. Responsabilidades
+
+| KairoLabs (Proveedor) | Cliente |
 | :--- | :--- |
-| **Landing Page** | Vercel |
-| **Web Application** | Vercel |
-| **RESTful API** | Render |
-| **Base de datos** | Filess.io |
+| Mantener operativos la Web Application, la API y la base de datos. | Usar la plataforma conforme a su plan y a este acuerdo. |
+| Aplicar actualizaciones y correcciones sin costo adicional. | Custodiar las credenciales de sus usuarios y desactivar cuentas de personal cesado. |
+| Realizar respaldos diarios de la información. | Mantener encendidos y conectados los dispositivos IoT de sus sedes. |
+| Notificar mantenimientos programados e incidentes. | Atender las alertas generadas y registrar su respuesta (*alert-answered*). |
+| Proteger la confidencialidad de los datos del Cliente. | Pagar la suscripción dentro del plazo establecido. |
 
-El modelo SaaS permite que las actualizaciones de la plataforma se realicen sobre una infraestructura centralizada, evitando que cada usuario tenga que instalar manualmente nuevas versiones de la aplicación.
+#### 9. Compensaciones por incumplimiento
 
-#### Acceso y seguridad
+Si la disponibilidad mensual es inferior al compromiso, el Cliente recibe un crédito sobre la siguiente facturación:
 
-El acceso a la Web Application se realiza mediante autenticación de usuarios. La API utiliza autenticación mediante **JWT Bearer**, mientras que las credenciales y parámetros de conexión utilizados por los servicios se gestionan mediante variables de entorno.
+| Disponibilidad mensual | Crédito |
+| :--- | :---: |
+| < 99.5 % y ≥ 99.0 % | 10 % |
+| < 99.0 % y ≥ 95.0 % | 25 % |
+| < 95.0 % | 50 % |
 
-De esta manera, la información de configuración utilizada para la conexión con la base de datos y otros servicios no se almacena directamente dentro del código fuente.
+#### 10. Limitaciones
 
-#### Responsabilidades del servicio
+- KairoLabs apoya el control de las condiciones de almacenamiento, pero no sustituye las obligaciones sanitarias del Cliente ante DIGEMID / MINSA.
+- La exactitud de las lecturas depende de la calibración y del estado de los sensores instalados por el Cliente.
+- KairoLabs no se responsabiliza por pérdidas de medicamentos ocasionadas por alertas no atendidas por el personal del Cliente.
 
-| Parte | Responsabilidad |
+> Este acuerdo corresponde al modelo de servicio planteado para el proyecto académico KairoLabs. Las condiciones comerciales definitivas deberán formalizarse en un contrato en caso de una implementación comercial.
+
+---
+
+### 5.2.5. Implemented Native-Mobile Application Evidence
+
+Durante el Sprint 1 se construyó el **primer incremento de la aplicación móvil** en el repositorio `KairoLabs-Mobile`. Este incremento es una versión **mobile-first** de la experiencia de KairoLabs, diseñada para interacción táctil en smartphones, que conserva la identidad visual y los contenidos de la Landing Page y dirige al usuario a la Web Application mediante el botón "Comienza ahora".
+
+| Elemento | Detalle |
 | :--- | :--- |
-| **KairoLabs** | Mantener la aplicación, los servicios backend y la infraestructura de base de datos utilizados por la plataforma. |
-| **KairoLabs** | Mantener y actualizar los componentes de software del producto. |
-| **Usuario / Entidad contratante** | Utilizar la plataforma de acuerdo con las funcionalidades y condiciones establecidas para el servicio contratado. |
-| **Usuario / Entidad contratante** | Mantener bajo su responsabilidad las credenciales utilizadas para acceder a la plataforma. |
+| **Repositorio** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Mobile |
+| **Tecnologías** | Vite 7, HTML5, CSS3 (mobile-first), JavaScript (módulo ES) |
+| **Ejecución** | `npm install` y `npm run dev` (`vite --host 0.0.0.0`), lo que permite abrir la app desde un smartphone conectado a la misma red |
+| **Viewport de prueba** | 390 × 844 px (smartphone) |
 
-#### Condiciones del servicio
+**Commit del Sprint 1**
 
-El servicio se plantea bajo una modalidad de suscripción, mediante la cual la entidad contratante obtiene acceso a las funcionalidades disponibles de KairoLabs durante el periodo correspondiente al servicio contratado.
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :---: | :--- | :--- | :--- | :---: |
+| KairoLabs-Mobile | main | `514be11` | feat: create KairoLabs mobile landing page | Estructura mobile-first: `index.html`, `styles.css`, `app.js`, configuración de Vite. | 14/09/2026 |
 
-La prestación del servicio se encuentra soportada por una infraestructura cloud compuesta por Vercel para los componentes frontend, Render para la RESTful API y Filess.io para la persistencia de datos mediante PostgreSQL.
+**Funcionalidades implementadas**
 
-La administración de la plataforma, actualización de sus componentes y mantenimiento de los servicios desplegados corresponde al equipo responsable de KairoLabs dentro del alcance definido para el producto.
+| Funcionalidad | Descripción | User Story |
+| :--- | :--- | :---: |
+| Barra superior con menú hamburguesa | Panel lateral de navegación con *scrim*, cierre por botón o toque fuera del panel y atributos `aria-expanded`. | US01, US26 |
+| Hero móvil | Mensaje principal y CTA hacia la Web Application. | US02, US21 |
+| Carrusel de instituciones | Franja deslizable con DIGEMID, MINSA, SUSALUD y CENARES. | US17 |
+| Acordeón Nosotros | Misión, visión y equipo académico en paneles expandibles. | US20 |
+| Tarjetas deslizables de tecnología | Temperatura, humedad, iluminación y conectividad 24/7 con desplazamiento horizontal. | US03, US14 |
+| Sectores objetivo | Tarjetas por segmento con etiquetas (tiempo real, alertas, cadena de frío). | US04 |
+| Planes | Tarjetas de planes optimizadas para lectura en móvil. | US16 |
+| Animaciones de aparición | `IntersectionObserver` para revelar secciones al hacer scroll. | US23 |
 
-El usuario o entidad contratante será responsable del uso adecuado de la plataforma y de la protección de las credenciales utilizadas para acceder al servicio.
+**Evidencias**
 
-El presente apartado corresponde al modelo de servicio planteado para el proyecto académico **KairoLabs**. Las condiciones comerciales, niveles de disponibilidad, términos de contratación y demás condiciones contractuales definitivas deberán establecerse formalmente en caso de una implementación comercial del servicio.
+![Versión móvil 1](../assets/chapter-5/mobile-overview-1.png)
+
+*Figura 5.2.5-1. Inicio, menú de navegación, Nosotros y Tecnología en la versión móvil.*
+
+![Versión móvil 2](../assets/chapter-5/mobile-overview-2.png)
+
+*Figura 5.2.5-2. Sectores objetivo, planes y llamado a la acción en la versión móvil.*
+
+![Repositorio móvil](../assets/chapter-5/gh-mobile-repo.png)
+
+*Figura 5.2.5-3. Repositorio `KairoLabs-Mobile`.*
+
+En los siguientes Sprints, este incremento evolucionará hacia la aplicación móvil nativa (iOS/Android) orientada al monitoreo rápido y a la recepción de alertas en tiempo real, consumiendo la misma RESTful API que la Web Application.
+
+---
+
+### 5.2.6. Implemented RESTful API and/or Serverless Backend Evidence
+
+La RESTful API de KairoLabs (**MediTrack Sensor API v1**) está implementada en **ASP.NET Core** y se ejecuta como Web Service en **Render** (el encabezado `x-render-origin-server: Kestrel` confirma el servidor ASP.NET Core). Expone **34 operaciones** organizadas en siete grupos que corresponden a los bounded contexts del dominio, y es la API que consume la Web Application en producción.
+
+| Elemento | Detalle |
+| :--- | :--- |
+| **Base URL** | `https://medi-track-sensor-platform.onrender.com/api/v1` |
+| **Swagger UI** | https://medi-track-sensor-platform.onrender.com/swagger/index.html |
+| **Especificación** | OpenAPI 3.0.1 — `/swagger/v1/swagger.json` |
+| **Formato** | JSON (`application/json; charset=utf-8`), atributos en `snake_case` |
+| **Repositorio** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform |
+
+| Bounded Context | Recurso | Operaciones |
+| :--- | :--- | :---: |
+| IAM | Users | 4 |
+| IAM | Admins | 2 |
+| Establishments | Establishments | 4 |
+| Establishments | Operators | 7 |
+| Monitoring | Devices | 6 |
+| Logistics | Transports | 6 |
+| Subscriptions | Subscriptions | 5 |
+| **Total** | | **34** |
+
+**Verificación de endpoints en producción (30/09/2026)**
+
+Se ejecutaron solicitudes de solo lectura sobre la API desplegada:
+
+| Método | Endpoint | Código HTTP | Tiempo de respuesta |
+| :---: | :--- | :---: | :---: |
+| GET | `/api/v1/users` | 200 OK | 0.72 s |
+| GET | `/api/v1/admins` | 200 OK | 0.48 s |
+| GET | `/api/v1/establishments` | 200 OK | 0.49 s |
+| GET | `/api/v1/devices` | 200 OK | 0.62 s |
+| GET | `/api/v1/operators` | 200 OK | 0.54 s |
+| GET | `/api/v1/transports` | 200 OK | 0.52 s |
+| GET | `/api/v1/subscriptions` | 200 OK | 0.51 s |
+
+![Swagger UI](../assets/chapter-5/api-swagger-overview.png)
+
+*Figura 5.2.6-1. Swagger UI de MediTrack Sensor API v1 desplegada en Render.*
+
+![GET establishments](../assets/chapter-5/api-get-establishments.png)
+
+*Figura 5.2.6-2. Ejecución de `GET /api/v1/establishments` con respuesta 200.*
+
+![GET devices](../assets/chapter-5/api-get-devices.png)
+
+*Figura 5.2.6-3. Ejecución de `GET /api/v1/devices` con lecturas de sensores.*
+
+![GET transports](../assets/chapter-5/api-get-transports.png)
+
+*Figura 5.2.6-4. Ejecución de `GET /api/v1/transports`.*
+
+**Integración con la Web Application**
+
+La Web Application consume la API mediante clientes HTTP por bounded context (`iam-api.js`, `establishment-api.js`, `monitoring-api.js`, `logistics-api.js`, `subscriptions-api.js`) que extienden `shared/infrastructure/base-api.js`. La URL base se obtiene de `VITE_API_BASE_URL`, por lo que el mismo código apunta al backend local en desarrollo y a Render en producción.
+
+**Repositorio del backend**
+
+El repositorio `KairoLabs-Platform` de la organización está destinado al código fuente del backend. Durante el Sprint 1 el servicio desplegado en Render corresponde a la versión estable del backend que ya consumía la Web Application; la publicación de su código fuente en `KairoLabs-Platform`, con el flujo GitFlow descrito en la sección 5.1.2, queda pendiente para el siguiente Sprint.
+
+---
 
 ### 5.2.7. RESTful API documentation
 
-La RESTful API de KairoLabs fue implementada utilizando **ASP.NET Core y C#**, permitiendo establecer la comunicación entre la Web Application y los servicios backend de la plataforma.
+La documentación de la API se genera con **OpenAPI 3.0 / Swagger** y está disponible en:
 
-La documentación de los servicios se realizó mediante **OpenAPI/Swagger**, proporcionando una interfaz interactiva para consultar los endpoints disponibles, sus parámetros, modelos de datos y respuestas.
+**https://medi-track-sensor-platform.onrender.com/swagger/index.html**
 
-**Documentación de la API:**
+Cada endpoint incluye un resumen, una descripción, los parámetros de ruta, el esquema del cuerpo de la solicitud con un ejemplo y los códigos de respuesta. A continuación se documentan los endpoints por recurso.
 
-https://kairolabs-platform.onrender.com/swagger/index.html
+#### Users (IAM)
 
-#### Organización de los servicios
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/users` | Lista todos los usuarios registrados. Útil para verificar IDs antes de crear operadores. | — | — | 200 OK |
+| POST | `/api/v1/users` | Registro (sign-up). Si `role = Admin` y se envía `entity_name`, crea también la entidad de salud en la misma transacción. | — | `SignUpResource` | 200 OK |
+| POST | `/api/v1/users/sign-in` | Inicio de sesión. Respuesta: `{ user, token }`. | — | `SignInResource` | 200 OK |
+| DELETE | `/api/v1/users/{id}` | Elimina un usuario por ID. | `id` | — | 204 No Content |
 
-La API se encuentra organizada de acuerdo con los principales bounded contexts definidos para KairoLabs.
+![Users](../assets/chapter-5/api-tag-users.png)
 
-| Bounded Context | Endpoints principales | Métodos |
-| :--- | :--- | :--- |
-| **IAM** | `/api/v1/users`, `/api/v1/users/sign-in`, `/api/v1/admins` | GET, POST, DELETE |
-| **Subscriptions** | `/api/v1/subscriptions` | GET, POST, DELETE |
-| **Monitoring** | `/api/v1/devices`, `/api/v1/devices/{id}/sensor-data` | GET, POST, PUT, DELETE |
-| **Establishments** | `/api/v1/establishments` | GET, POST, DELETE |
-| **Logistics** | `/api/v1/operators`, `/api/v1/transports` | GET, POST, PUT, DELETE |
+![Sign-in](../assets/chapter-5/api-sign-in.png)
 
-#### IAM
+*Figura 5.2.7-1. Endpoints de Users y detalle de `POST /api/v1/users/sign-in`.*
 
-El bounded context IAM concentra los servicios relacionados con usuarios y administradores.
+Ejemplo de solicitud de inicio de sesión:
 
-| Método | Endpoint | Descripción |
-| :--- | :--- | :--- |
-| GET | `/api/v1/users` | Obtener usuarios registrados. |
-| POST | `/api/v1/users` | Registrar un nuevo usuario. |
-| POST | `/api/v1/users/sign-in` | Autenticar un usuario. |
-| DELETE | `/api/v1/users/{id}` | Eliminar un usuario. |
-| GET | `/api/v1/admins` | Obtener administradores. |
-| POST | `/api/v1/admins` | Registrar un administrador. |
+```http
+POST /api/v1/users/sign-in
+Content-Type: application/json
 
-#### Monitoring
+{
+  "email": "pilsen@gmail.com",
+  "password": "tu_password_aqui"
+}
+```
 
-Este módulo proporciona servicios para administrar los dispositivos y actualizar la información obtenida de los sensores.
+Ejemplo de registro de una entidad de salud:
 
-| Método | Endpoint | Descripción |
-| :--- | :--- | :--- |
-| GET | `/api/v1/devices` | Obtener dispositivos registrados. |
-| POST | `/api/v1/devices` | Registrar un dispositivo. |
-| PUT | `/api/v1/devices/{id}/sensor-data` | Actualizar información de sensores. |
-| DELETE | `/api/v1/devices/{id}` | Eliminar un dispositivo. |
+```json
+{
+  "name": "María García",
+  "dni": "87654321",
+  "email": "nuevo.admin@clinica.com",
+  "phone": "+51999999999",
+  "job_title": "Administrador",
+  "entry_date": "2026-07-06",
+  "role": "Admin",
+  "password": "********",
+  "photo": "",
+  "entity_name": "Clínica San Martín"
+}
+```
+
+#### Admins (IAM)
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/admins` | Lista las entidades de salud. Su `id` se usa para crear establecimientos y suscripciones. | — | — | 200 OK |
+| POST | `/api/v1/admins` | Crea un admin vinculado a un `user_id` existente. | — | `CreateAdminResource` | 200 OK |
+
+![Admins](../assets/chapter-5/api-tag-admins.png)
+
+*Figura 5.2.7-2. Endpoints de Admins.*
 
 #### Establishments
 
-Este módulo permite administrar los establecimientos asociados a la plataforma.
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/establishments` | Lista global de establecimientos. | — | — | 200 OK |
+| GET | `/api/v1/admins/{adminId}/establishments` | Establecimientos de un admin. | `adminId` | — | 200 OK |
+| POST | `/api/v1/admins/{adminId}/establishments` | Crea un establecimiento bajo el admin indicado en la ruta. | `adminId` | `CreateNestedEstablishmentResource` | 200 OK |
+| DELETE | `/api/v1/establishments/{id}` | Elimina un establecimiento. | `id` | — | 204 No Content |
 
-| Método | Endpoint | Descripción |
-| :--- | :--- | :--- |
-| GET | `/api/v1/establishments` | Obtener establecimientos. |
-| POST | `/api/v1/establishments` | Registrar un establecimiento. |
-| DELETE | `/api/v1/establishments/{id}` | Eliminar un establecimiento. |
+```json
+{
+  "establishment_name": "Farmacia Central",
+  "establishment_type": "Pharmacy",
+  "address": "Av. Principal 123",
+  "district": "Miraflores",
+  "city_region": "Lima",
+  "country": "PE",
+  "latitude": -12.1201,
+  "longitude": -77.0301,
+  "phone": "+5112345678",
+  "email": "central@farmacia.pe",
+  "website": "www.farmacia.pe"
+}
+```
+
+`establishment_type` admite: `Warehouse`, `Clinic`, `Hospital`, `Pharmacy`, `Laboratory`.
+
+![Establishments](../assets/chapter-5/api-tag-establishments.png)
+
+*Figura 5.2.7-3. Endpoints de Establishments.*
+
+#### Operators
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/operators` | Lista global de operadores. | — | — | 200 OK |
+| GET | `/api/v1/establishments/{establishmentId}/operators` | Operadores de un establecimiento. | `establishmentId` | — | 200 OK |
+| POST | `/api/v1/establishments/{establishmentId}/operators` | Asigna un operador (`users_id` de un usuario con rol Operator). | `establishmentId` | `CreateNestedOperatorResource` | 200 OK |
+| PUT | `/api/v1/establishments/{establishmentId}/operators/{operatorId}` | Actualiza el horario del operador. | `establishmentId`, `operatorId` | `UpdateNestedOperatorResource` | 200 OK |
+| PUT | `/api/v1/establishments/{establishmentId}/operators/{operatorId}/alert-answered` | Suma 1 al contador `alerts_answered`. Sin body. | `establishmentId`, `operatorId` | — | 200 OK |
+| DELETE | `/api/v1/establishments/{establishmentId}/operators/{operatorId}` | Elimina el operador del establecimiento. | `establishmentId`, `operatorId` | — | 204 No Content |
+| DELETE | `/api/v1/operators/{id}` | Elimina un operador por ID (ruta plana). | `id` | — | 204 No Content |
+
+![Operators](../assets/chapter-5/api-tag-operators.png)
+
+*Figura 5.2.7-4. Endpoints de Operators.*
+
+#### Devices (Monitoring)
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/devices` | Lista global de dispositivos. | — | — | 200 OK |
+| GET | `/api/v1/establishments/{establishmentId}/devices` | Dispositivos IoT de un establecimiento. | `establishmentId` | — | 200 OK |
+| POST | `/api/v1/establishments/{establishmentId}/devices` | Registra un dispositivo (`type_of_medication`: Refrigerated, Biological, Controlled). | `establishmentId` | `CreateNestedDeviceResource` | 200 OK |
+| PUT | `/api/v1/establishments/{establishmentId}/devices/{deviceId}/sensor-data` | Actualiza las lecturas del sensor (`door_status`: Open, Closed). | `establishmentId`, `deviceId` | `UpdateDeviceSensorDataResource` | 200 OK |
+| DELETE | `/api/v1/establishments/{establishmentId}/devices/{deviceId}` | Elimina el dispositivo del establecimiento. | `establishmentId`, `deviceId` | — | 204 No Content |
+| DELETE | `/api/v1/devices/{id}` | Elimina un dispositivo por ID (ruta plana). | `id` | — | 204 No Content |
+
+```json
+{
+  "temperature": 4.2,
+  "humidity": 55,
+  "light_intensity": 120.5,
+  "air_quality": 98,
+  "vibration": 0.1,
+  "atmospheric_pressure": 1013.25,
+  "suspended_particles": 12,
+  "door_status": "Closed"
+}
+```
+
+![Devices](../assets/chapter-5/api-tag-devices.png)
+
+*Figura 5.2.7-5. Endpoints de Devices.*
+
+#### Transports (Logistics)
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/transports` | Lista global de transportes. | — | — | 200 OK |
+| GET | `/api/v1/establishments/{establishmentId}/transports` | Transportes de un establecimiento. | `establishmentId` | — | 200 OK |
+| POST | `/api/v1/establishments/{establishmentId}/transports` | Registra una unidad de transporte con sensores. | `establishmentId` | `CreateNestedTransportResource` | 200 OK |
+| PUT | `/api/v1/establishments/{establishmentId}/transports/{transportId}/sensor-data` | Actualiza la telemetría de la unidad. | `establishmentId`, `transportId` | `UpdateTransportSensorDataResource` | 200 OK |
+| DELETE | `/api/v1/establishments/{establishmentId}/transports/{transportId}` | Elimina el transporte del establecimiento. | `establishmentId`, `transportId` | — | 204 No Content |
+| DELETE | `/api/v1/transports/{id}` | Elimina un transporte por ID (ruta plana). | `id` | — | 204 No Content |
+
+![Transports](../assets/chapter-5/api-tag-transports.png)
+
+*Figura 5.2.7-6. Endpoints de Transports.*
 
 #### Subscriptions
 
-Este módulo permite administrar la información relacionada con los planes de suscripción.
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/subscriptions` | Lista global de suscripciones. | — | — | 200 OK |
+| GET | `/api/v1/admins/{adminId}/subscriptions` | Suscripciones de un admin. | `adminId` | — | 200 OK |
+| POST | `/api/v1/admins/{adminId}/subscriptions` | Crea una suscripción (`plan`: Basic, Premium, Enterprise; fechas `YYYY-MM-DD`). | `adminId` | `CreateNestedSubscriptionResource` | 200 OK |
+| DELETE | `/api/v1/admins/{adminId}/subscriptions/{subscriptionId}` | Elimina la suscripción del admin. | `adminId`, `subscriptionId` | — | 204 No Content |
+| DELETE | `/api/v1/subscriptions/{id}` | Elimina una suscripción por ID (ruta plana). | `id` | — | 204 No Content |
 
-| Método | Endpoint | Descripción |
-| :--- | :--- | :--- |
-| GET | `/api/v1/subscriptions` | Obtener suscripciones. |
-| POST | `/api/v1/subscriptions` | Registrar una suscripción. |
-| DELETE | `/api/v1/subscriptions/{id}` | Eliminar una suscripción. |
-
-#### Logistics
-
-El bounded context Logistics contiene los servicios relacionados con operadores y transportes.
-
-| Método | Endpoint | Descripción |
-| :--- | :--- | :--- |
-| GET | `/api/v1/operators` | Obtener operadores. |
-| POST | `/api/v1/operators` | Registrar un operador. |
-| PUT | `/api/v1/operators/{id}` | Actualizar un operador. |
-| DELETE | `/api/v1/operators/{id}` | Eliminar un operador. |
-| GET | `/api/v1/transports` | Obtener transportes. |
-| POST | `/api/v1/transports` | Registrar un transporte. |
-| PUT | `/api/v1/transports/{id}/sensor-data` | Actualizar información de sensores del transporte. |
-| DELETE | `/api/v1/transports/{id}` | Eliminar un transporte. |
-
-#### Autenticación
-
-La API utiliza autenticación mediante **JWT Bearer**. El proceso de autenticación se realiza mediante:
-
-```text
-POST /api/v1/users/sign-in
+```json
+{
+  "plan": "Premium",
+  "start_date": "2026-07-01",
+  "end_date": "2027-06-30"
+}
 ```
 
-Una vez validada la información del usuario, el servicio genera el token correspondiente para permitir el acceso a los recursos protegidos.
+![Subscriptions](../assets/chapter-5/api-tag-subscriptions.png)
 
-#### Documentación OpenAPI
+*Figura 5.2.7-7. Endpoints de Subscriptions.*
 
-La documentación generada mediante Swagger permite visualizar:
+#### Esquemas (Schemas)
 
-- Endpoints disponibles.
-- Métodos HTTP.
-- Parámetros de entrada.
-- Modelos de datos.
-- Códigos de respuesta.
-- Esquema de autenticación JWT Bearer.
-- Estructuras de respuesta de los servicios.
+| Schema | Atributos |
+| :--- | :--- |
+| `SignUpResource` | `name`, `dni`, `email`, `phone`, `job_title`, `entry_date` (date), `role` (`UserRole`), `password`, `photo`, `entity_name` |
+| `SignInResource` | `email`, `password` |
+| `CreateAdminResource` | `entity_name`, `entity_code`, `schedule`, `user_id` (int) |
+| `CreateNestedEstablishmentResource` | `establishment_name`, `establishment_type` (`EstablishmentType`), `address`, `district`, `city_region`, `country`, `latitude`, `longitude`, `phone`, `email`, `website` |
+| `CreateNestedOperatorResource` | `schedule`, `users_id` (int) |
+| `UpdateNestedOperatorResource` | `schedule` |
+| `CreateNestedDeviceResource` | `exact_location`, `type_of_medication`, `enabled_sensors` (JSON en texto) |
+| `UpdateDeviceSensorDataResource` | `temperature`, `humidity`, `light_intensity`, `air_quality`, `vibration`, `atmospheric_pressure`, `suspended_particles`, `door_status` |
+| `CreateNestedTransportResource` | `type_of_transport`, `type_of_medication`, `enabled_sensors` |
+| `UpdateTransportSensorDataResource` | Mismos atributos que `UpdateDeviceSensorDataResource` |
+| `CreateNestedSubscriptionResource` | `plan`, `start_date` (date), `end_date` (date) |
+| `UserRole` (enum) | `Admin`, `Operator` |
+| `EstablishmentType` (enum) | `Warehouse`, `Clinic`, `Hospital`, `Pharmacy`, `Laboratory` |
 
-La documentación interactiva permite consultar los servicios disponibles y realizar pruebas directamente sobre la API desplegada.
+![Schemas](../assets/chapter-5/api-schemas.png)
 
-**URL de Swagger UI:**
+*Figura 5.2.7-8. Esquemas publicados en Swagger UI.*
 
-https://kairolabs-platform.onrender.com/swagger/index.html
+**Flujo de uso recomendado** (documentado en las descripciones de Swagger):
 
+1. `POST /api/v1/users`: registrar al gestor (`role = Admin`, con `entity_name`).
+2. `POST /api/v1/users/sign-in`: iniciar sesión y obtener `{ user, token }`.
+3. `POST /api/v1/admins/{adminId}/establishments`: crear el establecimiento.
+4. `POST /api/v1/establishments/{establishmentId}/devices`: registrar los dispositivos IoT.
+5. `PUT .../devices/{deviceId}/sensor-data`: enviar lecturas de los sensores.
+
+---
 
 ### 5.2.8. Team Collaboration Insights
 
-La implementación de KairoLabs se realizó mediante un trabajo colaborativo entre los cinco integrantes del equipo. Las actividades fueron distribuidas de acuerdo con las necesidades de desarrollo, integración, despliegue, pruebas y documentación del producto.
+El trabajo del Sprint 1 se distribuyó entre los cinco integrantes de Aether System. Los productos de software (Landing Page, Web Application y Mobile) concentraron su actividad entre el 13 y el 14 de setiembre, y el Project Report se trabajó durante todo el Sprint con ramas por capítulo.
 
-| Integrante | GitHub | Principales actividades |
+| Integrante | GitHub | Principales aportes en el Sprint 1 |
 | :--- | :--- | :--- |
-| **Mallqui Vilca, Dhilsen Armil** | `Dhilsen18` | Desarrollo e integración del frontend, participación en los módulos de monitoreo, establecimientos y suscripciones, integración frontend con la API y validación del despliegue. |
-| **Diaz Mendoza, Sebastian Victor Andre** | `DiazDeveloper` | Desarrollo y finalización de servicios backend, implementación de endpoints REST y documentación mediante Swagger/OpenAPI. |
-| **Ramirez Escalante, Carlo Patricio** | `Dhilsen18` | Apoyo en persistencia, relaciones de entidades, validación de la base de datos y pruebas de los servicios backend. |
-| **Oblitas Alcalde, Rodrigo** | `DiazDeveloper` | Apoyo en integración full-stack, despliegue de servicios y consolidación de evidencias del proyecto. |
-| **Dinklange Arevalo, Sandro** | `Dhilsen18` | Apoyo en pruebas funcionales, documentación, organización del informe y consolidación de resultados. |
+| **Mallqui Vilca, Dhilsen Armil** | [`Dhilsen18`](https://github.com/Dhilsen18) | Estructura del repositorio del informe, Capítulo III (User Stories, Product Backlog, scenario maps e Impact Mapping), rebranding y despliegue de la Landing Page, rediseño de la Web Application. |
+| **Diaz Mendoza, Sebastian Victor Andre** | [`DiazDeveloper`](https://github.com/DiazDeveloper) | Capítulo I (introducción, 5W2H, Lean UX, perfiles), revisión de entrevistas del Capítulo II, actualización de los Capítulos IV y V. |
+| **Ramirez Escalante, Carlo Patricio** | [`Carlo211`](https://github.com/Carlo211) | Documentación del diseño del producto (Capítulo IV), perfil en el Capítulo I y merge del Pull Request #1. |
+| **Oblitas Alcalde, Rodrigo** | [`Darkdren`](https://github.com/Darkdren) | Primer incremento de la aplicación móvil (`KairoLabs-Mobile`) y perfil en el Capítulo I. |
+| **Dinklange Arevalo, Sandro** | [`Sandro0406`](https://github.com/Sandro0406) | Capítulo II (requisitos), Capítulo I y Capítulo V (evidencias de implementación, Acuerdo SaaS y documentación de la API). |
 
-#### Colaboración durante el desarrollo
+**Commits por integrante y repositorio (Sprint 1, sin merges)**
 
-El equipo utilizó GitHub como plataforma principal para gestionar los repositorios de código y mantener el control de versiones de los diferentes componentes del producto.
+| Integrante | Project Report | Landing Page | Web Application | Mobile | Total |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Mallqui Vilca, Dhilsen Armil | 14 | 6 | 3 | — | 23 |
+| Diaz Mendoza, Sebastian Victor Andre | 15 | — | — | — | 15 |
+| Dinklange Arevalo, Sandro | 7 | — | — | — | 7 |
+| Ramirez Escalante, Carlo Patricio | 2 | — | — | — | 2 |
+| Oblitas Alcalde, Rodrigo | 1 | — | — | 1 | 2 |
 
-Los principales repositorios utilizados fueron:
+**Insights del repositorio del informe**
 
-| Producto | Repositorio |
+![Contributors Project Report](../assets/chapter-5/gh-report-contributors.png)
+
+*Figura 5.2.8-1. Insights → Contributors de `KairoLabs-Project-Report`.*
+
+![Commits Project Report](../assets/chapter-5/gh-report-commits.png)
+
+*Figura 5.2.8-2. Commits recientes del informe, incluido el merge del Pull Request #1 (`feature/chapter4`).*
+
+**Insights de los repositorios de producto**
+
+![Contributors Landing Page](../assets/chapter-5/gh-landing-contributors.png)
+
+*Figura 5.2.8-3. Insights → Contributors de `KairoLabs-Landing-Page`.*
+
+![Contributors Frontend](../assets/chapter-5/gh-frontend-contributors.png)
+
+*Figura 5.2.8-4. Insights → Contributors de `KairoLabs-Frontend`.*
+
+![Contributors Mobile](../assets/chapter-5/gh-mobile-contributors.png)
+
+*Figura 5.2.8-5. Insights → Contributors de `KairoLabs-Mobile`.*
+
+![Commits Mobile](../assets/chapter-5/gh-mobile-commits.png)
+
+*Figura 5.2.8-6. Commit inicial del repositorio móvil.*
+
+**Análisis de la colaboración**
+
+- **Trabajo por capítulos en paralelo.** Las ramas `feature/chapter-1` … `feature/chapter-5` permitieron que varios integrantes avanzaran el informe a la vez. El Capítulo IV se integró mediante el Pull Request #1, que dejó registro de la revisión.
+- **Concentración del desarrollo de producto.** La mayor parte de los commits de la Landing Page y de la Web Application fueron de un solo integrante. Como acción de mejora se propone distribuir las tareas de código por bounded context, de modo que cada integrante lidere al menos un módulo de la Web App o de la aplicación móvil.
+- **Commits más descriptivos.** Una parte de los commits del informe se realizó desde la interfaz web de GitHub con mensajes genéricos (`Update ...md`). Se propone que todos los commits sigan Conventional Commits, con el capítulo como `scope` (por ejemplo, `docs(chapter-5): add API documentation`).
+- **Integración continua del despliegue.** La conexión de los repositorios con Vercel permitió validar cada incremento en producción inmediatamente después del push (por ejemplo, los despliegues del 14 de setiembre de la Landing Page y de la Web Application).
+
+---
+
+## 5.3. Video About-the-Product
+
+El video About-the-Product presenta KairoLabs desde la perspectiva de sus segmentos objetivo y muestra los productos implementados en el Sprint 1.
+
+| Elemento | Detalle |
 | :--- | :--- |
-| **Landing Page** | `KairoLabs-Landing-Page` |
-| **Frontend Web Application** | `KairoLabs-Frontend` |
-| **Backend RESTful API** | `KairoLabs-Backend` |
-| **Documentación del proyecto** | `KairoLabs-Project-Report` |
+| **Enlace al video** | *(pendiente: agregar el enlace de Microsoft Stream / YouTube)* |
+| **Duración objetivo** | 3 a 5 minutos |
+| **Idioma** | Español, con subtítulos |
 
-Durante el desarrollo se utilizaron ramas para organizar las funcionalidades y posteriormente integrar los cambios en las ramas correspondientes.
+**Guion del video**
 
-Entre las principales actividades colaborativas realizadas se encuentran:
-
-- Revisión de cambios antes de realizar merges.
-- Resolución de conflictos durante la integración del código.
-- Pruebas de los endpoints mediante Swagger.
-- Validación de los flujos de autenticación.
-- Pruebas de los módulos CRUD.
-- Coordinación entre frontend y backend.
-- Verificación de la conexión con PostgreSQL.
-- Revisión del despliegue en Vercel y Render.
-- Consolidación de evidencias para el informe.
-
-#### Distribución de actividades
-
-La participación del equipo se organizó considerando los diferentes componentes que conforman la solución KairoLabs.
-
-| Área de trabajo | Integrantes involucrados |
-| :--- | :--- |
-| **Frontend Web Application** | Mallqui Vilca, Dhilsen Armil / Oblitas Alcalde, Rodrigo |
-| **RESTful API y Backend** | Diaz Mendoza, Sebastian Victor Andre / Ramirez Escalante, Carlo Patricio |
-| **Base de datos y persistencia** | Ramirez Escalante, Carlo Patricio / Diaz Mendoza, Sebastian Victor Andre |
-| **Integración y despliegue** | Mallqui Vilca, Dhilsen Armil / Oblitas Alcalde, Rodrigo |
-| **Pruebas y validación** | Dinklange Arevalo, Sandro / Ramirez Escalante, Carlo Patricio |
-| **Documentación del proyecto** | Dinklange Arevalo, Sandro / Oblitas Alcalde, Rodrigo |
-
-#### Integración de componentes
-
-El trabajo colaborativo permitió integrar los diferentes componentes desarrollados durante los cuatro Sprints.
-
-```text
-                         KairoLabs
-                             |
-             +---------------+---------------+
-             |                               |
-        Landing Page                 Web Application
-           Vercel                         Vercel
-                                             |
-                                             |
-                                      RESTful API
-                                         Render
-                                             |
-                                             |
-                                    PostgreSQL
-                                      Filess.io
-```
-
-La integración permitió conectar la interfaz desarrollada en Vue.js con los servicios RESTful desarrollados en ASP.NET Core y con la base de datos PostgreSQL.
-
-#### Comunicación y coordinación
-
-Durante los Sprints, el equipo mantuvo comunicación para coordinar las actividades de desarrollo, revisar avances y resolver problemas relacionados con la integración de los componentes.
-
-Las actividades colaborativas incluyeron:
-
-- Coordinación de tareas correspondientes a cada Sprint.
-- Revisión de avances de los diferentes componentes.
-- Integración de funcionalidades desarrolladas individualmente.
-- Validación de la comunicación entre frontend y backend.
-- Pruebas de los servicios RESTful.
-- Revisión del despliegue de los componentes.
-- Organización de las evidencias correspondientes al proyecto.
-- Actualización colaborativa de la documentación.
-
-La organización mediante Sprints permitió distribuir progresivamente las actividades del proyecto:
-
-| Sprint | Principal resultado |
-| :--- | :--- |
-| **Sprint 1** | Desarrollo y despliegue de la Landing Page. |
-| **Sprint 2** | Desarrollo de la primera versión de la Web Application. |
-| **Sprint 3** | Implementación de la RESTful API y servicios backend. |
-| **Sprint 4** | Integración full-stack, validación y despliegue final. |
-
-En conjunto, la colaboración del equipo permitió integrar los componentes desarrollados durante los cuatro Sprints y consolidar la solución KairoLabs como un producto compuesto por una Landing Page, una Web Application, una RESTful API y una base de datos PostgreSQL.
-
-
-### 5.3. Video About-the-Product
-
-El video del producto presenta el funcionamiento general de KairoLabs y permite evidenciar los principales componentes implementados durante el desarrollo del proyecto.
-
-La demostración comprende los principales flujos y funcionalidades desarrollados durante los cuatro Sprints, mostrando la integración entre la Landing Page, la Web Application y los servicios backend de la plataforma.
-
-**Video del producto:**
-
-(Anexar enlace o evidencia del video)
-
-
-
+| Minuto | Contenido |
+| :---: | :--- |
+| 0:00 – 0:30 | Problema: pérdida de medicamentos por condiciones inadecuadas de temperatura, humedad y luz en almacenes y transportes. |
+| 0:30 – 1:00 | Propuesta de valor de KairoLabs y segmentos objetivo (personal operativo de almacenes y gestores de farmacia). |
+| 1:00 – 1:45 | Recorrido por la Landing Page: Tecnología, Sectores, Planes y CTA "Comienza ahora". |
+| 1:45 – 3:15 | Web Application: registro, login, establecimientos, mapa, dispositivos, Centro de Control, transportes y planes. |
+| 3:15 – 3:45 | Versión móvil en smartphone. |
+| 3:45 – 4:15 | Swagger UI de la RESTful API. |
+| 4:15 – 4:30 | Cierre e invitación a probar el plan Piloto. |
