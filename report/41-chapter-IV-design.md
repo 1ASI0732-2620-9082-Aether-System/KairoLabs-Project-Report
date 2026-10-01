@@ -209,10 +209,6 @@ Las siguientes vistas muestran la aplicación del estilo web definido para Kairo
   <em>Nota: Organización visual utilizada para explicar el funcionamiento de la plataforma.</em>
 </p>
 
-<p align="center">
-  <img src="../assets/quienesSomosMU.png" alt="Equipo KairoLabs" width="700"><br>
-  <em>Nota: Aplicación del sistema visual en la presentación institucional.</em>
-</p>
 
 <p align="center">
   <img src="../assets/planesPagosMU.png" alt="Planes de KairoLabs" width="700"><br>
