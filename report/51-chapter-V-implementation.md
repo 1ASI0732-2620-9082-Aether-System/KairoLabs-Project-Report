@@ -1026,20 +1026,3 @@ El trabajo del Sprint 1 se distribuyó entre los cinco integrantes de Aether Sys
 
 El video About-the-Product presenta KairoLabs desde la perspectiva de sus segmentos objetivo y muestra los productos implementados en el Sprint 1.
 
-| Elemento | Detalle |
-| :--- | :--- |
-| **Enlace al video** | *(pendiente: agregar el enlace de Microsoft Stream / YouTube)* |
-| **Duración objetivo** | 3 a 5 minutos |
-| **Idioma** | Español, con subtítulos |
-
-**Guion del video**
-
-| Minuto | Contenido |
-| :---: | :--- |
-| 0:00 – 0:30 | Problema: pérdida de medicamentos por condiciones inadecuadas de temperatura, humedad y luz en almacenes y transportes. |
-| 0:30 – 1:00 | Propuesta de valor de KairoLabs y segmentos objetivo (personal operativo de almacenes y gestores de farmacia). |
-| 1:00 – 1:45 | Recorrido por la Landing Page: Tecnología, Sectores, Planes y CTA "Comienza ahora". |
-| 1:45 – 3:15 | Web Application: registro, login, establecimientos, mapa, dispositivos, Centro de Control, transportes y planes. |
-| 3:15 – 3:45 | Versión móvil en smartphone. |
-| 3:45 – 4:15 | Swagger UI de la RESTful API. |
-| 4:15 – 4:30 | Cierre e invitación a probar el plan Piloto. |
