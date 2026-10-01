@@ -599,7 +599,6 @@ En la API, la suscripción se registra con el recurso `/api/v1/admins/{adminId}/
 
 Se excluyen del cálculo de disponibilidad el mantenimiento programado, las fallas de conectividad del Cliente o de sus dispositivos IoT y los casos de fuerza mayor.
 
-> **Entorno académico actual:** en el Sprint 1 la API se ejecuta en una instancia gratuita de Render, que se suspende tras un periodo de inactividad. La primera solicitud después de la suspensión puede tardar alrededor de 30 segundos (en la verificación del 30/09/2026 la carga inicial de Swagger UI tomó 33 s y las solicitudes siguientes entre 0.5 s y 0.7 s). Los compromisos de la tabla aplican a la versión comercial con infraestructura dedicada.
 
 #### 6. Soporte y tiempos de respuesta
 
@@ -644,8 +643,6 @@ Si la disponibilidad mensual es inferior al compromiso, el Cliente recibe un cr�
 - KairoLabs apoya el control de las condiciones de almacenamiento, pero no sustituye las obligaciones sanitarias del Cliente ante DIGEMID / MINSA.
 - La exactitud de las lecturas depende de la calibración y del estado de los sensores instalados por el Cliente.
 - KairoLabs no se responsabiliza por pérdidas de medicamentos ocasionadas por alertas no atendidas por el personal del Cliente.
-
-> Este acuerdo corresponde al modelo de servicio planteado para el proyecto académico KairoLabs. Las condiciones comerciales definitivas deberán formalizarse en un contrato en caso de una implementación comercial.
 
 ---
 
