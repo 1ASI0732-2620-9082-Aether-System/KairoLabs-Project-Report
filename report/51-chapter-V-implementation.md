@@ -313,7 +313,7 @@ La URL del backend no se escribe en el código: se define por ambiente en archiv
 
 ### 5.2.1. Sprint Backlogs
 
-En esta sección se presenta el Sprint Backlog del **Sprint 1**, que corresponde al primer incremento del producto para el Sprint Review de la semana 4 (AVANCE 1). Las User Stories provienen del Product Backlog priorizado del Capítulo III y se gestionaron en Trello.
+En esta sección se presenta el Sprint Backlog del **Sprint 1**, que corresponde al primer incremento del producto para el Sprint Review de la semana 4. Las User Stories provienen del Product Backlog priorizado del Capítulo III y se gestionaron en Trello.
 
 | Sprint # | Sprint 1 |
 | :--- | :--- |
