@@ -1023,9 +1023,8 @@ El trabajo del Sprint 1 se distribuyó entre los cinco integrantes de Aether Sys
 **Análisis de la colaboración**
 
 - **Trabajo por capítulos en paralelo.** Las ramas `feature/chapter-1` … `feature/chapter-5` permitieron que varios integrantes avanzaran el informe a la vez. El Capítulo IV se integró mediante el Pull Request #1, que dejó registro de la revisión.
-- **Concentración del desarrollo de producto.** La mayor parte de los commits de la Landing Page y de la Web Application fueron de un solo integrante. Como acción de mejora se propone distribuir las tareas de código por bounded context, de modo que cada integrante lidere al menos un módulo de la Web App o de la aplicación móvil.
-- **Commits más descriptivos.** Una parte de los commits del informe se realizó desde la interfaz web de GitHub con mensajes genéricos (`Update ...md`). Se propone que todos los commits sigan Conventional Commits, con el capítulo como `scope` (por ejemplo, `docs(chapter-5): add API documentation`).
-- **Integración continua del despliegue.** La conexión de los repositorios con Vercel permitió validar cada incremento en producción inmediatamente después del push (por ejemplo, los despliegues del 14 de setiembre de la Landing Page y de la Web Application).
+- **Commits más descriptivos.** Se propone que todos los commits sigan Conventional Commits.
+- **Integración continua del despliegue.** La conexión de los repositorios con Vercel permitió validar cada incremento en producción inmediatamente después del push.
 
 ---
 
