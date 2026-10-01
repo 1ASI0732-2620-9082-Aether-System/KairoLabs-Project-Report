@@ -403,9 +403,6 @@ La Landing Page presenta la propuesta de valor de KairoLabs a los dos segmentos 
 
 ![Sección Sectores](../assets/chapter-5/landing-sectores.jpg)
 
-*Figura 5.2.2-5. Sección Sectores objetivo (US04).*
-
-![Sección Equipo](../assets/chapter-5/landing-equipo.png)
 
 *Figura 5.2.2-6. Sección Integrantes del Equipo (US06).*
 
