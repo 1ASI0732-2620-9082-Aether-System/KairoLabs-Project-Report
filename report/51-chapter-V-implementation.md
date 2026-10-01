@@ -318,7 +318,7 @@ En esta sección se presenta el Sprint Backlog del **Sprint 1**, que corresponde
 | Sprint # | Sprint 1 |
 | :--- | :--- |
 | **Periodo** | 06/09/2026 – 30/09/2026 |
-| **Sprint 1 Goal** | Our focus is to deliver the first increment of the KairoLabs ecosystem for cycle 2026-20: the rebranded Landing Page, the Web Application authentication flow aligned with the new design system, and the first mobile-first version of the mobile app. We believe it delivers a clear and consistent entry point to KairoLabs for pharmacy managers and warehouse staff. This will be confirmed when the Landing Page and the Web Application are deployed on Vercel and the mobile version runs correctly on smartphone viewports. |
+| **Sprint 1 Goal** | Nuestro objetivo es entregar la primera fase de KairoLabs con su nueva imagen, el flujo de autenticación de la aplicación web Consideramos que esto proporciona un punto de entrada claro y coherente a KairoLabs para los gerentes de farmacia y el personal de almacén. . |
 | **Sum of Story Points** | 50 |
 
 **Tablero en Trello**
