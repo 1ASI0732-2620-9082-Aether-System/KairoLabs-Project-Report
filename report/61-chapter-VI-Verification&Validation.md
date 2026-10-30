@@ -636,9 +636,94 @@ Referencia técnica de la corrección: [configuración de JWT Bearer en ASP.NET 
 
 ### 6.2.1. Static Code Analysis
 
+El análisis estático de código (*Static Code Analysis*) permite evaluar la calidad estructural, el apego a estándares de programación y la postura de seguridad del software sin requerir la ejecución de los componentes en un entorno de pruebas o producción. Para el ecosistema KairoLabs, este procedimiento se aplicó sobre el código fuente del frontend web (`KairoLabs-Frontend`), abarcando la verificación sintáctica y de estilo, así como la auditoría de seguridad de dependencias externas (*Software Composition Analysis* - SCA).
+
 #### 6.2.1.1. Coding standard & Code conventions.
 
+Para garantizar la mantenibilidad, legibilidad y colaboración ordenada entre los miembros del equipo, se establecieron estándares rigurosos basados en la guía oficial de estilo de **Vue.js (Priority A & B)** y la **Airbnb JavaScript Style Guide**. La arquitectura del proyecto sigue el enfoque de diseño guiado por el dominio (*Domain-Driven Design* - DDD), dividiendo las responsabilidades en capas (`domain`, `application`, `infrastructure`, `presentation`) dentro de cada Bounded Context (`iam`, `monitoring`, `establishment`, `logistics`, `subscriptions`).
+
+A continuación se resumen las convenciones de nomenclatura y formato acordadas para el código fuente:
+
+**Tabla 12**
+
+*Convenciones de nomenclatura y codificación en KairoLabs-Frontend*
+
+| Elemento / Capa | Convención | Formato | Ejemplo en el Código |
+| :--- | :--- | :---: | :--- |
+| **Componentes y Vistas** | Componentes reutilizables y páginas de vistas | `kebab-case.vue` | `monitoring-dashboard.vue`, `sensor-readings-grid.vue` |
+| **Modelos y Entidades** | Entidades de dominio DDD | `PascalCase` / `*.entity.js` | `establishment.entity.js`, `device.entity.js` |
+| **Gestores de Estado** | Stores reactivas con Pinia | `camelCase` / `*.store.js` | `monitoring.store.js`, `iam.store.js` |
+| **Ensambladores y Gateways** | Transformación DTO y consumo API | `*.assembler.js` / `*-api.js` | `device.assembler.js`, `monitoring-api.js` |
+| **Funciones y Métodos** | Acciones reactivas y servicios asíncronos | `camelCase` | `fetchEstablishments()`, `updateReading()` |
+| **Constantes Globales** | Umbrales de telemetría y configuración | `UPPER_SNAKE_CASE` | `API_BASE_URL`, `POLLING_INTERVAL_MS` |
+| **Indentación y Formato** | Espaciado consistente y puntuación | 2 espacios, `;` explícito | Configuración centralizada de linter |
+
+*Nota.* Elaboración propia basada en las normas de diseño modular DDD y la guía de desarrollo frontend de KairoLabs.
+
+**Automatización y Verificación con ESLint**
+
+Para asegurar el cumplimiento automático de estas directivas antes de cada confirmación de código (*commit*), se configuró **ESLint** mediante el archivo de directivas `eslint.config.js` y el script de ejecución estática en `package.json`:
+
+```json
+"scripts": {
+  "lint": "npx eslint src"
+}
+```
+
+Al ejecutar la validación sobre todo el árbol de código fuente (`src/`), el analizador estático verificó el descarte de variables no declaradas o sin uso, la erradicación del uso de `var` en favor de `const` y `let`, y el cumplimiento uniforme de terminación con punto y coma. Como se evidencia en la Figura 35, el análisis concluyó de forma satisfactoria sin registrar errores de sintaxis ni advertencias de estilo pendientes.
+
+**Figura 35**
+
+*Validación de estándares y convenciones de codificación mediante ESLint*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/estatico/ESLINT-CODE-CONVENTIONS.png" alt="Validación estática de estándares de codificación con ESLint" width="1000">
+</p>
+
+*Nota.* Ejecución de la tarea de verificación estática de convenciones y estándares de código sobre el código fuente de KairoLabs-Frontend. Se evidencia la ejecución sin errores de sintaxis ni infracciones de reglas de formato. Captura propia del entorno de desarrollo del 28 de octubre de 2026.
+
 #### 6.2.1.2. Code Quality & Code Security
+
+La evaluación de calidad interna y seguridad del software se complementó mediante un análisis estático de composición de software (*Software Composition Analysis* - SCA) utilizando la utilidad `npm audit`. Esta herramienta inspecciona el árbol completo de dependencias directas y transitivas declaradas en `package.json` y `package-lock.json`, cotejándolas con la base de datos oficial de avisos de seguridad de GitHub (*GitHub Advisory Database* - GHSA) y vulnerabilidades y exposiciones comunes (*Common Vulnerabilities and Exposures* - CVE).
+
+**Resultados de la Auditoría de Seguridad**
+
+La ejecución de la auditoría identificó **14 vulnerabilidades de severidad alta** concentradas en librerías de terceros utilizadas para el cliente HTTP (`axios`), el motor de internacionalización (`vue-i18n` / `@intlify`) y el servidor de desarrollo y empaquetador (`vite`), tal como se ilustra en la Figura 36.
+
+**Figura 36**
+
+*Auditoría de seguridad y dependencias de terceros mediante npm audit*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/estatico/NPM-AUDIT-VULNERABILITIES.png" alt="Reporte de vulnerabilidades de dependencias con npm audit" width="1000">
+</p>
+
+*Nota.* Análisis estático de composición de software (SCA) ejecutado con npm audit sobre el árbol de paquetes de KairoLabs-Frontend, identificando alertas de severidad alta en librerías externas y su respectivo comando de remediación. Captura propia del entorno de desarrollo del 28 de octubre de 2026.
+
+A fin de gestionar de manera rigurosa los riesgos derivados de estas dependencias externas, se elaboró la matriz de hallazgos y el plan de mitigación técnica detallado en la Tabla 13:
+
+**Tabla 13**
+
+*Desglose detallado de las 14 vulnerabilidades de severidad alta identificadas por npm audit*
+
+| N° | Paquete Afectado | Versión Vulnerable | Severidad | Identificador (GHSA / CVE) | Tipo de Riesgo / Impacto | Origen / Árbol de Dependencia | Plan de Mitigación |
+| :---: | :--- | :---: | :---: | :--- | :--- | :--- | :--- |
+| **1** | `@intlify/core-base` | <= 11.4.13 | High | GHSA-8rc2-428q-7ww3<br>GHSA-83rm-6c8r-g728 | XSS por omisión de escape en `escapeParameter` | Dependencia de `vue-i18n` | Actualizar vía `npm audit fix` |
+| **2** | `@intlify/devtools-types` | 11.1.10 – 11.4.13 | High | GHSA-8rc2-428q-7ww3 | Dependencia transitiva vulnerable de `@intlify/core-base` | Dependencia de `vue-i18n` | Actualizar paquete raíz `vue-i18n` |
+| **3** | `@intlify/shared` | 11.1.10 – 11.4.13 | High | GHSA-83rm-6c8r-g728 | XSS mediante `srcdoc` en mensajes de traducción | Dependencia de `@intlify/core-base` | Actualizar vía `npm audit fix` |
+| **4** | `@intlify/message-compiler` | 11.1.10 – 11.4.13 | High | GHSA-83rm-6c8r-g728 | Compilador expuesto por paquete compartido vulnerable | Dependencia de `@intlify/shared` | Actualizar vía `npm audit fix` |
+| **5** | `vue-i18n` | 9.0.0-beta.5 – 11.4.13 | High | GHSA-83rm-6c8r-g728 | Vulnerabilidad compuesta por módulos del motor intlify | Dependencia directa (`package.json`) | Actualizar a versión parcheada `^11.4.14` |
+| **6** | `@vue/server-renderer` | <= 3.5.41 | High | GHSA-g2v6-rqmx-r4w6 | XSS por ausencia de retorno de carro en blacklist de atributos | Dependencia de `vue` | Actualizar versión de `vue` |
+| **7** | `vue` | 3.2.13 – 3.5.41 | High | GHSA-g2v6-rqmx-r4w6 | Núcleo de renderizado afectado por dependencia transitiva | Dependencia directa (`package.json`) | Ejecutar `npm audit fix` a Vue `>= 3.5.42` |
+| **8** | `axios` | 1.0.0 – 1.19.0 | High | GHSA-xj6q-8x83-jv6g<br>GHSA-42h9-826w-cgv3 | *Prototype Pollution* en deserialización y DoS por recursión | Dependencia directa (`package.json`) | Actualizar Axios a versión `>= 1.20.0` |
+| **9** | `follow-redirects` | 1.16.0 | High | GHSA-q3jh-wrc6-jgq8<br>GHSA-8r9p-f939-6h3c | Fuga de cabeceras de autorización en redirecciones HTTP | Dependencia transitiva de `axios` | Resuelto al actualizar `axios` |
+| **10** | `form-data` | 4.0.0 – 4.0.5 | High | GHSA-hmw2-7cc7-3qxx | Inyección CRLF mediante nombres de campo sin escapar | Dependencia transitiva de `axios` | Resuelto al actualizar `axios` |
+| **11** | `nanoid` | <= 3.3.17 | High | GHSA-28wg-ghj8-5hjv<br>GHSA-2v37-7h3g-55p8 | Generadores no seguros provocan bucle infinito y bloqueo DoS | Dependencia transitiva de `postcss` | Actualizar paquetes postcss |
+| **12** | `postcss` | <= 8.5.22 | High | GHSA-fxqj-rqcc-2cmp<br>GHSA-r28c-9q8g-f849 | *Path Traversal* en sourceMappingURL revelando archivos `.map` | Dependencia transitiva de `vite` | Actualizar vía `npm audit fix` |
+| **13** | `source-map-js` | 1.0.0 – 1.2.1 | High | GHSA-68fv-2mgg-jv7q | Bloqueo del bucle de eventos mediante offsets indexados | Dependencia transitiva de `postcss` | Resuelto al actualizar `postcss` |
+| **14** | `vite` | 8.0.0 – 8.1.5 | High | GHSA-v6wh-96g9-6wx3<br>GHSA-9jrq-w75r-8gcw | Ejecución indebida por middleware y Path Traversal en Windows | DevDependency directa (`package.json`) | Restricción en `vite.config.js` y parche |
+
+*Nota.* Elaboración propia a partir del reporte exhaustivo de 14 vulnerabilidades de severidad alta emitido por npm audit en el repositorio KairoLabs-Frontend.
 
 ---
 
