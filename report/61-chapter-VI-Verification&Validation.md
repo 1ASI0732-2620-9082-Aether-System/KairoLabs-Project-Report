@@ -134,6 +134,210 @@ npm test
 
 El archivo de prueba importa únicamente las clases de dominio indicadas y no carga `api.js` ni `vite.config.js`. La suite devuelve un código de salida distinto de cero mientras existan casos fallidos.
 
+**Evidencias individuales en Visual Studio Code**
+
+Las Figuras 1 a 20 presentan el código y el resultado aprobado de cada caso. Las imágenes son capturas reales de extractos del registro de la suite completa; no representan ejecuciones independientes de cada prueba.
+
+**Figura 1**
+
+*Conserva sede y lectura cero al construir el dispositivo (UT-DEV-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-01.jpg" alt="UT-DEV-01: conserva sede y lectura cero al construir el dispositivo" width="1000">
+</p>
+
+*Nota.* El dispositivo conserva su establecimiento y una lectura numérica de cero. Captura propia del caso UT-DEV-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 2**
+
+*Interpreta enabled_sensors recibido como JSON (UT-DEV-02)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-02.jpg" alt="UT-DEV-02: interpreta enabled_sensors recibido como JSON" width="1000">
+</p>
+
+*Nota.* La configuración JSON de sensores se transforma en un objeto de dominio. Captura propia del caso UT-DEV-02, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 3**
+
+*Tolera JSON incompleto sin interrumpir el dominio (UT-DEV-03)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-03.jpg" alt="UT-DEV-03: tolera JSON incompleto sin interrumpir el dominio" width="1000">
+</p>
+
+*Nota.* Un JSON incompleto no interrumpe la creación del dispositivo y produce una configuración nula. Captura propia del caso UT-DEV-03, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 4**
+
+*Clasifica 4.5 grados como ok (UT-DEV-04)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-04.jpg" alt="UT-DEV-04: clasifica 4.5 grados como ok" width="1000">
+</p>
+
+*Nota.* La lectura de 4.5 °C se clasifica como normal según los umbrales implementados. Captura propia del caso UT-DEV-04, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 5**
+
+*Clasifica 8.1 grados como critical (UT-DEV-05)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-05.jpg" alt="UT-DEV-05: clasifica 8.1 grados como critical" width="1000">
+</p>
+
+*Nota.* La lectura de 8.1 °C se clasifica como crítica. Captura propia del caso UT-DEV-05, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 6**
+
+*Clasifica 1.9 grados como critical (UT-DEV-06)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-06.jpg" alt="UT-DEV-06: clasifica 1.9 grados como critical" width="1000">
+</p>
+
+*Nota.* La lectura de 1.9 °C se clasifica como crítica. Captura propia del caso UT-DEV-06, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 7**
+
+*Clasifica 7.1 grados como warning (UT-DEV-07)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-07.jpg" alt="UT-DEV-07: clasifica 7.1 grados como warning" width="1000">
+</p>
+
+*Nota.* La lectura de 7.1 °C se clasifica como advertencia. Captura propia del caso UT-DEV-07, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 8**
+
+*Distingue los limites de warning y critical (UT-DEV-08)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-08.jpg" alt="UT-DEV-08: distingue los limites de warning y critical" width="1000">
+</p>
+
+*Nota.* Las lecturas de 2 y 8 °C se clasifican como advertencia, sin superar el límite crítico. Captura propia del caso UT-DEV-08, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 9**
+
+*Identifica texto no numerico como unknown (UT-DEV-09)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-09.jpg" alt="UT-DEV-09: identifica texto no numerico como unknown" width="1000">
+</p>
+
+*Nota.* Una cadena no numérica se interpreta como una lectura desconocida. Captura propia del caso UT-DEV-09, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 10**
+
+*Identifica temperatura null como unknown (UT-DEV-10)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-10.jpg" alt="UT-DEV-10: identifica temperatura null como unknown" width="1000">
+</p>
+
+*Nota.* Los valores nulo e indefinido se interpretan como datos ausentes; el cero real conserva su clasificación crítica. Captura propia del caso UT-DEV-10, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 11**
+
+*Identifica temperatura vacia como unknown (UT-DEV-11)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-11.jpg" alt="UT-DEV-11: identifica temperatura vacia como unknown" width="1000">
+</p>
+
+*Nota.* Las cadenas vacías o en blanco se distinguen del valor numérico cero tras la corrección. Captura propia del caso UT-DEV-11, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 12**
+
+*Clasifica puerta abierta como critical (UT-DEV-12)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-12.jpg" alt="UT-DEV-12: clasifica puerta abierta como critical" width="1000">
+</p>
+
+*Nota.* Una puerta abierta se identifica como condición crítica. Captura propia del caso UT-DEV-12, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 13**
+
+*Clasifica puerta cerrada como ok (UT-DEV-13)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-13.jpg" alt="UT-DEV-13: clasifica puerta cerrada como ok" width="1000">
+</p>
+
+*Nota.* Una puerta cerrada se identifica como condición normal. Captura propia del caso UT-DEV-13, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 14**
+
+*Recupera luz desde el alias lux (UT-DEV-14)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-DEV-14.jpg" alt="UT-DEV-14: recupera luz desde el alias lux" width="1000">
+</p>
+
+*Nota.* La métrica de luz puede recuperarse mediante el alias lux. Captura propia del caso UT-DEV-14, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 15**
+
+*Traduce basic a BASIC (UT-SUB-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-SUB-01.jpg" alt="UT-SUB-01: traduce basic a BASIC" width="1000">
+</p>
+
+*Nota.* El identificador basic se traduce al valor BASIC utilizado por la API. Captura propia del caso UT-SUB-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 16**
+
+*Traduce PREMIUM al catalogo premium (UT-SUB-02)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-SUB-02.jpg" alt="UT-SUB-02: traduce PREMIUM al catalogo premium" width="1000">
+</p>
+
+*Nota.* El valor PREMIUM de la API se traduce al identificador premium del catálogo. Captura propia del caso UT-SUB-02, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 17**
+
+*Traduce enterprise a ENTERPRISE (UT-SUB-03)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-SUB-03.jpg" alt="UT-SUB-03: traduce enterprise a ENTERPRISE" width="1000">
+</p>
+
+*Nota.* El identificador enterprise se traduce al valor ENTERPRISE de la API. Captura propia del caso UT-SUB-03, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 18**
+
+*Usa basic ante un plan desconocido (UT-SUB-04)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-SUB-04.jpg" alt="UT-SUB-04: usa basic ante un plan desconocido" width="1000">
+</p>
+
+*Nota.* Un plan desconocido utiliza el valor predeterminado basic de la implementación. Captura propia del caso UT-SUB-04, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 19**
+
+*Normaliza espacios y mayusculas del correo (UT-IAM-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-IAM-01.jpg" alt="UT-IAM-01: normaliza espacios y mayusculas del correo" width="1000">
+</p>
+
+*Nota.* El correo se normaliza eliminando espacios externos y convirtiendo sus letras a minúsculas. Captura propia del caso UT-IAM-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 20**
+
+*Conserva exactamente la clave y el segmento (UT-IAM-02)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/unitarias/UT-IAM-02.jpg" alt="UT-IAM-02: conserva exactamente la clave y el segmento" width="1000">
+</p>
+
+*Nota.* La contraseña y el segmento de acceso se conservan sin transformaciones. Captura propia del caso UT-IAM-02, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
 **Análisis de defectos**
 
 La ejecución inicial produjo 18 casos aprobados y 2 fallidos. Los casos UT-DEV-10 y UT-DEV-11 detectaron un defecto de conversión: `Number(null)` y `Number('')` producen cero y la temperatura se clasificaba como crítica. Se corrigió `Device.toNum()` para devolver `null` antes de convertir cuando el dato es `null`, `undefined` o una cadena vacía o compuesta únicamente por espacios en blanco. Así `evaluateMetric()` devuelve `unknown` para lecturas ausentes y conserva `critical` para una temperatura real de 0 °C, tanto numérica como recibida en la cadena `0`.
