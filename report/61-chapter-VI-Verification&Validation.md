@@ -441,6 +441,150 @@ Para IT-WEB-01 se compilan los módulos de infraestructura del frontend mediante
 
 La salida íntegra se conserva en [latest.tap](../assets/chapter-6/evidence/integration/latest.tap). Los resultados por caso y el entorno se registran en [results.json](../assets/chapter-6/evidence/integration/results.json), y las solicitudes y respuestas depuradas en [http-transcript.json](../assets/chapter-6/evidence/integration/http-transcript.json). Las credenciales y los JWT se redactan antes de escribir la evidencia.
 
+**Evidencias individuales en Visual Studio Code**
+
+Las Figuras 21 a 34 presentan el código y el resultado aprobado de cada caso. Las imágenes son capturas reales de extractos del registro de la suite completa; no representan ejecuciones independientes de cada prueba.
+
+**Figura 21**
+
+*Login valido integra API, BCrypt y MySQL sin exponer credenciales (IT-IAM-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-IAM-01.jpg" alt="IT-IAM-01: login valido integra API, BCrypt y MySQL sin exponer credenciales" width="1000">
+</p>
+
+*Nota.* El inicio de sesión válido integra la API, BCrypt y MySQL sin exponer credenciales en la respuesta. Captura propia del caso IT-IAM-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 22**
+
+*Clave incorrecta devuelve 401 y no emite token (IT-IAM-02)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-IAM-02.jpg" alt="IT-IAM-02: clave incorrecta devuelve 401 y no emite token" width="1000">
+</p>
+
+*Nota.* Una contraseña incorrecta produce HTTP 401 y no genera un token. Captura propia del caso IT-IAM-02, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 23**
+
+*Sedes creadas se recuperan por administrador y por SQL independiente (IT-EST-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-EST-01.jpg" alt="IT-EST-01: sedes creadas se recuperan por administrador y por SQL independiente" width="1000">
+</p>
+
+*Nota.* Las sedes se recuperan por administrador y se confirman mediante una consulta SQL independiente. Captura propia del caso IT-EST-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 24**
+
+*Asignacion de operador no mezcla sedes (IT-OP-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-OP-01.jpg" alt="IT-OP-01: asignacion de operador no mezcla sedes" width="1000">
+</p>
+
+*Nota.* El operador asignado aparece únicamente en la sede correspondiente y conserva su horario. Captura propia del caso IT-OP-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 25**
+
+*Dispositivo se recupera con su sede, ubicacion y tipo (IT-DEV-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-DEV-01.jpg" alt="IT-DEV-01: dispositivo se recupera con su sede, ubicacion y tipo" width="1000">
+</p>
+
+*Nota.* El dispositivo recuperado conserva ubicación, tipo de medicamento y establecimiento. Captura propia del caso IT-DEV-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 26**
+
+*Lectura persiste en MySQL y se recupera en otra solicitud (IT-DEV-02)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-DEV-02.jpg" alt="IT-DEV-02: lectura persiste en MySQL y se recupera en otra solicitud" width="1000">
+</p>
+
+*Nota.* La lectura actualizada se recupera mediante una nueva solicitud y se contrasta con MySQL. Captura propia del caso IT-DEV-02, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 27**
+
+*Actualizar desde otra sede devuelve 404 sin modificar la lectura (IT-DEV-03)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-DEV-03.jpg" alt="IT-DEV-03: actualizar desde otra sede devuelve 404 sin modificar la lectura" width="1000">
+</p>
+
+*Nota.* La actualización desde una sede ajena devuelve HTTP 404 y no modifica el dispositivo. Captura propia del caso IT-DEV-03, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 28**
+
+*DoorStatus invalido devuelve 400 sin persistencia parcial (IT-DEV-04)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-DEV-04.jpg" alt="IT-DEV-04: DoorStatus invalido devuelve 400 sin persistencia parcial" width="1000">
+</p>
+
+*Nota.* Un estado de puerta inválido produce HTTP 400 sin persistencia parcial. Captura propia del caso IT-DEV-04, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 29**
+
+*Tipo de medicamento invalido devuelve 400 sin crear dispositivo (IT-DEV-05)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-DEV-05.jpg" alt="IT-DEV-05: tipo de medicamento invalido devuelve 400 sin crear dispositivo" width="1000">
+</p>
+
+*Nota.* Un tipo de medicamento inválido produce HTTP 400 sin crear otro dispositivo. Captura propia del caso IT-DEV-05, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 30**
+
+*Transporte guarda lectura y rechaza identificador inexistente (IT-LOG-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-LOG-01.jpg" alt="IT-LOG-01: transporte guarda lectura y rechaza identificador inexistente" width="1000">
+</p>
+
+*Nota.* El transporte conserva la lectura persistida y rechaza un identificador inexistente. Captura propia del caso IT-LOG-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 31**
+
+*Suscripcion completa ciclo crear consultar eliminar y nueva consulta (IT-SUB-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-SUB-01.jpg" alt="IT-SUB-01: suscripcion completa ciclo crear consultar eliminar y nueva consulta" width="1000">
+</p>
+
+*Nota.* La suscripción completa el ciclo de creación, consulta y eliminación, verificado también en MySQL. Captura propia del caso IT-SUB-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 32**
+
+*Gateways Axios y assemblers reales consumen API y datos persistidos (IT-WEB-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-WEB-01.jpg" alt="IT-WEB-01: gateways Axios y assemblers reales consumen API y datos persistidos" width="1000">
+</p>
+
+*Nota.* Los gateways Axios y assemblers reales procesan la sesión y los dispositivos recibidos de la API local. Captura propia del caso IT-WEB-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 33**
+
+*CORS permite origen local rechaza ajeno y admite dominio KairoLabs (IT-WEB-02)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-WEB-02.jpg" alt="IT-WEB-02: CORS permite origen local rechaza ajeno y admite dominio KairoLabs" width="1000">
+</p>
+
+*Nota.* La política CORS admite los orígenes autorizados, incluido KairoLabs, y rechaza un origen ajeno. Captura propia del caso IT-WEB-02, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
+**Figura 34**
+
+*API exige autenticacion para listar datos operativos (IT-SEC-01)*
+
+<p align="center">
+  <img src="../assets/chapter-6/figures/integracion/IT-SEC-01.jpg" alt="IT-SEC-01: API exige autenticacion para listar datos operativos" width="1000">
+</p>
+
+*Nota.* La API rechaza credenciales JWT ausentes o inválidas y permite la solicitud con un token válido. Captura propia del caso IT-SEC-01, con resultado aprobado en el registro de ejecución del 30 de octubre de 2026.
+
 **Correcciones y revalidación**
 
 La ejecución previa produjo 12 aprobados y 2 fallidos. Se añadió el dominio de KairoLabs a la lista explícita de orígenes CORS, conservando el rechazo del origen ajeno. En el backend se registraron `AddAuthentication().AddJwtBearer()` y una política de autenticación obligatoria por defecto, y se incorporó `UseAuthentication()` antes de `UseAuthorization()`. La validación exige firma HS256, emisor, audiencia y vigencia; la clave se obtiene de configuración y debe tener al menos 32 bytes. Login y registro se mantienen públicos mediante `[AllowAnonymous]`; los endpoints de salud y la redirección inicial también se declaran públicos de forma explícita.
