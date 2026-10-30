@@ -1,0 +1,132 @@
+TAP version 13
+# Subtest: IT-IAM-01 login valido integra API, BCrypt y MySQL sin exponer credenciales
+ok 1 - IT-IAM-01 login valido integra API, BCrypt y MySQL sin exponer credenciales
+  ---
+  duration_ms: 1667.1479
+  type: 'test'
+  ...
+# Subtest: IT-IAM-02 clave incorrecta devuelve 401 y no emite token
+ok 2 - IT-IAM-02 clave incorrecta devuelve 401 y no emite token
+  ---
+  duration_ms: 319.9967
+  type: 'test'
+  ...
+# Subtest: IT-EST-01 sedes creadas se recuperan por administrador y por SQL independiente
+ok 3 - IT-EST-01 sedes creadas se recuperan por administrador y por SQL independiente
+  ---
+  duration_ms: 112.6953
+  type: 'test'
+  ...
+# Subtest: IT-OP-01 asignacion de operador no mezcla sedes
+ok 4 - IT-OP-01 asignacion de operador no mezcla sedes
+  ---
+  duration_ms: 78.9649
+  type: 'test'
+  ...
+# Subtest: IT-DEV-01 dispositivo se recupera con su sede, ubicacion y tipo
+ok 5 - IT-DEV-01 dispositivo se recupera con su sede, ubicacion y tipo
+  ---
+  duration_ms: 25.9648
+  type: 'test'
+  ...
+# Subtest: IT-DEV-02 lectura persiste en MySQL y se recupera en otra solicitud
+ok 6 - IT-DEV-02 lectura persiste en MySQL y se recupera en otra solicitud
+  ---
+  duration_ms: 101.122
+  type: 'test'
+  ...
+# Subtest: IT-DEV-03 actualizar desde otra sede devuelve 404 sin modificar la lectura
+ok 7 - IT-DEV-03 actualizar desde otra sede devuelve 404 sin modificar la lectura
+  ---
+  duration_ms: 10.8919
+  type: 'test'
+  ...
+# Subtest: IT-DEV-04 DoorStatus invalido devuelve 400 sin persistencia parcial
+ok 8 - IT-DEV-04 DoorStatus invalido devuelve 400 sin persistencia parcial
+  ---
+  duration_ms: 10.9067
+  type: 'test'
+  ...
+# Subtest: IT-DEV-05 tipo de medicamento invalido devuelve 400 sin crear dispositivo
+ok 9 - IT-DEV-05 tipo de medicamento invalido devuelve 400 sin crear dispositivo
+  ---
+  duration_ms: 8.7159
+  type: 'test'
+  ...
+# Subtest: IT-LOG-01 transporte guarda lectura y rechaza identificador inexistente
+ok 10 - IT-LOG-01 transporte guarda lectura y rechaza identificador inexistente
+  ---
+  duration_ms: 170.1759
+  type: 'test'
+  ...
+# Subtest: IT-SUB-01 suscripcion completa ciclo crear consultar eliminar y nueva consulta
+ok 11 - IT-SUB-01 suscripcion completa ciclo crear consultar eliminar y nueva consulta
+  ---
+  duration_ms: 159.6715
+  type: 'test'
+  ...
+# Subtest: IT-WEB-01 gateways Axios y assemblers reales consumen API y datos persistidos
+ok 12 - IT-WEB-01 gateways Axios y assemblers reales consumen API y datos persistidos
+  ---
+  duration_ms: 434.6711
+  type: 'test'
+  ...
+# Subtest: IT-WEB-02 CORS permite origen local rechaza ajeno y admite dominio KairoLabs
+not ok 13 - IT-WEB-02 CORS permite origen local rechaza ajeno y admite dominio KairoLabs
+  ---
+  duration_ms: 5.4677
+  type: 'test'
+  location: 'C:\\Users\\Usuario\\Documents\\ChatGPT\\Exp Software\\output\\KairoLabs-Integration-Tests\\tests\\integration.test.mjs:58:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + null
+    - 'https://kairo-labs-frontend.vercel.app'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'https://kairo-labs-frontend.vercel.app'
+  actual: ~
+  operator: 'strictEqual'
+  stack: |-
+    file:///C:/Users/Usuario/Documents/ChatGPT/Exp%20Software/output/KairoLabs-Integration-Tests/tests/integration.test.mjs:207:12
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async TestContext.<anonymous> (file:///C:/Users/Usuario/Documents/ChatGPT/Exp%20Software/output/KairoLabs-Integration-Tests/tests/integration.test.mjs:61:13)
+    async Test.run (node:internal/test_runner/test:1113:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+  ...
+# Subtest: IT-SEC-01 API exige autenticacion para listar datos operativos
+not ok 14 - IT-SEC-01 API exige autenticacion para listar datos operativos
+  ---
+  duration_ms: 6.6913
+  type: 'test'
+  location: 'C:\\Users\\Usuario\\Documents\\ChatGPT\\Exp Software\\output\\KairoLabs-Integration-Tests\\tests\\integration.test.mjs:58:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Un visitante anonimo no debe listar dispositivos
+    
+    200 !== 401
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 401
+  actual: 200
+  operator: 'strictEqual'
+  stack: |-
+    file:///C:/Users/Usuario/Documents/ChatGPT/Exp%20Software/output/KairoLabs-Integration-Tests/tests/integration.test.mjs:213:12
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async TestContext.<anonymous> (file:///C:/Users/Usuario/Documents/ChatGPT/Exp%20Software/output/KairoLabs-Integration-Tests/tests/integration.test.mjs:61:13)
+    async Test.run (node:internal/test_runner/test:1113:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 12
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3373.9527

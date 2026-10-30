@@ -1,0 +1,12 @@
+diff --git a/src/monitoring/domain/model/device.entity.js b/src/monitoring/domain/model/device.entity.js
+index 54a8550..edecd48 100644
+--- a/src/monitoring/domain/model/device.entity.js
++++ b/src/monitoring/domain/model/device.entity.js
+@@ -71,6 +71,7 @@ export class Device {
+     // ── Helpers ───────────────────────────────────────────────────────────────
+ 
+     static toNum(v) {
++        if (v == null || (typeof v === 'string' && v.trim() === '')) return null;
+         const n = Number(v);
+         return Number.isFinite(n) ? n : null;
+     }

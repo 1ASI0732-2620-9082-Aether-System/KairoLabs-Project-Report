@@ -1,0 +1,174 @@
+TAP version 13
+# Subtest: UT-DEV-01 conserva sede y lectura cero al construir el dispositivo
+ok 1 - UT-DEV-01 conserva sede y lectura cero al construir el dispositivo
+  ---
+  duration_ms: 1.3035
+  type: 'test'
+  ...
+# Subtest: UT-DEV-02 interpreta enabled_sensors recibido como JSON
+ok 2 - UT-DEV-02 interpreta enabled_sensors recibido como JSON
+  ---
+  duration_ms: 0.7253
+  type: 'test'
+  ...
+# Subtest: UT-DEV-03 tolera JSON incompleto sin interrumpir el dominio
+ok 3 - UT-DEV-03 tolera JSON incompleto sin interrumpir el dominio
+  ---
+  duration_ms: 0.1719
+  type: 'test'
+  ...
+# Subtest: UT-DEV-04 clasifica 4.5 grados como ok
+ok 4 - UT-DEV-04 clasifica 4.5 grados como ok
+  ---
+  duration_ms: 0.1862
+  type: 'test'
+  ...
+# Subtest: UT-DEV-05 clasifica 8.1 grados como critical
+ok 5 - UT-DEV-05 clasifica 8.1 grados como critical
+  ---
+  duration_ms: 0.1369
+  type: 'test'
+  ...
+# Subtest: UT-DEV-06 clasifica 1.9 grados como critical
+ok 6 - UT-DEV-06 clasifica 1.9 grados como critical
+  ---
+  duration_ms: 0.1096
+  type: 'test'
+  ...
+# Subtest: UT-DEV-07 clasifica 7.1 grados como warning
+ok 7 - UT-DEV-07 clasifica 7.1 grados como warning
+  ---
+  duration_ms: 0.1075
+  type: 'test'
+  ...
+# Subtest: UT-DEV-08 distingue los limites de warning y critical
+ok 8 - UT-DEV-08 distingue los limites de warning y critical
+  ---
+  duration_ms: 0.1074
+  type: 'test'
+  ...
+# Subtest: UT-DEV-09 identifica texto no numerico como unknown
+ok 9 - UT-DEV-09 identifica texto no numerico como unknown
+  ---
+  duration_ms: 0.1262
+  type: 'test'
+  ...
+# Subtest: UT-DEV-10 identifica temperatura null como unknown
+not ok 10 - UT-DEV-10 identifica temperatura null como unknown
+  ---
+  duration_ms: 0.9928
+  type: 'test'
+  location: 'C:\\Users\\Usuario\\Documents\\ChatGPT\\Exp Software\\output\\KairoLabs-Unit-Tests\\tests\\core-entities.test.mjs:52:36'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'critical'
+    - 'unknown'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'unknown'
+  actual: 'critical'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Usuario/Documents/ChatGPT/Exp%20Software/output/KairoLabs-Unit-Tests/tests/core-entities.test.mjs:35:71)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1106:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+    Test.postRun (node:internal/test_runner/test:1235:19)
+    Test.run (node:internal/test_runner/test:1163:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+  ...
+# Subtest: UT-DEV-11 identifica temperatura vacia como unknown
+not ok 11 - UT-DEV-11 identifica temperatura vacia como unknown
+  ---
+  duration_ms: 0.2139
+  type: 'test'
+  location: 'C:\\Users\\Usuario\\Documents\\ChatGPT\\Exp Software\\output\\KairoLabs-Unit-Tests\\tests\\core-entities.test.mjs:52:36'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'critical'
+    - 'unknown'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'unknown'
+  actual: 'critical'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Usuario/Documents/ChatGPT/Exp%20Software/output/KairoLabs-Unit-Tests/tests/core-entities.test.mjs:36:72)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1106:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+    Test.postRun (node:internal/test_runner/test:1235:19)
+    Test.run (node:internal/test_runner/test:1163:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+  ...
+# Subtest: UT-DEV-12 clasifica puerta abierta como critical
+ok 12 - UT-DEV-12 clasifica puerta abierta como critical
+  ---
+  duration_ms: 0.1374
+  type: 'test'
+  ...
+# Subtest: UT-DEV-13 clasifica puerta cerrada como ok
+ok 13 - UT-DEV-13 clasifica puerta cerrada como ok
+  ---
+  duration_ms: 0.0779
+  type: 'test'
+  ...
+# Subtest: UT-DEV-14 recupera luz desde el alias lux
+ok 14 - UT-DEV-14 recupera luz desde el alias lux
+  ---
+  duration_ms: 0.8629
+  type: 'test'
+  ...
+# Subtest: UT-SUB-01 traduce basic a BASIC
+ok 15 - UT-SUB-01 traduce basic a BASIC
+  ---
+  duration_ms: 0.124
+  type: 'test'
+  ...
+# Subtest: UT-SUB-02 traduce PREMIUM al catalogo premium
+ok 16 - UT-SUB-02 traduce PREMIUM al catalogo premium
+  ---
+  duration_ms: 0.1657
+  type: 'test'
+  ...
+# Subtest: UT-SUB-03 traduce enterprise a ENTERPRISE
+ok 17 - UT-SUB-03 traduce enterprise a ENTERPRISE
+  ---
+  duration_ms: 0.0965
+  type: 'test'
+  ...
+# Subtest: UT-SUB-04 usa basic ante un plan desconocido
+ok 18 - UT-SUB-04 usa basic ante un plan desconocido
+  ---
+  duration_ms: 0.0649
+  type: 'test'
+  ...
+# Subtest: UT-IAM-01 normaliza espacios y mayusculas del correo
+ok 19 - UT-IAM-01 normaliza espacios y mayusculas del correo
+  ---
+  duration_ms: 0.1198
+  type: 'test'
+  ...
+# Subtest: UT-IAM-02 conserva exactamente la clave y el segmento
+ok 20 - UT-IAM-02 conserva exactamente la clave y el segmento
+  ---
+  duration_ms: 0.0891
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 18
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 131.1384
