@@ -738,6 +738,79 @@ A fin de gestionar de manera rigurosa los riesgos derivados de estas dependencia
 
 *Nota.* Elaboración propia a partir del reporte exhaustivo de 14 vulnerabilidades de severidad alta emitido por npm audit en el repositorio KairoLabs-Frontend.
 
+### 6.2.2. Reviews
+
+La revisión de KairoLabs busca comprobar que el código y la documentación sean coherentes con lo que necesita el producto. Además de los resultados de las herramientas automáticas, es necesario revisar cómo se manejan las lecturas de los sensores, quién puede acceder a los datos y qué se ha comprobado con las pruebas.
+
+Esta sección reúne las correcciones y los pendientes descritos en 6.1.1, 6.1.2 y 6.2.1, junto con las diferencias encontradas en la copia local del frontend. Se preparó con apoyo de una revisión asistida del código y los documentos disponibles al **31 de octubre de 2026**. Las pruebas citadas ya estaban registradas en el informe. Aún queda pendiente que otro integrante revise los cambios y que el equipo registre su aprobación, ya que no se cuenta con nombres de revisores ni actas de esa actividad.
+
+**Objetivo y alcance de la revisión**
+
+La revisión se centra en la gestión de establecimientos, operadores, dispositivos, transportes y suscripciones. Incluye el frontend desarrollado con Vue 3 y el backend ASP.NET Core con MySQL, reutilizado de MediTrackSensor. En cada caso se consideran las versiones señaladas en el informe.
+
+**Tabla 14**
+
+*Componentes y documentos incluidos en la revisión de KairoLabs*
+
+| Componente o documento | Qué se revisa | Referencia |
+| :--- | :--- | :--- |
+| Monitoring | Que una lectura ausente se distinga de un cero real, que las lecturas se clasifiquen correctamente y que cada dispositivo conserve su sede. | `Device` y casos UT-DEV-01 a UT-DEV-14 de 6.1.1. |
+| IAM y Subscriptions | Que el correo se normalice sin cambiar la contraseña y que los planes coincidan entre el catálogo y la API. | `SignInCommand`, `Subscription` y casos UT-IAM / UT-SUB de 6.1.1. |
+| Comunicación frontend-API | Cómo se envían las solicitudes, se interpretan las respuestas y se utiliza el JWT; si las pruebas usan datos simulados o servicios reales. | `IamApi`, `MonitoringApi`, assemblers y caso IT-WEB-01 de 6.1.2. |
+| Configuración y respuestas del backend | Qué orígenes permite CORS, qué operaciones exigen autenticación y cómo se responden los errores y se manejan los datos de cada establecimiento. | `Program.cs` y casos IT-WEB-02, IT-SEC-01 e IT-DEV de 6.1.2. |
+| Base de datos y dependencias | Cómo arranca la aplicación con una base vacía y qué problemas de migraciones o seguridad siguen pendientes. | OBS-INT-01, OBS-INT-02 y auditoría de 6.2.1.2. |
+| Informe y resultados de pruebas | Que los resultados correspondan a la versión indicada y que las conclusiones se ajusten a lo que se probó. | Capítulo VI y [registro de versiones y hashes](../assets/chapter-6/metadata/published-validation.json). |
+
+*Nota.* Queda pendiente ampliar la revisión a las pruebas móviles, los recorridos completos en el navegador y los permisos de acceso de todos los recursos.
+
+**Procedimiento y guía para próximas revisiones**
+
+Para las siguientes entregas, se propone trabajar con estos pasos:
+
+1. **Definir qué se va a revisar.** Anotar la historia de usuario o requisito, el repositorio, la rama, el commit y los archivos. El autor explica qué debería hacer el cambio y comparte sus evidencias.
+2. **Revisar el cambio con otro integrante.** El revisor utiliza los criterios de la Tabla 14 y señala el archivo o la función donde encuentra un problema. Si el autor revisa su propio trabajo, debe registrarlo como autorrevisión.
+3. **Ordenar las observaciones.** Explicar qué problema se encontró, qué puede afectar y qué tan pronto debe atenderse. En KairoLabs tienen prioridad el acceso a los datos, la interpretación de las lecturas y su almacenamiento.
+4. **Corregir y volver a comprobar.** Guardar el commit de la corrección y las pruebas que confirman el resultado. El problema sigue pendiente mientras solo exista una propuesta de solución.
+5. **Registrar el resultado.** Anotar quién revisó, cuándo lo hizo y si aprobó el cambio. Para los pendientes, indicar qué falta y quién se encargará.
+
+Cada revisión debe dejar una ficha con: **ID, fecha, autor, revisor, requisito, repositorio y commit, archivos revisados, criterio, problema encontrado, prioridad, acción, responsable, evidencia y estado**. Los nombres y las aprobaciones se registran cuando se realice la actividad.
+
+**Problemas encontrados y seguimiento**
+
+La prioridad es **Alta** cuando el problema afecta el acceso, la interpretación de las lecturas o requiere revisar un aviso de seguridad. Es **Media** cuando afecta el arranque de la aplicación, la repetición de las pruebas o la identificación de lo entregado. Esta clasificación ayuda a organizar el trabajo; los avisos de seguridad conservan la severidad que les asigna cada herramienta.
+
+**Tabla 15**
+
+*Problemas revisados, acciones y pendientes de KairoLabs*
+
+| ID | Problema encontrado | Prioridad | Qué se hizo o qué falta hacer | Estado y evidencia |
+| :--- | :--- | :--- | :--- | :--- |
+| REV-01 | **Monitoring:** una lectura ausente podía convertirse en cero y mostrarse como una temperatura crítica. | Alta. | Se corrigió el manejo de `null`, `undefined` y textos en blanco para distinguirlos de un cero real. Se añadieron pruebas para evitar que el error se repita. | **Corregido y comprobado en la versión registrada.** UT-DEV-10 y UT-DEV-11; resultados [antes](../assets/chapter-6/evidence/unit/before-fix.tap) y [después](../assets/chapter-6/evidence/unit/latest.tap). La diferencia con la copia local se explica en REV-08. |
+| REV-02 | **Comunicación web-API:** CORS no permitía las solicitudes desde el dominio de KairoLabs. | Alta. | Se agregó el dominio a la lista de orígenes permitidos y se comprobó que un origen ajeno siguiera siendo rechazado. | **Corregido y comprobado en la versión registrada.** DEF-INT-01 e IT-WEB-02 de 6.1.2. |
+| REV-03 | **IAM / API:** se podía consultar el listado de dispositivos sin una identidad válida. | Alta. | Se incorporó la validación JWT y se exigió autenticación por defecto, indicando qué endpoints deben seguir siendo públicos. | **Autenticación corregida y comprobada en la versión registrada.** DEF-INT-02 e IT-SEC-01. El resultado corresponde a los accesos y tokens probados. |
+| REV-04 | **Permisos de acceso:** falta comprobar todas las operaciones según el rol y la entidad a la que pertenece el usuario. | Alta. | Revisar los permisos de administradores y operadores, e intentar accesos permitidos y prohibidos entre entidades. Revisar también el registro de operadores, que consulta administradores antes de iniciar sesión. | **Pendiente.** El alcance que falta cubrir se explica en 6.1.2. |
+| REV-05 | **Base de datos:** al iniciar con una base vacía aparece el mensaje de que la tabla `transports` ya existe. La aplicación reintenta y continúa. | Media. | Revisar la creación de tablas y las migraciones. Comprobar que el primer arranque y los siguientes se completen sin ese conflicto. | **Pendiente.** OBS-INT-01 y [registro de arranque](../assets/chapter-6/evidence/integration/startup-diagnostics.txt). |
+| REV-06 | **Dependencias:** se documentaron problemas de seguridad en paquetes del frontend y una observación sobre paquetes utilizados por el backend. | Alta. | Revisar las versiones afectadas, actualizar los paquetes y guardar los nuevos resultados de auditoría, compilación y pruebas. | **Pendiente.** Auditoría de 6.2.1.2 y OBS-INT-02. Falta completar `build-warnings.txt`, ya que el archivo local no contiene los mensajes que respalden la observación del backend. |
+| REV-07 | **Informe:** los apartados 6.1.3 y 6.1.4 solo tienen encabezados. Todavía no hay evidencia de escenarios BDD ni de pruebas del sistema completo. | Media. | Documentar los escenarios, sus requisitos, el código de las pruebas y los resultados. Mantenerlos como no ejecutados hasta contar con esos registros. | **Pendiente.** Revisión del capítulo VI. |
+| REV-08 | **Versiones del frontend:** la copia local conserva la conversión directa `Number(v)` en `Device.toNum()`, su hash no coincide con el de la versión validada y su `package.json` no incluye `test:unit`. | Alta. | Actualizar la copia local al commit de referencia, comprobar los archivos y las instrucciones, y ejecutar las pruebas sobre esa copia. | **Pendiente.** Comparación con [published-validation.json](../assets/chapter-6/metadata/published-validation.json). Los resultados de 6.1.1 corresponden a la versión indicada en ese archivo. |
+
+*Nota.* REV-01 a REV-03 recogen correcciones que ya cuentan con resultados de pruebas. Aún falta registrar su aprobación por otro integrante. Los demás puntos siguen pendientes. Para elaborar esta sección se revisaron los archivos y registros existentes, sin cambiar el código ni volver a ejecutar las pruebas.
+
+**Evidencias y criterios de cierre**
+
+Los siguientes archivos permiten consultar qué se probó y sobre qué versión:
+
+- **Versiones revisadas:** [commits, comandos y hashes de validación](../assets/chapter-6/metadata/published-validation.json). Las referencias son `c5f7b00` para el frontend y `b3b94e0` para el backend.
+- **Pruebas del dominio:** resultados [antes de la corrección](../assets/chapter-6/evidence/unit/before-fix.tap) y [después de la corrección](../assets/chapter-6/evidence/unit/latest.tap), descritos en 6.1.1.
+- **Pruebas de integración:** [resultados por caso](../assets/chapter-6/evidence/integration/results.json), [registro TAP](../assets/chapter-6/evidence/integration/latest.tap) y [solicitudes y respuestas con las credenciales ocultas](../assets/chapter-6/evidence/integration/http-transcript.json), explicados en 6.1.2.
+- **Pendientes:** [registro de migraciones](../assets/chapter-6/evidence/integration/startup-diagnostics.txt), auditoría de dependencias de 6.2.1.2 y observaciones de la Tabla 15.
+
+Un problema se considera resuelto cuando la corrección está identificada y hay evidencia de que funciona. Si lo revisa otro integrante, también debe quedar su nombre y su decisión. Que todas las pruebas registradas pasen demuestra que esos casos funcionan; todavía deben atenderse los pendientes de seguridad, migraciones y permisos, y medirse la cobertura del código.
+
+**Relación con la responsabilidad ética y profesional**
+
+Esta revisión se relaciona con el **ABET Student Outcome 4** porque ayuda a tomar decisiones responsables y a explicar con claridad qué funciona y qué falta comprobar. En KairoLabs, una lectura ausente presentada como crítica puede confundir al personal del almacén, mientras que un permiso mal configurado puede exponer información de los establecimientos. Revisar estos puntos y dejar evidencia de las correcciones permite evaluar sus posibles efectos sociales y económicos y decidir qué mejoras atender primero.
+
 ## 6.3. Validation Interviews
 
 ### 6.3.1. Diseño de Entrevistas
