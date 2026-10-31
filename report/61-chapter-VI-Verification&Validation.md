@@ -782,6 +782,44 @@ Preguntas principales:
 
 | Evidencia | ![Entrevista 1](../assets/entrevista-s1-01.png) |
 
+### 6.3.3. Evaluaciones según heurísticas
+
+
+**DESCRIPCIÓN DE PROBLEMAS**
+
+**PROBLEMA #1: Precio del plan Premium inconsistente**
+
+Severidad: 3
+Heurística violada: Usability – Consistencia y estándares
+
+Problema:
+En la Landing Page el plan Premium figura como "Personalizado", mientras que en la aplicación aparece con US$ 149 / mes, el mismo precio del plan Profesional.
+
+Recomendación:
+Usar una sola fuente de datos para los planes y mostrar la misma información en ambos productos.
+
+**PROBLEMA #2: Código de entidad sin explicación**
+
+Severidad: 3
+Heurística violada: Usability – Ayuda y documentación
+
+Problema:
+Al registrarse como personal de almacén se solicita el código de entidad, pero no se indica dónde obtenerlo. El entrevistado del Segmento 1 manifestó esta duda.
+
+Recomendación:
+Agregar un texto de ayuda junto al campo: "Solicita este código al administrador de tu entidad".
+
+**PROBLEMA #3: Versión móvil sin monitoreo**
+
+Severidad: 3
+Heurística violada: Information Architecture – Is it useful?
+
+Problema:
+La versión móvil solo presenta información institucional y redirige a la aplicación web. El personal de almacén, que prefiere revisar alertas desde el celular, no puede consultar dispositivos ni alertas.
+
+Recomendación:
+Incorporar en la versión móvil el inicio de sesión, la lista de dispositivos y las alertas activas.
+
 **Referencias**
 
 American Psychological Association. (2021). *Figure setup*. https://apastyle.apa.org/style-grammar-guidelines/tables-figures/figures
