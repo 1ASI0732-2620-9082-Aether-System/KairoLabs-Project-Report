@@ -725,6 +725,72 @@ A fin de gestionar de manera rigurosa los riesgos derivados de estas dependencia
 
 *Nota.* Elaboración propia a partir del reporte exhaustivo de 14 vulnerabilidades de severidad alta emitido por npm audit en el repositorio KairoLabs-Frontend.
 
+## 6.3. Validation Interviews
+
+### 6.3.1. Diseño de Entrevistas
+
+Con el objetivo de validar la Landing Page, la Web Application y la versión móvil de KairoLabs, se diseñaron las siguientes preguntas para cada segmento objetivo.
+
+**Segmento 1: Personal operativo de almacenes farmacéuticos**
+
+
+Preguntas principales:
+
+- ¿Qué te pareció el diseño de la Landing Page y de la aplicación?
+- ¿Te resultó fácil registrarte e iniciar sesión?
+- ¿Pudiste identificar si un dispositivo o transporte estaba fuera de rango?
+- ¿Considerarías usar la aplicación en tu rutina diaria?
+- ¿Preferirías revisar las alertas desde el celular o desde la computadora?
+- ¿Qué cambiarías o agregarías a la aplicación?
+
+
+**Segmento 2: Entidades de salud y gestores farmacéuticos**
+
+Preguntas principales:
+
+- ¿Qué te pareció el diseño de la Landing Page y de la aplicación?
+- ¿Te resultó claro elegir un plan de suscripción?
+- ¿Pudiste registrar un establecimiento y asignarle un operador sin ayuda?
+- ¿La aplicación te permite supervisar tus sedes desde un solo lugar?
+- ¿Lo implementarías en tu institución?
+- ¿Qué cambiarías o agregarías a la aplicación?
+
+
+
+### 6.3.2. Registro de Entrevistas
+
+**Entrevistas realizadas al Segmento 1: Personal operativo de almacenes farmacéuticos**
+
+| Entrevista #1 | |
+| :--- | :--- |
+| Nombre | |
+| Apellidos | |
+| Edad | |
+| Distrito | |
+| Ocupación | |
+| Evidencia | |
+| Link | |
+| Timing donde inicia | |
+| Duración | |
+| Resumen | |
+
+
+**Entrevistas realizadas al Segmento 2: Entidades de salud y gestores farmacéuticos**
+
+| Entrevista #1 | |
+| :--- | :--- |
+| Nombre | |
+| Apellidos | |
+| Edad | |
+| Distrito | |
+| Cargo | |
+| Evidencia | |
+| Link | |
+| Timing donde inicia | |
+| Duración | |
+| Resumen | |
+
+
 ---
 
 **Referencias**
