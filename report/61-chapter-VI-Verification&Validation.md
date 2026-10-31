@@ -6,7 +6,7 @@ Este capítulo presenta la estrategia de verificación y validación de **KairoL
 
 La verificación examina la corrección de las entidades, funciones y contratos técnicos; la validación contrasta el comportamiento del producto con las necesidades del personal operativo de almacenes y de los gestores farmacéuticos descritas en los capítulos II y III.
 
-> **Estado del documento, al 30 de octubre de 2026:** se documentan los apartados 6.1, 6.1.1 y 6.1.2. Se incluye evidencia de ejecución de una suite unitaria del frontend. Las pruebas unitarias del backend permanecen pendientes. La suite de integración se implementó y ejecutó contra la API original y MySQL locales: 14 casos, 14 aprobados y 0 fallidos después de corregir CORS y autenticación JWT en la copia local del backend; las correcciones aún no están publicadas. Los apartados 6.1.3, 6.1.4 y 6.2 se conservan como títulos para su desarrollo posterior. No se atribuyen resultados satisfactorios a actividades que todavía no cuentan con evidencia.
+> **Actualización del 31 de octubre de 2026:** suites y correcciones incorporadas a los repositorios de KairoLabs y reejecutadas desde sus carpetas de trabajo: 20/20 pruebas unitarias y 14/14 de integración aprobadas, sin fallos. Los enlaces de 6.1.1 y 6.1.2 permiten revisar código, comandos y registros. Las capturas del 30 de octubre se conservan como evidencia histórica. Las pruebas unitarias del backend siguen pendientes; publicar código no implica desplegarlo.
 
 ---
 
@@ -20,7 +20,7 @@ La guía del proyecto solicita documentar la creación y ejecución de pruebas s
 
 El frontend de KairoLabs utiliza Vue 3 y organiza sus funcionalidades en los contextos `iam`, `establishment`, `monitoring`, `logistics`, `subscriptions` y `shared`. Cada contexto distribuye responsabilidades entre dominio, aplicación, infraestructura y presentación.
 
-El backend original de MediTrackSensor constituye la referencia de implementación que se reutilizará en KairoLabs. Está desarrollado en ASP.NET Core 10 y Entity Framework Core, con persistencia MySQL. Sus módulos comparten una aplicación y un `AppDbContext`; en consecuencia, el diseño de pruebas considera una API modular y no presupone microservicios desplegados de manera independiente.
+El backend original de MediTrackSensor constituye la implementación reutilizada y publicada en KairoLabs-Platform. Está desarrollado en ASP.NET Core 10 y Entity Framework Core, con persistencia MySQL. Sus módulos comparten una aplicación y un `AppDbContext`; en consecuencia, el diseño de pruebas considera una API modular y no presupone microservicios desplegados de manera independiente.
 
 La rama `feature/chapter-5` aporta el contexto de implementación, incluido el uso de MySQL y del despliegue original de la API. La matriz de trazabilidad se basa en las historias de usuario y técnicas del capítulo III.
 
@@ -78,7 +78,7 @@ La elección responde al impacto funcional de sus resultados: una clasificación
 
 **Diseño de la suite**
 
-Se aplica el patrón **Arrange-Act-Assert**: se prepara un dato controlado, se ejecuta la función del dominio y se compara el resultado con una expectativa explícita. Los casos no dependen de red, almacenamiento del navegador, MySQL, sensores físicos ni temporizadores. No se modifica el código productivo para obtener resultados aprobados.
+Se aplica el patrón **Arrange-Act-Assert**: se prepara un dato controlado, se ejecuta la función del dominio y se compara el resultado con una expectativa explícita. Los casos no dependen de red, almacenamiento del navegador, MySQL, sensores físicos ni temporizadores. Las expectativas se conservan; se corrigió el defecto de conversión detectado en el código productivo y se verificó mediante regresión.
 
 Los umbrales de temperatura examinados corresponden a los valores actualmente codificados en `Device`: el estado crítico se activa por debajo de 2 o por encima de 8; las zonas de advertencia se aplican por debajo de 2.5 o por encima de 7. Estos valores describen el comportamiento de la implementación y no constituyen una regla universal de conservación para todos los medicamentos. La parametrización por tipo de producto debe validarse por separado.
 
@@ -111,11 +111,13 @@ La regla de plan predeterminado en UT-SUB-04 caracteriza el comportamiento actua
 
 **Ejecución y evidencia**
 
+La revalidación del 31 de octubre queda identificada por commits y hashes en [published-validation.json](../assets/chapter-6/metadata/published-validation.json).
+
 | Dato | Registro |
 | :--- | :--- |
-| Fecha de ejecución | 30 de octubre de 2026. |
+| Fecha de ejecución | Revalidación: 31 de octubre de 2026; capturas históricas: 30 de octubre de 2026. |
 | Producto evaluado | Frontend de KairoLabs, rama `master`. |
-| Versión evaluada | Commit base `0d2c76f8fb20405e6ea271dfe505222cc7cc1aa2` con corrección local de `Device.toNum()`, todavía sin commit ni publicación en GitHub. El SHA-256 del archivo corregido se registra en [unit-provenance.json](../assets/chapter-6/metadata/unit-provenance.json). |
+| Versión evaluada | [Frontend `c5f7b00`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/tree/c5f7b0037865e6ae482687e02639c579ba9616b6), con corrección de `Device.toNum()` y suite en el mismo repositorio. |
 | Ejecutor | Node.js 24.11.1; `node:test` y `node:assert/strict`. |
 | Pruebas implementadas | 20. |
 | Aprobadas | 20. |
@@ -124,12 +126,12 @@ La regla de plan predeterminado en UT-SUB-04 caracteriza el comportamiento actua
 | Cobertura de líneas o ramas | No medida. |
 | Resultado de la suite | **Aprobada** para los 20 casos de dominio del frontend evaluados; código de salida 0. |
 
-La suite reproducible se incluye en el [proyecto de pruebas unitarias para VS Code](../assets/chapter-6/projects/KairoLabs-Unit-Tests-VSCode.zip), y su salida íntegra en [latest.tap](../assets/chapter-6/evidence/unit/latest.tap). El ZIP contiene el código de dominio corregido, las pruebas y la configuración de ejecución; todavía no está incorporado al repositorio del frontend.
+La suite está incorporada al repositorio del frontend: [código de las 20 pruebas](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/c5f7b0037865e6ae482687e02639c579ba9616b6/tests/unit/core-entities.test.mjs), [instrucciones](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/c5f7b0037865e6ae482687e02639c579ba9616b6/tests/unit/README.md) y [registro TAP](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/c5f7b0037865e6ae482687e02639c579ba9616b6/evidence/unit/latest.tap). El [ZIP anterior para VS Code](../assets/chapter-6/projects/KairoLabs-Unit-Tests-VSCode.zip) se conserva como anexo histórico. La fuente de reproducción actual es el repositorio.
 
-Después de extraer el proyecto de pruebas unitarias, la ejecución desde su carpeta raíz se reproduce con:
+Desde la raíz del repositorio `KairoLabs-Frontend`, con Node.js 24 o posterior y sin requerir instalación de dependencias:
 
 ```powershell
-npm test
+npm run test:unit
 ```
 
 El archivo de prueba importa únicamente las clases de dominio indicadas y no carga `api.js` ni `vite.config.js`. La suite devuelve un código de salida distinto de cero mientras existan casos fallidos.
@@ -342,7 +344,7 @@ Las Figuras 1 a 20 presentan el código y el resultado aprobado de cada caso. La
 
 La ejecución inicial produjo 18 casos aprobados y 2 fallidos. Los casos UT-DEV-10 y UT-DEV-11 detectaron un defecto de conversión: `Number(null)` y `Number('')` producen cero y la temperatura se clasificaba como crítica. Se corrigió `Device.toNum()` para devolver `null` antes de convertir cuando el dato es `null`, `undefined` o una cadena vacía o compuesta únicamente por espacios en blanco. Así `evaluateMetric()` devuelve `unknown` para lecturas ausentes y conserva `critical` para una temperatura real de 0 °C, tanto numérica como recibida en la cadena `0`.
 
-La corrección se aplicó al frontend local y al código incluido en el proyecto de VS Code. Las expectativas originales se conservaron y los casos UT-DEV-10 y UT-DEV-11 se ampliaron con aserciones para `undefined`, espacios, tabulaciones/saltos de línea y cero real. La nueva ejecución mantuvo 20 casos y obtuvo **20 aprobados y 0 fallidos**. El registro inicial se conserva en [core-entities-before-fix.tap](../assets/chapter-6/evidence/unit/before-fix.tap) y la revalidación en [core-entities.tap](../assets/chapter-6/evidence/unit/latest.tap).
+La corrección se aplicó al frontend publicado y al código incluido en el proyecto de VS Code. Las expectativas originales se conservaron y los casos UT-DEV-10 y UT-DEV-11 se ampliaron con aserciones para `undefined`, espacios, tabulaciones/saltos de línea y cero real. La nueva ejecución mantuvo 20 casos y obtuvo **20 aprobados y 0 fallidos**. El registro inicial se conserva en [core-entities-before-fix.tap](../assets/chapter-6/evidence/unit/before-fix.tap) y la revalidación en [core-entities.tap](../assets/chapter-6/evidence/unit/latest.tap).
 
 ```javascript
 static toNum(v) {
@@ -354,7 +356,7 @@ static toNum(v) {
 
 | Hallazgo | Impacto funcional | Acción realizada | Estado |
 | :--- | :--- | :--- | :--- |
-| DEF-UNIT-01: conversión de valores ausentes a cero. | Una lectura inexistente podía mostrarse como alarma térmica y distorsionar la interpretación del monitoreo. Se relaciona con US53, US55 y US66. | Validar ausencia de dato antes de convertir y ampliar la regresión con blancos, `undefined` y ceros reales. | Corregido y revalidado localmente el 30 de octubre de 2026; publicación pendiente. |
+| DEF-UNIT-01: conversión de valores ausentes a cero. | Una lectura inexistente podía mostrarse como alarma térmica y distorsionar la interpretación del monitoreo. Se relaciona con US53, US55 y US66. | Validar ausencia de dato antes de convertir y ampliar la regresión con blancos, `undefined` y ceros reales. | Publicado y revalidado el 31 de octubre de 2026. |
 
 El hallazgo confirma la utilidad de probar condiciones negativas y no únicamente valores dentro de rango. Los 20 casos aprobados acreditan las comprobaciones descritas; no representan cobertura total del código ni permiten afirmar que todo el monitoreo esté libre de defectos. La ampliación a otras métricas y las pruebas unitarias de las entidades del backend permanecen pendientes; los resultados de integración se documentan en 6.1.2.
 
@@ -381,14 +383,14 @@ Las pruebas de integración de KairoLabs verifican que sus componentes colaboran
 
 El objetivo es comprobar que las operaciones conservan sus datos y asociaciones, que las solicitudes inválidas no generan cambios parciales y que las respuestas pueden interpretarse desde el frontend. Se incorporaron también casos sobre CORS y autenticación para contrastar los requisitos de acceso remoto seguro y de comunicación entre aplicaciones.
 
-> **Estado:** suite revalidada el 30 de octubre de 2026 después de corregir CORS y autenticación JWT. Resultado: **14 pruebas ejecutadas, 14 aprobadas y 0 fallidas**. Se conservaron las expectativas de los casos y se amplió la comprobación de tokens inválidos. La corrección es local y todavía no está publicada en GitHub.
+> **Estado:** suite independiente publicada en KairoLabs-Platform y revalidada el 31 de octubre de 2026: **14 ejecutadas, 14 aprobadas y 0 fallidas**. [Versión fuente evaluada `b3b94e0`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/tree/b3b94e0b7852e7c31239309abab72ceb9a6b32d9).
 
 **Entorno y versión evaluada**
 
 | Elemento | Configuración utilizada |
 | :--- | :--- |
-| Backend | Commit base `c6c0bc7cfe03014f0ec311d8fb6c6a3ae8dddb03` de MediTrackSensor, con correcciones locales en `Program.cs` y `UsersController.cs` para CORS/JWT; configuración local de pruebas en `appsettings*.json`. Hashes en [integration-provenance.json](../assets/chapter-6/metadata/integration-provenance.json). |
-| Frontend | KairoLabs, commit base `0d2c76f8fb20405e6ea271dfe505222cc7cc1aa2`, con la corrección local de `Device.toNum()` documentada en 6.1.1. |
+| Backend | [KairoLabs-Platform `b3b94e0`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/tree/b3b94e0b7852e7c31239309abab72ceb9a6b32d9); backend reutilizado de MediTrackSensor base `c6c0bc7`, con CORS/JWT y configuración de pruebas incluidos. |
+| Frontend | Snapshot de gateways/assemblers del frontend base `0d2c76f`, incluido explícitamente en `KairoLabs-Platform/frontend/` para IT-WEB-01. La suite unitaria usa el frontend publicado indicado en 6.1.1. |
 | SDK | .NET 10.0.403, preparado en una carpeta local sin instalación global. |
 | Persistencia | MySQL Community Server 8.4.13, ejecutado como proceso portátil en `127.0.0.1:33079`. |
 | API | Kestrel en `http://127.0.0.1:5187`; entorno `Integration`. |
@@ -396,7 +398,7 @@ El objetivo es comprobar que las operaciones conservan sus datos y asociaciones,
 | Frontend-API | Gateways `IamApi` y `MonitoringApi`, `SignInAssembler` y `DeviceAssembler`; Axios real; mocks desactivados. |
 | Aislamiento | Base nueva `kairolabs_it_<identificador>` por ejecución, con datos sintéticos, eliminada al finalizar. |
 
-Esta ejecución supera la limitación anterior del SDK .NET 8 mediante la preparación local de .NET 10. No utiliza las conexiones ni los registros de producción. Como `KairoLabs-Platform` estaba vacío en la revisión, los resultados corresponden a la copia local corregida del backend original; no se atribuyen al commit base sin modificaciones ni a un commit inexistente del backend de KairoLabs.
+El backend reutilizado, que antes solo se entregaba como copia local, está ahora incorporado a `KairoLabs-Platform`. La suite compila los archivos de ese mismo repositorio y utiliza una base MySQL temporal; no accede a producción. Su origen MediTrackSensor permanece documentado en `provenance.json`.
 
 **Implementación y procedimiento**
 
@@ -440,6 +442,17 @@ Para IT-WEB-01 se compilan los módulos de infraestructura del frontend mediante
 | Cobertura de código | No medida. |
 
 La salida íntegra se conserva en [latest.tap](../assets/chapter-6/evidence/integration/latest.tap). Los resultados por caso y el entorno se registran en [results.json](../assets/chapter-6/evidence/integration/results.json), y las solicitudes y respuestas depuradas en [http-transcript.json](../assets/chapter-6/evidence/integration/http-transcript.json). Las credenciales y los JWT se redactan antes de escribir la evidencia.
+
+**Trazabilidad de la suite independiente de integración**
+
+Registros publicados en el propio repositorio: [salida TAP](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/59d0ac9be71784fa9c5c3901308b0d9c10274f1f/evidence/latest.tap), [resultados](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/59d0ac9be71784fa9c5c3901308b0d9c10274f1f/evidence/results.json) y [versiones y hashes](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/59d0ac9be71784fa9c5c3901308b0d9c10274f1f/evidence/validation-source.json).
+
+- [Pruebas de integración: `tests/integration.test.mjs`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/tests/integration.test.mjs).
+- [Backend corregido: `Program.cs`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/backend/TechnoByteLambders.MediTrackSensor.Platform/Program.cs) y [endpoints públicos de IAM](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/backend/TechnoByteLambders.MediTrackSensor.Platform/Iam/Interfaces/REST/UsersController.cs).
+- [Ejecutor del entorno API/MySQL](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/scripts/run-integration.ps1) e [instrucciones de reproducción](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/README.md).
+- Registros de la revalidación: [TAP](../assets/chapter-6/evidence/integration/latest.tap), [resultados por caso](../assets/chapter-6/evidence/integration/results.json) y [solicitudes/respuestas redactadas](../assets/chapter-6/evidence/integration/http-transcript.json).
+
+Desde la raíz de `KairoLabs-Platform`, en Windows x64 con Node.js 24+, ejecutar `npm run setup` una vez y luego `npm test`. Los puertos 5187 y 33079 deben estar libres. La suite levanta API y MySQL reales, usa HTTP y SQL independiente y limpia sus recursos temporales. Estos 14 casos pertenecen a una suite de integración propia; no se derivan de las pruebas BDD/sistema.
 
 **Evidencias individuales en Visual Studio Code**
 
@@ -595,8 +608,8 @@ La evidencia inicial se conserva en [before-fix/latest.tap](../assets/chapter-6/
 
 | ID | Evidencia y efecto | Acción realizada o pendiente | Estado |
 | :--- | :--- | :--- | :--- |
-| DEF-INT-01 | El dominio de KairoLabs no recibía autorización CORS. | Se añadió el origen exacto y se comprobó que los orígenes autorizados reciben la cabecera y el ajeno continúa rechazado. | Corregido y revalidado localmente; publicación pendiente. |
-| DEF-INT-02 | El listado de dispositivos respondía 200 sin identidad válida. | Se conectó la validación JWT y la política de autenticación por defecto. IT-SEC-01 verifica rechazos 401 y acceso 200 con token válido. La autorización detallada por roles y pertenencia conserva su alcance de trabajo adicional. | Corregido y revalidado localmente para autenticación; publicación pendiente. |
+| DEF-INT-01 | El dominio de KairoLabs no recibía autorización CORS. | Se añadió el origen exacto y se comprobó que los orígenes autorizados reciben la cabecera y el ajeno continúa rechazado. | Publicado y revalidado el 31 de octubre de 2026. |
+| DEF-INT-02 | El listado de dispositivos respondía 200 sin identidad válida. | Se conectó la validación JWT y la política de autenticación por defecto. IT-SEC-01 verifica rechazos 401 y acceso 200 con token válido. La autorización detallada por roles y pertenencia conserva su alcance de trabajo adicional. | Autenticación publicada y revalidada el 31 de octubre de 2026. |
 | OBS-INT-01 | En una base vacía, el arranque registra `Table 'transports' already exists` durante las migraciones. El reintento de la propia aplicación permite continuar y la suite se ejecuta. | Revisar la consistencia entre preparación de tablas e historial de migraciones; agregar una prueba específica de arranque limpio y repetición idempotente. | Observación pendiente. |
 | OBS-INT-02 | La compilación produce advertencias NuGet `NU1902` y `NU1903` para la dependencia transitiva `System.Security.Cryptography.Pkcs` 9.0.0. | Analizar y actualizar la dependencia dentro del trabajo de calidad y seguridad de 6.2.1.2; repetir compilación y regresión. | Observación pendiente. |
 
@@ -618,11 +631,11 @@ Las capturas deben mostrar los casos ejecutados y el resumen completo de 14 prue
 
 **Límites de la validación**
 
-Los resultados acreditan las interacciones enumeradas sobre la versión corregida localmente y sus datos sintéticos. No sustituyen las pruebas de la interfaz en navegador, los recorridos BDD, las pruebas móviles ni una auditoría completa de autorización entre entidades. IT-WEB-02 comprueba las cabeceras de preflight por HTTP, no el comportamiento completo de un navegador. IT-SEC-01 comprueba autenticación y validación de tokens; no completa la matriz de roles, permisos o acceso entre entidades de todos los recursos.
+Los resultados acreditan las interacciones enumeradas sobre la versión corregida publicada y sus datos sintéticos. No sustituyen las pruebas de la interfaz en navegador, los recorridos BDD, las pruebas móviles ni una auditoría completa de autorización entre entidades. IT-WEB-02 comprueba las cabeceras de preflight por HTTP, no el comportamiento completo de un navegador. IT-SEC-01 comprueba autenticación y validación de tokens; no completa la matriz de roles, permisos o acceso entre entidades de todos los recursos.
 
 Al integrar la autenticación obligatoria en la aplicación completa deben revisarse los flujos que consultaban endpoints operativos sin sesión. Por ejemplo, el registro de operadores del frontend de referencia consulta el listado de administradores antes del alta; ese flujo requiere un mecanismo de incorporación adecuado y no se valida como recorrido completo en esta suite.
 
-La actualización de lecturas valida el registro vigente, no series históricas, trazabilidad por lote ni sensores físicos. Las correcciones de CORS y autenticación están aplicadas a la copia del backend incluida en el proyecto de VS Code. No se han publicado ni desplegado. Para integrarlas se entrega [cors-jwt.patch](../assets/chapter-6/patches/cors-jwt.patch); la validación definitiva del backend adaptado deberá registrar su commit y repetir la suite. Las observaciones de migraciones y dependencias mantienen su estado pendiente.
+La actualización de lecturas valida el registro vigente, no series históricas, trazabilidad por lote ni sensores físicos. Las correcciones CORS/JWT están publicadas junto al backend probado en KairoLabs-Platform; no se afirma su despliegue en producción. Las observaciones de migraciones y dependencias mantienen su estado pendiente.
 
 Referencia técnica de la corrección: [configuración de JWT Bearer en ASP.NET Core 10](https://learn.microsoft.com/aspnet/core/security/authentication/configure-jwt-bearer-authentication?view=aspnetcore-10.0).
 
