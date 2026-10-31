@@ -763,32 +763,22 @@ Preguntas principales:
 
 | Entrevista #1 | |
 | :--- | :--- |
-| Nombre | |
-| Apellidos | |
-| Edad | |
-| Distrito | |
-| Ocupación | |
-| Evidencia | |
-| Link | |
-| Timing donde inicia | |
-| Duración | |
-| Resumen | |
+| Nombre | Javier  |
+| Apellidos | Martinez Sosa |
+| Edad | 50 |
+| Link | https://drive.google.com/file/d/1A6hqdlfVXd3_0FE9t3PeF7nVdngG637y/view?usp=sharing|
+| Resumen | El entrevistado consideró que el diseño de la Landing Page y de la aplicación es claro y profesional, y entendió rápidamente la funcionalidad. El registro le resultó rápido, aunque tuvo dudas con el código de entidad. Identificó sin problemas el refrigerador en estado crítico y el transporte con la puerta abierta. Señaló que usaría la aplicación en su rutina diaria, porque reemplazaría el registro manual en cuaderno, y que prefiere recibir las alertas en el celular, ya que pasa el día dentro del almacén. Como mejora, sugirió notificaciones móviles ante valores fuera de rango y poder registrar las acciones que realizó para solucionarlas. |
 
 
 **Entrevistas realizadas al Segmento 2: Entidades de salud y gestores farmacéuticos**
 
 | Entrevista #1 | |
 | :--- | :--- |
-| Nombre | |
-| Apellidos | |
-| Edad | |
-| Distrito | |
-| Cargo | |
-| Evidencia | |
+| Nombre | Jesús |
+| Apellidos |Cortez Soria |
+| Edad | 28 |
 | Link | |
-| Timing donde inicia | |
-| Duración | |
-| Resumen | |
+| Resumen | El entrevistado consideró la aplicación clara y útil para supervisar todas sus sedes desde un solo lugar, y logró registrar un establecimiento y asignar un operador sin ayuda. La implementaría en su institución y sugirió agregar un historial exportable para auditorías y alertas por WhatsApp. |
 
 
 ---
