@@ -777,7 +777,7 @@ Preguntas principales:
 | Nombre | Jesús |
 | Apellidos |Cortez Soria |
 | Edad | 28 |
-| Link | |
+| Link | https://drive.google.com/file/d/1LCIJoFUU3MESTbz8qhF1c-9DdYnKdk4o/view?usp=drive_link |
 | Resumen | El entrevistado consideró la aplicación clara y útil para supervisar todas sus sedes desde un solo lugar, y logró registrar un establecimiento y asignar un operador sin ayuda. La implementaría en su institución y sugirió agregar un historial exportable para auditorías y alertas por WhatsApp. |
 
 
