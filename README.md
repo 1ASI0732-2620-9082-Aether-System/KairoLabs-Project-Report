@@ -110,6 +110,11 @@ Proyecto
 - 5.2. Product Implementation & Deployment
 - 5.3. Video About-the-Product
 
+## Capítulo VI: Product Verification & Validation
+- [Capítulo VI](report/61-chapter-VI-verification-validation.md)
+- 6.1.3. Core Behavior-Driven Development (BDD)
+- 6.1.4. Core System Tests
+
 ## Avance de Conclusiones, Bibliografía y Anexos
 - [Bibliografía y Anexos](report/99-bibliography.md)
 
