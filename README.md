@@ -112,8 +112,19 @@ Proyecto
 
 ## Capítulo VI: Product Verification & Validation
 - [Capítulo VI](report/61-chapter-VI-verification-validation.md)
+- 6.1. Testing Suites & Validation
+- 6.1.1. Core Entities Unit Tests — **Por completar**
+- 6.1.2. Core Integration Tests — **Por completar**
 - 6.1.3. Core Behavior-Driven Development (BDD)
 - 6.1.4. Core System Tests
+- 6.2. Static Testing & Verification
+- [6.2.1.1. Coding standards & code conventions](report/51-chapter-V-implementation.md#513-source-code-style-guide--conventions) — contenido en 5.1.3
+- 6.2.1.2. Code Quality & Code Security — **Por completar**
+- 6.2.2. Reviews — **Falta agregar evidencia concreta de las revisiones**
+- 6.3. Validation Interviews
+- [6.3.1. Diseño de entrevistas](report/51-chapter-V-implementation.md#531-diseño-de-entrevistas) — contenido en 5.3.1
+- [6.3.2. Registro de entrevistas](report/51-chapter-V-implementation.md#532-registro-de-entrevistas) — contenido en 5.3.2
+- [6.3.3. Evaluaciones según heurísticas](report/51-chapter-V-implementation.md#533-evaluaciones-según-heurísticas) — contenido en 5.3.3
 
 ## Avance de Conclusiones, Bibliografía y Anexos
 - [Bibliografía y Anexos](report/99-bibliography.md)
