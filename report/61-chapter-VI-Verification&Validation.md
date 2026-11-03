@@ -7,6 +7,7 @@ Este capítulo presenta la estrategia de verificación y validación de **KairoL
 La verificación examina la corrección de las entidades, funciones y contratos técnicos; la validación contrasta el comportamiento del producto con las necesidades del personal operativo de almacenes y de los gestores farmacéuticos descritas en los capítulos II y III.
 
 Revalidación ampliada: 20/20 unitarias, 14/14 de integración y 4/4 escenarios BDD en cada viewport. Se publicaron runner BDD, ESLint y mediciones de calidad; permanecen 77 advertencias y vulnerabilidades de dependencias. [Versiones y resultados de la actualización](../assets/chapter-6/metadata/verification-2026-11-02.json).
+
 ---
 
 ## 6.1. Testing Suites & Validation
