@@ -6,6 +6,9 @@ Este capítulo presenta la estrategia de verificación y validación de **KairoL
 
 La verificación examina la corrección de las entidades, funciones y contratos técnicos; la validación contrasta el comportamiento del producto con las necesidades del personal operativo de almacenes y de los gestores farmacéuticos descritas en los capítulos II y III.
 
+
+
+Revalidación ampliada: 20/20 unitarias, 14/14 de integración y 4/4 escenarios BDD en cada viewport. Se publicaron runner BDD, ESLint y mediciones de calidad; permanecen 77 advertencias y vulnerabilidades de dependencias. [Versiones y resultados de la actualización](../assets/chapter-6/metadata/verification-2026-11-02.json).
 ---
 
 ## 6.1. Testing Suites & Validation
@@ -113,9 +116,9 @@ La revalidación del 31 de octubre queda identificada por commits y hashes en [p
 
 | Dato | Registro |
 | :--- | :--- |
-| Fecha de ejecución | Revalidación: 31 de octubre de 2026; capturas históricas: 30 de octubre de 2026. |
+| Fecha de ejecución | Revalidación: 2 de noviembre de 2026; capturas históricas: 30 de octubre de 2026. |
 | Producto evaluado | Frontend de KairoLabs, rama `master`. |
-| Versión evaluada | [Frontend `c5f7b00`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/tree/c5f7b0037865e6ae482687e02639c579ba9616b6), con corrección de `Device.toNum()` y suite en el mismo repositorio. |
+| Versión evaluada | [Frontend `7f1d227`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/tree/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231), con corrección de `Device.toNum()` y suite en el mismo repositorio. |
 | Ejecutor | Node.js 24.11.1; `node:test` y `node:assert/strict`. |
 | Pruebas implementadas | 20. |
 | Aprobadas | 20. |
@@ -124,7 +127,7 @@ La revalidación del 31 de octubre queda identificada por commits y hashes en [p
 | Cobertura de líneas o ramas | No medida. |
 | Resultado de la suite | **Aprobada** para los 20 casos de dominio del frontend evaluados; código de salida 0. |
 
-La suite está incorporada al repositorio del frontend: [código de las 20 pruebas](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/c5f7b0037865e6ae482687e02639c579ba9616b6/tests/unit/core-entities.test.mjs), [instrucciones](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/c5f7b0037865e6ae482687e02639c579ba9616b6/tests/unit/README.md) y [registro TAP](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/c5f7b0037865e6ae482687e02639c579ba9616b6/evidence/unit/latest.tap). El [ZIP anterior para VS Code](../assets/chapter-6/projects/KairoLabs-Unit-Tests-VSCode.zip) se conserva como anexo histórico. La fuente de reproducción actual es el repositorio.
+La suite está incorporada al repositorio del frontend: [código de las 20 pruebas](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/tests/unit/core-entities.test.mjs), [instrucciones](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/tests/unit/README.md) y [registro TAP](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/evidence/unit/latest.tap). El [ZIP anterior para VS Code](../assets/chapter-6/projects/KairoLabs-Unit-Tests-VSCode.zip) se conserva como anexo histórico. La fuente de reproducción actual es el repositorio.
 
 Desde la raíz del repositorio `KairoLabs-Frontend`, con Node.js 24 o posterior y sin requerir instalación de dependencias:
 
@@ -381,13 +384,13 @@ Las pruebas de integración de KairoLabs verifican que sus componentes colaboran
 
 El objetivo es comprobar que las operaciones conservan sus datos y asociaciones, que las solicitudes inválidas no generan cambios parciales y que las respuestas pueden interpretarse desde el frontend. Se incorporaron también casos sobre CORS y autenticación para contrastar los requisitos de acceso remoto seguro y de comunicación entre aplicaciones.
 
-> **Estado:** suite independiente publicada en KairoLabs-Platform y revalidada el 31 de octubre de 2026: **14 ejecutadas, 14 aprobadas y 0 fallidas**. [Versión fuente evaluada `b3b94e0`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/tree/b3b94e0b7852e7c31239309abab72ceb9a6b32d9).
+> **Estado:** suite independiente publicada en KairoLabs-Platform y revalidada el 2 de noviembre de 2026: **14 ejecutadas, 14 aprobadas y 0 fallidas**. [Versión fuente evaluada `564dcf5`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/tree/564dcf5132a6d54c0064e57ab1c7a8ba7cca7d51).
 
 **Entorno y versión evaluada**
 
 | Elemento | Configuración utilizada |
 | :--- | :--- |
-| Backend | [KairoLabs-Platform `b3b94e0`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/tree/b3b94e0b7852e7c31239309abab72ceb9a6b32d9); backend reutilizado de MediTrackSensor base `c6c0bc7`, con CORS/JWT y configuración de pruebas incluidos. |
+| Backend | [KairoLabs-Platform `564dcf5`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/tree/564dcf5132a6d54c0064e57ab1c7a8ba7cca7d51); backend reutilizado de MediTrackSensor base `c6c0bc7`, con CORS/JWT y configuración de pruebas incluidos. |
 | Frontend | Snapshot de gateways/assemblers del frontend base `0d2c76f`, incluido explícitamente en `KairoLabs-Platform/frontend/` para IT-WEB-01. La suite unitaria usa el frontend publicado indicado en 6.1.1. |
 | SDK | .NET 10.0.403, preparado en una carpeta local sin instalación global. |
 | Persistencia | MySQL Community Server 8.4.13, ejecutado como proceso portátil en `127.0.0.1:33079`. |
@@ -445,9 +448,9 @@ La salida íntegra se conserva en [latest.tap](../assets/chapter-6/evidence/inte
 
 Registros publicados en el propio repositorio: [salida TAP](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/59d0ac9be71784fa9c5c3901308b0d9c10274f1f/evidence/latest.tap), [resultados](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/59d0ac9be71784fa9c5c3901308b0d9c10274f1f/evidence/results.json) y [versiones y hashes](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/59d0ac9be71784fa9c5c3901308b0d9c10274f1f/evidence/validation-source.json).
 
-- [Pruebas de integración: `tests/integration.test.mjs`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/tests/integration.test.mjs).
-- [Backend corregido: `Program.cs`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/backend/TechnoByteLambders.MediTrackSensor.Platform/Program.cs) y [endpoints públicos de IAM](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/backend/TechnoByteLambders.MediTrackSensor.Platform/Iam/Interfaces/REST/UsersController.cs).
-- [Ejecutor del entorno API/MySQL](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/scripts/run-integration.ps1) e [instrucciones de reproducción](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/b3b94e0b7852e7c31239309abab72ceb9a6b32d9/README.md).
+- [Pruebas de integración: `tests/integration.test.mjs`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/564dcf5132a6d54c0064e57ab1c7a8ba7cca7d51/tests/integration.test.mjs).
+- [Backend corregido: `Program.cs`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/564dcf5132a6d54c0064e57ab1c7a8ba7cca7d51/backend/TechnoByteLambders.MediTrackSensor.Platform/Program.cs) y [endpoints públicos de IAM](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/564dcf5132a6d54c0064e57ab1c7a8ba7cca7d51/backend/TechnoByteLambders.MediTrackSensor.Platform/Iam/Interfaces/REST/UsersController.cs).
+- [Ejecutor del entorno API/MySQL](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/564dcf5132a6d54c0064e57ab1c7a8ba7cca7d51/scripts/run-integration.ps1) e [instrucciones de reproducción](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/564dcf5132a6d54c0064e57ab1c7a8ba7cca7d51/README.md).
 - Registros de la revalidación: [TAP](../assets/chapter-6/evidence/integration/latest.tap), [resultados por caso](../assets/chapter-6/evidence/integration/results.json) y [solicitudes/respuestas redactadas](../assets/chapter-6/evidence/integration/http-transcript.json).
 
 Desde la raíz de `KairoLabs-Platform`, en Windows x64 con Node.js 24+, ejecutar `npm run setup` una vez y luego `npm test`. Los puertos 5187 y 33079 deben estar libres. La suite levanta API y MySQL reales, usa HTTP y SQL independiente y limpia sus recursos temporales. Estos 14 casos pertenecen a una suite de integración propia; no se derivan de las pruebas BDD/sistema.
@@ -641,193 +644,222 @@ Referencia técnica de la corrección: [configuración de JWT Bearer en ASP.NET 
 
 ### 6.1.3. Core Behavior-Driven Development (BDD)
 
-Se aplicó BDD para describir y automatizar el comportamiento esperado desde la perspectiva de los usuarios. Los escenarios se redactaron en Gherkin usando **Given–When–Then (Dado–Cuando–Entonces)** y se ejecutaron con Cucumber.js; Playwright realizó las interacciones observables en la aplicación. Se incluyeron caminos exitosos y un caso de rechazo de credenciales para expresar también el comportamiento ante errores.
+Se implementó y publicó una suite Cucumber.js con escenarios Gherkin en español y pasos Playwright que operan sobre la interfaz Vue, la API ASP.NET Core y MySQL reales. La revalidación del **2 de noviembre de 2026 (America/Lima)** obtuvo **4 escenarios aprobados de 4 y 22 pasos aprobados de 22 en escritorio**, y los mismos resultados en móvil emulado. En conjunto son ocho ejecuciones de cuatro escenarios, no ocho funcionalidades diferentes.
 
-#### Funcionalidad: autenticación
+**Trazabilidad y reproducción**
 
-```gherkin
-Feature: Inicio de sesión de usuarios
-  Como usuario de KairoLabs
-  Quiero ingresar con mis credenciales
-  Para acceder al panel correspondiente a mi rol
+Evidencia publicada en el repositorio: [BDD y capturas](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/tree/a91e33e62a2e0ebdc8e9fdc89c1993583dc1c496/evidence/bdd) y [análisis de calidad](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/tree/a91e33e62a2e0ebdc8e9fdc89c1993583dc1c496/evidence/quality). [Revalidación y diagnósticos del backend](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/tree/15ba942ae7a89c644c155ee5294ef93e6c65367d/evidence).
 
-  Scenario: La aplicación rechaza credenciales inválidas
-    Given que abro la página de inicio de sesión
-    When ingreso una contraseña incorrecta y envío el formulario
-    Then permanezco en el inicio de sesión y veo un mensaje de error
+- [Escenarios `bdd/core.feature`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/bdd/core.feature), [pasos y aserciones](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/bdd/steps.mjs), [runner del navegador](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/bdd/run.mjs) y [guía BDD](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/bdd/README.md).
+- [Orquestador API/MySQL compartido](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/3f2f716764c552e7ae946ed7d417498208842bd1/scripts/run-integration.ps1). Las carpetas KairoLabs-Frontend y KairoLabs-Platform deben ser hermanas, o indicarse `-PlatformRoot`.
+- [Resultados JSON escritorio](../assets/chapter-6/evidence/bdd/cucumber-desktop.json), [JSON móvil](../assets/chapter-6/evidence/bdd/cucumber-mobile.json), [registro de ejecución](../assets/chapter-6/evidence/bdd/run.log), [entorno](../assets/chapter-6/evidence/bdd/environment.json) y [tráfico por escenario](../assets/chapter-6/evidence/bdd/network.jsonl).
+- Reportes HTML con capturas adjuntas: [escritorio](../assets/chapter-6/evidence/bdd/cucumber-desktop.html) y [móvil emulado](../assets/chapter-6/evidence/bdd/cucumber-mobile.html). GitHub muestra el archivo como código; descargarlo y abrirlo localmente para interactuar con el reporte.
 
-  Scenario: Una cuenta de prueba activa accede a su panel
-    Given que existe una cuenta de prueba configurada para BDD
-    And abro la página de inicio de sesión
-    When ingreso las credenciales de prueba y envío el formulario
-    Then llego al panel asignado por el rol de la cuenta
+Desde KairoLabs-Platform, ejecutar `npm run setup` una vez. Desde KairoLabs-Frontend, con Windows x64 y Node.js 24+:
+
+```powershell
+npm ci
+npx playwright install chromium
+npm run test:bdd
 ```
 
-#### Funcionalidad: consulta de información operativa
+También se dispone de `npm run test:bdd:desktop` y `npm run test:bdd:mobile`. Se requieren los puertos 5173, 5187 y 33079 libres. El runner crea datos sintéticos en una base temporal, inicia los servicios locales y elimina sus procesos y base al terminar. Los gateways se configuran para localhost, `VITE_USE_MOCKS=false`, y el navegador bloquea fetch/XHR externos. Los registros no incluyen contraseñas ni encabezados JWT. Cada escenario utiliza un contexto nuevo y espera a que desaparezca el cargador antes de capturar el resultado.
+
+**Escenarios publicados**
 
 ```gherkin
-Feature: Consulta de datos operativos
-  Como usuario autenticado
-  Quiero consultar establecimientos y dispositivos
-  Para supervisar la operación
+# language: es
+Característica: Acceso y consulta de información operativa
+  Antecedentes:
+    Dado que existe una entidad con sede y dispositivo de prueba en la API real
 
-  Scenario: El usuario consulta establecimientos desde el frontend integrado
-    Given que inicié sesión con una cuenta de prueba
-    When navego al módulo de establecimientos
-    Then el módulo carga establecimientos desde la API de pruebas
+  Escenario: Una cuenta de prueba activa accede a su panel
+    Cuando inicia sesión con credenciales válidas
+    Entonces se muestra el panel autenticado
 
-  Scenario: El usuario consulta dispositivos desde el frontend integrado
-    Given que inicié sesión con una cuenta de prueba
-    When navego al módulo de dispositivos
-    Then el módulo carga dispositivos desde la API de pruebas
+  Escenario: La aplicación rechaza credenciales inválidas
+    Cuando inicia sesión con una contraseña incorrecta
+    Entonces muestra un error y conserva la pantalla de acceso
+
+  Escenario: El usuario consulta establecimientos desde el frontend integrado
+    Cuando inicia sesión con credenciales válidas
+    Y navega al listado de establecimientos
+    Entonces la sede persistida se muestra en pantalla
+
+  Escenario: El usuario consulta dispositivos desde el frontend integrado
+    Cuando inicia sesión con credenciales válidas
+    Y navega al listado de dispositivos
+    Entonces el dispositivo persistido se muestra en pantalla
 ```
 
-Los cuatro escenarios anteriores aprobaron en escritorio y en móvil emulado. Las definiciones ejecutables están en `KairoLabs-Frontend/bdd/features/` y `KairoLabs-Frontend/bdd/step-definitions/`. Cuentas y registros son datos ficticios creados para la prueba.
+**Figura 35**
 
-**Evidencia de ejecución:** los reportes HTML conservan el detalle de escenarios y pasos por viewport.
+*Ejecución Cucumber en escritorio: cuatro escenarios aprobados*
 
-- [Reporte Cucumber — escritorio](../assets/testing/cucumber-desktop.html)
-- [Reporte Cucumber — móvil emulado](../assets/testing/cucumber-mobile.html)
+<p align="center">
+  <img src="../assets/chapter-6/evidence/bdd/cucumber-desktop.png" alt="Ejecución Cucumber en escritorio: cuatro escenarios aprobados" width="1000">
+</p>
 
-![Resumen de ejecución BDD en escritorio: 4 de 4 escenarios aprobados](../assets/testing/cucumber-desktop.png)
+*Nota.* Captura del reporte HTML real de la suite, con cuatro escenarios y 22 pasos aprobados. Elaboración propia, 2 de noviembre de 2026.
 
-**Figura 6.1.** Resumen de Cucumber para escritorio.
+**Figura 36**
 
-![Resumen de ejecución BDD en móvil emulado: 4 de 4 escenarios aprobados](../assets/testing/cucumber-mobile.png)
+*Ejecución Cucumber en móvil emulado: cuatro escenarios aprobados*
 
-**Figura 6.2.** Resumen de Cucumber para viewport móvil emulado.
+<p align="center">
+  <img src="../assets/chapter-6/evidence/bdd/cucumber-mobile.png" alt="Ejecución Cucumber en móvil emulado: cuatro escenarios aprobados" width="1000">
+</p>
+
+*Nota.* Captura del reporte HTML real. Chromium utiliza el perfil Pixel 7 de Playwright; no se acredita un dispositivo físico. Elaboración propia, 2 de noviembre de 2026.
 
 ### 6.1.4. Core System Tests
 
-Las pruebas de sistema validaron recorridos integrados completos y el resultado observable por el usuario. En los flujos de consulta, el frontend envió solicitudes a la API local, recibió los registros ficticios de MySQL y los presentó en los módulos correspondientes. También se comprobó la navegación desde el inicio de sesión y el rechazo de credenciales inválidas. Los mismos flujos se ejecutaron en escritorio y móvil emulado.
+Los mismos escenarios BDD ejercitan cuatro recorridos de sistema completos dentro de su alcance: formulario de acceso, respuesta API, sesión y panel; rechazo de credenciales; consulta de sedes; consulta de dispositivos. Se comprueban tanto respuestas HTTP como contenido visible. La navegación de consulta abre rutas reales del frontend después del login; no se afirma cobertura de todos los menús ni gestos táctiles.
 
-| ID | Precondición y flujo de extremo a extremo | Resultado esperado | Escritorio | Móvil emulado |
-|:--|:--|:--|:--:|:--:|
-| SYS-01 | Cuenta de prueba activa; enviar credenciales y entrar | Se abre el panel permitido para el rol | Aprobado | Aprobado |
-| SYS-02 | Enviar contraseña incorrecta | Se deniega el acceso y se muestra el error; no se abre el panel | Aprobado | Aprobado |
-| SYS-03 | Sesión válida; navegar a establecimientos | La API de pruebas responde y el registro ficticio aparece en el módulo | Aprobado | Aprobado |
-| SYS-04 | Sesión válida; navegar a dispositivos | La API de pruebas responde y el registro ficticio aparece en el módulo | Aprobado | Aprobado |
+| ID | Recorrido y comprobación | Escritorio 1440 × 1000 | Pixel 7 emulado |
+| :--- | :--- | :--- | :--- |
+| SYS-01 | Login válido: HTTP 200, sesión con token y panel autenticado. | Aprobado | Aprobado |
+| SYS-02 | Clave incorrecta: HTTP 401, error visible y ausencia de sesión. | Aprobado | Aprobado |
+| SYS-03 | Sede creada por API y mostrada en el listado del frontend. | Aprobado | Aprobado |
+| SYS-04 | Dispositivo creado por API y mostrado en el listado del frontend. | Aprobado | Aprobado |
 
-En total, cada ejecución cubrió cuatro flujos de sistema; los cuatro aprobaron en ambos viewports. El conteo corresponde a escenarios automatizados, no a una afirmación de cobertura exhaustiva de todos los módulos, roles, navegadores o dispositivos.
+No se suman estas ejecuciones otra vez al total BDD: son la misma evidencia descrita desde su alcance de sistema. No cubren aplicación móvil nativa, dispositivo físico, todos los roles, producción ni todos los procesos del producto. Lighthouse no forma parte de estos resultados funcionales.
 
-#### Evidencia visual de los flujos
+**Figura 37**
 
-![Acceso de la cuenta de prueba al panel en escritorio](../assets/testing/desktop-una-cuenta-de-prueba-activa-accede-a-su-panel.png)
+*Panel autenticado en escritorio*
 
-**Figura 6.3.** Cuenta ficticia autenticada y panel en escritorio.
+<p align="center">
+  <img src="../assets/chapter-6/evidence/bdd/desktop-una-cuenta-de-prueba-activa-accede-a-su-panel.png" alt="Panel autenticado en escritorio" width="1000">
+</p>
 
-![Credenciales inválidas rechazadas en móvil emulado](../assets/testing/mobile-la-aplicaci-n-rechaza-credenciales-inv-lidas.png)
+*Nota.* La cuenta sintética accede mediante el formulario y la API real. Captura automatizada de la aplicación tras finalizar la carga; elaboración propia, 2 de noviembre de 2026.
 
-**Figura 6.4.** Rechazo de credenciales inválidas en viewport móvil emulado.
+**Figura 38**
 
-![Establecimiento ficticio devuelto por la API e integrado en el frontend](../assets/testing/desktop-el-usuario-consulta-establecimientos-desde-el-frontend-integrado.png)
+*Rechazo de credenciales en móvil emulado*
 
-**Figura 6.5.** Registro de establecimiento de prueba presentado en escritorio.
+<p align="center">
+  <img src="../assets/chapter-6/evidence/bdd/mobile-la-aplicacion-rechaza-credenciales-invalidas.png" alt="Rechazo de credenciales en móvil emulado" width="1000">
+</p>
 
-![Dispositivo ficticio devuelto por la API e integrado en el frontend en móvil](../assets/testing/mobile-el-usuario-consulta-dispositivos-desde-el-frontend-integrado.png)
+*Nota.* El mensaje de error acompaña al rechazo HTTP 401 y no se crea una sesión. Captura automatizada de la aplicación tras finalizar la carga; elaboración propia, 2 de noviembre de 2026.
 
-**Figura 6.6.** Registro de dispositivo de prueba presentado en móvil emulado.
+**Figura 39**
 
-#### Reproducción
+*Consulta de la sede persistida en escritorio*
 
-El runner `KairoLabs-Frontend/scripts/run-bdd.ps1` prepara una base MySQL temporal independiente, inicia API y frontend en `localhost`, crea datos ficticios, ejecuta Cucumber/Playwright y guarda reportes y capturas en `assets/testing/`. Los accesos directos son `KairoLabs-Frontend/run-bdd-desktop.cmd` y `KairoLabs-Frontend/run-bdd-mobile.cmd`; las instrucciones están en `KairoLabs-Frontend/bdd/README.md`. El runner está restringido a objetivos locales.
+<p align="center">
+  <img src="../assets/chapter-6/evidence/bdd/desktop-el-usuario-consulta-establecimientos-desde-el-frontend-integrado.png" alt="Consulta de la sede persistida en escritorio" width="1000">
+</p>
 
-#### Alcance de Lighthouse
+*Nota.* El registro sintético creado en MySQL por la API aparece en el listado. Captura automatizada de la aplicación tras finalizar la carga; elaboración propia, 2 de noviembre de 2026.
 
-La evaluación de Lighthouse de la Landing Page se reporta como evidencia complementaria de rendimiento, accesibilidad, buenas prácticas y SEO. Sus métricas no se cuentan dentro de los escenarios funcionales anteriores y no sustituyen las pruebas de navegación, autenticación ni integración con API.
+**Figura 40**
+
+*Consulta del dispositivo persistido en móvil emulado*
+
+<p align="center">
+  <img src="../assets/chapter-6/evidence/bdd/mobile-el-usuario-consulta-dispositivos-desde-el-frontend-integrado.png" alt="Consulta del dispositivo persistido en móvil emulado" width="1000">
+</p>
+
+*Nota.* El dispositivo sintético se visualiza en la aplicación con el gateway real. Captura automatizada de la aplicación tras finalizar la carga; elaboración propia, 2 de noviembre de 2026.
 
 ## 6.2. Static testing & Verification
 
 ### 6.2.1. Static Code Analysis
 
-El análisis estático de código (*Static Code Analysis*) permite evaluar la calidad estructural, el apego a estándares de programación y la postura de seguridad del software sin requerir la ejecución de los componentes en un entorno de pruebas o producción. Para el ecosistema KairoLabs, este procedimiento se aplicó sobre el código fuente del frontend web (`KairoLabs-Frontend`), abarcando la verificación sintáctica y de estilo, así como la auditoría de seguridad de dependencias externas (*Software Composition Analysis* - SCA).
+El **2 de noviembre de 2026** se ejecutó análisis reproducible sobre `src/` del frontend. Se combinan ESLint, eslint-plugin-vue y eslint-plugin-security, métricas de complejidad por función y jscpd para duplicación, auditoría npm de dependencias y compilación. El alcance incluye código de demostración bajo `src/shared/infrastructure/mocks/`; excluye dependencias instaladas y reportes generados. La revisión del backend es acotada y no se presenta como un análisis estático completo de C#.
+
+Fuentes: [configuración ESLint](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/eslint.config.js), [script de análisis](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/7f1d227c1a5ad03a0673de9e4aaa5dccb516d231/scripts/analyze-quality.mjs), [versiones y hashes](../assets/chapter-6/evidence/quality/source-version.json), [resumen JSON](../assets/chapter-6/evidence/quality/summary.json), [registro completo](../assets/chapter-6/evidence/quality/run.log) y [reporte HTML](../assets/chapter-6/evidence/quality/report.html).
+
+```powershell
+npm ci
+npm run lint
+npm run quality
+```
+
+`lint` falla ante errores. `quality` registra ESLint, complejidad, duplicación, auditorías y build; su código de salida 0 indica ausencia de errores ESLint y compilación correcta, **no aprobación de seguridad**. Los códigos de auditoría se guardan aparte y fueron 1. No se ha instalado un hook precommit automático.
 
 #### 6.2.1.1. Coding standard & Code conventions.
 
-Para garantizar la mantenibilidad, legibilidad y colaboración ordenada entre los miembros del equipo, se establecieron estándares rigurosos basados en la guía oficial de estilo de **Vue.js (Priority A & B)** y la **Airbnb JavaScript Style Guide**. La arquitectura del proyecto sigue el enfoque de diseño guiado por el dominio (*Domain-Driven Design* - DDD), dividiendo las responsabilidades en capas (`domain`, `application`, `infrastructure`, `presentation`) dentro de cada Bounded Context (`iam`, `monitoring`, `establishment`, `logistics`, `subscriptions`).
-
-A continuación se resumen las convenciones de nomenclatura y formato acordadas para el código fuente:
+La configuración publicada combina las reglas recomendadas de JavaScript y las esenciales de Vue, más reglas explícitas para variables, comparaciones, complejidad y seguridad. Las convenciones observadas del proyecto incluyen `*.entity.js`, `*.assembler.js`, stores y componentes Vue separados por contexto. No se afirma cumplimiento integral de Airbnb, todas las prioridades de Vue, indentación o punto y coma: la configuración ejecutada no aplica esas guías completas.
 
 **Tabla 12**
 
-*Convenciones de nomenclatura y codificación en KairoLabs-Frontend*
+*Reglas y resultados de la verificación de convenciones*
 
-| Elemento / Capa | Convención | Formato | Ejemplo en el Código |
-| :--- | :--- | :---: | :--- |
-| **Componentes y Vistas** | Componentes reutilizables y páginas de vistas | `kebab-case.vue` | `monitoring-dashboard.vue`, `sensor-readings-grid.vue` |
-| **Modelos y Entidades** | Entidades de dominio DDD | `PascalCase` / `*.entity.js` | `establishment.entity.js`, `device.entity.js` |
-| **Gestores de Estado** | Stores reactivas con Pinia | `camelCase` / `*.store.js` | `monitoring.store.js`, `iam.store.js` |
-| **Ensambladores y Gateways** | Transformación DTO y consumo API | `*.assembler.js` / `*-api.js` | `device.assembler.js`, `monitoring-api.js` |
-| **Funciones y Métodos** | Acciones reactivas y servicios asíncronos | `camelCase` | `fetchEstablishments()`, `updateReading()` |
-| **Constantes Globales** | Umbrales de telemetría y configuración | `UPPER_SNAKE_CASE` | `API_BASE_URL`, `POLLING_INTERVAL_MS` |
-| **Indentación y Formato** | Espaciado consistente y puntuación | 2 espacios, `;` explícito | Configuración centralizada de linter |
+| Regla o grupo | Resultado | Interpretación |
+| :--- | :--- | :--- |
+| JavaScript recomendado y Vue esencial | 0 errores totales en 94 archivos | Sin errores bloqueantes de la configuración actual. |
+| `eqeqeq` | 37 advertencias | Comparaciones no estrictas que requieren revisar tipos antes de sustituirlas. |
+| `no-unused-vars` | 2 advertencias | Variables o importaciones sin uso. |
+| `prefer-const` | 1 advertencia | Declaración que puede ser constante. |
+| `complexity` con umbral 15 | 11 advertencias | Funciones con demasiadas decisiones según ESLint. |
+| `security/detect-object-injection` | 26 advertencias | Claves dinámicas que requieren revisión contextual de seguridad. |
+| **Total** | **0 errores y 77 advertencias** | El linter pasa, pero no está libre de observaciones. |
 
-*Nota.* Elaboración propia basada en las normas de diseño modular DDD y la guía de desarrollo frontend de KairoLabs.
-
-**Automatización y Verificación con ESLint**
-
-Para asegurar el cumplimiento automático de estas directivas antes de cada confirmación de código (*commit*), se configuró **ESLint** mediante el archivo de directivas `eslint.config.js` y el script de ejecución estática en `package.json`:
-
-```json
-"scripts": {
-  "lint": "npx eslint src"
-}
-```
-
-Al ejecutar la validación sobre todo el árbol de código fuente (`src/`), el analizador estático verificó el descarte de variables no declaradas o sin uso, la erradicación del uso de `var` en favor de `const` y `let`, y el cumplimiento uniforme de terminación con punto y coma. Como se evidencia en la Figura 35, el análisis concluyó de forma satisfactoria sin registrar errores de sintaxis ni advertencias de estilo pendientes.
-
-**Figura 35**
-
-*Validación de estándares y convenciones de codificación mediante ESLint*
-
-<p align="center">
-  <img src="../assets/chapter-6/figures/estatico/ESLINT-CODE-CONVENTIONS.png" alt="Validación estática de estándares de codificación con ESLint" width="1000">
-</p>
-
-*Nota.* Ejecución de la tarea de verificación estática de convenciones y estándares de código sobre el código fuente de KairoLabs-Frontend. Se evidencia la ejecución sin errores de sintaxis ni infracciones de reglas de formato. Captura propia del entorno de desarrollo del 28 de octubre de 2026.
+*Nota.* Elaboración propia a partir de [eslint.json](../assets/chapter-6/evidence/quality/eslint.json) y [salida de lint](../assets/chapter-6/evidence/quality/lint.txt). Leaflet se declara de solo lectura únicamente en la vista que lo carga por CDN; no se desactiva `no-undef` globalmente.
 
 #### 6.2.1.2. Code Quality & Code Security
 
-La evaluación de calidad interna y seguridad del software se complementó mediante un análisis estático de composición de software (*Software Composition Analysis* - SCA) utilizando la utilidad `npm audit`. Esta herramienta inspecciona el árbol completo de dependencias directas y transitivas declaradas en `package.json` y `package-lock.json`, cotejándolas con la base de datos oficial de avisos de seguridad de GitHub (*GitHub Advisory Database* - GHSA) y vulnerabilidades y exposiciones comunes (*Common Vulnerabilities and Exposures* - CVE).
+**Calidad y mantenibilidad**
 
-**Resultados de la Auditoría de Seguridad**
+Se midieron **773 funciones**, con complejidad media **2,68**, máxima **25** y **11 por encima de 15**. La medición utiliza la regla `complexity` de ESLint con umbral cero para extraer todos los valores; ese umbral de medición no es el criterio de aprobación. El umbral de advertencia de la configuración normal es 15.
 
-La ejecución de la auditoría identificó **14 vulnerabilidades de severidad alta** concentradas en librerías de terceros utilizadas para el cliente HTTP (`axios`), el motor de internacionalización (`vue-i18n` / `@intlify`) y el servidor de desarrollo y empaquetador (`vite`), tal como se ilustra en la Figura 36.
+La mayor complejidad corresponde a `completeHealthEntityRegistration` (25), seguida de `Operator.formatSchedule` y constructores de `Transport` y `Device` (22), y `loadProfileFromSession` (21). Se recomienda separar responsabilidades y proteger la refactorización con las suites publicadas. El detalle de función, archivo y línea está en [complexity.json](../assets/chapter-6/evidence/quality/complexity.json).
 
-**Figura 36**
+jscpd detectó **127 pares de fragmentos clonados y 1496 líneas duplicadas: 5,12 %** de las líneas analizadas. Se fijaron mínimos de 50 tokens y cinco líneas. El parser contabiliza 187 fuentes/fragmentos, incluidas secciones de archivos Vue; no equivalen a 187 archivos físicos. Los pares y sus ubicaciones se conservan en [jscpd-report.json](../assets/chapter-6/evidence/quality/jscpd/jscpd-report.json). Estas métricas sirven como indicadores de mantenibilidad; no se calcula Maintainability Index ni se afirma un umbral global aprobado por el equipo.
 
-*Auditoría de seguridad y dependencias de terceros mediante npm audit*
+**Seguridad de dependencias y del código**
 
-<p align="center">
-  <img src="../assets/chapter-6/figures/estatico/NPM-AUDIT-VULNERABILITIES.png" alt="Reporte de vulnerabilidades de dependencias con npm audit" width="1000">
-</p>
-
-*Nota.* Análisis estático de composición de software (SCA) ejecutado con npm audit sobre el árbol de paquetes de KairoLabs-Frontend, identificando alertas de severidad alta en librerías externas y su respectivo comando de remediación. Captura propia del entorno de desarrollo del 28 de octubre de 2026.
-
-A fin de gestionar de manera rigurosa los riesgos derivados de estas dependencias externas, se elaboró la matriz de hallazgos y el plan de mitigación técnica detallado en la Tabla 13:
+La auditoría completa registró **21 paquetes con avisos: 14 de severidad alta y 7 moderada**, sin críticos. Al excluir dependencias de desarrollo, `npm audit --omit=dev` registró **13 de severidad alta**. Se distinguen los paquetes afectados de los avisos únicos: un mismo advisory puede propagarse por dependencias transitivas. Registros íntegros: [auditoría completa](../assets/chapter-6/evidence/quality/npm-audit.json) y [auditoría de producción](../assets/chapter-6/evidence/quality/npm-audit-production.json). Ambos comandos finalizaron con código 1, por lo que los hallazgos permanecen abiertos.
 
 **Tabla 13**
 
-*Desglose detallado de las 14 vulnerabilidades de severidad alta identificadas por npm audit*
+*Paquetes afectados según la auditoría ejecutada y enlaces a sus avisos*
 
-| N° | Paquete Afectado | Versión Vulnerable | Severidad | Identificador (GHSA / CVE) | Tipo de Riesgo / Impacto | Origen / Árbol de Dependencia | Plan de Mitigación |
-| :---: | :--- | :---: | :---: | :--- | :--- | :--- | :--- |
-| **1** | `@intlify/core-base` | <= 11.4.13 | High | GHSA-8rc2-428q-7ww3<br>GHSA-83rm-6c8r-g728 | XSS por omisión de escape en `escapeParameter` | Dependencia de `vue-i18n` | Actualizar vía `npm audit fix` |
-| **2** | `@intlify/devtools-types` | 11.1.10 – 11.4.13 | High | GHSA-8rc2-428q-7ww3 | Dependencia transitiva vulnerable de `@intlify/core-base` | Dependencia de `vue-i18n` | Actualizar paquete raíz `vue-i18n` |
-| **3** | `@intlify/shared` | 11.1.10 – 11.4.13 | High | GHSA-83rm-6c8r-g728 | XSS mediante `srcdoc` en mensajes de traducción | Dependencia de `@intlify/core-base` | Actualizar vía `npm audit fix` |
-| **4** | `@intlify/message-compiler` | 11.1.10 – 11.4.13 | High | GHSA-83rm-6c8r-g728 | Compilador expuesto por paquete compartido vulnerable | Dependencia de `@intlify/shared` | Actualizar vía `npm audit fix` |
-| **5** | `vue-i18n` | 9.0.0-beta.5 – 11.4.13 | High | GHSA-83rm-6c8r-g728 | Vulnerabilidad compuesta por módulos del motor intlify | Dependencia directa (`package.json`) | Actualizar a versión parcheada `^11.4.14` |
-| **6** | `@vue/server-renderer` | <= 3.5.41 | High | GHSA-g2v6-rqmx-r4w6 | XSS por ausencia de retorno de carro en blacklist de atributos | Dependencia de `vue` | Actualizar versión de `vue` |
-| **7** | `vue` | 3.2.13 – 3.5.41 | High | GHSA-g2v6-rqmx-r4w6 | Núcleo de renderizado afectado por dependencia transitiva | Dependencia directa (`package.json`) | Ejecutar `npm audit fix` a Vue `>= 3.5.42` |
-| **8** | `axios` | 1.0.0 – 1.19.0 | High | GHSA-xj6q-8x83-jv6g<br>GHSA-42h9-826w-cgv3 | *Prototype Pollution* en deserialización y DoS por recursión | Dependencia directa (`package.json`) | Actualizar Axios a versión `>= 1.20.0` |
-| **9** | `follow-redirects` | 1.16.0 | High | GHSA-q3jh-wrc6-jgq8<br>GHSA-8r9p-f939-6h3c | Fuga de cabeceras de autorización en redirecciones HTTP | Dependencia transitiva de `axios` | Resuelto al actualizar `axios` |
-| **10** | `form-data` | 4.0.0 – 4.0.5 | High | GHSA-hmw2-7cc7-3qxx | Inyección CRLF mediante nombres de campo sin escapar | Dependencia transitiva de `axios` | Resuelto al actualizar `axios` |
-| **11** | `nanoid` | <= 3.3.17 | High | GHSA-28wg-ghj8-5hjv<br>GHSA-2v37-7h3g-55p8 | Generadores no seguros provocan bucle infinito y bloqueo DoS | Dependencia transitiva de `postcss` | Actualizar paquetes postcss |
-| **12** | `postcss` | <= 8.5.22 | High | GHSA-fxqj-rqcc-2cmp<br>GHSA-r28c-9q8g-f849 | *Path Traversal* en sourceMappingURL revelando archivos `.map` | Dependencia transitiva de `vite` | Actualizar vía `npm audit fix` |
-| **13** | `source-map-js` | 1.0.0 – 1.2.1 | High | GHSA-68fv-2mgg-jv7q | Bloqueo del bucle de eventos mediante offsets indexados | Dependencia transitiva de `postcss` | Resuelto al actualizar `postcss` |
-| **14** | `vite` | 8.0.0 – 8.1.5 | High | GHSA-v6wh-96g9-6wx3<br>GHSA-9jrq-w75r-8gcw | Ejecución indebida por middleware y Path Traversal en Windows | DevDependency directa (`package.json`) | Restricción en `vite.config.js` y parche |
+| Paquete | Severidad | Dependencia directa | Avisos directos o propagación |
+| :--- | :--- | :--- | :--- |
+| `@eslint-community/eslint-utils` | moderate | No | Propagación desde eslint |
+| `@eslint/config-array` | moderate | No | Propagación desde minimatch |
+| `@eslint/js` | moderate | Sí | Propagación desde eslint |
+| `@intlify/core-base` | high | No | [GHSA-8rc2-428q-7ww3](https://github.com/advisories/GHSA-8rc2-428q-7ww3), [GHSA-83rm-6c8r-g728](https://github.com/advisories/GHSA-83rm-6c8r-g728) |
+| `@intlify/devtools-types` | high | No | Propagación desde @intlify/core-base, @intlify/shared |
+| `@intlify/message-compiler` | high | No | Propagación desde @intlify/shared |
+| `@intlify/shared` | high | No | [GHSA-83rm-6c8r-g728](https://github.com/advisories/GHSA-83rm-6c8r-g728) |
+| `@vue/server-renderer` | high | No | [GHSA-g2v6-rqmx-r4w6](https://github.com/advisories/GHSA-g2v6-rqmx-r4w6) |
+| `axios` | high | Sí | [GHSA-xj6q-8x83-jv6g](https://github.com/advisories/GHSA-xj6q-8x83-jv6g), [GHSA-mmx7-hfxf-jppx](https://github.com/advisories/GHSA-mmx7-hfxf-jppx), [GHSA-pmv8-rq9r-6j72](https://github.com/advisories/GHSA-pmv8-rq9r-6j72), [GHSA-mwf2-3pr3-8698](https://github.com/advisories/GHSA-mwf2-3pr3-8698), [GHSA-gcfj-64vw-6mp9](https://github.com/advisories/GHSA-gcfj-64vw-6mp9), [GHSA-7q8q-rj6j-mhjq](https://github.com/advisories/GHSA-7q8q-rj6j-mhjq), [GHSA-jqh4-m9w3-8hp9](https://github.com/advisories/GHSA-jqh4-m9w3-8hp9), [GHSA-f4gw-2p7v-4548](https://github.com/advisories/GHSA-f4gw-2p7v-4548), [GHSA-42h9-826w-cgv3](https://github.com/advisories/GHSA-42h9-826w-cgv3), [GHSA-hcpx-6fm6-wx23](https://github.com/advisories/GHSA-hcpx-6fm6-wx23), [GHSA-vh66-26gq-q6x8](https://github.com/advisories/GHSA-vh66-26gq-q6x8), [GHSA-9fr6-4gfg-395g](https://github.com/advisories/GHSA-9fr6-4gfg-395g), [GHSA-mghh-pgcx-3jjj](https://github.com/advisories/GHSA-mghh-pgcx-3jjj), [GHSA-x97p-jq2g-jp4f](https://github.com/advisories/GHSA-x97p-jq2g-jp4f), [GHSA-3pq3-5fj3-cg6v](https://github.com/advisories/GHSA-3pq3-5fj3-cg6v), [GHSA-542g-h47m-68v8](https://github.com/advisories/GHSA-542g-h47m-68v8), [GHSA-j8rh-479h-cp32](https://github.com/advisories/GHSA-j8rh-479h-cp32), [GHSA-4hqw-qxg8-jxx2](https://github.com/advisories/GHSA-4hqw-qxg8-jxx2), [GHSA-m8m8-qj5v-23w3](https://github.com/advisories/GHSA-m8m8-qj5v-23w3), [GHSA-44g4-m2mj-wpvx](https://github.com/advisories/GHSA-44g4-m2mj-wpvx) |
+| `eslint` | moderate | Sí | Propagación desde @eslint-community/eslint-utils, @eslint/config-array, minimatch |
+| `eslint-plugin-vue` | moderate | Sí | Propagación desde @eslint-community/eslint-utils, eslint, vue-eslint-parser |
+| `follow-redirects` | high | No | [GHSA-q3jh-wrc6-jgq8](https://github.com/advisories/GHSA-q3jh-wrc6-jgq8), [GHSA-8r9p-f939-6h3c](https://github.com/advisories/GHSA-8r9p-f939-6h3c), [GHSA-mrwp-f3q8-3g9p](https://github.com/advisories/GHSA-mrwp-f3q8-3g9p) |
+| `form-data` | high | No | [GHSA-hmw2-7cc7-3qxx](https://github.com/advisories/GHSA-hmw2-7cc7-3qxx) |
+| `minimatch` | moderate | No | [GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249) |
+| `nanoid` | high | No | [GHSA-28wg-ghj8-5hjv](https://github.com/advisories/GHSA-28wg-ghj8-5hjv), [GHSA-2v37-7h3g-55p8](https://github.com/advisories/GHSA-2v37-7h3g-55p8) |
+| `postcss` | high | No | [GHSA-fxqj-rqcc-2cmp](https://github.com/advisories/GHSA-fxqj-rqcc-2cmp), [GHSA-r28c-9q8g-f849](https://github.com/advisories/GHSA-r28c-9q8g-f849) |
+| `source-map-js` | high | No | [GHSA-68fv-2mgg-jv7q](https://github.com/advisories/GHSA-68fv-2mgg-jv7q) |
+| `vite` | high | Sí | [GHSA-v6wh-96g9-6wx3](https://github.com/advisories/GHSA-v6wh-96g9-6wx3), [GHSA-698v-4r3x-3vcv](https://github.com/advisories/GHSA-698v-4r3x-3vcv), [GHSA-r825-w8mm-5pxw](https://github.com/advisories/GHSA-r825-w8mm-5pxw), [GHSA-587h-7wmj-h5pm](https://github.com/advisories/GHSA-587h-7wmj-h5pm), [GHSA-9jrq-w75r-8gcw](https://github.com/advisories/GHSA-9jrq-w75r-8gcw), [GHSA-rq7h-c2jc-7f22](https://github.com/advisories/GHSA-rq7h-c2jc-7f22), [GHSA-fx2h-pf6j-xcff](https://github.com/advisories/GHSA-fx2h-pf6j-xcff) |
+| `vue` | high | Sí | Propagación desde @vue/server-renderer |
+| `vue-eslint-parser` | moderate | No | Propagación desde eslint |
+| `vue-i18n` | high | Sí | [GHSA-8rc2-428q-7ww3](https://github.com/advisories/GHSA-8rc2-428q-7ww3), [GHSA-83rm-6c8r-g728](https://github.com/advisories/GHSA-83rm-6c8r-g728) |
 
-*Nota.* Elaboración propia a partir del reporte exhaustivo de 14 vulnerabilidades de severidad alta emitido por npm audit en el repositorio KairoLabs-Frontend.
+*Nota.* Tabla generada desde el registro npm real del lockfile evaluado, sin inventar versiones reparadas ni asumir que `npm audit fix` sea seguro en todos los casos. El reporte JSON conserva los rangos, rutas y propuestas de remediación completas.
+
+La revisión de código identifica 26 accesos por claves variables que requieren examinar su origen; no son 26 explotaciones demostradas. La búsqueda textual no encontró `v-html` ni `innerHTML` en `src/`, lo que no prueba ausencia total de XSS. Se revisó el uso BCrypt en IAM y la validación JWT; continúan pendientes los permisos completos por rol y pertenencia. La revisión de SQL de migraciones no acredita inmunidad global a SQLi. El procedimiento, archivos examinados y plan priorizado se documentan en [security-review.md](../assets/chapter-6/evidence/quality/security-review.md).
+
+La compilación frontend terminó con **código 0**: [build.log](../assets/chapter-6/evidence/quality/build.log). El backend sigue emitiendo NU1902/NU1903 para `System.Security.Cryptography.Pkcs` 9.0.0; ahora existe el [registro de compilación completo](../assets/chapter-6/evidence/integration/build-warnings.txt). El [diagnóstico de arranque](../assets/chapter-6/evidence/integration/startup-diagnostics.txt) conserva la incidencia de migración recuperada por reintento. Las 14 pruebas aprobadas no cierran estas observaciones.
+
+**Plan de mejora:** actualizar dependencias tras evaluar compatibilidad; dividir las funciones con complejidad alta; revisar comparaciones y claves dinámicas; reducir duplicación cuando exista una responsabilidad realmente compartida. Después de cada corrección deben repetirse compilación, auditorías y suites. Los responsables del equipo y fechas de cierre quedan por asignar; no se inventa una aprobación por pares.
+
+**Figura 41**
+
+*Resultados medidos de calidad y seguridad del frontend*
+
+<p align="center">
+  <img src="../assets/chapter-6/evidence/quality/quality-summary.png" alt="Resultados medidos de calidad y seguridad del frontend" width="1000">
+</p>
+
+*Nota.* Captura del reporte HTML generado desde summary.json. Se muestran errores, advertencias, complejidad, duplicación y auditorías; los avisos de seguridad permanecen abiertos. Elaboración propia, 2 de noviembre de 2026; la marca ISO del reporte está en UTC.
 
 ### 6.2.2. Reviews
 
@@ -876,22 +908,22 @@ La prioridad es **Alta** cuando el problema afecta el acceso, la interpretación
 
 | ID | Problema encontrado | Prioridad | Qué se hizo o qué falta hacer | Estado y evidencia |
 | :--- | :--- | :--- | :--- | :--- |
-| REV-01 | **Monitoring:** una lectura ausente podía convertirse en cero y mostrarse como una temperatura crítica. | Alta. | Se corrigió el manejo de `null`, `undefined` y textos en blanco para distinguirlos de un cero real. Se añadieron pruebas para evitar que el error se repita. | **Corregido y comprobado en la versión registrada.** UT-DEV-10 y UT-DEV-11; resultados [antes](../assets/chapter-6/evidence/unit/before-fix.tap) y [después](../assets/chapter-6/evidence/unit/latest.tap). La diferencia con la copia local se explica en REV-08. |
+| REV-01 | **Monitoring:** una lectura ausente podía convertirse en cero y mostrarse como una temperatura crítica. | Alta. | Se corrigió el manejo de `null`, `undefined` y textos en blanco para distinguirlos de un cero real. Se añadieron pruebas para evitar que el error se repita. | **Corregido y comprobado en la versión registrada.** UT-DEV-10 y UT-DEV-11; resultados [antes](../assets/chapter-6/evidence/unit/before-fix.tap) y [después](../assets/chapter-6/evidence/unit/latest.tap). La nueva revalidación de la copia publicada se registra en REV-08. |
 | REV-02 | **Comunicación web-API:** CORS no permitía las solicitudes desde el dominio de KairoLabs. | Alta. | Se agregó el dominio a la lista de orígenes permitidos y se comprobó que un origen ajeno siguiera siendo rechazado. | **Corregido y comprobado en la versión registrada.** DEF-INT-01 e IT-WEB-02 de 6.1.2. |
 | REV-03 | **IAM / API:** se podía consultar el listado de dispositivos sin una identidad válida. | Alta. | Se incorporó la validación JWT y se exigió autenticación por defecto, indicando qué endpoints deben seguir siendo públicos. | **Autenticación corregida y comprobada en la versión registrada.** DEF-INT-02 e IT-SEC-01. El resultado corresponde a los accesos y tokens probados. |
 | REV-04 | **Permisos de acceso:** falta comprobar todas las operaciones según el rol y la entidad a la que pertenece el usuario. | Alta. | Revisar los permisos de administradores y operadores, e intentar accesos permitidos y prohibidos entre entidades. Revisar también el registro de operadores, que consulta administradores antes de iniciar sesión. | **Pendiente.** El alcance que falta cubrir se explica en 6.1.2. |
 | REV-05 | **Base de datos:** al iniciar con una base vacía aparece el mensaje de que la tabla `transports` ya existe. La aplicación reintenta y continúa. | Media. | Revisar la creación de tablas y las migraciones. Comprobar que el primer arranque y los siguientes se completen sin ese conflicto. | **Pendiente.** OBS-INT-01 y [registro de arranque](../assets/chapter-6/evidence/integration/startup-diagnostics.txt). |
-| REV-06 | **Dependencias:** se documentaron problemas de seguridad en paquetes del frontend y una observación sobre paquetes utilizados por el backend. | Alta. | Revisar las versiones afectadas, actualizar los paquetes y guardar los nuevos resultados de auditoría, compilación y pruebas. | **Pendiente.** Auditoría de 6.2.1.2 y OBS-INT-02. Falta completar `build-warnings.txt`, ya que el archivo local no contiene los mensajes que respalden la observación del backend. |
-| REV-07 | **Informe:** los apartados 6.1.3 y 6.1.4 solo tienen encabezados. Todavía no hay evidencia de escenarios BDD ni de pruebas del sistema completo. | Media. | Documentar los escenarios, sus requisitos, el código de las pruebas y los resultados. Mantenerlos como no ejecutados hasta contar con esos registros. | **Pendiente.** Revisión del capítulo VI. |
-| REV-08 | **Versiones del frontend:** la copia local conserva la conversión directa `Number(v)` en `Device.toNum()`, su hash no coincide con el de la versión validada y su `package.json` no incluye `test:unit`. | Alta. | Actualizar la copia local al commit de referencia, comprobar los archivos y las instrucciones, y ejecutar las pruebas sobre esa copia. | **Pendiente.** Comparación con [published-validation.json](../assets/chapter-6/metadata/published-validation.json). Los resultados de 6.1.1 corresponden a la versión indicada en ese archivo. |
+| REV-06 | **Dependencias:** se documentaron problemas de seguridad en paquetes del frontend y una observación sobre paquetes utilizados por el backend. | Alta. | Revisar las versiones afectadas, actualizar los paquetes y guardar los nuevos resultados de auditoría, compilación y pruebas. | **Pendiente.** Auditoría de 6.2.1.2 y OBS-INT-02. Se completó `build-warnings.txt` con la compilación real; las advertencias NU1902/NU1903 y la remediación continúan pendientes. |
+| REV-07 | **Informe:** faltaban suites BDD/sistema reproducibles en el repositorio. | Media. | Se publicaron escenarios Gherkin, pasos Playwright, runner, guía y registros en ambos viewports. | **Subsanado el 2 de noviembre de 2026 para los cuatro flujos evaluados.** 6.1.3 y 6.1.4; 4/4 escenarios y 22/22 pasos por viewport. No acredita cobertura total del producto. |
+| REV-08 | **Versiones del frontend:** se había señalado una copia local sin la corrección ni script unitario. | Alta. | Se verificó el código publicado con Device.toNum() corregido y test:unit, y se reejecutaron las 20 pruebas desde esa copia. | **Subsanado en la versión registrada el 2 de noviembre de 2026.** [Versión y hashes](../assets/chapter-6/evidence/quality/source-version.json), 6.1.1 y [TAP](../assets/chapter-6/evidence/unit/latest.tap). |
 
-*Nota.* REV-01 a REV-03 recogen correcciones que ya cuentan con resultados de pruebas. Aún falta registrar su aprobación por otro integrante. Los demás puntos siguen pendientes. Para elaborar esta sección se revisaron los archivos y registros existentes, sin cambiar el código ni volver a ejecutar las pruebas.
+*Nota.* REV-01 a REV-03 recogen correcciones que ya cuentan con resultados de pruebas. Aún falta registrar su aprobación por otro integrante. REV-07 y REV-08 se actualizaron con la ejecución del 2 de noviembre; permisos, migraciones y remediación de dependencias siguen pendientes. La revisión inicial utilizó registros existentes; esta actualización incorpora suites publicadas y verificaciones reejecutadas el 2 de noviembre de 2026.
 
 **Evidencias y criterios de cierre**
 
 Los siguientes archivos permiten consultar qué se probó y sobre qué versión:
 
-- **Versiones revisadas:** [commits, comandos y hashes de validación](../assets/chapter-6/metadata/published-validation.json). Las referencias son `c5f7b00` para el frontend y `b3b94e0` para el backend.
+- **Versiones revisadas:** [commits, comandos y hashes de validación](../assets/chapter-6/metadata/published-validation.json). Las referencias son `7f1d227` para el frontend y `564dcf5` para el backend.
 - **Pruebas del dominio:** resultados [antes de la corrección](../assets/chapter-6/evidence/unit/before-fix.tap) y [después de la corrección](../assets/chapter-6/evidence/unit/latest.tap), descritos en 6.1.1.
 - **Pruebas de integración:** [resultados por caso](../assets/chapter-6/evidence/integration/results.json), [registro TAP](../assets/chapter-6/evidence/integration/latest.tap) y [solicitudes y respuestas con las credenciales ocultas](../assets/chapter-6/evidence/integration/http-transcript.json), explicados en 6.1.2.
 - **Pendientes:** [registro de migraciones](../assets/chapter-6/evidence/integration/startup-diagnostics.txt), auditoría de dependencias de 6.2.1.2 y observaciones de la Tabla 15.
