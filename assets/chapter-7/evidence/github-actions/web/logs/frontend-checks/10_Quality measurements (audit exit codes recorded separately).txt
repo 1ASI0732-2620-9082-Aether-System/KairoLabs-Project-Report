@@ -1,0 +1,142 @@
+﻿2026-11-14T01:45:04.8344995Z ##[group]Run npm run quality
+2026-11-14T01:45:04.8345181Z [36;1mnpm run quality[0m
+2026-11-14T01:45:04.8384012Z shell: /usr/bin/bash -e {0}
+2026-11-14T01:45:04.8384162Z ##[endgroup]
+2026-11-14T01:45:04.8974475Z 
+2026-11-14T01:45:04.8974859Z > meditrack-sensor-frontend@0.0.0 quality
+2026-11-14T01:45:04.8975194Z > node scripts/analyze-quality.mjs
+2026-11-14T01:45:04.8975305Z 
+2026-11-14T01:45:08.5670280Z {
+2026-11-14T01:45:08.5670669Z   "date": "2026-11-14T01:45:08.565Z",
+2026-11-14T01:45:08.5671375Z   "scope": "src/**/*.js y src/**/*.vue; configuración ESLint publicada",
+2026-11-14T01:45:08.5671779Z   "files": 94,
+2026-11-14T01:45:08.5671953Z   "errors": 0,
+2026-11-14T01:45:08.5672173Z   "warnings": 77,
+2026-11-14T01:45:08.5672360Z   "rules": {
+2026-11-14T01:45:08.5672581Z     "security/detect-object-injection": 26,
+2026-11-14T01:45:08.5672836Z     "complexity": 11,
+2026-11-14T01:45:08.5673029Z     "eqeqeq": 37,
+2026-11-14T01:45:08.5673216Z     "no-unused-vars": 2,
+2026-11-14T01:45:08.5673421Z     "prefer-const": 1
+2026-11-14T01:45:08.5673685Z   },
+2026-11-14T01:45:08.5673850Z   "complexity": {
+2026-11-14T01:45:08.5674035Z     "functions": 773,
+2026-11-14T01:45:08.5674242Z     "average": 2.6752910737386806,
+2026-11-14T01:45:08.5674449Z     "max": 25,
+2026-11-14T01:45:08.5674627Z     "above15": 11,
+2026-11-14T01:45:08.5674808Z     "top": [
+2026-11-14T01:45:08.5674981Z       {
+2026-11-14T01:45:08.5675257Z         "file": "KairoLabs-Frontend/src/iam/application/iam.store.js",
+2026-11-14T01:45:08.5675575Z         "line": 286,
+2026-11-14T01:45:08.5676119Z         "complexity": 25,
+2026-11-14T01:45:08.5676616Z         "message": "Async function 'completeHealthEntityRegistration' has a complexity of 25. Maximum allowed is 0."
+2026-11-14T01:45:08.5677518Z       },
+2026-11-14T01:45:08.5677681Z       {
+2026-11-14T01:45:08.5677931Z         "file": "src/establishment/domain/model/operator.entity.js",
+2026-11-14T01:45:08.5678203Z         "line": 63,
+2026-11-14T01:45:08.5678380Z         "complexity": 22,
+2026-11-14T01:45:08.5678746Z         "message": "Static method 'formatSchedule' has a complexity of 22. Maximum allowed is 0."
+2026-11-14T01:45:08.5679087Z       },
+2026-11-14T01:45:08.5679230Z       {
+2026-11-14T01:45:08.5679467Z         "file": "src/logistics/domain/model/transport.entity.js",
+2026-11-14T01:45:08.5679766Z         "line": 10,
+2026-11-14T01:45:08.5679966Z         "complexity": 22,
+2026-11-14T01:45:08.5680284Z         "message": "Constructor has a complexity of 22. Maximum allowed is 0."
+2026-11-14T01:45:08.5680479Z       },
+2026-11-14T01:45:08.5680588Z       {
+2026-11-14T01:45:08.5680744Z         "file": "src/monitoring/domain/model/device.entity.js",
+2026-11-14T01:45:08.5680919Z         "line": 7,
+2026-11-14T01:45:08.5681127Z         "complexity": 22,
+2026-11-14T01:45:08.5681452Z         "message": "Constructor has a complexity of 22. Maximum allowed is 0."
+2026-11-14T01:45:08.5681755Z       },
+2026-11-14T01:45:08.5681919Z       {
+2026-11-14T01:45:08.5682184Z         "file": "KairoLabs-Frontend/src/iam/application/iam.store.js",
+2026-11-14T01:45:08.5682486Z         "line": 130,
+2026-11-14T01:45:08.5682674Z         "complexity": 21,
+2026-11-14T01:45:08.5683095Z         "message": "Async function 'loadProfileFromSession' has a complexity of 21. Maximum allowed is 0."
+2026-11-14T01:45:08.5683505Z       },
+2026-11-14T01:45:08.5683668Z       {
+2026-11-14T01:45:08.5683970Z         "file": "src/monitoring/presentation/components/sensor-readings-grid.vue",
+2026-11-14T01:45:08.5684316Z         "line": 41,
+2026-11-14T01:45:08.5684506Z         "complexity": 19,
+2026-11-14T01:45:08.5684860Z         "message": "Function 'tick' has a complexity of 19. Maximum allowed is 0."
+2026-11-14T01:45:08.5685191Z       },
+2026-11-14T01:45:08.5685343Z       {
+2026-11-14T01:45:08.5685603Z         "file": "src/shared/infrastructure/mocks/mock-database.js",
+2026-11-14T01:45:08.5685889Z         "line": 525,
+2026-11-14T01:45:08.5686073Z         "complexity": 17,
+2026-11-14T01:45:08.5686435Z         "message": "Function 'addMockUser' has a complexity of 17. Maximum allowed is 0."
+2026-11-14T01:45:08.5686981Z       },
+2026-11-14T01:45:08.5687245Z       {
+2026-11-14T01:45:08.5687523Z         "file": "src/establishment/domain/model/establishment.entity.js",
+2026-11-14T01:45:08.5687829Z         "line": 10,
+2026-11-14T01:45:08.5688012Z         "complexity": 16,
+2026-11-14T01:45:08.5688342Z         "message": "Constructor has a complexity of 16. Maximum allowed is 0."
+2026-11-14T01:45:08.5688657Z       },
+2026-11-14T01:45:08.5688808Z       {
+2026-11-14T01:45:08.5689050Z         "file": "src/iam/presentation/views/register.vue",
+2026-11-14T01:45:08.5689319Z         "line": 35,
+2026-11-14T01:45:08.5689499Z         "complexity": 16,
+2026-11-14T01:45:08.5689859Z         "message": "Async function 'onSubmit' has a complexity of 16. Maximum allowed is 0."
+2026-11-14T01:45:08.5690210Z       },
+2026-11-14T01:45:08.5690366Z       {
+2026-11-14T01:45:08.5690605Z         "file": "src/monitoring/domain/model/device.entity.js",
+2026-11-14T01:45:08.5690876Z         "line": 96,
+2026-11-14T01:45:08.5691055Z         "complexity": 16,
+2026-11-14T01:45:08.5691429Z         "message": "Static method 'evaluateMetric' has a complexity of 16. Maximum allowed is 0."
+2026-11-14T01:45:08.5691839Z       }
+2026-11-14T01:45:08.5691993Z     ]
+2026-11-14T01:45:08.5692144Z   },
+2026-11-14T01:45:08.5692306Z   "duplication": {
+2026-11-14T01:45:08.5692491Z     "clones": 127,
+2026-11-14T01:45:08.5692680Z     "duplicatedLines": 1496,
+2026-11-14T01:45:08.5692926Z     "duplicatedTokens": 10734,
+2026-11-14T01:45:08.5693404Z     "lines": 29199,
+2026-11-14T01:45:08.5693581Z     "newClones": 0,
+2026-11-14T01:45:08.5693764Z     "newDuplicatedLines": 0,
+2026-11-14T01:45:08.5694005Z     "percentage": 5.123463132299051,
+2026-11-14T01:45:08.5694264Z     "percentageTokens": 5.6463830324453985,
+2026-11-14T01:45:08.5694501Z     "sources": 187,
+2026-11-14T01:45:08.5694684Z     "tokens": 190104
+2026-11-14T01:45:08.5694859Z   },
+2026-11-14T01:45:08.5695013Z   "audit": {
+2026-11-14T01:45:08.5695184Z     "exitCode": 1,
+2026-11-14T01:45:08.5695371Z     "vulnerabilities": {
+2026-11-14T01:45:08.5695560Z       "info": 0,
+2026-11-14T01:45:08.5695731Z       "low": 0,
+2026-11-14T01:45:08.5695916Z       "moderate": 3,
+2026-11-14T01:45:08.5696105Z       "high": 14,
+2026-11-14T01:45:08.5696282Z       "critical": 0,
+2026-11-14T01:45:08.5696466Z       "total": 17
+2026-11-14T01:45:08.5696643Z     },
+2026-11-14T01:45:08.5696815Z     "dependencies": {
+2026-11-14T01:45:08.5697009Z       "prod": 116,
+2026-11-14T01:45:08.5727921Z       "dev": 219,
+2026-11-14T01:45:08.5728157Z       "optional": 42,
+2026-11-14T01:45:08.5728353Z       "peer": 1,
+2026-11-14T01:45:08.5728544Z       "peerOptional": 0,
+2026-11-14T01:45:08.5728748Z       "total": 334
+2026-11-14T01:45:08.5728919Z     }
+2026-11-14T01:45:08.5729072Z   },
+2026-11-14T01:45:08.5729262Z   "productionAudit": {
+2026-11-14T01:45:08.5729459Z     "exitCode": 1,
+2026-11-14T01:45:08.5729642Z     "vulnerabilities": {
+2026-11-14T01:45:08.5729839Z       "info": 0,
+2026-11-14T01:45:08.5730007Z       "low": 0,
+2026-11-14T01:45:08.5730191Z       "moderate": 0,
+2026-11-14T01:45:08.5730371Z       "high": 13,
+2026-11-14T01:45:08.5730558Z       "critical": 0,
+2026-11-14T01:45:08.5730737Z       "total": 13
+2026-11-14T01:45:08.5730907Z     },
+2026-11-14T01:45:08.5731075Z     "dependencies": {
+2026-11-14T01:45:08.5731266Z       "prod": 116,
+2026-11-14T01:45:08.5731439Z       "dev": 219,
+2026-11-14T01:45:08.5731623Z       "optional": 42,
+2026-11-14T01:45:08.5731803Z       "peer": 1,
+2026-11-14T01:45:08.5731987Z       "peerOptional": 0,
+2026-11-14T01:45:08.5732197Z       "total": 334
+2026-11-14T01:45:08.5732499Z     }
+2026-11-14T01:45:08.5732669Z   },
+2026-11-14T01:45:08.5732833Z   "buildExitCode": 0,
+2026-11-14T01:45:08.5733808Z   "maintainability": "Indicadores de complejidad, duplicación y advertencias; no se calcula Maintainability Index ni se afirma aprobación global."
+2026-11-14T01:45:08.5734360Z }

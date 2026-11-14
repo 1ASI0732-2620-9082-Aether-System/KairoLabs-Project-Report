@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-13",
+  "timezone": "America/Lima",
+  "status": "GITHUB_ACTIONS_SUCCESS",
+  "runs": {
+    "KairoLabs-Frontend": {
+      "run_id": 43542409469,
+      "url": "https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/actions/runs/43542409469",
+      "event": "workflow_dispatch",
+      "actor": "DiazDeveloper",
+      "head_sha": "f4b9f6ea3da4757f5f27d3bb2d8f5004a85ae2e6",
+      "conclusion": "success"
+    },
+    "KairoLabs-Platform": {
+      "run_id": 43542367043,
+      "url": "https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/actions/runs/43542367043",
+      "event": "push",
+      "actor": "DiazDeveloper",
+      "head_sha": "5576268dc92ec24008292d2dedf7a45c25293da0",
+      "conclusion": "success"
+    }
+  },
+  "unit_passed": 20,
+  "integration_passed_per_run": 14,
+  "bdd_scenarios_passed_per_viewport_per_run": 4,
+  "bdd_steps_passed_per_viewport_per_run": 22,
+  "lint_errors": 0,
+  "lint_warnings": 77,
+  "audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 3,
+    "high": 14,
+    "critical": 0,
+    "total": 17
+  },
+  "initial_cancelled_runs": [
+    43541315166,
+    43541321149
+  ],
+  "photos": {
+    "CI-FRONTEND-ACTIONS.png": "3cbf04c259d8828605e5ddf38bc454be09b1c554cc87b73fbf361e867c2792ca",
+    "CI-PLATFORM-ACTIONS.png": "fff045e4c37ad3edd9e4f34be8b2b772c355366867e99d62a8191328bc8d6bfb"
+  }
+}

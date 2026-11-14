@@ -1,0 +1,32 @@
+
+> meditrack-sensor-frontend@0.0.0 test:unit
+> node --test --test-reporter=spec tests/unit/core-entities.test.mjs
+
+✔ UT-DEV-01 conserva sede y lectura cero al construir el dispositivo (1.7287ms)
+✔ UT-DEV-02 interpreta enabled_sensors recibido como JSON (1.6563ms)
+✔ UT-DEV-03 tolera JSON incompleto sin interrumpir el dominio (1.0086ms)
+✔ UT-DEV-04 clasifica 4.5 grados como ok (0.2517ms)
+✔ UT-DEV-05 clasifica 8.1 grados como critical (0.4495ms)
+✔ UT-DEV-06 clasifica 1.9 grados como critical (0.1218ms)
+✔ UT-DEV-07 clasifica 7.1 grados como warning (0.1114ms)
+✔ UT-DEV-08 distingue los limites de warning y critical (0.1057ms)
+✔ UT-DEV-09 identifica texto no numerico como unknown (0.136ms)
+✔ UT-DEV-10 identifica temperatura null como unknown (0.1758ms)
+✔ UT-DEV-11 identifica temperatura vacia como unknown (0.1646ms)
+✔ UT-DEV-12 clasifica puerta abierta como critical (0.0946ms)
+✔ UT-DEV-13 clasifica puerta cerrada como ok (0.0713ms)
+✔ UT-DEV-14 recupera luz desde el alias lux (0.154ms)
+✔ UT-SUB-01 traduce basic a BASIC (0.2874ms)
+✔ UT-SUB-02 traduce PREMIUM al catalogo premium (0.222ms)
+✔ UT-SUB-03 traduce enterprise a ENTERPRISE (0.0807ms)
+✔ UT-SUB-04 usa basic ante un plan desconocido (0.1001ms)
+✔ UT-IAM-01 normaliza espacios y mayusculas del correo (0.1245ms)
+✔ UT-IAM-02 conserva exactamente la clave y el segmento (0.1053ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 186.2547

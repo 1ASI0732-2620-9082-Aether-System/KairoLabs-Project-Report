@@ -1,0 +1,31 @@
+
+> kairolabs-core-integration-tests@1.0.0 test
+> node scripts/run-integration.mjs
+
+[1/5] Compilando backend ASP.NET Core 10...
+[2/5] Iniciando MySQL aislado en 127.0.0.1:33079...
+[3/5] Iniciando API local y aplicando migraciones...
+[4/5] Ejecutando suite integration con API y MySQL reales...
+✔ IT-IAM-01 login valido integra API, BCrypt y MySQL sin exponer credenciales (2203.0286ms)
+✔ IT-IAM-02 clave incorrecta devuelve 401 y no emite token (390.9204ms)
+✔ IT-EST-01 sedes creadas se recuperan por administrador y por SQL independiente (179.3694ms)
+✔ IT-OP-01 asignacion de operador no mezcla sedes (97.8321ms)
+✔ IT-DEV-01 dispositivo se recupera con su sede, ubicacion y tipo (26.6458ms)
+✔ IT-DEV-02 lectura persiste en MySQL y se recupera en otra solicitud (146.7342ms)
+✔ IT-DEV-03 actualizar desde otra sede devuelve 404 sin modificar la lectura (13.6198ms)
+✔ IT-DEV-04 DoorStatus invalido devuelve 400 sin persistencia parcial (12.076ms)
+✔ IT-DEV-05 tipo de medicamento invalido devuelve 400 sin crear dispositivo (10.0899ms)
+✔ IT-LOG-01 transporte guarda lectura y rechaza identificador inexistente (214.5937ms)
+✔ IT-SUB-01 suscripcion completa ciclo crear consultar eliminar y nueva consulta (215.1868ms)
+✔ IT-WEB-01 gateways Axios y assemblers reales consumen API y datos persistidos (552.5435ms)
+✔ IT-WEB-02 CORS permite origen local rechaza ajeno y admite dominio KairoLabs (7.0274ms)
+✔ IT-SEC-01 API exige autenticacion para listar datos operativos (25.3975ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4523.0892
+[5/5] Cerrando procesos y eliminando exclusivamente la base temporal...
