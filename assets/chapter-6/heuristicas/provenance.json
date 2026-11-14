@@ -1,0 +1,30 @@
+{
+  "source_document": "Auditoria al grupo.docx",
+  "source_sha256": "efab0bb3ed68eec4f653db05d8852b7596b2c14bb774f5ff44fa20fe0fd14a01",
+  "auditor_identification": "SANUVI, confirmado por el usuario; el DOCX usa otra denominación",
+  "excluded_source": "Auditoría realizada por Aether System sobre Ferova",
+  "images_source_repository": "KairoLabs-Project-Report",
+  "images_source_commit": "25b9a48a828d8824c373d062b8ab3d24909fbdb2",
+  "images_source_directory": "assets/chapter-5",
+  "images": [
+    "landing-equipo.png",
+    "landing-footer.jpg",
+    "landing-instituciones.png",
+    "landing-nosotros.png",
+    "landing-planes.png",
+    "landing-sectores.jpg",
+    "landing-tecnologia.jpg",
+    "mobile-overview-1.png",
+    "mobile-overview-2.png",
+    "web-dispositivos.png",
+    "web-home-entidad.png",
+    "web-login.jpg",
+    "web-operador-detalle.png",
+    "web-planes.png",
+    "web-register-entidad.jpg",
+    "web-register-personal.jpg",
+    "web-transporte-detalle.png"
+  ],
+  "new_audit_session": false,
+  "findings": 12
+}
