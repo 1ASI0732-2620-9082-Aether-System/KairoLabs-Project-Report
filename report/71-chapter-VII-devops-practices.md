@@ -162,13 +162,120 @@ La auditoría remota mantuvo 17 paquetes con avisos (14 altos y 3 moderados), y 
 
 ## 7.2. Continuous Delivery
 
+La entrega continua de KairoLabs busca que cada cambio llegue a una versión que se pueda revisar y preparar para su publicación. Para ello se necesitan pruebas aprobadas, una configuración adecuada para cada ambiente y un registro que permita saber qué código se está entregando. Esto es especialmente útil en KairoLabs porque la aplicación web y la API se mantienen en repositorios distintos y deben funcionar juntas.
+
+El proceso toma como punto de partida los workflows de integración continua de 7.1 y prepara la entrega a las plataformas descritas en 7.3: Vercel para la Landing Page y la Web Application, y Render para la API. Antes de integrar una versión en las ramas que publican en producción, se plantea una revisión del equipo sobre los resultados, los cambios y las observaciones abiertas.
+
+**Alcance al 13 de noviembre de 2026.** Se cuenta con ejecuciones de CI y pruebas de integración y BDD en ambientes temporales de GitHub Actions. Las evidencias conservadas no muestran un ambiente de staging independiente en la nube ni una aprobación de entrega registrada. Por ello, esta sección distingue las comprobaciones ya realizadas de la preparación de previews, el empaquetado y la aprobación que se definen para completar el flujo. Los workflows actuales publican reportes de pruebas; no suben `dist/` ni una imagen Docker como artefactos de entrega.
+
 ### 7.2.1. Tools and Practices.
 
-*(Sección pendiente de desarrollo)*
+**Herramientas utilizadas y función en la entrega**
+
+Las herramientas se mantienen alineadas con las que utiliza el proyecto. GitHub concentra el código y los resultados de las pruebas; Vercel y Render reciben los productos cuando se autoriza su publicación.
+
+**Tabla 7.2-1**
+
+*Herramientas que intervienen en la entrega continua de KairoLabs*
+
+| Herramienta | Uso en el proceso | Situación en el proyecto |
+| :--- | :--- | :--- |
+| **Git y GitHub** | Identificar cambios por commit, preparar ramas `release/*` y revisar la entrega mediante un pull request. | Los repositorios y el flujo de ramas se describen en 5.1.2. La aprobación debe quedar registrada para cada entrega. |
+| **GitHub Actions** | Ejecutar las comprobaciones antes de preparar la versión candidata. | Existen workflows y ejecuciones satisfactorias para frontend y plataforma en 7.1.2. |
+| **Artifacts de GitHub Actions** | Conservar los reportes unitarios, de integración, BDD y calidad asociados a cada ejecución. | Los YAML conservan estos archivos durante 14 días. También hay copias en el repositorio del informe. |
+| **Node.js, npm y Vite** | Instalar dependencias a partir del lockfile y compilar la Web Application. | CI ejecuta `npm ci --ignore-scripts --no-audit --no-fund` y `npm run build`. La salida del build es `dist/`; aún no se publica como paquete de entrega en Actions. |
+| **.NET y Docker** | Preparar la API y su imagen de ejecución. | CI compila el backend para las pruebas. El empaquetado Docker para el servicio en Render se describe en 7.3; no se acredita una imagen candidata publicada por CI. |
+| **MySQL temporal** | Comprobar operaciones y persistencia con datos de prueba. | Las pruebas de integración crean una base `kairolabs_it_*` y la eliminan al finalizar. |
+| **Cucumber.js y Playwright** | Revisar los recorridos definidos en Gherkin desde el navegador. | Se conservan resultados de escritorio y Pixel 7 emulado. El runner levanta servicios locales dentro del job. |
+| **Vercel Preview Deployments** | Compartir una URL de la Landing Page o Web Application antes de publicar en producción. | Se incorpora como ambiente de revisión del flujo. Falta adjuntar una preview concreta con su commit y resultados. |
+| **Servicio de pruebas en Render** | Revisar la API con una URL separada y una base MySQL exclusiva de pruebas. | Se define para staging; no hay evidencia de su creación en esta entrega. |
+| **Variables por ambiente** | Separar URL de API, modo de datos, conexión de base de datos y configuración de autenticación. | La configuración base está descrita en 5.1.4. Debe completarse y comprobarse para el ambiente de revisión. |
+
+*Nota.* Vercel permite crear previews para revisar cambios fuera de producción. En Render, una service preview replica el servicio, pero la separación de su base de datos debe resolverse aparte. Estas capacidades se consultaron en la documentación de [Vercel](https://vercel.com/docs/deployments/environments) y [Render](https://render.com/docs/service-previews); su disponibilidad no demuestra que ya estén configuradas en KairoLabs.
+
+**Prácticas para preparar una entrega**
+
+1. **Revisar la combinación de frontend y API.** Cada entrega debe identificar los dos commits compatibles y el run que los probó. Se reutiliza el criterio de `CI_PLATFORM_REF` y `CI_FRONTEND_REF` de 7.1 para evitar que un cambio se pruebe contra una versión distinta de la que se pretende entregar.
+2. **Mantener las pruebas separadas de producción.** El ambiente temporal de CI y el staging definido para revisión utilizan datos sintéticos. Una preview del frontend debe consumir la API de pruebas, sin apuntar a la base operativa de los establecimientos.
+3. **Preparar el build con la configuración del ambiente.** Para probar la comunicación real, `VITE_USE_MOCKS` debe ser `false` y `VITE_API_BASE_URL` debe señalar la API de pruebas. También deben revisarse las variables específicas de cada contexto, ya que pueden reemplazar la URL general.
+4. **Conservar los resultados y los problemas abiertos.** Se revisan pruebas, compilación, advertencias y auditorías. Un run satisfactorio no cierra por sí solo los avisos de seguridad ni demuestra que todos los permisos estén cubiertos. Cada observación que impida publicar debe resolverse antes de aprobar la entrega.
+5. **Identificar lo que se entrega.** El registro de la versión debe incluir commits, runs, archivos o identificadores de despliegue, URLs de revisión, cambios de configuración y notas de versión. Si la plataforma recompila desde Git, se conserva el commit y el resultado de ese nuevo build.
+6. **Revisar antes de integrar a producción.** El equipo comprueba la versión candidata y registra su decisión en el pull request. Una vez aprobada, la integración en `main` o `master`, según el producto, da paso al despliegue de 7.3. La protección de ramas y los checks obligatorios deben configurarse para que esa revisión bloquee técnicamente un merge.
+
+En Vite, las variables `VITE_*` quedan incorporadas al código del cliente durante el build. Por eso, la URL y el modo de datos deben definirse antes de compilar, y las contraseñas de MySQL o claves de firma JWT deben permanecer en el backend. Si cambia la URL entre preview y producción, se requiere un build con la configuración correspondiente y nuevas comprobaciones sobre ese despliegue. Véase [Env Variables and Modes de Vite](https://vite.dev/guide/env-and-mode).
+
+Como referencia de organización se utilizó el informe **Trabajo Final - Aplicaciones Móviles**, sección 4.2.2.7, páginas 89–93. Allí se presenta una secuencia de preparación del build, configuración, distribución a testers y registro de versión. En KairoLabs se adapta esa secuencia a la revisión web y de API con Vercel y Render. El uso de Firebase App Distribution pertenece al proyecto de referencia: el incremento móvil de KairoLabs descrito en 5.2.5 sigue siendo una experiencia web mobile-first, sin evidencia de distribución de un APK nativo.
 
 ### 7.2.2. Stages Deployment Pipeline Components.
 
-*(Sección pendiente de desarrollo)*
+El pipeline de entrega conecta la versión que pasó las pruebas con la versión que el equipo revisará antes de publicarla. Sus componentes son el control de versiones, los jobs de CI, el build de cada producto, la configuración por ambiente, el despliegue de revisión, las pruebas de aceptación y el registro de aprobación.
+
+**Ambientes y separación de datos**
+
+**Tabla 7.2-2**
+
+*Ambientes considerados para la entrega de KairoLabs*
+
+| Ambiente | Componentes y propósito | Configuración y datos | Estado |
+| :--- | :--- | :--- | :--- |
+| **Desarrollo local** | Preparar cambios y comprobarlos antes del pull request. | Puede utilizar mocks para trabajo de interfaz. Para integración real se conecta a la API local. | Descrito en 5.1.4 y capítulo VI. |
+| **Validación temporal de CI** | Ejecutar frontend, API y MySQL dentro de los jobs de GitHub Actions. | Servicios locales en puertos 5173, 5187 y 33079; base temporal y datos sintéticos. | Ejecutado y respaldado por los runs de 7.1.2. Se elimina al terminar. |
+| **Preview / staging** | Dar al equipo una versión accesible para revisar la entrega completa. | Preview web en Vercel, API separada en Render y MySQL de pruebas. `VITE_USE_MOCKS=false`; sin credenciales ni datos de producción. | Definido para el flujo; falta evidencia de un despliegue integrado. |
+| **Producción** | Atender a los usuarios de KairoLabs. | Vercel, API en Render y MySQL en Filess.io, según 5.1.4. | Descrito en los capítulos V y VII, sección 7.3. No se utiliza para las pruebas de escritura de CI. |
+
+*Nota.* La ejecución BDD de Actions levanta Vite y la API en el runner. Esos resultados respaldan la integración temporal; para validar una preview publicada deben repetirse los recorridos contra sus URLs. El perfil Pixel 7 es emulación de navegador.
+
+**Etapas del pipeline de entrega**
+
+```mermaid
+flowchart TD
+    A[Seleccionar commits de frontend y API] --> B[Ejecutar CI y revisar resultados]
+    B --> C{Pruebas y revisión permiten continuar?}
+    C -- No --> D[Corregir y repetir comprobaciones]
+    D --> B
+    C -- Sí --> E[Preparar build y configuración de pruebas]
+    E --> F[Publicar preview web y API de staging]
+    F --> G[Validar recorridos y revisar evidencias]
+    G --> H{El equipo aprueba la entrega?}
+    H -- No --> D
+    H -- Sí --> I[Registrar versión y aprobar integración]
+    I --> J[Despliegue a producción: sección 7.3]
+```
+
+*Nota.* El diagrama muestra el flujo definido para la entrega. La etapa de CI cuenta con evidencia de ejecución; el despliegue integrado de staging y la aprobación todavía deben registrarse.
+
+**Tabla 7.2-3**
+
+*Entradas, resultados y criterios de cada etapa*
+
+| Etapa | Qué se realiza | Resultado que se debe conservar | Criterio para continuar |
+| :--- | :--- | :--- | :--- |
+| **1. Selección de la versión** | Identificar los cambios del pull request y la combinación frontend/API. | Commits completos, rama, descripción del cambio y referencias compañeras. | La combinación coincide con la que se probará. |
+| **2. Validación automática** | Ejecutar los workflows de 7.1: revisión de entradas de build, lint, unitarias, build, integración, BDD y calidad. | Run, jobs, TAP, reportes Cucumber y auditorías. | Sin fallos de build ni de pruebas. Las advertencias y los avisos de seguridad se revisan por separado. |
+| **3. Preparación del paquete** | Preparar archivos estáticos de la Landing Page, `dist/` del frontend y el build o imagen de la API, según el mecanismo de despliegue. | Commit, log de build, configuración utilizada e identificador del paquete o deployment. | El paquete corresponde a los cambios seleccionados. Actions aún no publica estos paquetes de entrega. |
+| **4. Configuración del ambiente** | Definir URL de API, conexión MySQL de pruebas, autenticación y orígenes CORS permitidos. | Nombres de variables y ambiente de destino, sin publicar sus valores secretos. | La aplicación utiliza datos de prueba y puede comunicarse con su API. |
+| **5. Despliegue de revisión** | Publicar la preview web y la API de staging. Revisar también los enlaces de la Landing Page. | URLs de revisión, commits desplegados y logs de Vercel / Render. | Los servicios arrancan y la aplicación web apunta al backend de pruebas. |
+| **6. Validación funcional** | Probar inicio de sesión válido e inválido, consulta de establecimientos y dispositivos; revisar además los módulos afectados por el cambio. | Resultados contra staging, capturas y observaciones del revisor. | Los recorridos funcionan en el despliegue publicado y los problemas que impiden entregar están resueltos. |
+| **7. Aprobación y registro** | Revisar resultados, cambios de configuración y riesgos abiertos. Preparar notas de versión. | Decisión en el pull request, nombre del revisor, fecha, commits y referencias de evidencia. | El equipo aprueba la combinación que se entregará. La aprobación aún no está acreditada por los YAML actuales. |
+| **8. Paso a producción** | Integrar la versión aprobada en la rama de producción de cada producto. | Pull request integrado, commit final y enlace al despliegue. | Se activa el proceso de 7.3. Si cambia el código durante la integración, se vuelve a validar ese commit. |
+
+**Configuración y comprobaciones del ambiente de revisión**
+
+La Web Application necesita `VITE_USE_MOCKS=false` y una URL de API de pruebas. La API necesita una conexión MySQL separada, su configuración de autenticación y una lista CORS que admita el origen exacto de la preview. Se deben comprobar las respuestas de preflight y el acceso con y sin un JWT válido. Un problema de CORS se resuelve en esa configuración; no se habilitan todos los orígenes para evitar el error.
+
+Las pruebas de integración de CI ya permiten revisar persistencia mediante HTTP y SQL. Para staging se plantea repetir las comprobaciones sobre datos sintéticos, verificar el arranque de la API y ejecutar los recorridos de usuario contra las URLs publicadas. Swagger ayuda a revisar el contrato, pero también debe probarse la comunicación desde el navegador. Las operaciones destructivas o de escritura se mantienen fuera de producción.
+
+Cuando se incorpore un job de despliegue a Actions, puede utilizarse un environment de GitHub con reglas de aprobación y secretos propios, de acuerdo con los permisos y el plan del repositorio. Esa protección solo alcanza a los jobs que lo referencian. Como Vercel y Render también pueden desplegar por su integración con Git, debe revisarse esa configuración para que respete la aprobación definida. Véase [Managing environments for deployment de GitHub](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments).
+
+**Evidencias disponibles y registro de la entrega**
+
+Los runs conservados en [validation.json](../assets/chapter-7/evidence/github-actions/validation.json) muestran la base técnica disponible: 20 pruebas unitarias aprobadas, 14 de integración y 4 escenarios BDD con 22 pasos por viewport. ESLint registra 0 errores y 77 advertencias; la auditoría completa mantiene 17 paquetes con avisos, 14 altos y 3 moderados. Estos resultados pertenecen a las versiones registradas y deben revisarse al preparar una nueva entrega.
+
+- **Frontend:** [run 43542409469](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/actions/runs/43542409469), commit `f4b9f6e`, y [reportes conservados](../assets/chapter-7/evidence/github-actions/web/).
+- **API:** [run 43542367043](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/actions/runs/43542367043), commit `5576268`, y [reportes conservados](../assets/chapter-7/evidence/github-actions/api/).
+- **Pasos ejecutados:** [workflow frontend](../assets/chapter-7/ci/frontend-core-ci.yml) y [workflow plataforma](../assets/chapter-7/ci/platform-core-ci.yml). Permiten comprobar qué pruebas y archivos de evidencia produce cada job.
+
+Para cada versión candidata, el registro de entrega debe reunir: **versión o identificador, commits de ambos repositorios, runs, URLs de preview y staging, configuración por ambiente, resultados funcionales, cambios de base de datos, observaciones abiertas, revisor y decisión**. Si alguna comprobación falla, se conserva la evidencia, se corrige en la rama de trabajo y se repite la validación antes de pasar a producción.
 
 ---
 
