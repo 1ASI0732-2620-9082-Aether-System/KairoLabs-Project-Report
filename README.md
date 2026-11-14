@@ -70,6 +70,10 @@ Proyecto
 
 ---
 
+## Consolidación de capítulos I–V
+
+Esta versión integra las ramas de los capítulos I, II, III, IV y V, junto con sus imágenes. Los capítulos VI y VII siguen en sus ramas de trabajo y quedan fuera de esta integración. Se conserva el contenido previo que ya existía en `main`.
+
 # Contenido
 
 ## Student Outcome
