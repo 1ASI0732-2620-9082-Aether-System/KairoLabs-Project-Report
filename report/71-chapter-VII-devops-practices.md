@@ -6,13 +6,157 @@ Este capítulo describe las prácticas de **DevOps** implementadas para el ecosi
 
 ## 7.1. Continuous Integration
 
+La integración continua (CI) de KairoLabs se organiza como una verificación automática de los cambios del frontend y de la plataforma antes de incorporarlos a la rama compartida. Su alcance comprende inspeccionar las entradas de compilación, restaurar dependencias, analizar código, compilar, ejecutar las suites del capítulo VI y conservar resultados identificables. La guía del trabajo exige implementar el pipeline, por lo que esta sección incluye los archivos YAML ejecutables y no solamente una descripción conceptual.
+
+> **Estado de implementación — 13 de noviembre de 2026 (America/Lima):** los workflows están publicados y ejecutados en GitHub Actions con resultado satisfactorio. Se conservaron las evidencias locales como revisión previa y se añadieron los runs, jobs, artefactos y capturas reales de los runners hospedados. La protección de ramas no se configura ni se acredita en esta actividad.
+
+Las dos versiones base revisadas son frontend `5a0b620524e479f78b02f16187fb0f4924e26dd1` y plataforma `2d736783eaea70ec2e352a002c2e71e7ecb7113e`. Se evaluaron con modificaciones locales identificadas en el paquete de cambios; no se atribuyen los resultados al código remoto sin esas modificaciones. El capítulo del reporte parte de `8346a6c1600cf4164344cf94c262b2171d0f9c43`.
+
+**Incidencia previa al build.** Las versiones base incorporaban `node init` en los scripts de arranque/compilación y una cola de código ofuscado en las configuraciones Vite. Se implementó su retirada y un control de regresión para estos patrones conocidos. El control rechaza un hook simulado inerte y permite las entradas revisadas; no se presenta como detector general de malware. Esa limpieza es un requisito de los resultados locales y forma parte de los cambios que deben revisarse antes de publicar CI.
+
 ### 7.1.1. Tools and Practices.
 
-*(Sección pendiente de desarrollo)*
+**Tabla 16A**
+
+*Herramientas y responsabilidades de integración continua de KairoLabs*
+
+| Herramienta | Uso concreto | Estado verificable |
+| :--- | :--- | :--- |
+| Git y GitHub | Historial, ramas, diferencias y revisión mediante pull requests. | Publicación realizada por DiazDeveloper; no se inventa una aprobación por pares. |
+| GitHub Actions | Workflows separados que reaccionan a `push`, `pull_request` y `workflow_dispatch`. | YAML publicado, actionlint aprobado y ejecuciones cloud completadas; enlaces abajo. |
+| Node.js 24.11.1 y npm | Restauración con lockfile, scripts de build y suites. | Comandos locales ejecutados; en CI se define `npm ci --ignore-scripts --no-audit --no-fund`. |
+| ESLint y plugins Vue/security | Análisis de `src/`; reglas bloqueantes y advertencias diferenciadas. | 0 errores y 77 advertencias en esta revisión. |
+| Vite | Compilación del frontend y de gateways de integración. | Build local aprobado después de limpiar los hooks. |
+| `node:test` y `node:assert` | Suite unitaria y suite HTTP/SQL de integración. | 20/20 unitarias y 14/14 de integración reejecutadas. |
+| .NET 10.0.403 y MySQL 8.4.13 | API real y base temporal aislada. | Herramientas portátiles reutilizadas localmente; CI las prepara con `npm run setup`. |
+| Cucumber.js y Playwright Chromium | Recorridos BDD en escritorio y Pixel 7 emulado. | Registros por escenario y viewport adjuntos al paquete. |
+| jscpd y regla `complexity` | Duplicación y complejidad por función. | Métricas y ubicaciones conservadas en los reportes de calidad. |
+| npm audit | Auditoría completa y de dependencias de producción. | Hallazgos abiertos; sus códigos se registran y no equivalen a aprobación de seguridad. |
+| actionlint | Validación de sintaxis y estructura de los dos workflows. | Exit code 0 en ambos YAML. |
+
+*Nota.* Las versiones de dependencias de frontend se resuelven mediante el lockfile. Los resultados actuales se distinguen de los registros históricos del capítulo VI.
+
+**Prácticas definidas en los workflows**
+
+1. **Integración mediante cambios revisables.** Se propone trabajar en ramas de funcionalidad y revisar el diff antes de integrar. Los mensajes previstos siguen Conventional Commits: limpieza de entradas, preparación CI, evidencia y documentación. Los commits publicados se identifican por SHA en los runs de Actions.
+2. **Activación explícita.** `push` activa CI en `master`, `main`, `develop`, `feature/**` y `codex/**`; los pull requests también activan las comprobaciones. `workflow_dispatch` permite repetirlas manualmente. Se evita `pull_request_target` para ejecutar código de la contribución.
+3. **Dependencias reproducibles.** La instalación CI usa el lockfile y desactiva scripts de ciclo de vida. Los builds y pruebas se invocan de forma explícita después del control de entradas. La revisión local reutilizó dependencias instaladas. Después se verificó `npm ci` en runners hospedados nuevos: Ubuntu para frontend y Windows para las suites reales.
+4. **Permisos mínimos.** `GITHUB_TOKEN` queda limitado a `contents: read`; checkout no conserva credenciales. Las acciones oficiales están fijadas a SHA en los YAML. Los tests usan datos sintéticos locales y no requieren PAT, tokens de despliegue ni credenciales de producción.
+5. **Compatibilidad entre repositorios.** El frontend verifica el cambio propio con un backend revisado; el backend verifica el cambio propio con un frontend revisado. `CI_PLATFORM_REF` y `CI_FRONTEND_REF` deben contener SHA de 40 caracteres de los cambios aprobados. Si falta la referencia, el job falla con un mensaje explícito. Las variables quedaron configuradas con los commits de correcciones aprobados: frontend `480c9211433c2e1ade09d18dd7cfd209f610bb6b` y plataforma `5576268dc92ec24008292d2dedf7a45c25293da0`. Así se evita probar silenciosamente contra otra revisión móvil de `main`.
+6. **Aislamiento.** Los jobs de sistema utilizan `windows-latest`, shell Windows PowerShell y las rutas hermanas `KairoLabs-Frontend` / `KairoLabs-Platform`, compatibles con los runners existentes. Cada ejecución crea una base `kairolabs_it_*`, inicia servicios propios y limpia esos recursos. Se comprueban puertos 5187 y 33079; el frontend BDD requiere 5173 libre. No se emplean las bases ni endpoints de producción.
+7. **Resultados frescos.** Antes de ejecutar en Actions, un script limitado a su checkout descartable retira evidencia histórica. `upload-artifact` utiliza `if: always()` y conserva los resultados generados durante 14 días; no se sube `.runtime` ni la base de datos. Si un paso previo falla puede no existir reporte de las suites posteriores: se muestra esa ausencia, no un resultado histórico aprobado.
+8. **Concurrencia y controles.** Una ejecución más reciente cancela otra de la misma rama. Los jobs tienen tiempo máximo. Lint bloquea errores, no las 77 advertencias actuales. Las pruebas y compilación deben devolver cero. Calidad registra auditorías no aprobadas por separado; este criterio provisional no debe interpretarse como certificación de seguridad.
+
+La protección de ramas y los checks requeridos se configurarán tras obtener los nombres y resultados de los jobs en GitHub; crear el YAML por sí solo no bloquea un merge. La actualización de las referencias compañeras también requiere revisar la combinación antes de aceptarla.
 
 ### 7.1.2. Build & Test Suite Pipeline Components.
 
-*(Sección pendiente de desarrollo)*
+**Flujo implementado**
+
+```mermaid
+flowchart TD
+    A[Push / Pull request / Ejecución manual] --> B[Checkout y revisión de entradas]
+    B --> C[Instalación por lockfile]
+    C --> D[ESLint + 20 unitarias + build]
+    D --> E[Métricas de calidad y auditorías]
+    E --> F[API .NET + MySQL temporal]
+    F --> G[14 pruebas de integración HTTP y SQL]
+    G --> H[4 escenarios BDD escritorio]
+    H --> I[4 escenarios BDD móvil emulado]
+    D --> J[Artefactos del job: incluso ante fallos]
+    G --> J
+    I --> J
+```
+
+*Nota.* El diagrama resume la cobertura de los dos workflows; no implica que todos los pasos compartan un mismo sistema operativo. El workflow frontend tiene un job Ubuntu de comprobaciones y un job Windows dependiente. El de plataforma ejecuta sus comprobaciones y suites reales en un job Windows usando el frontend fijado.
+
+**Tabla 16B**
+
+*Etapas, entradas, salidas y criterios de aprobación*
+
+| Componente | Comando o mecanismo | Evidencia / salida | Criterio |
+| :--- | :--- | :--- | :--- |
+| Entrada y versiones | Checkout propio + SHA del repositorio compañero. | Revisiones y YAML de la ejecución. | Referencia compañera válida y revisada. |
+| Inspección del build | `node scripts/ci/guard-build.mjs`. | Resultado del guard. | Rechazo de `init` y patrones ofuscados conocidos. |
+| Restauración | `npm ci --ignore-scripts --no-audit --no-fund`. | Log de instalación. | Lockfile resoluble; exit 0. Comprobado en los runners cloud. |
+| Verificación estática | `npm run lint`. | Advertencias y errores ESLint. | Sin errores bloqueantes; advertencias visibles. |
+| Unitarias | `node --test` o `npm run test:unit`. | TAP o salida del job. | 20 casos aprobados, 0 fallidos. |
+| Frontend build | `npm run build`. | Resultado Vite. | Exit 0. Este pipeline verifica la integración; el despliegue se documenta por separado. |
+| Calidad | `npm run quality`. | JSON de ESLint, complejidad, jscpd, auditorías y log de build. | Sin error del análisis o build; hallazgos de audit registrados como deuda abierta. |
+| Backend build y entorno | `npm run setup`, seguido del orquestador `npm test`. | Log .NET, advertencias y diagnóstico de arranque. | API y MySQL reales disponibles en localhost. |
+| Integración | `npm test` en KairoLabs-Platform. | TAP, resultados por ID y tráfico redactado. | 14 aprobadas, 0 fallidas; limpieza de recursos propios. |
+| BDD / sistema | `npm run test:bdd` en frontend. | JSON/HTML Cucumber, PNG y tráfico sin JWT. | 4 escenarios y 22 pasos por viewport, sin fallos. |
+| Publicación de evidencia | `actions/upload-artifact` con `always()`. | Artefactos identificados por run ID. | Salidas nuevas disponibles; artefactos disponibles en los runs enlazados. |
+
+*Nota.* BDD y sistema comparten recorridos: no se duplican como ocho pruebas adicionales. El perfil Pixel 7 es emulación en Chromium; no acredita aplicación nativa ni equipo físico.
+
+**Workflows publicados y evidencias**
+
+- [Workflow frontend](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/blob/f4b9f6ea3da4757f5f27d3bb2d8f5004a85ae2e6/.github/workflows/core-ci.yml).
+- [Workflow plataforma](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/blob/5576268dc92ec24008292d2dedf7a45c25293da0/.github/workflows/core-ci.yml).
+- [Resultado actionlint](../assets/chapter-7/evidence/ci/actionlint.txt) y [prueba de rechazo del guard](../assets/chapter-7/evidence/ci/guard-validation.txt).
+- [Registro de unitarias](../assets/chapter-7/evidence/ci/unit-run.txt), [lint](../assets/chapter-7/evidence/ci/lint-run.txt), [integración](../assets/chapter-7/evidence/ci/integration-run.txt) y [BDD](../assets/chapter-7/evidence/ci/bdd-run.txt).
+- [Métricas de calidad](../assets/chapter-7/evidence/ci/quality-summary.json) y [trazabilidad del paquete](../assets/chapter-7/evidence/ci/validation.json).
+
+**Resultados y limitaciones de esta revisión local**
+
+| Verificación local | Resultado del 13 de noviembre de 2026 |
+| :--- | :--- |
+| Unitarias | 20 aprobadas / 0 fallidas. |
+| Integración | 14 aprobadas / 0 fallidas. |
+| BDD escritorio | 4 escenarios y 22 pasos aprobados. |
+| BDD móvil emulado | 4 escenarios y 22 pasos aprobados. |
+| ESLint | 0 errores / 77 advertencias. |
+| Build frontend | Exit code 0. |
+| actionlint | Dos workflows válidos; exit code 0. |
+| Auditoría completa | 17 paquetes con avisos: 14 altos y 3 moderados; permanece abierta. |
+| Auditoría producción | 13 paquetes con avisos altos; permanece abierta. |
+| Run en GitHub Actions | Publicado y completado satisfactoriamente en ambos repositorios; evidencia remota abajo. |
+
+
+La revalidación del 13 de noviembre utiliza copias de los commits indicados con la retirada de los hooks y el ajuste del runner PowerShell. Este último diferencia stderr nativo del código de salida de .NET, evitando confundir mensajes de arranque con un fallo de compilación. No se cambia ninguna expectativa funcional de las suites.
+
+La ejecución remota comprueba eventos push, instalación por lockfile, jobs hospedados y carga de artefactos. Los resultados se atribuyen a los SHA del run y a las referencias compañeras registradas, no a futuras revisiones del producto. La aprobación humana de un pull request y los checks obligatorios de rama siguen siendo controles independientes.
+
+Las advertencias ESLint, las vulnerabilidades de dependencias, la incidencia de migraciones y la autorización completa por roles mantienen el alcance pendiente documentado en el capítulo VI. El CI implementado comprueba regresión funcional; no garantiza ausencia total de defectos.
+
+**Ejecuciones reales en GitHub Actions**
+
+| Repositorio / job | Run y versión | Resultado |
+| :--- | :--- | :--- |
+| Frontend / frontend-checks | [Run 43542409469](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/actions/runs/43542409469), `f4b9f6e` | Instalación, lint, 20 unitarias, build y métricas: success. |
+| Frontend / real-system | Mismo run, backend compañero `5576268`. | 14 integración y 4 escenarios BDD por viewport: success. |
+| Plataforma / backend-and-system | [Run 43542367043](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/actions/runs/43542367043), `5576268`; frontend compañero `480c921`. | Lint, 20 unitarias, build, 14 integración y 4 escenarios BDD por viewport: success. |
+
+*Nota.* Los resultados de ambos repositorios repiten la regresión de la misma cobertura; no se suman como funcionalidades diferentes. El run de plataforma se activó mediante push y el del frontend mediante workflow_dispatch, ambos por **DiazDeveloper**. Los primeros intentos se cancelaron durante la preparación lenta de herramientas; la mejora conserva versiones y checksums, y utiliza curl/tar con progreso desactivado.
+
+Los artefactos originales tienen retención de 14 días. Sus JSON, TAP, reportes HTML y capturas se copiaron al repositorio del informe para conservar evidencia después de ese plazo: [frontend](../assets/chapter-7/evidence/github-actions/web/) y [plataforma](../assets/chapter-7/evidence/github-actions/api/). Los metadatos run.json/jobs.json identifican commit, evento, actor, tiempos y conclusiones; el [resumen validado](../assets/chapter-7/evidence/github-actions/validation.json) reúne resultados y hashes de las capturas.
+
+La auditoría remota mantuvo 17 paquetes con avisos (14 altos y 3 moderados), y 13 altos al excluir desarrollo. ESLint registró 0 errores y 77 advertencias. GitHub notificó además el cambio del runtime de acciones v4 de Node 20 a Node 24; no produjo fallos en estos runs. Los resultados satisfactorios de CI no cierran esos hallazgos.
+
+**Figura 42**
+
+*Ejecución del pipeline del frontend en GitHub Actions*
+
+<p align="center"><img src="../assets/chapter-7/figures/CI-FRONTEND-ACTIONS.png" alt="Run real de CI frontend completado en GitHub Actions" width="1000"></p>
+
+*Nota.* Captura de la página real del run 43542409469. Se identifican los jobs, el commit, el autor del push y la conclusión. Captura propia del 13 de noviembre de 2026.
+
+**Figura 43**
+
+*Ejecución del pipeline de plataforma en GitHub Actions*
+
+<p align="center"><img src="../assets/chapter-7/figures/CI-PLATFORM-ACTIONS.png" alt="Run real de CI plataforma completado en GitHub Actions" width="1000"></p>
+
+*Nota.* Captura de la página real del run 43542367043. La evidencia corresponde a API/MySQL y navegador ejecutados en el runner hospedado, no a la ejecución local previa. Captura propia del 13 de noviembre de 2026.
+
+**Referencias técnicas para 7.1**
+
+- GitHub. *Workflow syntax for GitHub Actions*. https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
+- GitHub. *Events that trigger workflows*. https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
+- GitHub. *Store and share data with workflow artifacts*. https://docs.github.com/en/actions/tutorials/store-and-share-data
+- GitHub Actions. *setup-node*. https://github.com/actions/setup-node
+- rhysd. *actionlint*. https://github.com/rhysd/actionlint
 
 ---
 
@@ -184,7 +328,7 @@ Las prácticas operativas clave implementadas incluyen:
 
 El pipeline de monitoreo continuo opera mediante un flujo desacoplado compuesto por cuatro fases estructurales: ingesta y sondaje sintético, procesamiento analítico en la nube, visualización en paneles de control y derivación condicional de eventos.
 
-**Figura 42**
+**Figura 44**
 
 *Arquitectura de componentes del pipeline de monitoreo continuo en KairoLabs*
 
