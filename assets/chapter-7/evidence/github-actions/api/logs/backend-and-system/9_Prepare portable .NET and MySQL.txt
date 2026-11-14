@@ -1,0 +1,31 @@
+﻿2026-11-14T01:45:17.7841029Z ##[group]Run npm run setup
+2026-11-14T01:45:17.7841368Z [36;1mnpm run setup[0m
+2026-11-14T01:45:17.7910072Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:45:17.7910495Z ##[endgroup]
+2026-11-14T01:45:18.4851156Z 
+2026-11-14T01:45:18.4851702Z > kairolabs-core-integration-tests@1.0.0 setup
+2026-11-14T01:45:18.4852355Z > powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/setup-tools.ps1
+2026-11-14T01:45:18.4852709Z 
+2026-11-14T01:45:18.9244707Z Descargando herramientas oficiales dentro de .runtime, sin instalacion global...
+2026-11-14T01:45:18.9298635Z Descargando SDK .NET...
+2026-11-14T01:45:19.1639731Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+2026-11-14T01:45:19.1640706Z                                  Dload  Upload  Total   Spent   Left   Speed
+2026-11-14T01:45:19.1641042Z 
+2026-11-14T01:45:20.1636927Z   0      0   0      0   0      0      0      0                              0
+2026-11-14T01:45:20.6555597Z  62 286.8M  62 180.0M   0      0 154.1M      0   00:01   00:01         180.1M
+2026-11-14T01:45:20.6556754Z 100 286.8M 100 286.8M   0      0 172.7M      0   00:01   00:01         180.1M
+2026-11-14T01:45:20.6557770Z 100 286.8M 100 286.8M   0      0 172.7M      0   00:01   00:01         180.1M
+2026-11-14T01:45:20.6559034Z 100 286.8M 100 286.8M   0      0 172.7M      0   00:01   00:01         180.1M
+2026-11-14T01:45:21.5313204Z Extrayendo SDK .NET...
+2026-11-14T01:45:25.1092630Z Descargando MySQL...
+2026-11-14T01:45:25.4543646Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+2026-11-14T01:45:25.4544945Z                                  Dload  Upload  Total   Spent   Left   Speed
+2026-11-14T01:45:25.4545266Z 
+2026-11-14T01:45:26.4558644Z   0      0   0      0   0      0      0      0                              0
+2026-11-14T01:45:27.4679087Z  40 268.1M  40 109.2M   0      0 81.84M      0   00:03   00:01   00:02 109.0M
+2026-11-14T01:45:27.5479611Z  94 268.1M  94 254.2M   0      0 108.3M      0   00:02   00:02         126.2M
+2026-11-14T01:45:27.5481166Z 100 268.1M 100 268.1M   0      0 110.4M      0   00:02   00:02         126.2M
+2026-11-14T01:45:27.5483297Z 100 268.1M 100 268.1M   0      0 110.4M      0   00:02   00:02         126.2M
+2026-11-14T01:45:27.5484196Z 100 268.1M 100 268.1M   0      0 110.4M      0   00:02   00:02         126.2M
+2026-11-14T01:45:28.3072812Z Extrayendo MySQL...
+2026-11-14T01:45:30.4970312Z Herramientas listas. Ejecutar F5 o npm test.
