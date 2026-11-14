@@ -70,9 +70,9 @@ Proyecto
 
 ---
 
-## Consolidación de capítulos I–V
+## Consolidación de capítulos I–VI
 
-Esta versión integra las ramas de los capítulos I, II, III, IV y V, junto con sus imágenes. Los capítulos VI y VII siguen en sus ramas de trabajo y quedan fuera de esta integración. Se conserva el contenido previo que ya existía en `main`.
+Esta versión integra las ramas de los capítulos I, II, III, IV, V y VI, junto con sus imágenes, auditorías y evidencias. El capítulo VII continúa en su rama de trabajo y queda fuera de esta integración.
 
 # Contenido
 
@@ -113,6 +113,17 @@ Esta versión integra las ramas de los capítulos I, II, III, IV y V, junto con 
 - 5.1. Software Configuration Management
 - 5.2. Product Implementation & Deployment
 - 5.3. Video About-the-Product
+
+## Capítulo VI: Product Verification & Validation
+- [Capítulo VI actualizado](report/61-chapter-VI-Verification%26Validation.md)
+- 6.1. Testing Suites & Validation
+- 6.1.1. Core Entities Unit Tests
+- 6.1.2. Core Integration Tests
+- 6.1.3. Core Behavior-Driven Development
+- 6.1.4. Core System Tests
+- 6.2. Static testing & Verification
+- 6.3. Validation Interviews y evaluación heurística
+- 6.4. Auditoría de Experiencias de Usuario: realizada y recibida
 
 ## Avance de Conclusiones, Bibliografía y Anexos
 - [Bibliografía y Anexos](report/99-bibliography.md)
