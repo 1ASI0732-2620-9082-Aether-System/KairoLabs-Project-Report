@@ -1,0 +1,17 @@
+{
+  "source_file": "auditoria (1).md",
+  "source_sha256": "365e769d6a65226f1400195895e2245c29165d11b786b8b9bf98ba15dac05321",
+  "audit_date": "2026-11-09",
+  "duration_minutes": 90,
+  "auditor_team": "Aether System",
+  "audited_team": "SANUVI",
+  "audited_product": "Ferova Platform",
+  "responsible_as_recorded": "Dhilsen Mallqui Vilca",
+  "scope": [
+    "landing page",
+    "web application",
+    "Android application"
+  ],
+  "new_interaction_tests_performed_for_documentation": false,
+  "embedded_images_in_source": false
+}
