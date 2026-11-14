@@ -1,0 +1,5 @@
+﻿2026-11-14T01:45:03.7772908Z ##[group]Run node -e "require('node:fs').mkdirSync('evidence/unit', { recursive: true })"
+2026-11-14T01:45:03.7773252Z [36;1mnode -e "require('node:fs').mkdirSync('evidence/unit', { recursive: true })"[0m
+2026-11-14T01:45:03.7773642Z [36;1mnode --test --test-reporter=tap --test-reporter-destination=evidence/unit/latest.tap tests/unit/core-entities.test.mjs[0m
+2026-11-14T01:45:03.7814188Z shell: /usr/bin/bash -e {0}
+2026-11-14T01:45:03.7814335Z ##[endgroup]

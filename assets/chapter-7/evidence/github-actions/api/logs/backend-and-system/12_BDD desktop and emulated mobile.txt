@@ -1,0 +1,23 @@
+﻿2026-11-14T01:46:31.9544507Z ##[group]Run npm run test:bdd
+2026-11-14T01:46:31.9544865Z [36;1mnpm run test:bdd[0m
+2026-11-14T01:46:31.9614488Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:46:31.9615207Z ##[endgroup]
+2026-11-14T01:46:32.6549529Z 
+2026-11-14T01:46:32.6550174Z > meditrack-sensor-frontend@0.0.0 test:bdd
+2026-11-14T01:46:32.6550873Z > powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-bdd.ps1
+2026-11-14T01:46:32.6551273Z 
+2026-11-14T01:46:33.4062576Z [1/5] Compilando backend ASP.NET Core 10...
+2026-11-14T01:46:35.4750592Z [2/5] Iniciando MySQL aislado en 127.0.0.1:33079...
+2026-11-14T01:46:36.5808321Z [3/5] Iniciando API local y aplicando migraciones...
+2026-11-14T01:46:49.6769891Z [4/5] Ejecutando suite bdd con API y MySQL reales...
+2026-11-14T01:47:17.1122555Z ......................
+2026-11-14T01:47:17.1136531Z 
+2026-11-14T01:47:17.1289388Z 4 scenarios (4 passed)
+2026-11-14T01:47:17.1290080Z 22 steps (22 passed)
+2026-11-14T01:47:17.1290683Z 0m 23.210s (0m 23.184s executing your code)
+2026-11-14T01:47:37.4569154Z ......................
+2026-11-14T01:47:37.4585309Z 
+2026-11-14T01:47:37.4728939Z 4 scenarios (4 passed)
+2026-11-14T01:47:37.4729693Z 22 steps (22 passed)
+2026-11-14T01:47:37.4730353Z 0m 19.428s (0m 19.404s executing your code)
+2026-11-14T01:47:37.5464927Z [5/5] Cerrando procesos y eliminando exclusivamente la base temporal...

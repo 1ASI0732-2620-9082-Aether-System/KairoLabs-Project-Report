@@ -1,0 +1,6 @@
+﻿2026-11-14T01:45:16.1358397Z ##[group]Run if ($env:PLATFORM_REF -notmatch '^[a-f0-9]{40}$') { throw 'Configurar CI_PLATFORM_REF con el SHA revisado del backend tras aprobar/publicar ambos cambios.' }
+2026-11-14T01:45:16.1360429Z [36;1mif ($env:PLATFORM_REF -notmatch '^[a-f0-9]{40}$') { throw 'Configurar CI_PLATFORM_REF con el SHA revisado del backend tras aprobar/publicar ambos cambios.' }[0m
+2026-11-14T01:45:16.2225425Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:45:16.2226348Z env:
+2026-11-14T01:45:16.2226733Z   PLATFORM_REF: 5576268dc92ec24008292d2dedf7a45c25293da0
+2026-11-14T01:45:16.2227193Z ##[endgroup]

@@ -1,0 +1,145 @@
+﻿2026-11-14T01:45:02.6599581Z ##[group]Run npm run lint
+2026-11-14T01:45:02.6599770Z [36;1mnpm run lint[0m
+2026-11-14T01:45:02.6640670Z shell: /usr/bin/bash -e {0}
+2026-11-14T01:45:02.6640823Z ##[endgroup]
+2026-11-14T01:45:02.7270615Z 
+2026-11-14T01:45:02.7271085Z > meditrack-sensor-frontend@0.0.0 lint
+2026-11-14T01:45:02.7271398Z > eslint src
+2026-11-14T01:45:02.7271513Z 
+2026-11-14T01:45:03.6974995Z 
+2026-11-14T01:45:03.6976240Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/application/establishment.store.js
+2026-11-14T01:45:03.6999344Z ##[warning]  86:27  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7005544Z 
+2026-11-14T01:45:03.7006044Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/domain/model/establishment.entity.js
+2026-11-14T01:45:03.7007366Z ##[warning]  10:5  warning  Constructor has a complexity of 16. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7008048Z 
+2026-11-14T01:45:03.7008438Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/domain/model/operator.entity.js
+2026-11-14T01:45:03.7009389Z ##[warning]  23:16  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:03.7010506Z ##[warning]  36:96  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7011594Z ##[warning]  50:21  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:03.7012751Z ##[warning]  63:5   warning  Static method 'formatSchedule' has a complexity of 22. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7013872Z ##[warning]  64:22  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:03.7014484Z 
+2026-11-14T01:45:03.7014966Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/presentation/components/establishment-inspect-flow.vue
+2026-11-14T01:45:03.7015924Z ##[warning]   77:12  warning  Expected '!==' and instead saw '!='         eqeqeq
+2026-11-14T01:45:03.7016829Z ##[warning]   86:34  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:03.7017842Z ##[warning]   91:43  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:03.7018730Z ##[warning]   96:43  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:03.7019638Z ##[warning]  101:43  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:03.7020548Z ##[warning]  106:43  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:03.7021467Z ##[warning]  138:48  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:03.7022373Z ##[warning]  152:46  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:03.7023399Z ##[warning]  215:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7024076Z 
+2026-11-14T01:45:03.7024487Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/presentation/views/assign-operator.vue
+2026-11-14T01:45:03.7025445Z ##[warning]  43:15  warning  Expected '===' and instead saw '=='  eqeqeq
+2026-11-14T01:45:03.7026324Z ##[warning]  98:73  warning  Expected '!==' and instead saw '!='  eqeqeq
+2026-11-14T01:45:03.7026942Z 
+2026-11-14T01:45:03.7027474Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/presentation/views/map-of-establishments.vue
+2026-11-14T01:45:03.7028400Z ##[warning]  37:29  warning  'index' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+2026-11-14T01:45:03.7029577Z ##[warning]  40:11  warning  Expected '!==' and instead saw '!='                                      eqeqeq
+2026-11-14T01:45:03.7030668Z ##[warning]  40:26  warning  Expected '!==' and instead saw '!='                                      eqeqeq
+2026-11-14T01:45:03.7031289Z 
+2026-11-14T01:45:03.7031762Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/presentation/views/view-establishment-device-detail.vue
+2026-11-14T01:45:03.7032802Z ##[warning]  61:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7033460Z 
+2026-11-14T01:45:03.7033880Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/presentation/views/view-operator-detail.vue
+2026-11-14T01:45:03.7034593Z ##[warning]  32:42  warning  Expected '!==' and instead saw '!='  eqeqeq
+2026-11-14T01:45:03.7035136Z 
+2026-11-14T01:45:03.7035533Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/establishment/presentation/views/view-operators.vue
+2026-11-14T01:45:03.7036222Z ##[warning]  80:23  warning  Expected '===' and instead saw '=='  eqeqeq
+2026-11-14T01:45:03.7036763Z 
+2026-11-14T01:45:03.7037174Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/iam/application/iam.store.js
+2026-11-14T01:45:03.7038275Z ##[warning]  130:5  warning  Async function 'loadProfileFromSession' has a complexity of 21. Maximum allowed is 15            complexity
+2026-11-14T01:45:03.7039756Z ##[warning]  286:5  warning  Async function 'completeHealthEntityRegistration' has a complexity of 25. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7040517Z 
+2026-11-14T01:45:03.7040882Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/iam/infrastructure/authentication.guard.js
+2026-11-14T01:45:03.7041809Z ##[warning]  11:41  warning  'from' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+2026-11-14T01:45:03.7042472Z 
+2026-11-14T01:45:03.7042842Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/iam/presentation/views/billing-checkout.vue
+2026-11-14T01:45:03.7043713Z ##[warning]  114:9   warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7044732Z ##[warning]  114:51  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7045721Z ##[warning]  118:36  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7046363Z 
+2026-11-14T01:45:03.7046696Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/iam/presentation/views/profile.vue
+2026-11-14T01:45:03.7047513Z ##[warning]  37:21  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7048124Z 
+2026-11-14T01:45:03.7048453Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/iam/presentation/views/register.vue
+2026-11-14T01:45:03.7049293Z ##[warning]  35:1  warning  Async function 'onSubmit' has a complexity of 16. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7049937Z 
+2026-11-14T01:45:03.7050292Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/logistics/application/logistics.store.js
+2026-11-14T01:45:03.7051131Z ##[warning]  78:37  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7052128Z ##[warning]  78:66  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7052741Z 
+2026-11-14T01:45:03.7053098Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/logistics/domain/model/transport.entity.js
+2026-11-14T01:45:03.7054088Z ##[warning]  10:5  warning  Constructor has a complexity of 22. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7054705Z 
+2026-11-14T01:45:03.7055117Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/logistics/presentation/views/view-transport-detail.vue
+2026-11-14T01:45:03.7056054Z ##[warning]  48:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7057264Z ##[warning]  60:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7057905Z 
+2026-11-14T01:45:03.7058294Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/logistics/presentation/views/view-transports.vue
+2026-11-14T01:45:03.7059050Z ##[warning]  92:7   warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7060141Z ##[warning]  92:39  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7060758Z 
+2026-11-14T01:45:03.7061120Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/monitoring/application/monitoring.store.js
+2026-11-14T01:45:03.7061964Z ##[warning]  80:37  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7062952Z ##[warning]  80:63  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7063558Z 
+2026-11-14T01:45:03.7063911Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/monitoring/domain/model/device.entity.js
+2026-11-14T01:45:03.7064926Z ##[warning]    7:5   warning  Constructor has a complexity of 22. Maximum allowed is 15                     complexity
+2026-11-14T01:45:03.7066049Z ##[warning]   74:15  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:03.7067211Z ##[warning]   86:21  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7068407Z ##[warning]   88:23  warning  Variable Assigned to Object Injection Sink                                    security/detect-object-injection
+2026-11-14T01:45:03.7069560Z ##[warning]   89:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7070766Z ##[warning]   96:5   warning  Static method 'evaluateMetric' has a complexity of 16. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7071880Z ##[warning]  103:19  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:03.7073055Z ##[warning]  104:19  warning  Variable Assigned to Object Injection Sink                                    security/detect-object-injection
+2026-11-14T01:45:03.7074198Z ##[warning]  106:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7075277Z ##[warning]  107:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7097814Z ##[warning]  108:25  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7099164Z ##[warning]  109:25  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7100355Z ##[warning]  120:16  warning  Generic Object Injection Sink                                                 security/detect-object-injection
+2026-11-14T01:45:03.7102279Z ##[warning]  124:19  warning  Variable Assigned to Object Injection Sink                                    security/detect-object-injection
+2026-11-14T01:45:03.7103427Z ##[warning]  128:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7104533Z ##[warning]  129:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7105606Z ##[warning]  139:19  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:03.7106785Z ##[warning]  163:35  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7107972Z ##[warning]  177:34  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:03.7108593Z 
+2026-11-14T01:45:03.7109045Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/monitoring/presentation/components/control-center-panel.vue
+2026-11-14T01:45:03.7110003Z ##[warning]   64:38  warning  Function Call Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7110963Z ##[warning]   80:13  warning  Expected '===' and instead saw '=='  eqeqeq
+2026-11-14T01:45:03.7111815Z ##[warning]  128:22  warning  Expected '!==' and instead saw '!='  eqeqeq
+2026-11-14T01:45:03.7112371Z 
+2026-11-14T01:45:03.7112973Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/monitoring/presentation/components/sensor-readings-grid.vue
+2026-11-14T01:45:03.7113908Z ##[warning]  37:17  warning  Variable Assigned to Object Injection Sink                     security/detect-object-injection
+2026-11-14T01:45:03.7114994Z ##[warning]  38:16  warning  Expected '!==' and instead saw '!='                            eqeqeq
+2026-11-14T01:45:03.7116040Z ##[warning]  41:1   warning  Function 'tick' has a complexity of 19. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7117184Z ##[warning]  74:12  warning  Expected '===' and instead saw '=='                            eqeqeq
+2026-11-14T01:45:03.7117791Z 
+2026-11-14T01:45:03.7118198Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/monitoring/presentation/views/view-device-detail.vue
+2026-11-14T01:45:03.7119087Z ##[warning]  72:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7119730Z 
+2026-11-14T01:45:03.7120110Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/monitoring/presentation/views/view-devices.vue
+2026-11-14T01:45:03.7120914Z ##[warning]   90:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7121996Z ##[warning]  107:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7122635Z 
+2026-11-14T01:45:03.7122874Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/router.js
+2026-11-14T01:45:03.7123536Z ##[warning]  82:9  warning  'baseTitle' is never reassigned. Use 'const' instead  prefer-const
+2026-11-14T01:45:03.7124142Z 
+2026-11-14T01:45:03.7124504Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/shared/infrastructure/mocks/mock-database.js
+2026-11-14T01:45:03.7125581Z ##[warning]  525:8  warning  Function 'addMockUser' has a complexity of 17. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7126228Z 
+2026-11-14T01:45:03.7126604Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/shared/infrastructure/profile-demo.facade.js
+2026-11-14T01:45:03.7127682Z ##[warning]  26:8   warning  Async function 'fetchProfileDemoFromApis' has a complexity of 16. Maximum allowed is 15  complexity
+2026-11-14T01:45:03.7128889Z ##[warning]  49:47  warning  Expected '!==' and instead saw '!='                                                      eqeqeq
+2026-11-14T01:45:03.7129998Z ##[warning]  53:50  warning  Expected '!==' and instead saw '!='                                                      eqeqeq
+2026-11-14T01:45:03.7130629Z 
+2026-11-14T01:45:03.7131023Z /home/runner/work/KairoLabs-Frontend/KairoLabs-Frontend/src/subscriptions/domain/model/subscription.entity.js
+2026-11-14T01:45:03.7131983Z ##[warning]  55:16  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7132975Z ##[warning]  61:21  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:03.7133581Z 
+2026-11-14T01:45:03.7133994Z ✖ 77 problems (0 errors, 77 warnings)
+2026-11-14T01:45:03.7134372Z   0 errors and 1 warning potentially fixable with the `--fix` option.
+2026-11-14T01:45:03.7134703Z 
