@@ -990,43 +990,438 @@ Preguntas principales:
 
 | Evidencia | ![Entrevista 1](../assets/entrevista-s1-01.png) 
 
-### 6.3.3. Evaluaciones según heurísticas
+### 6.3.3. Evaluaciones según heurísticas.
 
-**DESCRIPCIÓN DE PROBLEMAS**
+#### UX Heuristics & Principles Evaluation
 
-**PROBLEMA #1: Precio del plan Premium inconsistente**
+**Usability – Inclusive Design – Information Architecture**
 
-Severidad: 3
-Heurística violada: Usability – Consistencia y estándares
+**CARRERA:** Ingeniería de Software<br>
+**CURSO:** Diseño de Experimentos de Ingeniería de Software<br>
+**SECCIÓN:** 9082<br>
+**PROFESOR:** Juan Fernando Ysen Paiba<br>
+**AUDITOR:** Grupo SANUVI<br>
+**EQUIPO AUDITADO:** Aether System<br>
+**CLIENTE(S):** Segmento 1: personal operativo de almacenes farmacéuticos. Segmento 2: entidades de salud y gestores farmacéuticos.<br>
+**SITE O APP A EVALUAR:** KairoLabs — Landing Page, aplicación web e incremento móvil documentado.
 
-Problema:
-En la Landing Page el plan Premium figura como "Personalizado", mientras que en la aplicación aparece con US$ 149 / mes, el mismo precio del plan Profesional.
+#### Alcance y procedimiento
 
-Recomendación:
-Usar una sola fuente de datos para los planes y mostrar la misma información en ambos productos.
+Se reorganiza la auditoría **recibida sobre KairoLabs**, documentada entre el 2 y el 11 de noviembre de 2026. Se utiliza la estructura de evaluación aportada como modelo: identificación, tareas, escala, resumen y descripción de problemas. No se incorporan los hallazgos de la auditoría que Aether System realizó a Ferova ni los del ejemplo InstAlert.
 
-**PROBLEMA #2: Código de entidad sin explicación**
+La fuente describe una inspección de la Landing desplegada y de las evidencias de los capítulos IV, V y VI. Esta adaptación documental no constituye una nueva sesión con usuarios ni una nueva comprobación de todos los flujos. Las severidades se mantienen como valoración recibida; los casos que necesitan interacción o evidencia adicional se identifican expresamente. No se afirma que los problemas hayan sido corregidos.
 
-Severidad: 3
-Heurística violada: Usability – Ayuda y documentación
+*Nota de identificación.* SANUVI se consigna según la confirmación del equipo receptor. El DOCX recibido emplea otra denominación para el auditor; esa discrepancia de identificación no se utiliza para inventar participantes o atribuirles nuevas pruebas.
 
-Problema:
-Al registrarse como personal de almacén se solicita el código de entidad, pero no se indica dónde obtenerlo. El entrevistado del Segmento 1 manifestó esta duda.
+**TAREAS A EVALUAR:**
 
-Recomendación:
-Agregar un texto de ayuda junto al campo: "Solicita este código al administrador de tu entidad".
+1. Identificar el producto, su alcance y la información de confianza presentada en la Landing.
+2. Comparar planes, precios y beneficios entre Landing y aplicación.
+3. Registrarse como gestor o personal operativo y comprender el código de entidad.
+4. Iniciar sesión y localizar mecanismos para recuperar el acceso.
+5. Interpretar lecturas, estados y alertas del monitoreo.
+6. Consultar operadores, dispositivos y transportes, e identificar las acciones de eliminación.
+7. Navegar hacia contacto, registro y canales sociales desde la Landing.
+8. Reconocer qué tareas de monitoreo admite el incremento móvil evaluado.
 
-**PROBLEMA #3: Versión móvil sin monitoreo**
+**No están incluidas en esta versión de la evaluación:**
 
-Severidad: 3
-Heurística violada: Information Architecture – Is it useful?
+1. La ejecución de una nueva prueba de eliminación o de recuperación de contraseña.
+2. El procesamiento efectivo de pagos y la verificación de un cobro.
+3. Una certificación de accesibilidad o pruebas completas con tecnologías de asistencia.
+4. La exactitud de sensores físicos, la validación clínica o una auditoría criptográfica.
+5. La comprobación de convenios institucionales o de resultados comerciales sin sus documentos de respaldo.
+6. La generalización a versiones posteriores, a todas las cuentas o a una aplicación móvil distinta de la documentada.
 
-Problema:
-La versión móvil solo presenta información institucional y redirige a la aplicación web. El personal de almacén, que prefiere revisar alertas desde el celular, no puede consultar dispositivos ni alertas.
+#### Escala de severidad
 
-Recomendación:
-Incorporar en la versión móvil el inicio de sesión, la lista de dispositivos y las alertas activas.
+| Nivel | Descripción |
+| :--- | :--- |
+| 0 | No se identifica un problema; no requiere corrección por este motivo. |
+| 1 | Problema superficial o cosmético. Produce una dificultad mínima; puede corregirse según disponibilidad. |
+| 2 | Problema menor. Genera confusión o esfuerzo adicional, pero permite continuar; debe programarse su mejora. |
+| 3 | Problema mayor. Dificulta una tarea relevante o crea expectativas erróneas; requiere atención prioritaria. |
+| 4 | Problema muy grave. Impide una tarea esencial; requiere corrección antes del lanzamiento. |
 
+La fuente usa la escala 0–4. Se registran siete hallazgos con nivel 3, cuatro con nivel 2 y uno con nivel 1; no se documentan hallazgos de nivel 4. Estos niveles no equivalen a una medición experimental de impacto.
+
+#### Tabla resumen
+
+| # | Problema | Severidad recibida | Heurística o principio afectado |
+| :--- | :--- | :--- | :--- |
+| 1 | Acciones de eliminación sin confirmación documentada. | 3 — confirmación pendiente | Usability — H5: prevención de errores; H6: reconocimiento antes que recuerdo. |
+| 2 | Planes y precios inconsistentes entre productos. | 3 | Usability — H4: consistencia y estándares. Information Architecture — claridad del catálogo. |
+| 3 | Presentación ambigua de respaldo institucional. | 3 | Usability — H2: correspondencia con el mundo real. Information Architecture — credibilidad del contenido. |
+| 4 | Desajuste entre el alcance móvil anunciado y el incremento evaluado. | 3 | Usability — H4: consistencia y estándares. Information Architecture — utilidad para la tarea. |
+| 5 | Código de entidad sin ayuda contextual. | 3 | Usability — H10: ayuda y documentación; H6: reconocimiento antes que recuerdo. |
+| 6 | Recuperación de contraseña no visible en el acceso. | 3 | Usability — H3: control y libertad; H9: reconocimiento, diagnóstico y recuperación de errores. |
+| 7 | Etiqueta del registro poco explícita. | 2 | Usability — H2: correspondencia con el mundo real; H1: visibilidad del estado. |
+| 8 | Interpretación del estado dependiente del color. | 2 | Usability — H1: visibilidad del estado. Inclusive Design — información perceptible por vías equivalentes. |
+| 9 | Densidad del inicio y notificación superpuesta. | 1 | Usability — H8: diseño estético y minimalista. |
+| 10 | Destinos de navegación no corroborados en la Landing. | 3 — destino por validar | Usability — H3: control y libertad; H4: consistencia. Information Architecture — encontrabilidad y navegación. |
+| 11 | Perfiles provisionales en la presentación del equipo. | 2 | Usability — H2: correspondencia con el mundo real; H4: consistencia. |
+| 12 | Métricas y afirmaciones técnicas sin sustento adjunto. | 2 | Usability — H2: correspondencia con el mundo real. Information Architecture — credibilidad y transparencia. |
+
+#### Descripción de problemas
+
+##### PROBLEMA #1: Acciones de eliminación sin confirmación documentada
+
+**Severidad:** 3 — Problema mayor.
+
+**Heurística o principio afectado:** Usability — H5: prevención de errores; H6: reconocimiento antes que recuerdo.
+
+**Problema:**
+
+La auditoría señala botones de eliminación en diálogos de operadores y transportes, e iconos de eliminación en el listado de dispositivos. Las capturas muestran la acción, pero no acreditan qué sucede después de activarla. Por ello, la ausencia de confirmación debe corroborarse con el recorrido antes de atribuir una eliminación inmediata.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/web-operador-detalle.png" alt="Problema 1: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 1.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/web-transporte-detalle.png" alt="Problema 1: evidencia documental 2" width="900">
+</p>
+
+*Nota.* Evidencia 1.2. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Si no existe protección efectiva, añadir una confirmación que identifique el registro y sus consecuencias, separar la acción de las consultas frecuentes y ofrecer cancelación antes de ejecutar.
+
+**Estado y criterio de verificación:**
+
+Pendiente de corroborar el paso posterior al clic y la posibilidad de cancelar.
+
+##### PROBLEMA #2: Planes y precios inconsistentes entre productos
+
+**Severidad:** 3 — Problema mayor.
+
+**Heurística o principio afectado:** Usability — H4: consistencia y estándares. Information Architecture — claridad del catálogo.
+
+**Problema:**
+
+La fuente recibida compara Premium como «Personalizado» en la Landing con US$ 149/mes en la aplicación, igual que Profesional. También identifica cinco planes en la Landing y tres en la app. Esta diferencia dificulta reconocer qué oferta puede contratarse; las capturas no demuestran que se haya realizado un cobro incorrecto.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/landing-planes.png" alt="Problema 2: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 2.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/web-planes.png" alt="Problema 2: evidencia documental 2" width="900">
+</p>
+
+*Nota.* Evidencia 2.2. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Centralizar el catálogo de planes, precios, periodicidad y beneficios; mostrar la misma oferta en ambas plataformas o explicar expresamente cuáles son propuestas aún no disponibles.
+
+**Estado y criterio de verificación:**
+
+Comparar el mismo catálogo y moneda en ambas plataformas antes de dar el hallazgo por corregido.
+
+##### PROBLEMA #3: Presentación ambigua de respaldo institucional
+
+**Severidad:** 3 — Problema mayor.
+
+**Heurística o principio afectado:** Usability — H2: correspondencia con el mundo real. Information Architecture — credibilidad del contenido.
+
+**Problema:**
+
+La franja «Respaldados por instituciones líderes» utiliza logotipos institucionales, mientras que la sección Nosotros describe un proyecto académico. Puede interpretarse como un aval o convenio. La documentación recibida no aporta una autorización; tampoco permite afirmar que nunca haya existido alguna.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/landing-instituciones.png" alt="Problema 3: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 3.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/landing-nosotros.png" alt="Problema 3: evidencia documental 2" width="900">
+</p>
+
+*Nota.* Evidencia 3.2. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Verificar documentalmente cualquier convenio. Si solo se emplean normas o referencias institucionales, sustituir la frase por «Marco normativo de referencia» y aclarar que no implica respaldo oficial.
+
+**Estado y criterio de verificación:**
+
+Pendiente de aclaración institucional y revisión del texto publicado.
+
+##### PROBLEMA #4: Desajuste entre el alcance móvil anunciado y el incremento evaluado
+
+**Severidad:** 3 — Problema mayor.
+
+**Heurística o principio afectado:** Usability — H4: consistencia y estándares. Information Architecture — utilidad para la tarea.
+
+**Problema:**
+
+El informe y la Landing anuncian monitoreo web y móvil; la auditoría describe el incremento móvil inspeccionado como informativo y con redirección a la web. No acredita consulta nativa de dispositivos y alertas. Este hallazgo corresponde a la versión documentada; no demuestra que todas las versiones futuras carezcan de esas funciones.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/mobile-overview-1.png" alt="Problema 4: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 4.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/mobile-overview-2.png" alt="Problema 4: evidencia documental 2" width="900">
+</p>
+
+*Nota.* Evidencia 4.2. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Describir el alcance móvil vigente con precisión. Para el incremento funcional, incorporar acceso autenticado, dispositivos y alertas; validar su funcionamiento en la aplicación móvil correspondiente.
+
+**Estado y criterio de verificación:**
+
+Las pruebas responsive de la web no sustituyen la verificación de una aplicación móvil nativa.
+
+##### PROBLEMA #5: Código de entidad sin ayuda contextual
+
+**Severidad:** 3 — Problema mayor.
+
+**Heurística o principio afectado:** Usability — H10: ayuda y documentación; H6: reconocimiento antes que recuerdo.
+
+**Problema:**
+
+El registro del personal de almacén solicita un código de entidad sin explicar quién lo proporciona. La auditoría lo relaciona con la duda recogida en una entrevista del Segmento 1; la inspección y la entrevista son evidencias distintas y no se cuentan como participantes adicionales.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/web-register-personal.jpg" alt="Problema 5: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 5.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Añadir junto al campo «Solicita este código al administrador de tu entidad» y mensajes que distingan código vacío, inválido o no disponible.
+
+**Estado y criterio de verificación:**
+
+Comprobar que una persona del segmento identifica cómo obtener el código sin ayuda del evaluador.
+
+##### PROBLEMA #6: Recuperación de contraseña no visible en el acceso
+
+**Severidad:** 3 — Problema mayor.
+
+**Heurística o principio afectado:** Usability — H3: control y libertad; H9: reconocimiento, diagnóstico y recuperación de errores.
+
+**Problema:**
+
+En la pantalla de acceso documentada se observan correo, contraseña, inicio de sesión y creación de cuenta, pero no una opción visible para recuperar el acceso. Esto describe la interfaz inspeccionada; no confirma por sí solo la inexistencia de cualquier procedimiento administrativo externo.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/web-login.jpg" alt="Problema 6: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 6.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Incorporar «¿Olvidaste tu contraseña?» y un flujo de restablecimiento con expiración y validación del enlace, sin revelar si un correo pertenece a una cuenta.
+
+**Estado y criterio de verificación:**
+
+Validar solicitud, recepción, enlace expirado y nuevo acceso; no se declara ese flujo implementado en esta evaluación.
+
+##### PROBLEMA #7: Etiqueta del registro poco explícita
+
+**Severidad:** 2 — Problema menor.
+
+**Heurística o principio afectado:** Usability — H2: correspondencia con el mundo real; H1: visibilidad del estado.
+
+**Problema:**
+
+El formulario «Crea tu cuenta» presenta «Ver planes» como acción principal. La etiqueta no explica si los datos quedan guardados o si solo se navega hacia otra pantalla, generando incertidumbre sobre el avance del registro.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/web-register-entidad.jpg" alt="Problema 7: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 7.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Utilizar «Continuar» o «Crear cuenta y elegir plan», según lo que realmente haga la acción, e indicar los pasos restantes y el momento de confirmación.
+
+**Estado y criterio de verificación:**
+
+Corroborar el comportamiento real del botón para que la nueva etiqueta no prometa una creación que aún no ocurre.
+
+##### PROBLEMA #8: Interpretación del estado dependiente del color
+
+**Severidad:** 2 — Problema menor.
+
+**Heurística o principio afectado:** Usability — H1: visibilidad del estado. Inclusive Design — información perceptible por vías equivalentes.
+
+**Problema:**
+
+La auditoría describe temperaturas destacadas en rojo o naranja en el listado, sin una etiqueta junto al valor. Esa presentación puede dificultar distinguir estados con daltonismo o bajo brillo. La conclusión se limita al listado documentado: el detalle y el Centro de Control sí emplean indicadores adicionales.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/web-dispositivos.png" alt="Problema 8: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 8.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Acompañar el color con «OK», «Atención» o «Crítico», iconos distinguibles y una leyenda accesible. Mantener unidades y criterios de clasificación comprensibles.
+
+**Estado y criterio de verificación:**
+
+Revisar el listado sin depender del color; no se afirma cumplimiento o incumplimiento WCAG completo.
+
+##### PROBLEMA #9: Densidad del inicio y notificación superpuesta
+
+**Severidad:** 1 — Problema superficial.
+
+**Heurística o principio afectado:** Usability — H8: diseño estético y minimalista.
+
+**Problema:**
+
+La pantalla de inicio concentra accesos, KPIs y paneles de sensores. Según la captura citada en la auditoría, el aviso de bienvenida se superpone a una tarjeta. Es una interferencia visual documentada, sin medición de tiempos o errores de usuarios.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/web-home-entidad.png" alt="Problema 9: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 9.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Priorizar alertas críticas, agrupar información secundaria y situar la notificación donde no cubra datos o acciones, manteniendo un cierre accesible.
+
+**Estado y criterio de verificación:**
+
+Verificar la superposición y legibilidad en los tamaños objetivo, incluyendo estados con alertas críticas.
+
+##### PROBLEMA #10: Destinos de navegación no corroborados en la Landing
+
+**Severidad:** 3 — Problema mayor.
+
+**Heurística o principio afectado:** Usability — H3: control y libertad; H4: consistencia. Information Architecture — encontrabilidad y navegación.
+
+**Problema:**
+
+La auditoría informa botones dirigidos a #contacto sin encontrar un destino equivalente en el contenido inspeccionado y redes sociales enlazadas a #. Es un resultado comunicado por el auditor; las capturas por sí solas no permiten confirmar los href ni su funcionamiento actual.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/landing-sectores.jpg" alt="Problema 10: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 10.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/landing-footer.jpg" alt="Problema 10: evidencia documental 2" width="900">
+</p>
+
+*Nota.* Evidencia 10.2. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Validar cada destino en la misma versión: crear una sección de contacto real o dirigir al registro con el plan seleccionado. Enlazar perfiles sociales auténticos o retirar los iconos que no tengan destino.
+
+**Estado y criterio de verificación:**
+
+Pendiente de reproducir la navegación en el sitio y registrar URL, fecha y resultado de cada enlace.
+
+##### PROBLEMA #11: Perfiles provisionales en la presentación del equipo
+
+**Severidad:** 2 — Problema menor.
+
+**Heurística o principio afectado:** Usability — H2: correspondencia con el mundo real; H4: consistencia.
+
+**Problema:**
+
+La fuente identifica tres nombres y dos tarjetas «Integrante por confirmar / Perfil en incorporación», mientras que el equipo del informe está compuesto por cinco integrantes. El uso de iniciales en lugar de una foto no constituye, por sí solo, un defecto: el problema es la información provisional o incompleta.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/landing-equipo.png" alt="Problema 11: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 11.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Completar los cinco perfiles con información confirmada; utilizar iniciales coherentes cuando no se disponga de fotografía y eliminar los mensajes de incorporación si ya no representan el estado real.
+
+**Estado y criterio de verificación:**
+
+Comparar los perfiles publicados con los integrantes confirmados, sin inventar fotografías o identidades.
+
+##### PROBLEMA #12: Métricas y afirmaciones técnicas sin sustento adjunto
+
+**Severidad:** 2 — Problema menor.
+
+**Heurística o principio afectado:** Usability — H2: correspondencia con el mundo real. Information Architecture — credibilidad y transparencia.
+
+**Problema:**
+
+La auditoría cita respuesta en menos de cinco minutos, +30 % de trazabilidad en seis meses, 100 % de históricos auditables y cifrado AES-256. El material recibido no adjunta mediciones ni comprobación técnica de esas afirmaciones. Esto no prueba que no exista cifrado: cuestiona su justificación visible y el uso de metas como si fueran resultados.
+
+**Evidencia:**
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/landing-tecnologia.jpg" alt="Problema 12: evidencia documental 1" width="900">
+</p>
+
+*Nota.* Evidencia 12.1. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+<p align="center">
+  <img src="../assets/chapter-6/heuristicas/landing-planes.png" alt="Problema 12: evidencia documental 2" width="900">
+</p>
+
+*Nota.* Evidencia 12.2. Captura preexistente del capítulo V, utilizada como referencia visual de la inspección recibida. No corresponde a una captura nueva del auditor ni demuestra por sí sola el recorrido posterior a la pantalla.
+
+**Recomendación:**
+
+Distinguir objetivos de resultados medidos e indicar población, periodo, método y fuente. Publicar afirmaciones técnicas solo cuando estén respaldadas por evidencia verificable de la implementación.
+
+**Estado y criterio de verificación:**
+
+Pendiente de vincular cada afirmación con una medición o revisión técnica; no se ejecutaron ensayos de criptografía en esta inspección.
+
+#### Fortalezas y seguimiento
+
+La auditoría también reconoce la coherencia visual azul marino/naranja, el selector ES/EN y los indicadores de estado del Centro de Control y del detalle de sensores. Estas fortalezas no eliminan las limitaciones específicas del listado u otros flujos.
+
+Los doce hallazgos quedan abiertos para su revisión. El equipo debe registrar responsable, versión, corrección y evidencia de revalidación antes de declararlos resueltos. Las observaciones basadas en enlaces o pasos no visibles deben confirmarse o descartarse mediante el recorrido correspondiente, manteniendo separadas las pruebas funcionales del capítulo VI de esta inspección heurística.
+
+#### Fuentes y referencia conceptual
+
+- Auditoría recibida sobre KairoLabs, archivo proporcionado por el equipo: *Auditoria al grupo.docx*, periodo consignado 2–11 de noviembre de 2026. [Trazabilidad documental e imágenes](../assets/chapter-6/heuristicas/provenance.json).
+- Nielsen Norman Group. *10 Usability Heuristics for User Interface Design*. https://www.nngroup.com/articles/ten-usability-heuristics/
 
 **Referencias**
 
