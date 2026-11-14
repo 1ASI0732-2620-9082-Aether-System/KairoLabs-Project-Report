@@ -242,8 +242,6 @@ flowchart TD
     I --> J[Despliegue a producción: sección 7.3]
 ```
 
-*Nota.* El diagrama muestra el flujo definido para la entrega. La etapa de CI cuenta con evidencia de ejecución; el despliegue integrado de staging y la aprobación todavía deben registrarse.
-
 **Tabla 7.2-3**
 
 *Entradas, resultados y criterios de cada etapa*
@@ -274,8 +272,6 @@ Los runs conservados en [validation.json](../assets/chapter-7/evidence/github-ac
 - **Frontend:** [run 43542409469](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/actions/runs/43542409469), commit `f4b9f6e`, y [reportes conservados](../assets/chapter-7/evidence/github-actions/web/).
 - **API:** [run 43542367043](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/actions/runs/43542367043), commit `5576268`, y [reportes conservados](../assets/chapter-7/evidence/github-actions/api/).
 - **Pasos ejecutados:** [workflow frontend](../assets/chapter-7/ci/frontend-core-ci.yml) y [workflow plataforma](../assets/chapter-7/ci/platform-core-ci.yml). Permiten comprobar qué pruebas y archivos de evidencia produce cada job.
-
-Para cada versión candidata, el registro de entrega debe reunir: **versión o identificador, commits de ambos repositorios, runs, URLs de preview y staging, configuración por ambiente, resultados funcionales, cambios de base de datos, observaciones abiertas, revisor y decisión**. Si alguna comprobación falla, se conserva la evidencia, se corrige en la rama de trabajo y se repite la validación antes de pasar a producción.
 
 ---
 
