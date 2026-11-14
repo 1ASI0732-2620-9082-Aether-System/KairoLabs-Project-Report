@@ -68,7 +68,7 @@ El pipeline de despliegue de la Web Application se ejecuta en Vercel cada vez qu
 
 *Commit de corrección con despliegue exitoso reportado en GitHub*
 <p align="center">
-  <img src="../assets/chapter-5/gh-frontend-repo.png" alt="Repositorio KairoLabs-Frontend con check de despliegue exitoso" width="900">
+  <img src="../assets/chapter-7/figures/gh-frontend-repo.png" alt="Repositorio KairoLabs-Frontend con check de despliegue exitoso" width="900">
 </p>
 
 
@@ -77,7 +77,7 @@ Por último, la verificación post-despliegue de la RESTful API se realiza sobre
 *Verificación post-despliegue de la RESTful API en Render*
 
 <p align="center">
-  <img src="../assets/chapter-5/api-swagger-overview.png" alt="Swagger UI de MediTrack Sensor API v1 en Render" width="900">
+  <img src="../assets/chapter-7/figures/api-swagger-overview.png" alt="Swagger UI de MediTrack Sensor API v1 en Render" width="900">
 </p>
 
 
