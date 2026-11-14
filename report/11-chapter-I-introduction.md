@@ -27,35 +27,35 @@ Asimismo, la plataforma busca fortalecer la coordinación entre los distintos ac
 <tbody>
 
 <tr>
-<td><img src="../assets/images/team/dhilsen.png" alt="Foto"></td>
+<td><img src="../assets/dhilsen-malqui.png" alt="Foto"></td>
 <td>Mallqui Vilca, Dhilsen Armil</td>
 <td>Ingeniería de Software</td>
 <td>Código: U202319440. Estudiante de Ingeniería de Software con énfasis en el desarrollo de soluciones escalables, la aplicación de buenas prácticas de ingeniería y la configuración de entornos de despliegue continuo. Aporte al equipo: Orienta su aporte al cumplimiento de hitos técnicos del equipo, a la documentación rigurosa del proceso experimental y a la integración entre evidencia de campo, diseño de producto y pipelines de verificación.</td>
 </tr>
 
 <tr>
-<td><img src="../assets/images/team/sebastian.jpg" alt="Foto"></td>
+<td>Fotografía pendiente de incorporar.</td>
 <td>Diaz Mendoza, Sebastian Victor Andre</td>
 <td>Ingeniería de Software</td>
 <td>Código: U202415638. Soy Sebastian Diaz, actualmente estudio la carrera de Ingeniería de Software y para el presente proyecto me he enfocado en diseño de experiencia de usuario (UX/UI), además soy responsable de la interacción y usabilidad. Cuento con dominio en estructura de datos, algoritmos y base de datos. Con una capacidad de razonamiento lógico y ordenado, con conocimiento en paradigmas como la programación orientada a objetos y técnicas de aplicación en la complejidad algorítmica.</td>
 </tr>
 
 <tr>
-<td><img src="../assets/images/team/PLACEHOLDER.png" alt="Foto"></td>
+<td>Fotografía pendiente de incorporar.</td>
 <td>Ramirez Escalante, Carlo Patricio</td>
 <td>Ingeniería de Software</td>
 <td>Código: U202210787. Soy estudiante de Ingeniería de Software. Me interesa el desarrollo de soluciones tecnológicas que puedan resolver problemas reales y mejorar procesos mediante el uso de la tecnología. A lo largo de mi formación he adquirido conocimientos en programación, desarrollo web, bases de datos y herramientas de trabajo colaborativo. He tenido la oportunidad de participar en proyectos donde he aplicado tecnologías como Java, Python, JavaScript, TypeScript, HTML, CSS y Flutter, fortaleciendo tanto mis habilidades técnicas como mi capacidad para trabajar en equipo.. Aporte al equipo:Me considero una persona responsable, adaptable y con muchas ganas de seguir aprendiendo, asumir nuevos retos y aportar en proyectos relacionados con la tecnología y el desarrollo de software. .</td>
 </tr>
 
 <tr>
-<td><img src="assets\OblitasRodrigo.png" alt="Foto"></td>
+<td><img src="../assets/OblitasRodrigo.png" alt="Foto"></td>
 <td>[Oblitas Alcalde, Rodrigo]</td>
 <td>[Ingenieria de Software]</td>
 <td>Código: U20221G185. Soy Estudiante de Ingenieria de Software, estoy interesado en el desarrollo de software y soluciones que aporten al mundo real, me apasiona el deporte, me gusta mucho ir al gimnasio, al box y sobre todo programar, tengo habilidades en diferentes legnguajes de programacion, tengo experiencia con bases de datos, maquinas virtuales, linux y docker, soy una persona que trabaj bien en equipo y me gusta escuchar a los demas.</td>
 </tr>
 
 <tr>
-<td><img src="../assets/images/team/PLACEHOLDER.png" alt="Foto"></td>
+<td>Fotografía pendiente de incorporar.</td>
 <td>Dinklange Arevalo, Sandro </td>
 <td>Ingeniería de Software</td>
 <td>Código: U202313419. Soy un estudiante de Ingeniería de Software en la UPC especializado en desarrollo Full-Stack. Domino lenguajes como C++, C# y Python, y me destaco por mi proactividad y facilidad para trabajar en entornos colaborativos.. Aporte al equipo:.</td>

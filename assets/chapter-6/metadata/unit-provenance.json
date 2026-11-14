@@ -1,0 +1,39 @@
+{
+  "repository": "https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend",
+  "review_date": "2026-10-30",
+  "files": [
+    {
+      "path": "src/monitoring/domain/model/device.entity.js",
+      "sha256": "f304fc205777d2546316d197c1ccf73a4fb29571e0e21ec52b2b840479e7bd9b",
+      "original_sha256": "7529696a5015c6b1c44a6544ada19c8b6d5eda245b163d154150ca1cb74af85c",
+      "modified_locally": true
+    },
+    {
+      "path": "src/subscriptions/domain/model/subscription.entity.js",
+      "sha256": "7bbbedea1070d7eedd507dfa678f56ba6d567e349eb4bc042e38b60166c113c2",
+      "original_sha256": "7bbbedea1070d7eedd507dfa678f56ba6d567e349eb4bc042e38b60166c113c2",
+      "modified_locally": false
+    },
+    {
+      "path": "src/iam/domain/sign-in.command.js",
+      "sha256": "113eef450e79457ffc431961bcbecfa34332d566966a8cb670b81a5d8580cc09",
+      "original_sha256": "113eef450e79457ffc431961bcbecfa34332d566966a8cb670b81a5d8580cc09",
+      "modified_locally": false
+    }
+  ],
+  "base_commit": "0d2c76f8fb20405e6ea271dfe505222cc7cc1aa2",
+  "local_modifications": [
+    {
+      "path": "src/monitoring/domain/model/device.entity.js",
+      "description": "Reject null, undefined and blank strings before numeric conversion; preserve numeric zero.",
+      "committed": false,
+      "published": false
+    }
+  ],
+  "test_results": {
+    "tests": 20,
+    "passed": 20,
+    "failed": 0,
+    "evidence": "evidence/latest.tap"
+  }
+}

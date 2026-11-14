@@ -1,1127 +1,1028 @@
-﻿# Capítulo V: Product Implementation, Validation & Deployment
+# Capítulo V: Product Implementation
 
-> **Nota metodológica (1ASI0732):** la implementación se articula con verificación, validación y entrega continua. Además de evidencias de producto, este capítulo orienta la configuración de pipelines DevOps (construcción, pruebas automatizadas, versionado y despliegue) y deja explícitos los puntos ``(completar)`` para experimentos de calidad de software y responsabilidades éticas (ABET SO4).
+En este capítulo se presenta la implementación y el despliegue de los productos digitales que conforman **KairoLabs**, desarrollados por el equipo **Aether System** durante el **Sprint 1** del ciclo académico **2026-20** (curso 1ASI0732 – Diseño de Experimentos de Ingeniería de Software).
 
-> **Nota metodológica (1ASI0732):** la implementación se articula con verificación, validación y entrega continua. Además de evidencias de producto, este capítulo orienta la configuración de pipelines DevOps (construcción, pruebas automatizadas, versionado y despliegue) y deja explícitos los puntos ``(completar)`` para experimentos de calidad de software y responsabilidades éticas (ABET SO4).
+Se documenta la configuración del entorno de desarrollo, la gestión del código fuente, las convenciones de codificación y la configuración de despliegue. Luego se presentan las evidencias de implementación de cada producto: **Landing Page**, **Frontend Web Application**, **Native-Mobile Application** (primer incremento) y **RESTful API**, junto con el Acuerdo de Servicio SaaS, la documentación de la API y los insights de colaboración del equipo.
+
+Todos los repositorios del producto se encuentran en la organización de GitHub [`1ASI0732-2620-9082-Aether-System`](https://github.com/1ASI0732-2620-9082-Aether-System).
+
+| Producto | URL pública | Repositorio |
+| :--- | :--- | :--- |
+| Landing Page | https://landing-page-kairolabs.vercel.app | [`KairoLabs-Landing-Page`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Landing-Page) |
+| Frontend Web Application | https://kairo-labs-frontend.vercel.app | [`KairoLabs-Frontend`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend) |
+| Native-Mobile Application (incremento 1) | Ejecución local (`npm run dev`) | [`KairoLabs-Mobile`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Mobile) |
+| RESTful API (Swagger UI) | https://medi-track-sensor-platform.onrender.com/swagger/index.html | [`KairoLabs-Platform`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform) |
+| Project Report | — | [`KairoLabs-Project-Report`](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Project-Report) |
+
+---
 
 ## 5.1. Software Configuration Management
 
+La gestión de configuración de software permite que los cinco integrantes del equipo trabajen sobre entornos, herramientas y convenciones comunes, manteniendo la trazabilidad de los cambios realizados sobre cada producto. En esta sección se describen las herramientas utilizadas, la estrategia de control de versiones, las convenciones de estilo y la configuración de despliegue.
+
 ### 5.1.1. Software Development Environment Configuration
 
-A continuación, se describen los productos de software empleados en el desarrollo del proyecto. Esta sección tiene como objetivo facilitar la comprensión y continuidad
-del trabajo a los actuales y futuros desarrolladores, asegurando una colaboración efectiva a lo largo del ciclo de vida del producto digital.
+A continuación se presentan los productos de software utilizados por el equipo, organizados según la actividad del ciclo de vida en la que intervienen. Esta información permite que los integrantes actuales y futuros reproduzcan el entorno de trabajo.
 
 **Project Management**
-- Trello – https://trello.com/<br>
-  Se ha utilizado Trello como herramienta principal de gestión de tareas. Esta plataforma permite visualizar el progreso de cada etapa del proyecto mediante
-  tableros personalizables, facilitando la organización de pendientes, tareas en desarrollo y actividades finalizadas. Además, su interfaz intuitiva y accesibilidad
-  desde cualquier navegador con una cuenta registrada la convierten en una solución ágil para el seguimiento de proyectos en equipo.
+
+| Herramienta | Propósito en KairoLabs | Referencia |
+| :--- | :--- | :--- |
+| **Trello** | Gestión del Product Backlog y del Sprint Backlog mediante el tablero *KairoLabs — Product Backlog* con las columnas Product Backlog, Ready, In Progress y Done. | https://trello.com/ |
+| **GitHub Organization** | Organización `1ASI0732-2620-9082-Aether-System` que centraliza los cinco repositorios del producto. | https://github.com/1ASI0732-2620-9082-Aether-System |
+| **Google Meet** | Reuniones síncronas del equipo (planificación, revisión de avance y coordinación de entregables). | https://meet.google.com/ |
 
 **Requirements Management**
-- Google Docs – https://docs.google.com/<br>
-  Para la redacción, gestión y revisión de los requisitos del sistema se ha empleado Google Docs. Su funcionalidad de edición colaborativa en tiempo real ha
-  permitido que todos los integrantes del equipo puedan aportar, comentar y revisar los documentos desde cualquier dispositivo.
+
+| Herramienta | Propósito en KairoLabs | Referencia |
+| :--- | :--- | :--- |
+| **Trello** | Registro de User Stories (US01–US78), Technical Stories (TS01–TS12) y Spikes (SP01–SP05) con su prioridad y Story Points. | https://trello.com/ |
+| **UXPressia** | Elaboración de User Personas, Empathy Maps, Journey Maps e Impact Mapping. | https://uxpressia.com/ |
+| **Miro** | As-Is y To-Be Scenario Mapping y EventStorming. | https://miro.com/ |
 
 **Product UX/UI Design**
-- Figma – https://www.figma.com/<br>
-  Figma ha sido fundamental para el diseño de interfaces y la creación de prototipos interactivos. Permite que varios usuarios trabajen simultáneamente en los
-  wireframes y mockups, lo que ha facilitado una comunicación más eficiente entre el equipo de diseño y desarrollo.
-- Miro https://miro.com/es/<br> 
-  Pizarra digital colaborativa utilizada para sesiones de Big Picture EventStorming y Design-Level EventStorming, facilitando la identificación de Bounded Contexts, Events, Commands y Aggregates del dominio.
-- LucidChart https://www.lucidchart.com/pages/es <br>
-  Aplicación de diagramación colaborativa para la creación de Wireflows, User Flows, diagramas UML (Class Diagrams) y Database Diagrams de la arquitectura del software.
 
+| Herramienta | Propósito en KairoLabs | Referencia |
+| :--- | :--- | :--- |
+| **Figma** | Wireframes, mock-ups y prototipos de la Landing Page y la Web Application. | https://www.figma.com/ |
+| **Lucidchart** | Wireflows, User Flows, diagramas C4, diagramas de clases y de base de datos. | https://www.lucidchart.com/ |
 
 **Software Development**
-- **Landing Page** (HTML5, CSS3, JavaScript) — https://www.jetbrains.com/idea/<br>
-  Sitio estático desplegado en Vercel. Desarrollo con HTML5, CSS3 y JavaScript.
-- **Frontend Web Application** (Vue.js 3, PrimeVue, Vue Router, Pinia, Axios) — https://www.jetbrains.com/webstorm/<br>
-  Aplicación SPA desarrollada con **Vue.js 3**, biblioteca de componentes **PrimeVue** (Material Design), **Vue Router** para navegación, **Pinia** para gestión de estado, **Axios** para consumo de API REST y **vue-i18n** para soporte multiidioma (es_419 / en_US).
-- **Web Services** (ASP.NET Core, C#) — https://www.jetbrains.com/rider/<br>
-  API RESTful desarrollada en **ASP.NET Core** con **C#**, documentada con **OpenAPI/Swagger**. SDK .NET: https://dotnet.microsoft.com/download
 
-**Deployment & Hosting**
-- **Vercel** — Landing Page y Frontend Web Application. Auto-deploy desde GitHub con CDN global y HTTPS.
-- **Render** — Backend API (Docker). Auto-deploy desde rama `master`.
-- **Filess.io** — Base de datos PostgreSQL para persistencia de datos del backend.
+| Herramienta / Tecnología | Producto | Propósito |
+| :--- | :--- | :--- |
+| **Visual Studio Code** | Todos | Editor principal para HTML, CSS, JavaScript, Vue y Markdown. |
+| **HTML5, CSS3 y JavaScript (ES6+)** | Landing Page, Mobile | Estructura, estilos e interacción del sitio público y de la versión mobile-first. |
+| **Bootstrap 5.3 + Bootstrap Icons** | Landing Page | Grid responsive, componentes de navegación e iconografía. |
+| **Matter.js 0.19** | Landing Page | Animación física de los elementos decorativos del footer. |
+| **Vue.js 3 + Vite** | Web Application, Mobile | Framework SPA de la Web App y herramienta de construcción / servidor de desarrollo. |
+| **PrimeVue 4, PrimeIcons y PrimeFlex** | Web Application | Biblioteca de componentes UI (toasts, diálogos, selects) e iconografía. |
+| **Vue Router 5 y Pinia 3** | Web Application | Enrutamiento por bounded context y gestión de estado (`*.store.js`). |
+| **Axios** | Web Application | Cliente HTTP para consumir la RESTful API. |
+| **vue-i18n** | Web Application | Internacionalización español / inglés. |
+| **Chart.js + vue-chartjs** | Web Application | Gráficos de tendencias del Centro de Control. |
+| **Leaflet + OpenStreetMap** | Web Application | Mapa de establecimientos. |
+| **C# / ASP.NET Core (Kestrel)** | RESTful API | Implementación de los Web Services RESTful. |
+| **Entity Framework Core** | RESTful API | ORM para el acceso a datos. |
+| **MySQL (Filess.io)** | RESTful API | Base de datos relacional del backend. |
+| **Git** | Todos | Control de versiones distribuido. |
+| **Node.js / npm** | Web Application, Mobile | Gestión de dependencias y ejecución de scripts (`npm run dev`, `npm run build`). |
+
+**Software Testing**
+
+| Herramienta | Propósito |
+| :--- | :--- |
+| **Swagger UI** | Pruebas manuales de los endpoints publicados (opción *Try it out*). |
+| **Postman** | Pruebas de solicitudes HTTP durante la integración Web App ↔ API. |
+| **Modo demo del frontend (`VITE_USE_MOCKS=true`)** | Base de datos en memoria (`mock-database.js`) para probar la Web App sin depender del backend. |
+| **Chrome / Edge DevTools (Device Mode)** | Validación responsive en resoluciones de smartphone, tablet y desktop. |
+
+**Software Deployment**
+
+| Herramienta | Propósito |
+| :--- | :--- |
+| **Vercel** | Hosting de la Landing Page (sitio estático) y de la Web Application (build de Vite). Despliegue automático al hacer push a la rama de producción. |
+| **GitHub Pages** | Publicación alternativa de la Landing Page (entorno `github-pages`). |
+| **Render** | Hosting de la RESTful API como Web Service con runtime Docker. |
+| **Filess.io** | Hosting de la base de datos relacional del backend. |
 
 **Software Documentation**
-- Google Docs y GitHub README <br>
-  La documentación del software se ha centralizado en Google Docs. El archivo README en GitHub incluye instrucciones de despliegue, estructura del repositorio y requerimientos técnicos.
-- Markdown https://www.markdownguide.org/ <br>
-  Lenguaje de marcado ligero para la elaboración del Project Report en el repositorio GitHub. Permite estructurar documentación con formato consistente y compatible con control de versiones.
 
-**Internacionalización y accesibilidad:** La Web Application implementa **vue-i18n** con soporte para español (es_419) e inglés (en_US). Los componentes PrimeVue incluyen atributos **ARIA** para navegación accesible. El idioma por defecto de la API y la documentación Swagger es inglés, conforme al estándar del curso.
+| Herramienta | Propósito |
+| :--- | :--- |
+| **Markdown + GitHub** | Redacción del Project Report bajo control de versiones (`report/*.md`). |
+| **Swagger / OpenAPI 3.0** | Documentación interactiva de la RESTful API (`MediTrack Sensor API v1`). |
+| **README.md por repositorio** | Instrucciones de ejecución de cada producto. |
+
+---
 
 ### 5.1.2. Source Code Management
 
-En esta sección se establece el medio y esquema de organización
-que el equipo aplicará para el seguimiento y control de
-modificaciones en el código fuente. Para ello se utiliza
-**GitHub** como plataforma de control de versiones, organizado
-bajo la organización pública **1ASI0732-2610-9082-TBL-KairoLabs**.
+El equipo utiliza **GitHub** como plataforma de control de versiones. Todos los productos se alojan en la organización pública:
 
-Se aplica **GitFlow** como workflow de control de versiones,
-**Conventional Commits** para los mensajes de commit y
-**Semantic Versioning** para el nombramiento de releases.
+**Organización:** https://github.com/1ASI0732-2620-9082-Aether-System
 
-A continuación se presentan los repositorios correspondientes
-a cada producto de la solución:
+![Organización Aether System en GitHub](../assets/chapter-5/gh-organizacion.png)
 
-| Producto                 | Repositorio                                                                                   |
-|--------------------------|-----------------------------------------------------------------------------------------------|
-| Project Report           | https://github.com/1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Project-Report.git |
-| Landing Page             | https://github.com/1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Landing-Page.git   |
-| Frontend Web Application | https://github.com/1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Frontend.git       |
-| Web Services             | https://github.com/1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Backend.git        |
+*Figura 5.1.2-1. Organización `1ASI0732-2620-9082-Aether-System` con los repositorios de KairoLabs.*
 
-### GitFlow Workflow
+| Producto | Repositorio | Rama por defecto | Contenido |
+| :--- | :--- | :---: | :--- |
+| **Project Report** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Project-Report | `main` | Informe en Markdown (`report/`), imágenes y evidencias (`assets/`). |
+| **Landing Page** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Landing-Page | `main` | Sitio estático: `index.html`, `css/`, `js/`, `Imagenes/`, `Videos/`. |
+| **Frontend Web Application** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend | `master` | SPA en Vue 3 organizada por bounded contexts (`iam`, `establishment`, `monitoring`, `logistics`, `subscriptions`, `shared`). |
+| **Native-Mobile Application** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Mobile | `main` | Primer incremento mobile-first (Vite + HTML/CSS/JS). |
+| **RESTful API** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform | `main` | Repositorio destinado al código fuente del backend ASP.NET Core. |
 
-El equipo implementa GitFlow como workflow de control de versiones.
-Las ramas definidas son las siguientes:
+**GitFlow Workflow**
 
-**Ramas principales:**
-- `main` — rama principal que contiene la versión estable y desplegada
-  del producto. Solo se actualiza mediante merges de ramas release.
-- `develop` — rama de integración donde se consolidan las features
-  completadas antes de pasar a producción.
+El equipo aplica **GitFlow** (Driessen, 2010) para separar el trabajo en curso de las versiones estables:
 
-**Ramas de soporte:**
-- `feature/<nombre>` — una rama por cada funcionalidad o sección
-  en desarrollo. Se crean desde `develop` y se fusionan de vuelta a `develop`
-  al completarse.
-- `release/<version>` — se crean desde `develop` cuando se prepara
-  una entrega. Se fusionan a `main` y `develop` al finalizarse.
+| Rama | Uso |
+| :--- | :--- |
+| `main` / `master` | Versión estable y desplegada. Vercel publica en producción cada cambio integrado en esta rama. |
+| `develop` | Rama de integración. Recibe las *feature branches* terminadas antes de promoverlas a `main`. |
+| `feature/<nombre>` | Desarrollo aislado de una funcionalidad o capítulo. Se crea desde `develop` y vuelve a `develop` mediante merge o Pull Request. |
+| `release/<versión>` | Preparación de una versión (por ejemplo `release/1.0.0`) antes de integrarla a `main`. |
+| `hotfix/<descripción>` | Corrección urgente sobre `main`, que luego se integra también a `develop`. |
 
-**Convenciones de nomenclatura para ramas:**
+En el repositorio del informe se aplicó este flujo con una rama por capítulo (`feature/chapter-1` … `feature/chapter-5`), integradas a `develop` y luego a `main` (por ejemplo, el Pull Request #1 `feature/chapter4 → main`).
 
-| Tipo | Convención | Ejemplo |
-|------|-----------|---------|
-| Feature | `feature/<nombre-descriptivo>` | `feature/login-view` |
-| Release | `release/<version>` | `release/1.0.0` |
+![Ramas del repositorio del informe](../assets/chapter-5/gh-report-branches.png)
 
-### Conventional Commits
+*Figura 5.1.2-2. Ramas `main`, `develop` y `feature/chapter-*` del repositorio `KairoLabs-Project-Report`.*
 
-Los mensajes de commit siguen la especificación de Conventional Commits
-con la siguiente estructura:
+**Conventional Commits**
 
-`<type>(<scope>): <description>`
+Los mensajes de commit siguen la especificación **Conventional Commits 1.0.0**:
 
-Los tipos permitidos son:
+```text
+<type>(<scope>): <description>
 
-| Tipo | Uso |
-|------|-----|
-| `feat` | Nueva funcionalidad |
-| `fix` | Corrección de errores |
-| `docs` | Cambios en documentación |
-| `style` | Cambios de formato sin afectar lógica |
-| `refactor` | Refactorización de código |
-| `test` | Añadir o modificar pruebas |
-| `chore` | Tareas de mantenimiento |
+[body opcional]
+```
+
+| Tipo | Uso | Ejemplo |
+| :--- | :--- | :--- |
+| `feat` | Nueva funcionalidad | `feat(landing): rebrand to KairoLabs with partner logos and scroll animations` |
+| `fix` | Corrección de errores | `fix(deploy): serve landing from repo root, not leftover public folder` |
+| `chore` | Configuración o mantenimiento | `chore: add Vercel static config so index.html is served at root` |
+| `docs` | Documentación | `docs: estudiante Rodrigo Oblitas` |
+| `refactor` | Reestructuración sin cambio de comportamiento | `refactor(iam): align IAM bounded context with learning-center DDD pattern` |
+| `style` | Cambios de formato o estilos sin lógica | `style(landing): improve responsive layout` |
+| `test` | Pruebas | `test(iam): add sign-in flow scenarios` |
+
+**Semantic Versioning**
+
+Las versiones liberadas de cada producto se identifican con **Semantic Versioning 2.0.0** (`MAJOR.MINOR.PATCH`):
+
+- **MAJOR:** cambios incompatibles (por ejemplo, un cambio de contrato de la API).
+- **MINOR:** nuevas funcionalidades compatibles (por ejemplo, un nuevo módulo de la Web App).
+- **PATCH:** correcciones sin cambios funcionales.
+
+Las versiones se publican mediante *tags* sobre `main` (`v1.0.0`, `v1.1.0`, `v1.1.1`). El Project Report mantiene además su propio registro de versiones (1.01, 1.02, …) en el `README.md` del repositorio.
+
+---
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-En este apartado se definen los estándares de codificación y nomenclatura adoptados por el equipo para garantizar la mantenibilidad y legibilidad del código de **KairoLabs**. Se aplican las siguientes convenciones basadas en las guías de estilo de Google (para entornos Web) y Microsoft (para el ecosistema .NET):
+Toda la nomenclatura técnica (variables, funciones, clases, componentes, archivos y comentarios de código) se escribe en **inglés**. El contenido visible para el usuario se escribe en español y se traduce al inglés mediante i18n.
 
-* **Language Standards**: Todo el código fuente, incluyendo nombres de variables, funciones, clases, IDs de CSS y comentarios, se redacta exclusivamente en idioma **inglés** para mantener un estándar profesional global.
-* **Naming Conventions**:
-  * **Backend (C# / .NET)**: Se utiliza el estándar `PascalCase` para nombres de clases, métodos y propiedades (ej. `SensorDataController`). Para variables locales y parámetros se emplea `camelCase`.
-  * **Frontend (HTML/CSS)**: Se utiliza `kebab-case` para nombres de archivos de estilo (ej. `style.css`) y para nombres de clases e IDs en las hojas de estilo (ej. `.hero-section`, `.btn-orange-rounded`).
-  * **JavaScript**: Se aplica `camelCase` para variables y funciones (ej. `initIoTSimulation`, `tempElement`) y `kebab-case` para la nomenclatura de archivos de script (ej. `script.js`).
-* **Source Control Conventions**: Se aplica el estándar de **Conventional Commits**, utilizando prefijos descriptivos en inglés como `feat:`, `fix:`, `docs:`, y `chore:` para asegurar un historial de versiones estructurado y rastreable.
-* **Code Formatting**: Se mantiene una indentación consistente de 4 espacios en archivos HTML, CSS y JS para mejorar la jerarquía visual del código. En el desarrollo backend, se sigue el formato automático de Visual Studio para asegurar la limpieza de los archivos de clase.
+**Principios generales**
+
+- Nombres descriptivos que expresen la responsabilidad del elemento.
+- Indentación de 2 espacios en HTML, CSS, JavaScript y Vue; 4 espacios en C#.
+- Evitar duplicación: lógica reutilizable en servicios, stores o componentes compartidos.
+- Comentarios solo cuando aclaran una decisión no evidente.
+- Separación de responsabilidades por capa (`domain`, `application`, `infrastructure`, `presentation`).
+
+**HTML** (referencia: [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html))
+
+- Declarar `<!DOCTYPE html>` y el idioma (`<html lang="es">`).
+- Etiquetas y atributos en minúsculas, valores entre comillas dobles.
+- Etiquetas semánticas: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
+- Atributo `alt` en todas las imágenes y `aria-label` en controles sin texto (por ejemplo, el botón de menú de la versión móvil).
+- Cada sección de la Landing tiene un `id` usado por la navegación (`#tecnologia`, `#sectores`, `#planes`, `#contacto`).
+
+```html
+<section id="planes" class="pricing-section-premium">
+  <h2 data-i18n="plan_h2">Planes de Monitoreo</h2>
+</section>
+```
+
+**CSS**
+
+- Clases en `kebab-case` con prefijo de componente cuando aplica (`site-header__bar`, `team-equipo-card__badge`, notación BEM).
+- Variables CSS en `:root` para los colores del design system (navy `#102635`, naranja `#f47a38`).
+- Diseño responsive con `@media` (mobile-first en `KairoLabs-Mobile`).
+- Evitar `!important` y selectores excesivamente específicos.
+
+```css
+:root {
+  --ink: #102635;
+  --orange: #f47a38;
+  --radius: 24px;
+}
+```
+
+**JavaScript** (referencia: [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html))
+
+- `camelCase` para variables y funciones, `PascalCase` para clases, `UPPER_SNAKE_CASE` para constantes.
+- `const` por defecto, `let` solo si hay reasignación; no se usa `var`.
+- Módulos ES (`import` / `export`) y `async/await` para llamadas HTTP.
+
+**Vue.js (Web Application)** (referencia: [Vue Style Guide](https://vuejs.org/style-guide/))
+
+- Componentes *Single File Component* con `<script setup>`.
+- Archivos de vistas y componentes en `kebab-case` (`view-establishments.vue`, `control-center-panel.vue`).
+- Estructura por bounded context y capa:
+
+```text
+src/
+├── iam/                 # Identity & Access Management
+│   ├── application/     # iam.store.js (Pinia)
+│   ├── domain/          # entidades y comandos (sign-in.command.js)
+│   ├── infrastructure/  # iam-api.js, assemblers, guard, interceptor
+│   └── presentation/    # vistas y rutas
+├── establishment/
+├── monitoring/
+├── logistics/
+├── subscriptions/
+└── shared/              # layout, componentes comunes, base-api.js, mocks
+```
+
+- Entidades en `*.entity.js`, *assemblers* en `*.assembler.js`, clientes HTTP en `*-api.js` y stores en `*.store.js`.
+
+**C# / ASP.NET Core (RESTful API)** (referencia: [C# Coding Conventions – Microsoft](https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/coding-conventions))
+
+- `PascalCase` para clases, métodos y propiedades; prefijo `I` en interfaces (`IDeviceRepository`).
+- `camelCase` para parámetros y variables locales.
+- Sufijo `Async` en métodos asíncronos.
+- Recursos de entrada y salida con sufijo `Resource` (`SignInResource`, `CreateNestedDeviceResource`).
+
+**RESTful API**
+
+- Recursos en plural y minúsculas: `/api/v1/devices`, `/api/v1/transports`.
+- Rutas anidadas para expresar pertenencia: `/api/v1/establishments/{establishmentId}/devices`.
+- Atributos JSON en `snake_case` (`establishment_name`, `door_status`).
+- Verbos HTTP según la operación: `GET` (consultar), `POST` (crear), `PUT` (actualizar), `DELETE` (eliminar).
+
+**Gherkin**
+
+Los criterios de aceptación se redactan con **Gherkin** (`Given / When / Then`), en Happy Path y Unhappy Path, tal como se especificó en el Capítulo III.
+
+---
 
 ### 5.1.4. Software Deployment Configuration
 
-Esta sección detalla la configuración del despliegue de la solución en su versión final, permitiendo que los productos digitales sean accesibles de forma continua en entornos de producción.
+Cada producto se despliega de forma independiente. Los repositorios de la Landing Page y de la Web Application están conectados a Vercel, que genera un despliegue de **Production** cada vez que se integra un cambio en la rama principal. La API se ejecuta en Render y persiste en una base de datos de Filess.io.
 
-* **Hosting & Cloud Platforms**:
-  * **Landing Page**: Desplegada en **Vercel** — [https://KairoLabs-sensor.vercel.app/](https://KairoLabs-sensor.vercel.app/)
-  * **Web Application (Frontend)**: Desplegada en **Vercel** — [https://kairolabs-frontend.vercel.app/login](https://kairolabs-frontend.vercel.app/login)
-  * **Web Services & API (Backend)**: Desplegada en **Render** — [https://kairolabs-platform.onrender.com](https://kairolabs-platform.onrender.com)
-  * **Base de datos relacional**: Alojada en **Filess.io** (PostgreSQL), conectada al backend mediante variables de entorno en Render.
-* **Continuous Deployment (CD) Pipeline**:
-  * Cada repositorio en GitHub (`KairoLabs-Landing-Page`, `KairoLabs-Frontend`, `KairoLabs-Backend`) está vinculado a su plataforma de despliegue correspondiente.
-  * La rama `main` (o `master` en backend) activa despliegue automático al integrar cambios mediante merge o push.
-* **Environment Configuration**:
-  * **Frontend**: Variable `VITE_API_BASE_URL` apuntando a la URL de producción del backend en Render.
-  * **Backend (Render)**: `DATABASE_HOST`, `DATABASE_PORT`, `DATABASE_NAME`, `DATABASE_USER`, `DATABASE_PASSWORD`, y configuración JWT para autenticación.
-  * **Landing Page**: Despliegue estático sin variables sensibles; contenido público de presentación del producto.
+```mermaid
+flowchart LR
+    U([Usuario]) --> L[Landing Page<br/>Vercel]
+    U --> M[Mobile App<br/>incremento 1]
+    L -- "Comienza ahora" --> W[Web Application<br/>Vue 3 · Vercel]
+    M -- "Comienza ahora" --> W
+    W -- "HTTPS / JSON<br/>Axios" --> A[RESTful API<br/>ASP.NET Core · Render]
+    A --> D[(Base de datos<br/>Filess.io)]
+    G[GitHub<br/>Aether System] -. push a main/master .-> L
+    G -. push a main/master .-> W
+```
+
+*Figura 5.1.4-1. Arquitectura de despliegue de KairoLabs.*
+
+| Componente | Tecnología | Plataforma | URL | Rama | Configuración |
+| :--- | :--- | :--- | :--- | :---: | :--- |
+| Landing Page | HTML5, CSS3, JS, Bootstrap | Vercel (+ GitHub Pages) | https://landing-page-kairolabs.vercel.app | `main` | `vercel.json` con `outputDirectory: "."` y `cleanUrls: true` (sitio estático servido desde la raíz). |
+| Web Application | Vue 3 + Vite | Vercel | https://kairo-labs-frontend.vercel.app | `master` | Build `vite build`; `vercel.json` con *rewrite* `/(.*) → /index.html` para el enrutamiento SPA. |
+| Mobile (incremento 1) | Vite + HTML/CSS/JS | Local | `http://<ip-local>:5173` | `main` | `npm run dev` ejecuta `vite --host 0.0.0.0` para probar desde un smartphone en la misma red. |
+| RESTful API | ASP.NET Core | Render (Docker) | https://medi-track-sensor-platform.onrender.com | — | Web Service con Swagger UI publicado en `/swagger/index.html`. |
+| Base de datos | MySQL | Filess.io | — | — | Cadena de conexión inyectada como variable de entorno en Render. |
+
+**Variables de entorno de la Web Application**
+
+La URL del backend no se escribe en el código: se define por ambiente en archivos `.env`, que Vite expone mediante `import.meta.env`.
+
+| Variable | `.env.development` | `.env.production` |
+| :--- | :--- | :--- |
+| `VITE_USE_MOCKS` | `true` (base de datos en memoria) | `false` |
+| `VITE_API_BASE_URL` | `http://localhost:5000/api/v1` | `https://medi-track-sensor-platform.onrender.com/api/v1` |
+| `VITE_IAM_ENDPOINT_PATH` | `/users` | `/users` |
+| `VITE_ESTABLISHMENT_ENDPOINT_PATH` | `/establishments` | `/establishments` |
+| `VITE_MONITORING_ENDPOINT_PATH` | `/devices` | `/devices` |
+| `VITE_LOGISTICS_ENDPOINT_PATH` | `/transports` | `/transports` |
+| `VITE_SUBSCRIPTIONS_ENDPOINT_PATH` | `/subscriptions` | `/subscriptions` |
+
+**Variables de entorno de la RESTful API (Render)**
+
+| Variable | Función |
+| :--- | :--- |
+| `ASPNETCORE_ENVIRONMENT` | Ambiente de ejecución del servicio. |
+| `ConnectionStrings__DefaultConnection` | Cadena de conexión hacia la base de datos de Filess.io. |
+
+**Procedimiento de despliegue (Vercel)**
+
+1. Iniciar sesión en Vercel con la cuenta de GitHub e importar el repositorio (*Add New → Project*).
+2. Seleccionar el *framework preset*: **Other** para la Landing Page (estático) y **Vite** para la Web Application.
+3. Registrar las variables `VITE_*` en *Settings → Environment Variables* (solo Web Application).
+4. Confirmar *Deploy*. A partir de ese momento cada push a la rama principal genera un nuevo despliegue de producción, registrado por `vercel[bot]` en la pestaña *Deployments* del repositorio.
 
 ---
 
-## 5.2. Landing Page, Services & Applications Implementation
+## 5.2. Product Implementation & Deployment
 
-### 5.2.1. Sprint 1
+### 5.2.1. Sprint Backlogs
 
-En este Sprint se desarrolló e implementó la primera versión
-del Landing Page de KairoLabs, incluyendo su despliegue
-en un entorno accesible públicamente.
+En esta sección se presenta el Sprint Backlog del **Sprint 1**, que corresponde al primer incremento del producto para el Sprint Review de la semana 4. Las User Stories provienen del Product Backlog priorizado del Capítulo III y se gestionaron en Trello.
 
-#### 5.2.1.1. Sprint Planning 1
+| Sprint # | Sprint 1 |
+| :--- | :--- |
+| **Periodo** | 06/09/2026 – 30/09/2026 |
+| **Sprint 1 Goal** | Nuestro objetivo es entregar la primera fase de KairoLabs con su nueva imagen, el flujo de autenticación de la aplicación web Consideramos que esto proporciona un punto de entrada claro y coherente a KairoLabs para los gerentes de farmacia y el personal de almacén. . |
+| **Sum of Story Points** | 50 |
 
-A continuación se presenta el resumen del Sprint Planning Meeting
-realizado para el Sprint 1.
+**Tablero en Trello**
 
-| Sprint # | Sprint 1                                                                                                                                                                                                                                                                                                                             |
-|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Sprint Planning Background** |                                                                                                                                                                                                                                                                                                                                      |
-| Date | 2026-04-15                                                                                                                                                                                                                                                                                                                           |
-| Time | 04:30 PM                                                                                                                                                                                                                                                                                                                             |
-| Location | Reunión virtual vía Google Meet                                                                                                                                                                                                                                                                                                      |
-| Prepared By | *(completar: integrante del equipo)*                                                                                                                                                                                                                                                                                                            |
-| Attendees | Mallqui Vilca, Dhilsen Armil / *(completar: integrante del equipo)* / *(completar: integrante del equipo)*                                                                                                                                                                        |
-| **Sprint Goal & User Stories** |                                                                                                                                                                                                                                                                                                                                      |
-| Sprint 1 Goal | Our goal is to lay the groundwork for the project and launch the first version of the landing page. We believe this page will allow healthcare providers and pharmacy managers to better understand KairoLabs, which measures the status of medications in their storage environment. This will be confirmed once the landing page is live and contains relevant content for both target groups. |
-| Sprint 1 Velocity | 21                                                                                                                                                                                                                                                                                                                                   |
-| Sum of Story Points | 21                                                                                                                                                                                                                                                                                                                                   |
+![Sprint Backlog en Trello](../assets/chapter-5/sprint1-trello-product-backlog.png)
 
-#### 5.2.1.2. Aspect Leaders and Collaborators
+*Figura 5.2.1-1. Tablero KairoLabs — Product Backlog en Trello (columnas Product Backlog, Ready, In Progress y Done).*
 
-En esta sección se detalla la matriz de liderazgo y colaboración (LACX) para el Sprint 1. Cada aspecto representa una fase crítica de la entrega, donde se designa un líder (L) responsable de la dirección del entregable y colaboradores (C) que apoyaron en su ejecución, cumpliendo con el objetivo de proporcionar liderazgo conjunto y un entorno colaborativo (ABET Student Outcome 5).
+**Enlace del tablero:** https://trello.com/invite/b/6aadc5316cf3b1b25172d115/ATTI62b2568d05f97578a9aaa820380a86ceF4D89A86/kairolabs-product-backlog
 
-| Team Member (Last Name, First Name) | GitHub Username | Idea de Negocio y Bases | Diseño de App Web (Figma) | Contenido y Despliegue Landing | User Stories y Funciones | Análisis de Usuario y Needfinding |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| *(completar: integrante del equipo)* | completar-integrante | C | **L** | C | C | C |
-| Mallqui Vilca, Dhilsen Armil | Dhilsen18 | C | C | **L** | C | **L** |
-| *(completar: integrante del equipo)* | completar-integrante | **L** | C | C | **L** | C |
-
----
-
-**Sustento de los Aspectos de Liderazgo:**
-
-* ***(completar: integrante del equipo)* (Diseño de App Web):** Lideró la arquitectura visual y experiencia de usuario del software, siendo responsable de los prototipos de alta fidelidad en Figma para la plataforma web.
-* **Mallqui Vilca, Dhilsen Armil (Contenido y Despliegue Landing / Análisis de Usuario):** Responsable de la presencia web del producto y del proceso de investigación empática, liderando la implementación de la Landing Page en Vercel y la elaboración de User Personas y Journey Maps.
-* ***(completar: integrante del equipo)* (Idea de Negocio / User Stories):** Lideró la conceptualización estratégica del proyecto, la definición de la problemática del sector salud y la traducción de necesidades en historias de usuario con criterios de aceptación.
-
-#### 5.2.1.3. Sprint Backlog 1
-
-Durante el primer sprint backlog, nuestro equipo tuvo como objetivo principal diseñar la Aplicación Web y Landing Page, completando esta última en el proceso. Para la organización y gestión de los miembros se utilizó Trello, lo que permitió dividir las user stories en tareas manejables y asignarlas a cada integrante según sus habilidades. El propósito de este sprint fue construir en su totalidad la landing page, asegurando que fuera atractiva, funcional y alineada con la propuesta de valor de TBL.
-
-![Sprint Backlog 1](../assets/Sprint%20Backlog%201.png)
-
-Enlace de Trello: https://trello.com/invite/b/69e9e940d5d58b559007b0af/ATTIbc7fef21e3ae9af5f9b1524a8311a897E9406869/KairoLabs-sensor
-
-A continuación se presenta la descomposición de User Stories en tareas del Sprint 1:
+**Sprint Backlog 1**
 
 | Sprint # | Sprint 1 | | | | | | |
-|----------|----------|---|---|---|---|---|---|
+| :--- | :--- | :--- | :--- | :--- | :---: | :--- | :---: |
 | **User Story** | | **Work-Item / Task** | | | | | |
-| **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
-| US25 | Adaptación a dispositivos | T01 | Implementar diseño responsive | Configurar media queries y hacer la landing adaptable a móviles, tablets y desktop | 8 | Mallqui Vilca, Dhilsen Armil | Done |
-| US01 | Navegación clara | T02 | Desarrollar navbar sticky | Implementar barra de navegación fija con smooth scroll | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US06 | Mensaje principal claro | T03 | Implementar sección hero | Desarrollar hero section con typing animation y tagline | 5 | Mallqui Vilca, Dhilsen Armil | Done |
-| US13 | Presentación profesional | T04 | Diseñar mockups en Figma | Crear diseño visual profesional de todas las secciones | 10 | *(completar: integrante del equipo)* | Done |
-| US13 | Presentación profesional | T05 | Aplicar design system | Implementar colores, tipografía Outfit y elementos visuales | 6 | *(completar: integrante del equipo)* / Mallqui Vilca, Dhilsen Armil | Done |
-| US10 | Botón de contacto visible | T06 | Implementar CTAs | Añadir botones de contacto en navbar y hero | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US11 | Acceso a contacto | T07 | Desarrollar formulario de contacto | Crear formulario con campos de nombre, empresa, email, teléfono y mensaje | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US21 | Información de monitoreo | T08 | Implementar dashboard IoT simulado | Desarrollar tarjetas con datos simulados de temperatura, humedad y luz | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| US02 | Acceso a sección de tecnología | T09 | Desarrollar sección tecnología | Crear sección con explicación del sistema y features | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US03 | Acceso a sectores | T10 | Desarrollar sección sectores | Implementar cards de hospitales, distribución y farmacias | 5 | Mallqui Vilca, Dhilsen Armil | Done |
-| US16 | Contenido para almacenes | T11 | Redactar contenido segmento operativo | Escribir textos orientados a personal de almacén | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US17 | Contenido para entidades | T12 | Redactar contenido segmento gestores | Escribir textos orientados a entidades de salud | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US07 | Identificación del problema | T13 | Desarrollar sección problema | Implementar floating cards con problemática | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US04 | Información del equipo | T14 | Desarrollar sección nosotros | Crear sección con misión, visión y equipo KairoLabs | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US22 | Incentivo a contacto | T15 | Implementar planes de suscripción | Desarrollar pricing cards con planes Básico, Profesional y Premium | 5 | Mallqui Vilca, Dhilsen Armil | Done |
-| US15 | Coherencia visual | T16 | Implementar animaciones | Añadir reveal animations con IntersectionObserver | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US12 | Respuesta visual a interacción | T17 | Añadir efectos hover | Implementar transiciones y efectos en botones y cards | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US26 | Carga eficiente | T18 | Optimizar assets | Comprimir imágenes y optimizar carga de fuentes | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US05 | Visualización de beneficios | T19 | Implementar sección stats | Desarrollar contador animado con métricas clave | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US14 | Información estructurada | T20 | Organizar contenido | Estructurar secciones en orden lógico y jerarquía visual | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| - | - | T21 | Configurar despliegue en Vercel | Conectar repositorio y configurar deployment automático | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| - | - | T22 | Definir User Stories | Documentar 27 User Stories con criterios de aceptación | 6 | *(completar: integrante del equipo)* | Done |
-| - | - | T23 | Realizar entrevistas | Conducir entrevistas con ambos segmentos objetivo | 8 | *(completar: integrante del equipo)* / Mallqui Vilca, Dhilsen Armil | Done |
-| - | - | T24 | Elaborar User Personas | Crear arquetipos basados en entrevistas | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| - | - | T25 | Crear Journey Maps | Mapear experiencia de usuarios | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-
-#### 5.2.1.4. Development Evidence for Sprint Review
-
-Durante el Sprint 1, el equipo utilizó GitHub como sistema de control de versiones, siguiendo el flujo de trabajo GitFlow para asegurar una integración ordenada del código. A continuación, se presenta el registro de los commits más relevantes que evidencian el desarrollo de la Landing Page y la colaboración del equipo.
-
-**Repository:** 1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Landing-Page
-
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `KairoLabs-Landing-Page` | `main` | `cf30ba5` | `feat: implement team section` | `Added specific content and layout for the startup team profiles.` | 19/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `e6420c0` | `chore: finalize landing page structure` | `Final adjustments to the HTML structure for the initial release.` | 12/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `965dc26` | `fix: resolve remaining layout issues` | `Ensured all sections are correctly aligned after final review.` | 11/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `03e62cb` | `fix: clean up code and remove errors` | `General debugging of CSS and HTML validation issues.` | 11/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `5d82cf0` | `docs: add project readme file` | `Initial documentation of the repository and project description.` | 11/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `4c8156b` | `feat: update landing page and design` | `Applied general style updates and design refinements for UX.` | 11/04/2026 |
-| `KairoLabs-Landing-Page` | `main` | `74dba14` | `chore: initial commit` | `Initial repository setup with base project files.` | 10/04/2026 |
-
-
-#### 5.2.1.5. Execution Evidence for Sprint Review
-
-En esta sección se presenta la evidencia de la ejecución del Sprint 1, demostrando el cumplimiento de los objetivos establecidos y el despliegue del producto en un entorno de producción accesible.
-
-![Landing pAge EVIDENCE](../assets/Landing%20pAge%20EVIDENCE.png)
-
-**Enlace del Landing Page:** [https://KairoLabs-sensor.vercel.app/](https://KairoLabs-sensor.vercel.app/)
-
-**Evidencia de Despliegue (Vercel):**
-
-A continuación, se presenta la captura del dashboard de Vercel que confirma el despliegue exitoso (Production Deployment) de la Landing Page desde el repositorio oficial de GitHub.
-
-![Deploy Landing](../assets/Deploy%20Landing.jpeg)
-
-#### 5.2.1.6. Services Documentation Evidence for Sprint Review
-
-Para el presente Sprint 1, el alcance se centró exclusivamente en la implementación y despliegue del Landing Page (sitio web estático). Por lo tanto, no se han desarrollado servicios RESTful API en esta etapa. La documentación detallada de los endpoints mediante OpenAPI (Swagger) se incluirá en los informes correspondientes a los siguientes Sprints, una vez iniciada la fase de implementación de los Web Services.
-
-#### 5.2.1.7. Software Deployment Evidence for Sprint Review
-
-El deploy de la Landing Page se hizo en Vercel de la siguiente manera
-
-### Paso 1: Se agregó el proyecto
-
-![Agregar proyecto](../assets/Agregar%20proyecto.png)
-
-### Paso 2: Se agregó el repositorio
-
-![Agregar repositorio](../assets/Agregar%20repositorio.png)
-
-### Paso 3: Se hace deploy con html, css y javascript
-
-![Deploy Landing](../assets/Deploy%20Landing.jpeg)
-
-#### 5.2.1.8. Team Collaboration Insights during Sprint
-
-La implementación de la entrega AV1 fue un esfuerzo conjunto que integró el desarrollo técnico de la Landing Page y la elaboración del reporte de ingeniería. El equipo aplicó un liderazgo compartido donde cada integrante fue responsable de la calidad de sus respectivos apartados, manteniendo una comunicación constante para asegurar la coherencia entre el diseño, los requerimientos y el producto desplegado.
-
-A continuación, se presentan las evidencias de colaboración extraídas de los analíticos de GitHub, las cuales muestran la participación activa de todos los miembros tanto en el repositorio del código fuente como en el repositorio del informe del proyecto.
-
-**Evidencia de Contribuciones en el Código (Landing Page):**
-
-![Deploy Contributors del repositorio de la Landing Page](../assets/Deploy%20Contributors%20del%20repositorio%20de%20la%20Landing%20Page.png)
-
-**Evidencia de Contribuciones en el Reporte (Documentation):**
-
-![Contributors del repositorio del informe](../assets/Contributors%20del%20repositorio%20del%20informe.png)
-
-### 5.2.2. Sprint 2
-
-En esta sección se registra y explica el avance en términos de producto y trabajo
-colaborativo para el Sprint 2. Incluye como secciones internas: Sprint Planning 2,
-Aspect Leaders and Collaborators, Sprint Backlog 2, Development Evidence for Sprint
-Review, Execution Evidence for Sprint Review, Services Documentation Evidence for
-Sprint Review, junto con Team Collaboration Insights during Sprint.
-
-#### 5.2.2.1. Sprint Planning 2
-
-A continuación se presenta el resumen del Sprint Planning Meeting realizado para el Sprint 2.
-
-| Sprint #                           | Sprint 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Sprint Planning Background**     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Date                               | 2026-05-11                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Time                               | 9:30 PM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Location                           | Reunión virtual vía Discord                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Prepared By                        | *(completar: integrante del equipo)*                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Attendees                          | Mallqui Vilca, Dhilsen Armil / *(completar: integrante del equipo)* / *(completar: integrante del equipo)*                                                                                                                                                                                                                                                                                                       |
-| Sprint 2 – 1 Review Summary        | Sprint 1 was very well coordinated; however, we failed to meet the requirements, resulting in a noticeable decrease in the quality of the content and the software product delivered during this sprint. The landing page was of good quality; however, the established requirements regarding commits and product development were not followed. Team members are aware of these errors thanks to feedback provided by the Product Owner.                                                           |
-| Sprint 2 – 1 Retrospective Summary | The team admits that the development of the previous sprint was not fully aligned with the requested requirements. We recognize that the software products were correctly oriented in terms of the stated objectives; However, its implementation and development presented deficiencies. Fortunately, the Product Owner provided us with important support through constant feedback, which allowed us to identify errors and make the necessary corrections to improve the quality of the product. **Acción de mejora aplicada en Sprint 2:** se reforzó el uso de GitFlow, Conventional Commits y evidencia en GitHub; el resultado fue la entrega del frontend funcional desplegado en Vercel con módulos IAM, monitoreo, suscripciones, establecimientos y logística. |
-| **Sprint Goal & User Stories**     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Sprint 2 Goal                      | Our goal is to develop our first version of the frontend of our web application. We believe that this application will allow entity pharmacy administrators to manage data within the establishments belonging to the health entity, as well as its operators and devices. Likewise, operators will be able to manage the data received by the devices and transports according to the metrics received by them.                                                                                     |
-| Sprint 2 Velocity                  | 20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Sum of Story Points                | 23                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-
-
-#### 5.2.2.2. Aspect Leaders and Collaborators
-
-En esta sección se detalla la matriz de liderazgo y colaboración (LACX) para el Sprint 2. Cada aspecto representa una fase crítica de la entrega del frontend, donde se designa un líder (L) responsable de la dirección del entregable y colaboradores (C) que apoyaron en su ejecución, cumpliendo con el objetivo de proporcionar liderazgo conjunto y un entorno colaborativo (ABET Student Outcome 5).
-
-| Team Member (Last Name, First Name) | GitHub Username | Frontend Development | IAM Module | Subscriptions Module | Monitoring Module | Establishment Module | Logistics Module | Frontend UI/Design | Report & Documentation |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Mallqui Vilca, Dhilsen Armil | Dhilsen18 | C | C | **L** | **L** | **L** | C | C | C |
-| *(completar: integrante del equipo)* | completar-integrante | C | **L** | C | C | C | **L** | C | C |
-| *(completar: integrante del equipo)* | completar-integrante | **L** | C | C | C | C | C | **L** | **L** |
-
----
-
-**Sustento de los Aspectos de Liderazgo:**
-
-* **Mallqui Vilca, Dhilsen Armil (Subscriptions & Monitoring Modules):** Dirigió el diseño e implementación de los módulos de planes, suscripciones y monitoreo, definiendo la lógica de visualización de indicadores y estados del sistema.
-* ***(completar: integrante del equipo)* (IAM & Logistics Modules):** Lideró la estructuración de autenticación y los módulos de logística, coordinando flujos operativos y seguimiento de transportes farmacéuticos.
-* ***(completar: integrante del equipo)* (Frontend UI/Design & Report):** Lideró la coherencia visual, la experiencia de usuario del frontend y la consolidación del reporte de Sprint 2, asegurando trazabilidad entre tareas y evidencia presentada.
-
-#### 5.2.2.3. Sprint Backlog 2.
-
-Durante el segundo sprint backlog, nuestro equipo tuvo como objetivo principal diseñar la Aplicación Web completándola parcialmente para esta segunda entrega. Para la organización y gestión de los miembros se utilizó Trello, lo que permitió dividir las user stories en tareas manejables y asignarlas a cada integrante según sus habilidades. El propósito de este sprint fue construir parcialmente la aplicación web, asegurando que fuera funcional, atractiva y alineada con la propuesta de valor de TBL.
-
-![Sprint Backlog 2](../assets/Sprint%20Backlog%202.png)
-
-Enlace de Trello: https://trello.com/invite/b/6a02a35d4f75f7ddabeabe1c/ATTIbbc3193b48f5acf5194c54a2233ca38e2EFFB77A/KairoLabs
-
-| Sprint # | Sprint 2 | | | | | | |
-|----------|----------|---|---|---|---|---|---|
-| **User Story** | | **Work-Item / Task** | | | | | |
-| **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-001 | Crear widget de temperatura | Desarrollar componente visual para mostrar temperatura en tiempo real | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-003 | Mostrar timestamp de última lectura | Implementar visualización de fecha y hora de la última actualización del sensor | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US30 | Monitoreo de luz | TS-US30-001 | Crear widget de intensidad lumínica | Desarrollar componente visual para mostrar niveles de luz | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US42 | Identificación de desviaciones visuales | TS-US42-002 | Resaltar sensores críticos con colores de alerta | Aplicar indicadores visuales para sensores fuera de rango | 3 | *(completar: integrante del equipo)* | Done |
-| US33 | Identificación por ubicación | TS-US33-005 | Validar legibilidad de ubicaciones en móviles | Verificar correcta visualización responsive de ubicaciones | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US25 | Adaptación a dispositivos | TS-US25-001 | Implementar media queries principales | Configurar estilos responsive para dashboard y módulos | 5 | Mallqui Vilca, Dhilsen Armil | Done |
-| US25 | Adaptación a dispositivos | TS-US25-002 | Adaptar navbar para dispositivos móviles | Ajustar navegación responsive para smartphones y tablets | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US25 | Adaptación a dispositivos | TS-US25-007 | Realizar pruebas responsive en múltiples resoluciones | Validar funcionamiento visual en distintos tamaños de pantalla | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| US28 | Visualización de sensores activos | TS-US28-005 | Integrar estilos responsive | Aplicar diseño adaptable al panel de sensores | 3 | *(completar: integrante del equipo)* | Done |
-| US30 | Monitoreo de luz | TS-US30-004 | Implementar indicador visual de rango seguro | Mostrar estado seguro o crítico de niveles lumínicos | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US34 | Estado general del sistema | TS-US34-002 | Mostrar total de sensores activos | Implementar contador general de sensores conectados | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US37 | Visualización de gráficos | TS-US37-001 | Crear gráfico de temperatura | Desarrollar gráfico dinámico de tendencias de temperatura | 5 | *(completar: integrante del equipo)* | Done |
-| US42 | Identificación de desviaciones visuales | TS-US42-001 | Crear lógica visual para valores fuera de rango | Implementar detección visual de valores críticos | 4 | *(completar: integrante del equipo)* | Done |
-| US28 | Visualización de sensores activos | TS-US28-007 | Validar visualización responsive de sensores | Verificar correcta adaptación responsive de tarjetas de sensores | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-006 | Validar visualización en dispositivos móviles | Probar visualización responsive del módulo de temperatura | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US34 | Estado general del sistema | TS-US34-004 | Implementar indicador general de estado | Mostrar estado global del sistema mediante indicadores visuales | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US42 | Identificación de desviaciones visuales | TS-US42-001 | Crear lógica visual para valores fuera de rango | Revisar funcionamiento de detección visual de alertas | 4 | *(completar: integrante del equipo)* | Done |
-| US30 | Monitoreo de luz | TS-US30-006 | Validar adaptación responsive del módulo | Validar correcta adaptación responsive del widget lumínico | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US37 | Visualización de gráficos | TS-US37-002 | Diseñar estilos responsive para gráficos | Corregir problemas visuales y adaptación responsive de gráficos | 3 | *(completar: integrante del equipo)* | Done |
-| US28 | Visualización de sensores activos | TS-US28-003 | Mostrar nombre y estado del sensor | Implementar visualización de información principal de sensores | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US28 | Visualización de sensores activos | TS-US28-004 | Implementar indicador visual activo/inactivo | Mostrar estado activo o desconectado mediante colores e íconos | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| US28 | Visualización de sensores activos | TS-US28-005 | Consumir datos mock de sensores | Integrar datos simulados para pruebas del dashboard | 3 | *(completar: integrante del equipo)* | Done |
-| US28 | Visualización de sensores activos | TS-US28-006 | Aplicar estilos al panel de sensores | Diseñar interfaz visual del módulo de sensores | 3 | *(completar: integrante del equipo)* | Done |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-002 | Mostrar valor actual en °C | Implementar lectura actual de temperatura con unidad | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US29 | Monitoreo de temperatura en dashboard | TS-US29-005 | Actualizar estilos visuales según rango | Aplicar estilos dinámicos según valores críticos o normales | 3 | *(completar: integrante del equipo)* | Done |
-| US34 | Estado general del sistema | TS-US34-001 | Diseñar sección resumen del dashboard | Crear layout general del resumen del sistema | 4 | *(completar: integrante del equipo)* | Done |
-| US33 | Identificación por ubicación | TS-US33-001 | Mostrar ubicación física de sensores | Implementar etiquetas de ubicación física de sensores | 2 | Mallqui Vilca, Dhilsen Armil | Done |
-| US33 | Identificación por ubicación | TS-US33-002 | Diseñar etiqueta visual de ubicación | Crear estilos visuales para etiquetas de ubicación | 2 | *(completar: integrante del equipo)* | Done |
-| US33 | Identificación por ubicación | TS-US33-003 | Implementar agrupación visual por ubicación | Agrupar sensores visualmente según su área física | 3 | *(completar: integrante del equipo)* | Done |
-
-#### 5.2.2.4. Development Evidence for Sprint Review
-
-Durante el Sprint 2, el equipo de desarrollo utilizó GitHub como sistema de control de versiones, siguiendo la estrategia GitFlow para organizar el trabajo en branches por bounded context. A continuación, se presenta el registro de los commits más relevantes que evidencian el desarrollo de los módulos principales del frontend de KairoLabs.
-
-![Development Evidence TB1](../assets/Development%20Evidence%20TB1.png)
-
-LINK DEL DESPLIEGUE EN VERCEL: https://kairolabs-frontend.vercel.app/login
-
-**Repository:** 1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Frontend
-
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `KairoLabs-Frontend` | `feature/iam` | `385fda5` | `Merge branch 'feature/iam' into develop` | Integración del módulo IAM con autenticación y registro de usuarios. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/monitoring` | `fa859b5` | `feat(monitoring): finalize devices view with data integration and premium UI` | Vista de dispositivos con integración de datos y UI premium. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/monitoring` | `33911c5` | `feat(control-center): implement control center panel with KPI charts` | Panel de control central con gráficos KPI y visualización de datos. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/monitoring` | `7b10919` | `feat(monitoring): add dashboard styles and responsive design configuration` | Estilos del dashboard y configuración responsive. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/establishments` | `642bdf1` | `Merge branch 'feature/establishments' into develop` | Integración del módulo de gestión de establecimientos. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/establishments` | `d2a12e6` | `feat(establishments): rename and refactor establishment detail view` | Refactorización de la vista de detalle de establecimientos. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/logistics` | `8d2c1b8` | `Merge branch 'feature/logistics' into develop` | Integración del módulo de logística y transportes. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/subscriptions` | `4b851ae` | `feat: Implement plans selection view with plan management` | Vista de selección de planes con gestión de suscripción. | 12/05/2026 |
-| `KairoLabs-Frontend` | `feature/profile` | `d0dc7f4` | `feat(profile): implement user profile management with editing capabilities` | Gestión de perfil de usuario con edición y UI mejorada. | 12/05/2026 |
-| `KairoLabs-Frontend` | `develop` | `327a143` | `feat: update routing, styles, and multi-language support` | Actualización de rutas, estilos y soporte multiidioma (vue-i18n). | 13/05/2026 |
-| `KairoLabs-Frontend` | `develop` | `f3d3b34` | `feat(vercel): add initial configuration for URL rewrites` | Configuración inicial de despliegue en Vercel. | 12/05/2026 |
-| `KairoLabs-Frontend` | `develop` | `1515e1a` | `feat(dashboard): refactor fetchDashboardData to improve error handling` | Mejora del manejo de errores en consumo de datos del dashboard. | 12/05/2026 |
-| `KairoLabs-Frontend` | `release/1.0.0` | `cc5b4f6` | `Merge branch 'release/1.0.0'` | Consolidación de release del Sprint 2 con todos los módulos integrados. | 12/05/2026 |
-
-#### 5.2.2.5. Execution Evidence for Sprint Review
-
-Después de finalizar el Sprint 2, logramos implementar la primera versión funcional del frontend de KairoLabs. Esta entrega consolida las pantallas principales definidas en los wireframes y mockups del capítulo de diseño, permitiendo una navegación coherente entre autenticación, visualización de información y gestión operativa para los dos segmentos objetivo del sistema.
-
-La evidencia que se presenta a continuación resume las principales vistas desarrolladas durante este sprint. Cada figura incluye una breve descripción funcional y una leyenda debajo de la captura para facilitar su revisión visual.
-
-**1. Login y registro**
-
-Pantalla de acceso para que los usuarios puedan iniciar sesión y autenticarse dentro de la plataforma.
-
-![Login y registro](../assets/login_front.png)
-
-*Figura 5.2.2.5-1. Pantalla de login y registro del frontend de KairoLabs.*
-
-**2. Dashboard principal**
-
-Panel central donde se visualiza el estado general del sistema y los indicadores más relevantes del monitoreo.
-
-![Dashboard principal](../assets/dashboard_front.png)
-
-*Figura 5.2.2.5-2. Vista principal del dashboard del frontend de KairoLabs.*
-
-![Dashboard secundario](../assets/dashboard2_front.png)
-
-*Figura 5.2.2.5-3. Vista complementaria del dashboard con información operativa adicional.*
-
-**3. Gestión de establecimientos**
-
-Sección orientada a registrar y consultar la información de las sedes o almacenes farmacéuticos vinculados a la entidad.
-
-![Gestión de establecimientos](../assets/gestion_estable_front.png)
-
-*Figura 5.2.2.5-4. Vista de gestión de establecimientos del frontend de KairoLabs.*
-
-![Gestión de establecimientos 2](../assets/gestion_estable2_front.png)
-
-*Figura 5.2.2.5-5. Vista complementaria de gestión de establecimientos con información ampliada.*
-
-**4. Gestión de dispositivos y transportes**
-
-Espacio destinado al control de los equipos y unidades asociadas al seguimiento de las condiciones ambientales.
-
-![Gestión de dispositivos](../assets/gestion_dispo.png)
-
-*Figura 5.2.2.5-6. Vista de gestión de dispositivos del frontend de KairoLabs.*
-
-![Gestión de transportes](../assets/gestion_transp_front.png)
-
-*Figura 5.2.2.5-7. Vista de gestión de transportes del frontend de KairoLabs.*
-
-![Gestión de transportes 2](../assets/gestion_transp2_front.png)
-
-*Figura 5.2.2.5-8. Vista complementaria de gestión de transportes con mayor detalle.*
-
-**5. Perfil de usuario**
-
-Módulo para revisar y actualizar la información personal y la configuración de la cuenta.
-
-![Perfil de usuario](../assets/perfil_usuario_front.png)
-
-*Figura 5.2.2.5-9. Pantalla de perfil de usuario del frontend de KairoLabs.*
-
-**6. Alertas e incidencias**
-
-Vista enfocada en la notificación de eventos críticos y su seguimiento oportuno.
-
-![Alertas e incidencias](../assets/alertas%20_ins_front.png)
-
-*Figura 5.2.2.5-10. Pantalla de alertas e incidencias del frontend de KairoLabs.*
-
-**7. Planes y suscripción**
-
-Sección que presenta el estado del plan activo y las opciones de suscripción disponibles.
-
-![Planes y suscripción](../assets/planes_suscrip_front.png)
-
-*Figura 5.2.2.5-11. Pantalla principal de planes y suscripción del frontend de KairoLabs.*
-
-![Planes y suscripción 2](../assets/planes_suscrip2_front.png)
-
-*Figura 5.2.2.5-12. Vista complementaria de planes y suscripción del frontend de KairoLabs.*
-
-#### 5.2.2.6. Services Documentation Evidence for Sprint Review
-
-Durante el Sprint 2 el alcance se centró en el **frontend web** (Vue.js). No se desarrollaron servicios RESTful en esta iteración; la comunicación con datos se realizó mediante mocks locales para validar la experiencia de usuario del dashboard y los módulos de monitoreo, establecimientos y suscripciones.
-
-La documentación de servicios RESTful mediante OpenAPI (Swagger) se implementó en el Sprint 3 y se consolidó en el Sprint 4 con la API desplegada en producción.
-
-#### 5.2.2.7. Software Deployment Evidence for Sprint Review
-
-El frontend de KairoLabs se desplegó en **Vercel** como primera versión de la Web Application:
-
-| Componente | Plataforma | URL de producción |
-| :--- | :--- | :--- |
-| Frontend Web Application | Vercel | [https://kairolabs-frontend.vercel.app/login](https://kairolabs-frontend.vercel.app/login) |
-| Repositorio | GitHub | `1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Frontend` |
-| Rama de despliegue | `main` | Auto-deploy activo |
-
-El despliegue permitió validar visualmente los módulos de monitoreo, establecimientos, transportes y suscripciones antes de la integración con el backend en Sprints posteriores.
-
-#### 5.2.2.8. Team Collaboration Insights during Sprint
-
-En esta sección se evidencia la colaboración del equipo durante el Sprint 2 en el desarrollo de la primera versión del frontend de KairoLabs, así como en la coordinación del reporte y la continuidad del Landing Page. La organización del trabajo se distribuyó por bounded contexts y permitió mantener coherencia entre diseño, implementación y documentación.
-
-**Repositorio de Frontend:** KairoLabs-Frontend
-
-- **Subscriptions - Dhilsen Armil Mallqui Vilca:** desarrolló la lógica y presentación de las vistas asociadas a planes y suscripción, asegurando claridad en la interacción con las opciones disponibles.
-- **Monitoring - Dhilsen Armil Mallqui Vilca:** participó en la construcción del módulo de monitoreo y seguimiento, orientando la visualización de indicadores y estados del sistema.
-- **Establishment - Dhilsen Armil Mallqui Vilca:** implementó las vistas y la lógica relacionadas con establecimientos, cuidando la navegación y la consistencia funcional del módulo.
-- **Logistics - *(completar: integrante del equipo)*:** apoyó la implementación de la parte operativa vinculada a logística, estructurando información y flujos relacionados con el movimiento y gestión de recursos.
-- **Frontend - *(completar: integrante del equipo)*:** contribuyó en la implementación general del frontend, incluyendo la coherencia visual, la adaptación responsive y la integración de los componentes principales de la interfaz.
-
-**Repositorio del Reporte:** KairoLabs-Project-Report
-
-- ***(completar: integrante del equipo)*:** lideró la redacción, organización y consolidación de la sección de desarrollo del reporte, asegurando trazabilidad entre el sprint y la evidencia presentada.
-
-**Repositorio del Landing Page:** KairoLabs-Landing-Page
-
-- **Dhilsen Armil Mallqui Vilca:** lideró la implementación y el despliegue del Landing Page, manteniendo la base visual del producto y su publicación continua.
-
-En conjunto, la colaboración del Sprint 2 reflejó una distribución equilibrada de responsabilidades, donde el trabajo por bounded contexts permitió avanzar de forma ordenada en el frontend y sostener la documentación del proyecto.
-
----
-
-### 5.2.3. Sprint 3
-
-En esta sección se registra y explica el avance en términos de producto backend y trabajo
-colaborativo para el Sprint 3. Incluye como secciones internas: Sprint Planning 3,
-Aspect Leaders and Collaborators, Sprint Backlog 3, Development Evidence for Sprint
-Review, Execution Evidence for Sprint Review, Services Documentation Evidence for
-Sprint Review, junto con Team Collaboration Insights during Sprint.
-
-#### 5.2.3.1. Sprint Planning 3
-
-A continuación se presenta el resumen del Sprint Planning Meeting realizado para el Sprint 3.
-
-| Sprint #                           | Sprint 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Sprint Planning Background**     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Date                               | 2026-06-12                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Time                               | 5:00 PM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Location                           | Reunión virtual vía Discord                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Prepared By                        | *(completar: integrante del equipo)*                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Attendees                          | Mallqui Vilca, Dhilsen Armil / *(completar: integrante del equipo)* / *(completar: integrante del equipo)*                                                                                                                                                                                                                                                                       |
-| **Sprint Goal & User Stories**     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Sprint 3 Goal                      | Our goal is to develop the backend API and web services for the KairoLabs platform. We believe that this implementation will provide the core functionality required by the frontend application, enabling data persistence, authentication, and RESTful API endpoints for managing subscriptions, devices, establishments, operators, and logistics. This will be confirmed once all microservices are deployed and integrated with the frontend application. |
-| Sprint 3 Velocity                  | 18                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Sum of Story Points                | 18                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-
-#### 5.2.3.2. Aspect Leaders and Collaborators
-
-En esta sección se detalla la matriz de liderazgo y colaboración (LACX) para el Sprint 3. Cada aspecto representa una fase crítica de la entrega del backend, donde se designa un líder (L) responsable de la dirección del entregable y colaboradores (C) que apoyaron en su ejecución, cumpliendo con el objetivo de proporcionar liderazgo conjunto y un entorno colaborativo (ABET Student Outcome 5).
-
-| Team Member (Last Name, First Name) | GitHub Username | Backend Architecture | IAM Module | Subscriptions Module | Monitoring Module | Establishments Module | Logistics Module | Database Design | Services Deployment |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| *(completar: integrante del equipo)* | completar-integrante | **L** | **L** | C | **L** | **L** | C | **L** | C |
-| Mallqui Vilca, Dhilsen Armil | Dhilsen18 | C | C | **L** | C | C | C | C | C |
-| *(completar: integrante del equipo)* | completar-integrante | C | C | C | C | C | **L** | C | **L** |
-
----
-
-**Sustento de los Aspectos de Liderazgo:**
-
-* ***(completar: integrante del equipo)* (Backend Architecture, IAM, Monitoring, Establishments & Database):** Lideró la arquitectura general de microservicios, la implementación del módulo de autenticación, el diseño de la base de datos relacional y los endpoints de dispositivos y establecimientos.
-* **Mallqui Vilca, Dhilsen Armil (Subscriptions Module):** Responsable de la implementación de la lógica de planes de suscripción, integrando endpoints para creación, consulta y eliminación de suscripciones vinculadas a administradores.
-* ***(completar: integrante del equipo)* (Logistics Module & Services Deployment):** Lideró la implementación de endpoints de logística y transportes, además de coordinar el despliegue en Render y la configuración de infrastructure.
-
-#### 5.2.3.3. Sprint Backlog 3
-
-Durante el tercer sprint backlog, nuestro equipo tuvo como objetivo principal implementar los web services y API RESTful de KairoLabs, completando los endpoints principales para las cinco áreas funcionales del sistema. Para la organización y gestión se utilizó Trello, permitiendo dividir las tareas de desarrollo backend en incrementos manejables y asignarlas según especialidad técnica.
-
-![Sprint Backlog 3 Trello](../assets/sprint-backlog-3-trello.png)
-
-Enlace de Trello: https://trello.com/invite/b/6a2997ef988f03df0e99f5ba/ATTIe7076c2890011c022be6d9d46ec8740b24ABF214/sprint-3
-
-| Sprint # | Sprint 3 | | | | | | |
-|----------|----------|---|---|---|---|---|---|
-| **User Story / Endpoint** | | **Work-Item / Task** | | | | | |
-| **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
-| EP01 | GET /api/v1/admins | TS-EP01-001 | Implementar endpoint GET Admins | Desarrollar endpoint para listar administradores | 4 | *(completar: integrante del equipo)* | Done |
-| EP02 | POST /api/v1/admins | TS-EP02-001 | Implementar endpoint POST Admins | Desarrollar endpoint para crear nuevo administrador | 6 | *(completar: integrante del equipo)* | Done |
-| EP03 | GET /api/v1/devices | TS-EP03-001 | Implementar endpoint GET Devices | Desarrollar endpoint para listar dispositivos | 4 | *(completar: integrante del equipo)* | Done |
-| EP04 | POST /api/v1/devices | TS-EP04-001 | Implementar endpoint POST Devices | Desarrollar endpoint para crear nuevo dispositivo | 6 | *(completar: integrante del equipo)* | Done |
-| EP05 | PUT /api/v1/devices/{id}/sensor-data | TS-EP05-001 | Implementar endpoint PUT Sensor Data | Desarrollar endpoint para actualizar datos de sensores | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP06 | DELETE /api/v1/devices/{id} | TS-EP06-001 | Implementar endpoint DELETE Devices | Desarrollar endpoint para eliminar dispositivo | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP07 | GET /api/v1/establishments | TS-EP07-001 | Implementar endpoint GET Establishments | Desarrollar endpoint para listar establecimientos | 4 | *(completar: integrante del equipo)* | Done |
-| EP08 | POST /api/v1/establishments | TS-EP08-001 | Implementar endpoint POST Establishments | Desarrollar endpoint para crear establecimiento | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP09 | DELETE /api/v1/establishments/{id} | TS-EP09-001 | Implementar endpoint DELETE Establishments | Desarrollar endpoint para eliminar establecimiento | 4 | *(completar: integrante del equipo)* | Done |
-| EP10 | GET /api/v1/operators | TS-EP10-001 | Implementar endpoint GET Operators | Desarrollar endpoint para listar operadores | 4 | *(completar: integrante del equipo)* | Done |
-| EP11 | POST /api/v1/operators | TS-EP11-001 | Implementar endpoint POST Operators | Desarrollar endpoint para crear operador | 6 | *(completar: integrante del equipo)* | Done |
-| EP12 | PUT /api/v1/operators/{id} | TS-EP12-001 | Implementar endpoint PUT Operators | Desarrollar endpoint para actualizar operador | 5 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP13 | DELETE /api/v1/operators/{id} | TS-EP13-001 | Implementar endpoint DELETE Operators | Desarrollar endpoint para eliminar operador | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP14 | PUT /api/v1/operators/{id}/alert-answered | TS-EP14-001 | Implementar endpoint PUT Alert Answered | Desarrollar endpoint para incrementar conteo de alertas respondidas | 5 | *(completar: integrante del equipo)* | Done |
-| EP15 | GET /api/v1/subscriptions | TS-EP15-001 | Implementar endpoint GET Subscriptions | Desarrollar endpoint para recuperar lista de suscripciones | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP16 | POST /api/v1/subscriptions | TS-EP16-001 | Implementar endpoint POST Subscriptions | Desarrollar endpoint para crear nueva suscripción | 6 | *(completar: integrante del equipo)* | Done |
-| EP17 | DELETE /api/v1/subscriptions/{id} | TS-EP17-001 | Implementar endpoint DELETE Subscriptions | Desarrollar endpoint para eliminar suscripción | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP18 | GET /api/v1/transports | TS-EP18-001 | Implementar endpoint GET Transports | Desarrollar endpoint para listar transportes | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP19 | POST /api/v1/transports | TS-EP19-001 | Implementar endpoint POST Transports | Desarrollar endpoint para crear transporte | 6 | *(completar: integrante del equipo)* | Done |
-| EP20 | PUT /api/v1/transports/{id}/sensor-data | TS-EP20-001 | Implementar endpoint PUT Transport Sensor Data | Desarrollar endpoint para actualizar datos de sensores en transporte | 6 | *(completar: integrante del equipo)* | Done |
-| EP21 | DELETE /api/v1/transports/{id} | TS-EP21-001 | Implementar endpoint DELETE Transports | Desarrollar endpoint para eliminar transporte | 4 | *(completar: integrante del equipo)* | Done |
-| EP22 | GET /api/v1/users | TS-EP22-001 | Implementar endpoint GET Users | Desarrollar endpoint para listar usuarios | 4 | *(completar: integrante del equipo)* | Done |
-| EP23 | POST /api/v1/users | TS-EP23-001 | Implementar endpoint POST SignUp | Desarrollar endpoint para registrar nuevos usuarios | 6 | *(completar: integrante del equipo)* | Done |
-| EP24 | POST /api/v1/users/sign-in | TS-EP24-001 | Implementar endpoint POST SignIn | Desarrollar endpoint para autenticación y generación JWT | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| EP25 | DELETE /api/v1/users/{id} | TS-EP25-001 | Implementar endpoint DELETE Users | Desarrollar endpoint para eliminar usuario | 4 | *(completar: integrante del equipo)* | Done |
-
-#### 5.2.3.4. Development Evidence for Sprint Review
-
-Durante el Sprint 3, el equipo de backend utilizó GitHub como sistema de control de versiones, siguiendo la estrategia GitFlow con branches por bounded context. El repositorio `KairoLabs-Backend` es privado; por ello, la evidencia principal de desarrollo se documenta mediante el despliegue en Render, la especificación OpenAPI en Swagger y la verificación de endpoints en producción.
-
-**Repository:** 1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Backend (privado)
-
-**Evidencia de despliegue y documentación:**
-
-| Evidencia | URL / descripción | Fecha |
-| :--- | :--- | :--- |
-| Swagger UI (OpenAPI 3.0) | [https://kairolabs-platform.onrender.com/swagger/index.html](https://kairolabs-platform.onrender.com/swagger/index.html) | 23/06/2026 |
-| API en producción (Render) | `kairolabs-platform.onrender.com` | 23/06/2026 |
-| Base de datos PostgreSQL | Filess.io — persistencia de entidades IAM, dispositivos, establecimientos, operadores, suscripciones y transportes | 23/06/2026 |
-
-**Endpoints implementados (verificados en Swagger):**
-
-| Módulo | Endpoints | Métodos |
-| :--- | :--- | :--- |
-| IAM | `/api/v1/users`, `/api/v1/users/sign-in`, `/api/v1/admins` | GET, POST, DELETE |
-| Monitoring | `/api/v1/devices`, `/api/v1/devices/{id}/sensor-data` | GET, POST, PUT, DELETE |
-| Establishments | `/api/v1/establishments` | GET, POST, DELETE |
-| Subscriptions | `/api/v1/subscriptions` | GET, POST, DELETE |
-| Logistics | `/api/v1/operators`, `/api/v1/transports` | GET, POST, PUT, DELETE |
-
-#### 5.2.3.5. Execution Evidence for Sprint Review
-
-Después de finalizar el Sprint 3, logramos implementar la versión inicial del backend de KairoLabs con los endpoints principales funcionando. Esta entrega consolida los Web Services necesarios para integrar la aplicación frontend con la base de datos persistente, permitiendo operaciones CRUD completas en los cinco módulos principales del sistema.
-
-**Enlace de Despliegue:** [https://kairolabs-platform.onrender.com/swagger/index.html](https://kairolabs-platform.onrender.com/swagger/index.html)
-
-**Endpoints Implementados y Funcionales:**
-
-Según el documento Swagger generado, se implementaron exitosamente los siguientes endpoints en la fase inicial:
-
-- POST /api/v1/subscriptions — Creación de suscripciones
-- POST /api/v1/devices — Registración de dispositivos de monitoreo
-- PUT /api/v1/devices/{id}/sensor-data — Actualización de datos de sensores
-- POST /api/v1/users/sign-in — Autenticación de usuarios con JWT
-- POST /api/v1/establishments — Creación de establecimientos
-- DELETE /api/v1/establishments/{id} — Eliminación de establecimientos
-- GET /api/v1/operators — Consulta de operadores del sistema
-- PUT /api/v1/operators/{id} — Actualización de información de operadores
-
-#### 5.2.3.6. Services Documentation Evidence for Sprint Review
-
-Se generó documentación OpenAPI (Swagger) de todos los endpoints implementados. La especificación técnica incluye:
-
-- **Autenticación:** Esquema JWT Bearer en headers
-- **Validación:** Reglas de negocio y restricciones de datos
-- **Respuestas:** Códigos HTTP y formatos de payload según REST standards
-- **Modelos:** Definiciones de entidades y value objects del dominio
-
-La documentación interactiva está disponible en el endpoint `/swagger/ui` del servidor backend para pruebas manuales de los servicios.
-
-#### 5.2.3.7. Software Deployment Evidence for Sprint Review
-
-El despliegue del backend de KairoLabs se realizó exitosamente en **Render** para el Web Service y **Filess.io** para la base de datos relacional. A continuación se presenta la evidencia del proceso de deployment.
-
-**Infrastructure & Hosting:**
-
-**1. Database Configuration (Filess.io)**
-
-Se configuró una base de datos PostgreSQL remota en Filess.io con los siguientes parámetros:
-
-![Database Configuration Filess](../assets/database-filess-config.png)
-
-*Figura 5.2.3.7-1. Configuración de credenciales de base de datos en Filess.io*
-
-- **Host:** ryne-j.h.filess.io
-- **Port:** 3306
-- **Database:** medi_track_sensor_db_homeworth
-- **User:** medi_track_sensor_db_homeworth
-
-**2. Web Service Deployment (Render)**
-
-Se creó un nuevo Web Service en Render con la siguiente configuración:
-
-![Render Web Service Configuration](../assets/render-new-web-service.png)
-
-*Figura 5.2.3.7-2. Panel de creación del Web Service en Render*
-
-**Configuración:**
-- **Name:** kairolabs-platform
-- **Runtime:** Docker
-- **Source Code Repository:** 1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Backend
-- **Branch:** master
-- **Region:** Virginia (US East)
-- **Instance Type:** Free plan with upgradeable capacity
-
-**3. Deployment Status**
-
-El servicio se desplegó exitosamente en Render:
-
-![Render Deployment Status](../assets/render-deployment-status.png)
-
-*Figura 5.2.3.7-3. Estado de deployment exitoso en Render*
-
-- **Service Name:** kairolabs-platform
-- **Status:** Deployed
-- **Runtime:** Docker
-- **Region:** Virginia
-- **Last Updated:** 53 minutes ago
-
-**4. Environment Variables Configuration**
-
-Se configuraron las siguientes variables de entorno en Render para la conexión con la base de datos:
-
-![Render Environment Variables](../assets/render-env-variables.png)
-
-*Figura 5.2.3.7-4. Variables de entorno configuradas en Render*
-
-- DATABASE_HOST
-- DATABASE_PORT
-- DATABASE_NAME
-- DATABASE_USER
-- DATABASE_PASSWORD
-- (Adicionales según configuración de seguridad)
-
-**5. API Documentation & Swagger UI**
-
-El backend está completamente documentado y accesible a través de Swagger/OpenAPI:
-
-![Swagger API Documentation](../assets/swagger-api-docs.png)
-
-*Figura 5.2.3.7-5. Documentación interactiva de API en Swagger UI*
-
-**URL de Producción:** https://kairolabs-platform.onrender.com/swagger/index.html
-
-**Endpoints Desplegados y Accesibles:**
-- POST /api/v1/subscriptions
-- POST /api/v1/devices
-- PUT /api/v1/devices/{id}/sensor-data
-- POST /api/v1/users/sign-in
-- POST /api/v1/establishments
-- DELETE /api/v1/establishments/{id}
-- GET /api/v1/operators
-- PUT /api/v1/operators/{id}
-
-**Deployment Summary:**
-
-| Componente | Plataforma | Status | URL |
-|---|---|---|---|
-| Backend API | Render | Active | https://kairolabs-platform.onrender.com |
-| Swagger UI | Render | Active | https://kairolabs-platform.onrender.com/swagger/index.html |
-| Database | Filess.io | Connected | PostgreSQL (ryne-j.h.filess.io:3306) |
-| Repository | GitHub | Linked | KairoLabs-Backend |
-| CI/CD | Render | Auto-Deploy | Automatic on push to master |
-
-#### 5.2.3.8. Team Collaboration Insights during Sprint
-
-En esta sección se evidencia la colaboración del equipo durante el Sprint 3 en el desarrollo del backend de KairoLabs, con una distribución clara de módulos por bounded context y responsabilidades técnicas.
-
-**Repositorio de Backend:** KairoLabs-Backend
-
-- ***(completar: integrante del equipo)* (IAM & Backend Architecture):** lideró la arquitectura general de microservicios y la implementación del módulo de autenticación, estableciendo patrones de seguridad y estructuras de control.
-- **Mallqui Vilca, Dhilsen Armil (Subscriptions Module):** implementó los endpoints de gestión de planes de suscripción, asegurando persistencia y validación de datos.
-- ***(completar: integrante del equipo)* (Monitoring Module & Database Design):** diseñó la estructura de base de datos relacional e implementó los endpoints para dispositivos, establecimientos y sensor data.
-- ***(completar: integrante del equipo)* (Logistics Module & Deployment):** implementó endpoints de operadores y transportes, además de coordinar la estrategia de deployment en Render.
-
-**Contribuciones y Participación:**
-
-El equipo mantuvo una comunicación constante mediante Discord y reuniones sincrónicas, colaborando en:
-- Code reviews antes de merges a develop
-- Resolución de conflictos Git en features complejas
-- Testing manual de endpoints mediante Postman/Swagger UI
-- Documentación de cambios en commits con Conventional Commits
-
-En conjunto, el Sprint 3 consolidó las bases técnicas del backend, permitiendo una integración fluida con el frontend desarrollado en Sprint 2 y preparando el sistema para las fases siguientes de optimización y escalabilidad.
-
-
-### 5.2.4. Sprint 4
-
-En esta sección se registra y explica el avance en términos del producto backend, frontend y trabajo
-colaborativo para el Sprint 4. Incluye como secciones internas: Sprint Planning 4,
-Aspect Leaders and Collaborators, Sprint Backlog 4, Development Evidence for Sprint
-Review, Execution Evidence for Sprint Review, Services Documentation Evidence for
-Sprint Review, junto con Team Collaboration Insights during Sprint.
-
-#### 5.2.4.1. Sprint Planning 4
-
-| Sprint #                       | Sprint 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Sprint Planning Background** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Date                           | 2026-07-05                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Time                           | 8:00 PM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Location                       | Reunión virtual vía Discord                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Prepared By                    | *(completar: integrante del equipo)*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Attendees                      | Mallqui Vilca, Dhilsen Armil / *(completar: integrante del equipo)* / *(completar: integrante del equipo)*                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Sprint Goal & User Stories** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Sprint 4 Goal                  | Our goal is to finalize the backend API and web services for the KairoLabs platform, and ensure their seamless integration with the frontend application. We believe that uniting these components will deliver a complete and functional ecosystem, enabling data persistence, authentication, and RESTful API endpoints for managing subscriptions, devices, establishments, operators, and logistics. This will be confirmed once both the frontend and all backend microservices are correctly deployed, connected, and fully operational. |
-| Sprint 4 Velocity              | 16                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Sum of Story Points            | 16                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
-#### 5.2.4.2. Aspect Leaders and Collaborators
-
-En esta sección se detalla la matriz de liderazgo y colaboración (LACX) para el Sprint 4. Cada aspecto representa una fase crítica de la entrega final, donde se designa un líder (L) responsable de la dirección del entregable y colaboradores (C) que apoyaron en su ejecución.
-
-| Team Member (Last Name, First Name) | GitHub Username | Backend Finalization | Frontend Integration | Database Optimization | Services Documentation | Full-Stack Deployment | Report & Conclusions |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| *(completar: integrante del equipo)* | completar-integrante | **L** | C | **L** | **L** | C | C |
-| Mallqui Vilca, Dhilsen Armil | Dhilsen18 | C | **L** | C | C | **L** | C |
-| *(completar: integrante del equipo)* | completar-integrante | C | C | C | C | **L** | **L** |
-
----
-
-**Sustento de los Aspectos de Liderazgo:**
-
-* ***(completar: integrante del equipo)* (Backend Finalization, Database & Documentation):** Lideró la finalización de endpoints del backend API, la optimización de persistencia de datos y la documentación completa de servicios en Swagger/OpenAPI.
-* **Mallqui Vilca, Dhilsen Armil (Frontend Integration & Deployment):** Responsable de la integración del frontend con los servicios REST del backend y el despliegue final de la aplicación web en Vercel conectada a la API en producción.
-* ***(completar: integrante del equipo)* (Full-Stack Deployment & Report):** Lideró el despliegue final del backend en Render, la consolidación de evidencias del Sprint 4 y la redacción de conclusiones finales del informe.
-
-#### 5.2.4.3. Sprint Backlog 4
-
-![Sprint Backlog 4 Trello](../assets/sprint-backlog-4-trello.png)
-
-Enlace de Trello:
-https://trello.com/invite/b/6a4aec825530c3b6ab9db1b7/ATTI2034d17571ccf6acbefeae2e9ecfb71e4BAC22E5/sprint-4
-
-Durante el Sprint 4, el equipo priorizó la integración full-stack y el cierre del ciclo de vida del proyecto. A continuación se presenta la descomposición de tareas:
-
-| Sprint # | Sprint 4 | | | | | | |
-|----------|----------|---|---|---|---|---|---|
-| **User Story / Objetivo** | | **Work-Item / Task** | | | | | |
 | **Id** | **Title** | **Id** | **Title** | **Description** | **Estimation (Hours)** | **Assigned To** | **Status** |
-| INT01 | Integración full-stack | T01 | Configurar URL de API en frontend | Conectar `VITE_API_BASE_URL` al backend en Render | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| INT02 | Integración full-stack | T02 | Validar flujo de autenticación | Probar login, JWT y redirección post sign-in | 4 | Mallqui Vilca, Dhilsen Armil | Done |
-| INT03 | Integración full-stack | T03 | Validar módulos CRUD en frontend | Verificar establecimientos, dispositivos, operadores y transportes | 6 | Mallqui Vilca, Dhilsen Armil | Done |
-| API01 | Finalización backend | T04 | Completar endpoints pendientes | Finalizar endpoints REST de todos los bounded contexts | 8 | *(completar: integrante del equipo)* | Done |
-| API02 | Finalización backend | T05 | Documentar API en Swagger | Completar especificación OpenAPI de todos los servicios | 4 | *(completar: integrante del equipo)* | Done |
-| DB01 | Persistencia de datos | T06 | Optimizar esquema de base de datos | Validar relaciones y persistencia en Filess.io | 4 | *(completar: integrante del equipo)* | Done |
-| DEP01 | Despliegue producción | T07 | Desplegar frontend final en Vercel | Publicar versión integrada con API en producción | 3 | Mallqui Vilca, Dhilsen Armil | Done |
-| DEP02 | Despliegue producción | T08 | Desplegar backend final en Render | Verificar pipeline CI/CD y variables de entorno | 4 | *(completar: integrante del equipo)* | Done |
-| DOC01 | Cierre del proyecto | T09 | Actualizar informe TB2 | Registro de versiones, Student Outcome y Sprint 4 | 6 | *(completar: integrante del equipo)* | Done |
-| DOC02 | Cierre del proyecto | T10 | Redactar conclusiones finales | Conclusiones, recomendaciones y validación del producto | 4 | *(completar: integrante del equipo)* | Done |
-
-#### 5.2.4.4. Development Evidence for Sprint Review
-
-Durante el Sprint 4, el equipo consolidó la integración entre los tres repositorios de producto y el repositorio del informe. A continuación se registran los commits más relevantes del repositorio del informe y los enlaces de los repositorios de código:
-
-**Repository (Informe):** `1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Project-Report`
-
-| Repository | Branch | Commit Id | Commit Message | Committed on (Date) |
-| :--- | :--- | :--- | :--- | :--- |
-| `KairoLabs-Project-Report` | `main` | `970794a` | `fix(main): update version project` | 05/07/2026 |
-| `KairoLabs-Project-Report` | `main` | `908a6f2` | `add: include evidence and links for Sprint 4 frontend and backend deployments` | 05/07/2026 |
-| `KairoLabs-Project-Report` | `main` | `b777a05` | `docs: add Sprint 4 details including planning, backlog, and collaboration insights` | 05/07/2026 |
-
-**Repository (Frontend — integración API):** `1ASI0732-2610-9082-TBL-KairoLabs/KairoLabs-Frontend`
-
-| Repository | Branch | Commit Id | Commit Message | Committed on (Date) |
-| :--- | :--- | :--- | :--- | :--- |
-| `KairoLabs-Frontend` | `main` | `705a464` | `feat: connect control center to API and fix transport registration` | 05/07/2026 |
-| `KairoLabs-Frontend` | `main` | `e048b3f` | `fix: treat billing as design-only mock gateway separate from API sign-up` | 05/07/2026 |
-| `KairoLabs-Frontend` | `main` | `48bc7d2` | `fix: register health entity in single POST /users call` | 04/07/2026 |
-| `KairoLabs-Frontend` | `main` | `ebb2ced` | `feat: improve UX with sidebar, semantic routes, delete devices and map filters` | 04/07/2026 |
-| `KairoLabs-Frontend` | `main` | `f39624a` | `refactor(iam): align IAM bounded context with learning-center DDD pattern` | 01/07/2026 |
-
-**Repositorios de producto:**
-
-| Producto | Repositorio GitHub | URL de producción |
-| :--- | :--- | :--- |
-| Landing Page | `KairoLabs-Landing-Page` | [https://KairoLabs-sensor.vercel.app/](https://KairoLabs-sensor.vercel.app/) |
-| Frontend | `KairoLabs-Frontend` | [https://kairolabs-frontend.vercel.app/login](https://kairolabs-frontend.vercel.app/login) |
-| Backend API | `KairoLabs-Backend` | [https://kairolabs-platform.onrender.com/swagger/index.html](https://kairolabs-platform.onrender.com/swagger/index.html) |
-
-#### 5.2.4.5. Execution Evidence for Sprint Review
-
-En esta sección se documenta la ejecución del producto final integrado. Los entrevistados y el equipo validaron los siguientes flujos sobre el sistema desplegado:
-
-| Flujo validado | Descripción | URL de evidencia |
-| :--- | :--- | :--- |
-| Login y autenticación | Acceso con credenciales y generación de sesión JWT | [Frontend — Login](https://kairolabs-frontend.vercel.app/login) |
-| Dashboard de monitoreo | Visualización de sensores, temperatura y humedad | [Frontend — Dashboard](https://kairolabs-frontend.vercel.app/login) |
-| Gestión de establecimientos | CRUD de sedes y almacenes farmacéuticos | [Frontend — App](https://kairolabs-frontend.vercel.app/login) |
-| API REST documentada | Consulta y prueba de endpoints en Swagger UI | [Backend — Swagger](https://kairolabs-platform.onrender.com/swagger/index.html) |
-| Landing Page final | Presentación del producto y propuesta de valor | [Landing Page](https://KairoLabs-sensor.vercel.app/) |
-
-**Endpoints verificados en producción:**
-
-- `POST /api/v1/users/sign-in` — Autenticación con JWT
-- `GET /api/v1/devices` — Listado de dispositivos IoT
-- `POST /api/v1/devices` — Registro de dispositivos
-- `PUT /api/v1/devices/{id}/sensor-data` — Actualización de telemetría
-- `GET /api/v1/establishments` — Consulta de establecimientos
-- `POST /api/v1/establishments` — Creación de establecimientos
-- `GET /api/v1/operators` — Listado de operadores
-- `GET /api/v1/subscriptions` — Consulta de suscripciones
-- `GET /api/v1/transports` — Listado de transportes
-
-#### 5.2.4.6. Services Documentation Evidence for Sprint Review
-
-La documentación completa de la API REST se encuentra disponible en Swagger UI (OpenAPI 3.0):
-
-**URL:** [https://kairolabs-platform.onrender.com/swagger/index.html](https://kairolabs-platform.onrender.com/swagger/index.html)
-
-| Módulo (Bounded Context) | Endpoints principales | Métodos |
-| :--- | :--- | :--- |
-| IAM (Users & Admins) | `/api/v1/users`, `/api/v1/users/sign-in`, `/api/v1/admins` | GET, POST, DELETE |
-| Subscriptions | `/api/v1/subscriptions` | GET, POST, DELETE |
-| Monitoring (Devices) | `/api/v1/devices`, `/api/v1/devices/{id}/sensor-data` | GET, POST, PUT, DELETE |
-| Establishments | `/api/v1/establishments` | GET, POST, DELETE |
-| Logistics (Operators & Transports) | `/api/v1/operators`, `/api/v1/transports` | GET, POST, PUT, DELETE |
-
-La especificación incluye esquema JWT Bearer para autenticación, modelos de entidades del dominio, códigos HTTP estándar y reglas de validación de negocio para cada recurso.
-
-#### 5.2.4.7. Software Deployment Evidence for Sprint Review
-
-Resumen del despliegue final del ecosistema KairoLabs:
-
-| Componente | Plataforma | URL | Estado |
-| :--- | :--- | :--- | :--- |
-| Landing Page | Vercel | [KairoLabs-sensor.vercel.app](https://KairoLabs-sensor.vercel.app/) | Activo |
-| Web Application | Vercel | [kairolabs-frontend.vercel.app](https://kairolabs-frontend.vercel.app/login) | Activo |
-| Backend API | Render | [kairolabs-platform.onrender.com](https://kairolabs-platform.onrender.com) | Activo |
-| Swagger UI | Render | [swagger/index.html](https://kairolabs-platform.onrender.com/swagger/index.html) | Activo |
-| Base de datos | Filess.io | PostgreSQL (`medi_track_sensor_db_homeworth`) | Conectada |
-
-**Configuración de despliegue:**
-- **Backend:** Runtime Docker en Render, rama `master`, región Virginia (US East), auto-deploy desde GitHub.
-- **Frontend:** Build Vue.js en Vercel, variable `VITE_API_BASE_URL` apuntando al backend en Render.
-- **Base de datos:** PostgreSQL remota en Filess.io con credenciales gestionadas como variables de entorno en Render.
-
-#### 5.2.4.8. Team Collaboration Insights during Sprint
-
-En esta sección se evidencia la colaboración del equipo durante el Sprint 4 en la integración full-stack y el cierre del ciclo de vida del proyecto KairoLabs.
-
-**Repositorio de Frontend:** KairoLabs-Frontend
-
-- **Mallqui Vilca, Dhilsen Armil (Frontend Integration):** lideró la conexión del frontend con la API en producción y validó los flujos de autenticación y navegación entre módulos.
-- ***(completar: integrante del equipo)* (UI Consistency & Report):** supervisó la coherencia visual del producto final y consolidó las evidencias de despliegue en el informe del proyecto.
-
-**Repositorio de Backend:** KairoLabs-Backend
-
-- ***(completar: integrante del equipo)* (Backend Finalization):** finalizó los endpoints pendientes del backend, optimizó la persistencia de datos y completó la documentación Swagger de todos los servicios.
-- ***(completar: integrante del equipo)* (Deployment):** coordinó el despliegue final del backend en Render y verificó la operatividad del ecosistema completo.
-
-**Repositorio del Reporte:** KairoLabs-Project-Report
-
-- ***(completar: integrante del equipo)*:** lideró la actualización del registro de versiones TB2, Student Outcome y la redacción de conclusiones finales del informe.
+| US01 | Navegación clara | T01 | Rediseñar header y navegación | Barra de navegación fija con resaltado de la sección activa y selector ES/EN. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
+| US02 | Mensaje hero claro | T02 | Implementar hero de KairoLabs | Hero con video de fondo, tagline y CTA principal. | 4 | Mallqui Vilca, Dhilsen Armil | Done |
+| US03 | Acceso a sección tecnología | T03 | Implementar sección Tecnología | Carrusel de capacidades, resultados esperados y video demostrativo. | 6 | Mallqui Vilca, Dhilsen Armil | Done |
+| US04 | Acceso a sectores objetivo | T04 | Implementar sección Sectores | Tarjetas para personal operativo de almacenes y gestores de farmacia. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US06 | Información del equipo | T05 | Actualizar sección Equipo | Tarjetas de los integrantes de Aether System. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US16 | Información de planes y precios | T06 | Implementar deck de planes | Planes Piloto, Básico, Profesional, Hospitalario y Premium. | 5 | Mallqui Vilca, Dhilsen Armil | Done |
+| US20 | Información de la empresa | T07 | Implementar sección Nosotros | Acordeón con misión, visión y equipo académico. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US21 | Botón de contacto visible | T08 | Enlazar CTAs a la plataforma | Botones "Comienza ahora" dirigidos a la Web Application. | 1 | Mallqui Vilca, Dhilsen Armil | Done |
+| US27 | Carga eficiente | T09 | Optimizar recursos y despliegue | Retiro del video de 62 MB y configuración estática de Vercel (`vercel.json`). | 2 | Mallqui Vilca, Dhilsen Armil | Done |
+| US26 | Adaptación responsive | T10 | Ajustar responsive de la Landing | Corrección del header y de las secciones en pantallas pequeñas. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US26 | Adaptación responsive | T11 | Construir versión mobile-first | Repositorio `KairoLabs-Mobile`: menú táctil, acordeón, carruseles deslizables y CTA a la Web App. | 8 | Oblitas Alcalde, Rodrigo | Done |
+| US29 | Pantalla de Login | T12 | Rediseñar vistas de autenticación | Login y registro con el design system navy/naranja y panel visual lateral. | 5 | Mallqui Vilca, Dhilsen Armil | Done |
+| US31 | Registro Sign Up operador/usuario | T13 | Registro de personal de almacén | Formulario con código de entidad de salud. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
+| US32 | Registro Sign Up entidad Admin | T14 | Registro de gestor de farmacia | Formulario con nombre de la entidad y paso a selección de plan. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
+| US30 | Inicio de sesión (Login) | T15 | Integrar sign-in con la API | Consumo de `POST /api/v1/users/sign-in` y persistencia de la sesión. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| US34 | Protección de rutas privadas | T16 | Validar guard de autenticación | Redirección a `/login` cuando no existe sesión activa. | 2 | Mallqui Vilca, Dhilsen Armil | Done |
+| US48 | Login diferenciado personal vs entidad | T17 | Redirección según rol | Home de entidad de salud u home de personal operativo según el rol. | 3 | Mallqui Vilca, Dhilsen Armil | Done |
+| TS10 | Swagger/OpenAPI publish | T18 | Verificar API desplegada | Revisión de Swagger UI y ejecución de endpoints de lectura en producción. | 3 | Dinklange Arevalo, Sandro | Done |
+| — | Documentación | T19 | Capítulo I | Revisión de la introducción, 5W2H y Lean UX. | 6 | Diaz Mendoza, Sebastian Victor Andre | Done |
+| — | Documentación | T20 | Capítulo II | Actualización de entrevistas y análisis de requisitos. | 5 | Dinklange Arevalo, Sandro | Done |
+| — | Documentación | T21 | Capítulo III | User Stories, Product Backlog, To-Be Scenario Mapping e Impact Mapping. | 8 | Mallqui Vilca, Dhilsen Armil | Done |
+| — | Documentación | T22 | Capítulo IV | Documentación del diseño del producto. | 6 | Ramirez Escalante, Carlo Patricio | Done |
+| — | Documentación | T23 | Capítulo V | Evidencias de implementación, despliegue y documentación de la API. | 8 | Dinklange Arevalo, Sandro | Done |
 
 ---
 
-## 5.3. Validation Interviews
+### 5.2.2. Implemented Landing Page Evidence
 
-### 5.3.1. Diseño de Entrevistas
+La Landing Page presenta la propuesta de valor de KairoLabs a los dos segmentos objetivo (personal operativo de almacenes farmacéuticos y gestores de farmacia). En el Sprint 1 se realizó el *rebranding* a KairoLabs / Aether System, se incorporaron los logos de las instituciones del marco regulatorio, las animaciones de scroll y la configuración de despliegue estático en Vercel.
 
-Para la validación del producto final se diseñaron sesiones estructuradas en las que representantes de cada segmento objetivo interactuaron con el **Landing Page** desplegado y la **Web Application** integrada con el backend en producción.
-
-**Objetivo de validación:** Confirmar que KairoLabs resuelve la problemática de monitoreo manual, que la interfaz es comprensible para usuarios no técnicos y que los flujos críticos del sistema funcionan correctamente en el entorno desplegado.
-
-**User flows evaluados durante la validación:**
-
-| Segmento | User flow | Producto evaluado | Tareas asignadas al entrevistado |
-| :--- | :--- | :--- | :--- |
-| Personal operativo | Login → Dashboard → Monitoreo de sensores | Web Application | Consultar temperatura actual, identificar alertas visuales, navegar entre módulos |
-| Personal operativo | Gestión de dispositivos | Web Application | Visualizar lista de sensores activos y su estado |
-| Gestores de salud | Login → Dashboard central → Establecimientos | Web Application | Supervisar estado general del sistema y ubicaciones |
-| Gestores de salud | Planes y suscripción | Web Application | Revisar opciones de planes y claridad de la información |
-| Ambos segmentos | Navegación y comprensión | Landing Page | Evaluar propuesta de valor, secciones y llamados a la acción |
-
-**Metodología:** Sesiones semiestructuradas de 15–20 minutos. Cada entrevistado recibió una guía con tareas específicas sobre el producto desplegado y se registraron sus apreciaciones sobre usabilidad, claridad y utilidad percibida.
-
-### 5.3.2. Registro de Entrevistas
-
-#### Segmento 01: Personal operativo de almacenes farmacéuticos
-
-| Campo | Entrevistado 1 | Entrevistado 2 |
-| :--- | :--- | :--- |
-| **Nombres y apellidos** | Luis Mendoza | Jorge Pérez |
-| **Edad** | 32 años | 28 años |
-| **Distrito** | San Juan de Lurigancho | Miraflores |
-| **Institución** | Hospital público | Clínica privada |
-| **Duración** | 18 min | 16 min |
-| **Productos evaluados** | Landing Page + Web Application | Landing Page + Web Application |
-
-**Resumen — Luis Mendoza (operario de almacén):**
-Luis completó el flujo de login y accedió al dashboard de monitoreo sin asistencia. Identificó con claridad los widgets de temperatura y humedad, señalando que la información es más útil que sus registros manuales en cuaderno. Valoró positivamente los indicadores de color para valores fuera de rango. Sugirió que las alertas por notificación móvil serían el siguiente paso natural. Consideró la interfaz comprensible para su perfil operativo.
-
-**Resumen — Jorge Pérez (técnico de almacén):**
-Jorge navegó el módulo de dispositivos y el dashboard operacional. Confirmó que la terminología (temperatura, humedad, sensores activos) coincide con su vocabulario diario. Indicó que el sistema le permitiría reducir errores de transcripción respecto a Excel. Recomendó mantener la simplicidad visual en futuras versiones. Expresó disposición a capacitarse si la herramienta se implementara en su centro.
-
-**Evidencia de entrevistas de descubrimiento (referencia):** [Recopilación de entrevistas — Google Drive](https://drive.google.com/drive/folders/1nH38g28IeEbZSu6ezcDFi0nh6URbGe9z?usp=sharing)
-
-**Registro de videos de validación (TB2):**
-
-| Entrevistado | Segmento | Enlace al video | Inicio | Fin | Duración |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Luis Mendoza | Personal operativo de almacenes | [Validación TB2 — Entrevista 1](https://drive.google.com/drive/folders/1e4d8-WVQJh8gzp6JTfmC9xO-PWAQKwgc?usp=sharing) | 00:00:00 | 00:18:00 | 18 min |
-| Jorge Pérez | Personal operativo de almacenes | [Validación TB2 — Entrevista 2](https://drive.google.com/drive/folders/1e4d8-WVQJh8gzp6JTfmC9xO-PWAQKwgc?usp=sharing) | 00:18:30 | 00:34:30 | 16 min |
-| Omar Ruiz | Gestores de farmacia | [Validación TB2 — Entrevista 3](https://drive.google.com/drive/folders/1e4d8-WVQJh8gzp6JTfmC9xO-PWAQKwgc?usp=sharing) | 00:35:00 | 00:55:00 | 20 min |
-
----
-
-#### Segmento 02: Gestores y responsables de farmacia en instituciones de salud
-
-| Campo | Entrevistado |
+| Elemento | Detalle |
 | :--- | :--- |
-| **Nombres y apellidos** | Omar Ruiz |
-| **Edad** | 45 años |
-| **Distrito** | La Victoria |
-| **Institución** | Hospital público |
-| **Duración** | 20 min |
-| **Productos evaluados** | Landing Page + Web Application |
+| **URL (Vercel)** | https://landing-page-kairolabs.vercel.app |
+| **URL alternativa (GitHub Pages)** | https://1asi0732-2620-9082-aether-system.github.io/KairoLabs-Landing-Page/ |
+| **Repositorio** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Landing-Page |
+| **Tecnologías** | HTML5, CSS3, JavaScript, Bootstrap 5.3, Bootstrap Icons, Matter.js, i18n ES/EN |
+| **Despliegue de producción (`vercel[bot]`)** | Commit `34434e8`, 14/09/2026 10:04 (hora de Lima), entorno *Production* |
 
-**Resumen — Omar Ruiz (gestor farmacéutico):**
-Omar revisó el dashboard central y el módulo de establecimientos. Destacó la utilidad de visualizar múltiples ubicaciones desde una sola pantalla, función crítica para su rol de supervisión. Validó que la sección de planes y suscripción comunica claramente las opciones disponibles. Señaló que el historial de datos (aún en evolución) sería indispensable para auditorías. Consideró viable un costo mensual entre 100–200 soles si el sistema demuestra reducción de pérdidas por deterioro de medicamentos. Calificó la landing page como profesional y alineada al sector salud.
+**Commits del Sprint 1**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :---: | :--- | :--- | :--- | :---: |
+| KairoLabs-Landing-Page | main | `f0dfc9a` | feat(landing): rebrand to KairoLabs with partner logos and scroll animations | Replace MediTrack branding with Aether System copy, institution logos, and expand and story interactions. | 13/09/2026 |
+| KairoLabs-Landing-Page | main | `cc153f1` | fix(landing): drop heavy video-5 until it is compressed | Use video-3 in the expand section so Vercel can deploy without the 62 MB file. | 13/09/2026 |
+| KairoLabs-Landing-Page | main | `02b2707` | chore: add Vercel static config so index.html is served at root | — | 13/09/2026 |
+| KairoLabs-Landing-Page | main | `0376bd1` | fix(deploy): serve landing from repo root, not leftover public folder | — | 14/09/2026 |
+| KairoLabs-Landing-Page | main | `34434e8` | fix: design in the header | — | 14/09/2026 |
+
+**Evidencias de la Landing Page desplegada**
+
+![Hero de la Landing Page](../assets/chapter-5/landing-hero.jpg)
+
+*Figura 5.2.2-1. Sección Inicio (hero) con navegación, selector ES/EN y CTA "¡Comienza hoy mismo!" (US01, US02).*
+
+![Instituciones del marco regulatorio](../assets/chapter-5/landing-instituciones.png)
+
+*Figura 5.2.2-2. Franja "Respaldados por instituciones líderes" con MINSA, DIGEMID, SUSALUD, CENARES, CONCYTEC y Osinergmin.*
+
+![Sección Nosotros](../assets/chapter-5/landing-nosotros.png)
+
+*Figura 5.2.2-3. Sección Nosotros con misión, visión y equipo académico (US20).*
+
+![Sección Tecnología](../assets/chapter-5/landing-tecnologia.jpg)
+
+*Figura 5.2.2-4. Sección Tecnología Inteligente: capacidades, resultados esperados y video demostrativo (US03).*
+
+![Sección Sectores](../assets/chapter-5/landing-sectores.jpg)
+
+
+*Figura 5.2.2-6. Sección Integrantes del Equipo (US06).*
+
+![Sección Planes](../assets/chapter-5/landing-planes.png)
+
+*Figura 5.2.2-7. Deck de planes de monitoreo (US16).*
+
+![Sección Contacto](../assets/chapter-5/landing-contacto.png)
+
+*Figura 5.2.2-8. Llamado a la acción final (US21).*
+
+![Footer](../assets/chapter-5/landing-footer.jpg)
+
+*Figura 5.2.2-9. Footer con navegación, redes y términos y condiciones.*
+
+<p align="center">
+  <img src="../assets/chapter-5/landing-responsive-mobile.jpg" alt="Landing Page en smartphone" width="300"><br>
+  <em>Figura 5.2.2-10. Landing Page en un viewport de smartphone de 390 × 844 px (US26).</em>
+</p>
+
+![Repositorio de la Landing Page](../assets/chapter-5/gh-landing-repo.png)
+
+*Figura 5.2.2-11. Repositorio `KairoLabs-Landing-Page` vinculado al despliegue en Vercel.*
+
+![Commits de la Landing Page](../assets/chapter-5/gh-landing-commits.png)
+
+*Figura 5.2.2-12. Historial de commits del Sprint 1 en la rama `main`.*
 
 ---
 
-**Síntesis de validación por segmento:**
+### 5.2.3. Implemented Frontend-Web Application Evidence
 
-| Segmento | Hallazgo principal | Validación de hipótesis Lean UX |
+La Web Application es la plataforma operativa de KairoLabs. Está construida con **Vue 3 + Vite** y organizada por bounded contexts (IAM, Establishment, Monitoring, Logistics y Subscriptions). En el Sprint 1 se unificó la interfaz bajo el design system navy/naranja de KairoLabs, se rediseñaron el login y el registro, y se reemplazaron varias navegaciones por diálogos de inspección (modales).
+
+| Elemento | Detalle |
+| :--- | :--- |
+| **URL (Vercel)** | https://kairo-labs-frontend.vercel.app |
+| **Repositorio** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend |
+| **Tecnologías** | Vue 3, Vite, PrimeVue 4, Pinia, Vue Router, Axios, vue-i18n, Chart.js, Leaflet |
+| **Backend consumido** | `https://medi-track-sensor-platform.onrender.com/api/v1` |
+| **Despliegue de producción (`vercel[bot]`)** | Commit `ffadea8`, 14/09/2026 19:03 (hora de Lima), entorno *Production* |
+
+**Commits del Sprint 1**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :---: | :--- | :--- | :--- | :---: |
+| KairoLabs-Frontend | master | `ad01cfd` | feat: rebrand KairoLabs UI with modals, branded selects, and control center polish | Unify auth, profile, establishments, devices, transports, and operators under the navy/orange design system, replace page navigations with inspect modals, and harden mock flows for local demos. | 14/09/2026 |
+| KairoLabs-Frontend | master | `ffadea8` | fix: responsive | Ajustes responsive de `auth-panel`, `register` y `layout`. | 14/09/2026 |
+
+**Vistas públicas (aplicación desplegada en Vercel)**
+
+![Login](../assets/chapter-5/web-login.jpg)
+
+*Figura 5.2.3-1. Inicio de sesión (US29, US30).*
+
+![Registro de gestor de farmacia](../assets/chapter-5/web-register-entidad.jpg)
+
+*Figura 5.2.3-2. Registro como Gestor de farmacia (US32).*
+
+![Registro de personal de almacén](../assets/chapter-5/web-register-personal.jpg)
+
+*Figura 5.2.3-3. Registro como Personal de almacén con código de entidad de salud (US31).*
+
+**Vistas internas**
+
+Las siguientes capturas se obtuvieron ejecutando la aplicación en **modo demo** (`VITE_USE_MOCKS=true`), que utiliza los datos de prueba de `src/shared/infrastructure/mocks/mock-database.js`. Así se muestran todos los módulos con datos representativos sin alterar la información de producción.
+
+![Home de la entidad de salud](../assets/chapter-5/web-home-entidad.png)
+
+*Figura 5.2.3-4. Inicio del gestor de farmacia: accesos rápidos, Centro de Control Operativo y KPIs (US48, US57).*
+
+![Listado de establecimientos](../assets/chapter-5/web-establecimientos.png)
+
+*Figura 5.2.3-5. Ver Establecimientos con filtros y contadores por tipo (US37, US41).*
+
+![Detalle de establecimiento](../assets/chapter-5/web-establecimiento-detalle.png)
+
+*Figura 5.2.3-6. Detalle de establecimiento en modal de inspección (US39).*
+
+![Agregar establecimiento](../assets/chapter-5/web-establecimiento-nuevo.png)
+
+*Figura 5.2.3-7. Agregar Establecimiento (US38).*
+
+![Mapa de establecimientos](../assets/chapter-5/web-mapa-establecimientos.jpg)
+
+*Figura 5.2.3-8. Mapa de Establecimientos con Leaflet / OpenStreetMap (US42, US65).*
+
+![Operadores](../assets/chapter-5/web-operadores.png)
+
+*Figura 5.2.3-9. Ver Operadores con turno, alertas atendidas y establecimiento asignado (US43).*
+
+![Detalle de operador](../assets/chapter-5/web-operador-detalle.png)
+
+*Figura 5.2.3-10. Información del operador (US47).*
+
+![Dispositivos](../assets/chapter-5/web-dispositivos.png)
+
+*Figura 5.2.3-11. Ver Dispositivos con lecturas de temperatura y humedad (US50, US53, US54).*
+
+![Detalle de dispositivo](../assets/chapter-5/web-dispositivo-detalle.png)
+
+*Figura 5.2.3-12. Lecturas del dispositivo con estados OK / Atención / Crítico (US51, US66).*
+
+![Registrar dispositivo](../assets/chapter-5/web-dispositivo-nuevo.png)
+
+*Figura 5.2.3-13. Registrar dispositivo con selección de sensores habilitados (US49).*
+
+![Centro de Control](../assets/chapter-5/web-centro-control.png)
+
+*Figura 5.2.3-14. Centro de Control: KPIs, sensores por sede e índice ambiental (US57, US59).*
+
+![Transportes](../assets/chapter-5/web-transportes.png)
+
+*Figura 5.2.3-15. Ver Transportes con alertas críticas de cadena de frío (US72).*
+
+![Detalle de transporte](../assets/chapter-5/web-transporte-detalle.png)
+
+*Figura 5.2.3-16. Lecturas de sensores de una unidad de transporte (US73).*
+
+![Planes](../assets/chapter-5/web-planes.png)
+
+*Figura 5.2.3-17. Elige un plan (US75, US78).*
+
+![Perfil](../assets/chapter-5/web-perfil.png)
+
+*Figura 5.2.3-18. Perfil de usuario con plan activo (US35, US36).*
+
+![Home del personal operativo](../assets/chapter-5/web-home-personal.png)
+
+*Figura 5.2.3-19. Inicio del personal de almacén con módulos de su sede (US48).*
+
+![Repositorio del frontend](../assets/chapter-5/gh-frontend-repo.png)
+
+*Figura 5.2.3-20. Repositorio `KairoLabs-Frontend`.*
+
+![Commits del frontend](../assets/chapter-5/gh-frontend-commits.png)
+
+*Figura 5.2.3-21. Historial de commits de la rama `master`.*
+
+---
+
+### 5.2.4. Acuerdo de Servicio - SaaS
+
+KairoLabs se ofrece bajo el modelo **Software as a Service (SaaS)**: la entidad de salud accede por suscripción a la plataforma desde un navegador o smartphone, sin instalar ni mantener infraestructura propia. El presente acuerdo define el alcance, los niveles de servicio y las responsabilidades de las partes.
+
+#### 1. Partes
+
+| Parte | Descripción |
+| :--- | :--- |
+| **Proveedor** | KairoLabs, producto desarrollado por el equipo Aether System. |
+| **Cliente** | Entidad de salud contratante (hospital, clínica, farmacia, almacén o distribuidora farmacéutica) que se registra como *Gestor de farmacia* (rol `Admin`). |
+| **Usuarios autorizados** | Gestores (`Admin`) y personal operativo (`Operator`) registrados por el Cliente mediante su código de entidad. |
+
+#### 2. Objeto y descripción del servicio
+
+El servicio permite monitorear las condiciones de conservación de medicamentos (temperatura, humedad, luz, calidad del aire, vibración, presión, partículas y estado de puertas) en establecimientos y unidades de transporte, gestionar sedes, operadores y dispositivos IoT, y recibir alertas cuando una lectura sale del rango seguro.
+
+| Componente | Función | Acceso |
 | :--- | :--- | :--- |
-| Personal operativo | La interfaz es comprensible y los indicadores de monitoreo resuelven la frustración del registro manual | Confirmada: usuarios valoran alertas visuales y simplicidad |
-| Gestores de salud | El dashboard central y la gestión de establecimientos apoyan la supervisión multi-sede | Confirmada: visibilidad en tiempo real es funcionalidad indispensable |
-| Ambos | La landing page comunica la propuesta de valor y genera confianza institucional | Confirmada: diseño profesional incrementa disposición de adopción |
+| Landing Page | Información comercial, planes y contacto | https://landing-page-kairolabs.vercel.app |
+| Web Application | Operación diaria: establecimientos, operadores, dispositivos, transportes, Centro de Control, planes y perfil | https://kairo-labs-frontend.vercel.app |
+| Aplicación móvil | Consulta rápida y acceso a la plataforma desde smartphone | Incremento 1 (mobile-first) |
+| RESTful API | Lógica de negocio y persistencia | https://medi-track-sensor-platform.onrender.com |
 
-### 5.3.3. Evaluaciones según heurísticas
+#### 3. Planes y tarifas
 
-Para la entrega final (TB2) se realizó una evaluación heurística del **producto integrado** (Landing Page + Web Application conectada al backend), aplicando las heurísticas 2, 4, 5, 7 y 8 de Nielsen por su relación directa con los flujos validados en las entrevistas.
+Los planes publicados en la Landing Page son la referencia comercial del servicio. Los montos están expresados en dólares estadounidenses por mes.
 
-**Escala utilizada (criterio de evaluación):**
-- 1 = Cumplimiento muy bajo (requiere rediseño)
-- 2 = Cumplimiento bajo (requiere correcciones mayores)
-- 3 = Cumplimiento aceptable (requiere mejoras)
-- 4 = Cumplimiento bueno (ajustes menores)
-- 5 = Cumplimiento completo (sin observaciones críticas)
+| Plan | Precio | Dirigido a | Incluye |
+| :--- | :---: | :--- | :--- |
+| **Piloto** | US$ 0 (14 días) | Validación inicial en una cámara fría | 1 sensor · 1 área, alertas por email, onboarding incluido. |
+| **Básico** | US$ 49 / mes | Farmacias y clínicas con una sede | Monitoreo de 1 sede, visualización en tiempo real, alertas por email, 30 días de historial. |
+| **Profesional** | US$ 149 / mes | Centros de distribución y hospitales con varias áreas | Varias áreas, alertas SMS/WhatsApp, 1 año de historial, reportes y dashboards, integración con sistemas. |
+| **Hospitalario** | US$ 249 / mes | Hospitales y farmacias clínicas con vacunas y biológicos | Varias cámaras y pabellones, rangos 2–8 °C, roles operador/gestor, evidencia para auditorías, soporte clínico. |
+| **Premium** | Personalizado | Cadenas farmacéuticas y redes de salud multisede | Monitoreo multisede, gestión centralizada, análisis de tendencias, soporte prioritario 24/7, cumplimiento DIGEMID/MINSA. |
 
-| Heurística (Nielsen) | Hallazgo principal | Evidencia observada | Puntaje (1-5) | Severidad | Acción recomendada |
-| :--- | :--- | :--- | :---: | :---: | :--- |
-| 2. Relación sistema–mundo real | Terminología alineada al dominio farmacéutico | Entrevistados comprenden módulos sin capacitación previa | 5 | Baja | Mantener glosario de Ubiquitous Language |
-| 4. Consistencia y estándares | Coherencia visual entre landing y web app | Design system uniforme en colores, tipografía y navegación | 5 | Baja | Documentar guía de estilos para futuras iteraciones |
-| 5. Prevención de errores | Validaciones en formularios y flujos de autenticación | Login rechaza credenciales inválidas con mensaje claro | 4 | Baja | Ampliar validaciones en formularios de registro |
-| 7. Flexibilidad y eficiencia | Dashboard accesible desde navegador sin instalación | Acceso desde Chrome en desktop y móvil validado | 4 | Media | Optimizar vistas responsive en módulos secundarios |
-| 8. Diseño estético y minimalista | Interfaz limpia orientada a datos operativos | Entrevistados no reportan sobrecarga visual | 5 | Baja | Mantener jerarquía visual en nuevos módulos |
+En la API, la suscripción se registra con el recurso `/api/v1/admins/{adminId}/subscriptions` indicando `plan` (`Basic`, `Premium` o `Enterprise`), `start_date` y `end_date`.
 
-**Resultado general de la evaluación heurística (producto final):**
-- **Promedio de cumplimiento:** 4.6 / 5
-- **Fortalezas identificadas:** Alineación con lenguaje del usuario, consistencia de interfaz, diseño profesional y prevención de errores en autenticación.
-- **Brechas prioritarias:** Mejoras menores en responsive de módulos secundarios y validaciones adicionales en formularios de registro.
+#### 4. Vigencia, renovación y cancelación
 
-**Recomendaciones post-validación:**
-1. Implementar notificaciones push móviles para alertas críticas fuera de horario laboral.
-2. Incorporar exportación de reportes históricos en PDF para auditorías regulatorias.
-3. Ampliar cobertura de pruebas automatizadas en flujos CRUD del frontend.
+- La suscripción es **mensual** y se renueva automáticamente al término de cada periodo.
+- El servicio es **sin permanencia**: el Cliente puede cancelar desde *Elige un plan → Cancelar plan*. La cancelación se aplica al cierre del periodo pagado.
+- El plan Piloto dura 14 días calendario. Al finalizar, el Cliente puede contratar cualquiera de los planes de pago.
+- El Cliente puede cambiar de plan en cualquier momento. El nuevo plan rige desde el siguiente periodo de facturación.
+
+#### 5. Disponibilidad del servicio
+
+| Indicador | Compromiso (versión comercial) |
+| :--- | :--- |
+| Disponibilidad mensual de la Web Application y la API | ≥ 99.5 % |
+| Ventana de mantenimiento programado | Domingos de 00:00 a 04:00 (hora de Lima), con aviso de 48 horas |
+| Tiempo máximo de recuperación ante incidentes (RTO) | 4 horas |
+| Pérdida máxima de datos ante incidentes (RPO) | 24 horas (respaldo diario de la base de datos) |
+
+Se excluyen del cálculo de disponibilidad el mantenimiento programado, las fallas de conectividad del Cliente o de sus dispositivos IoT y los casos de fuerza mayor.
+
+
+#### 6. Soporte y tiempos de respuesta
+
+| Severidad | Ejemplo | Básico / Piloto | Profesional / Hospitalario | Premium |
+| :--- | :--- | :---: | :---: | :---: |
+| **Crítica** | La plataforma no está disponible o no se registran lecturas | 8 h | 4 h | 1 h (24/7) |
+| **Alta** | Un módulo no funciona (por ejemplo, alertas o transportes) | 24 h | 8 h | 4 h |
+| **Media / Baja** | Consultas, errores visuales o solicitudes de mejora | 72 h | 48 h | 24 h |
+
+Canales de soporte: correo electrónico (todos los planes), WhatsApp (Profesional, Hospitalario y Premium) y soporte telefónico 24/7 (Premium). La atención es en español.
+
+#### 7. Seguridad y protección de datos
+
+- Todo el tráfico entre el navegador, la Web Application y la API viaja cifrado por **HTTPS**.
+- El acceso a la plataforma requiere autenticación con correo y contraseña (`POST /api/v1/users/sign-in`), y cada rol solo accede a los módulos que le corresponden.
+- Las credenciales de la base de datos y demás secretos se gestionan como variables de entorno y no se almacenan en el código fuente.
+- KairoLabs trata los datos personales de los usuarios conforme a la **Ley N.° 29733, Ley de Protección de Datos Personales**, y su reglamento. Los datos de lecturas y establecimientos pertenecen al Cliente.
+- Al finalizar el contrato, el Cliente puede solicitar la exportación de su información durante 30 días. Vencido ese plazo, los datos se eliminan.
+
+#### 8. Responsabilidades
+
+| KairoLabs (Proveedor) | Cliente |
+| :--- | :--- |
+| Mantener operativos la Web Application, la API y la base de datos. | Usar la plataforma conforme a su plan y a este acuerdo. |
+| Aplicar actualizaciones y correcciones sin costo adicional. | Custodiar las credenciales de sus usuarios y desactivar cuentas de personal cesado. |
+| Realizar respaldos diarios de la información. | Mantener encendidos y conectados los dispositivos IoT de sus sedes. |
+| Notificar mantenimientos programados e incidentes. | Atender las alertas generadas y registrar su respuesta (*alert-answered*). |
+| Proteger la confidencialidad de los datos del Cliente. | Pagar la suscripción dentro del plazo establecido. |
+
+#### 9. Compensaciones por incumplimiento
+
+Si la disponibilidad mensual es inferior al compromiso, el Cliente recibe un crédito sobre la siguiente facturación:
+
+| Disponibilidad mensual | Crédito |
+| :--- | :---: |
+| < 99.5 % y ≥ 99.0 % | 10 % |
+| < 99.0 % y ≥ 95.0 % | 25 % |
+| < 95.0 % | 50 % |
+
+#### 10. Limitaciones
+
+- KairoLabs apoya el control de las condiciones de almacenamiento, pero no sustituye las obligaciones sanitarias del Cliente ante DIGEMID / MINSA.
+- La exactitud de las lecturas depende de la calibración y del estado de los sensores instalados por el Cliente.
+- KairoLabs no se responsabiliza por pérdidas de medicamentos ocasionadas por alertas no atendidas por el personal del Cliente.
 
 ---
 
-## 5.4. Video About-the-Product
+### 5.2.5. Implemented Native-Mobile Application Evidence
 
-Enlace al video final del producto KairoLabs (versión integrada frontend + backend + landing):
+Durante el Sprint 1 se construyó el **primer incremento de la aplicación móvil** en el repositorio `KairoLabs-Mobile`. Este incremento es una versión **mobile-first** de la experiencia de KairoLabs, diseñada para interacción táctil en smartphones, que conserva la identidad visual y los contenidos de la Landing Page y dirige al usuario a la Web Application mediante el botón "Comienza ahora".
 
-https://drive.google.com/drive/folders/1e4d8-WVQJh8gzp6JTfmC9xO-PWAQKwgc?usp=sharing
+| Elemento | Detalle |
+| :--- | :--- |
+| **Repositorio** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Mobile |
+| **Tecnologías** | Vite 7, HTML5, CSS3 (mobile-first), JavaScript (módulo ES) |
+| **Ejecución** | `npm install` y `npm run dev` (`vite --host 0.0.0.0`), lo que permite abrir la app desde un smartphone conectado a la misma red |
+| **Viewport de prueba** | 390 × 844 px (smartphone) |
 
-El video demuestra el funcionamiento del ecosistema desplegado: Landing Page, flujo de autenticación, dashboard de monitoreo, gestión de establecimientos, dispositivos y documentación Swagger de la API.
+**Commit del Sprint 1**
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :---: | :--- | :--- | :--- | :---: |
+| KairoLabs-Mobile | main | `514be11` | feat: create KairoLabs mobile landing page | Estructura mobile-first: `index.html`, `styles.css`, `app.js`, configuración de Vite. | 14/09/2026 |
+
+**Funcionalidades implementadas**
+
+| Funcionalidad | Descripción | User Story |
+| :--- | :--- | :---: |
+| Barra superior con menú hamburguesa | Panel lateral de navegación con *scrim*, cierre por botón o toque fuera del panel y atributos `aria-expanded`. | US01, US26 |
+| Hero móvil | Mensaje principal y CTA hacia la Web Application. | US02, US21 |
+| Carrusel de instituciones | Franja deslizable con DIGEMID, MINSA, SUSALUD y CENARES. | US17 |
+| Acordeón Nosotros | Misión, visión y equipo académico en paneles expandibles. | US20 |
+| Tarjetas deslizables de tecnología | Temperatura, humedad, iluminación y conectividad 24/7 con desplazamiento horizontal. | US03, US14 |
+| Sectores objetivo | Tarjetas por segmento con etiquetas (tiempo real, alertas, cadena de frío). | US04 |
+| Planes | Tarjetas de planes optimizadas para lectura en móvil. | US16 |
+| Animaciones de aparición | `IntersectionObserver` para revelar secciones al hacer scroll. | US23 |
+
+**Evidencias**
+
+![Versión móvil 1](../assets/chapter-5/mobile-overview-1.png)
+
+*Figura 5.2.5-1. Inicio, menú de navegación, Nosotros y Tecnología en la versión móvil.*
+
+![Versión móvil 2](../assets/chapter-5/mobile-overview-2.png)
+
+*Figura 5.2.5-2. Sectores objetivo, planes y llamado a la acción en la versión móvil.*
+
+![Repositorio móvil](../assets/chapter-5/gh-mobile-repo.png)
+
+*Figura 5.2.5-3. Repositorio `KairoLabs-Mobile`.*
+
+En los siguientes Sprints, este incremento evolucionará hacia la aplicación móvil nativa (iOS/Android) orientada al monitoreo rápido y a la recepción de alertas en tiempo real, consumiendo la misma RESTful API que la Web Application.
 
 ---
 
-# Conclusiones
+### 5.2.6. Implemented RESTful API and/or Serverless Backend Evidence
 
-## Conclusiones y recomendaciones
+La RESTful API de KairoLabs (**MediTrack Sensor API v1**) está implementada en **ASP.NET Core** y se ejecuta como Web Service en **Render** (el encabezado `x-render-origin-server: Kestrel` confirma el servidor ASP.NET Core). Expone **34 operaciones** organizadas en siete grupos que corresponden a los bounded contexts del dominio, y es la API que consume la Web Application en producción.
 
-### Conclusiones
+| Elemento | Detalle |
+| :--- | :--- |
+| **Base URL** | `https://medi-track-sensor-platform.onrender.com/api/v1` |
+| **Swagger UI** | https://medi-track-sensor-platform.onrender.com/swagger/index.html |
+| **Especificación** | OpenAPI 3.0.1 — `/swagger/v1/swagger.json` |
+| **Formato** | JSON (`application/json; charset=utf-8`), atributos en `snake_case` |
+| **Repositorio** | https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform |
 
-* **Problem Statements — Validación:** Los Problem Statements definidos en el Capítulo I se validaron con entrevistas de usuarios reales. El personal operativo confirmó que el monitoreo manual es tedioso y propenso a errores; los gestores farmacéuticos validaron la necesidad de visibilidad centralizada en tiempo real. KairoLabs aborda ambas problemáticas mediante sensores IoT, dashboard web y alertas visuales.
+| Bounded Context | Recurso | Operaciones |
+| :--- | :--- | :---: |
+| IAM | Users | 4 |
+| IAM | Admins | 2 |
+| Establishments | Establishments | 4 |
+| Establishments | Operators | 7 |
+| Monitoring | Devices | 6 |
+| Logistics | Transports | 6 |
+| Subscriptions | Subscriptions | 5 |
+| **Total** | | **34** |
 
-* **Assumptions — Contraste con la realidad:** Se confirmó que los usuarios del sector salud están dispuestos a adoptar soluciones digitales si son sencillas y económicamente viables. El supuesto de suscripción mensual escalable (100–200 soles) fue aceptado por los entrevistados. La hipótesis de que el monitoreo en tiempo real reduce riesgos de deterioro de medicamentos se sustentó con la valoración positiva del dashboard y los indicadores de alerta.
+**Verificación de endpoints en producción (30/09/2026)**
 
-* **Hypothesis Statements — Resultados:** Las hipótesis de Lean UX sobre alertas automáticas, trazabilidad y cumplimiento normativo se validaron parcialmente en esta fase: la plataforma entrega monitoreo y alertas visuales en tiempo real; la trazabilidad histórica y notificaciones móviles quedan como evolución del roadmap.
+Se ejecutaron solicitudes de solo lectura sobre la API desplegada:
 
-* **Producto digital final:** El equipo entregó un ecosistema funcional desplegado en producción:
-  - Landing Page en Vercel
-  - Web Application (Vue.js) en Vercel integrada con la API
-  - Backend RESTful (ASP.NET Core) en Render con Swagger
-  - Base de datos PostgreSQL en Filess.io
+| Método | Endpoint | Código HTTP | Tiempo de respuesta |
+| :---: | :--- | :---: | :---: |
+| GET | `/api/v1/users` | 200 OK | 0.72 s |
+| GET | `/api/v1/admins` | 200 OK | 0.48 s |
+| GET | `/api/v1/establishments` | 200 OK | 0.49 s |
+| GET | `/api/v1/devices` | 200 OK | 0.62 s |
+| GET | `/api/v1/operators` | 200 OK | 0.54 s |
+| GET | `/api/v1/transports` | 200 OK | 0.52 s |
+| GET | `/api/v1/subscriptions` | 200 OK | 0.51 s |
 
-* **Metodología ágil y trabajo en equipo:** A lo largo de cuatro Sprints (AV1, TB1, AV2, TB2), el equipo aplicó Scrum con Trello, GitFlow y Conventional Commits. La matriz LACX y el Student Outcome ABET SO4 evidencian liderazgo compartido; en esta versión del informe se documenta el aporte de Mallqui Vilca, Dhilsen Armil, quedando pendiente que el resto de integrantes complete sus evidencias individuales *(completar)*.
+![Swagger UI](../assets/chapter-5/api-swagger-overview.png)
 
-* **Arquitectura técnica:** La arquitectura Domain-Driven con bounded contexts (IAM, Monitoring, Establishments, Subscriptions, Logistics) permitió desarrollo paralelo y escalabilidad. La documentación OpenAPI garantiza mantenibilidad del sistema.
+*Figura 5.2.6-1. Swagger UI de MediTrack Sensor API v1 desplegada en Render.*
 
-### Recomendaciones y roadmap
+![GET establishments](../assets/chapter-5/api-get-establishments.png)
 
-| Prioridad | Recomendación | Horizonte |
-| :---: | :--- | :--- |
-| Alta | Implementar notificaciones push y alertas por email/SMS | Sprint futuro 1 |
-| Alta | Módulo de reportes históricos exportables (PDF/Excel) para auditorías | Sprint futuro 1 |
-| Media | Integración con sistemas de inventario hospitalario existentes | Sprint futuro 2 |
-| Media | Soporte multiidioma completo (es_419 / en_US) con atributos ARIA | Sprint futuro 2 |
-| Baja | Aplicación móvil nativa para operarios de almacén | Sprint futuro 3 |
+*Figura 5.2.6-2. Ejecución de `GET /api/v1/establishments` con respuesta 200.*
 
-## Video About-the-Team
+![GET devices](../assets/chapter-5/api-get-devices.png)
 
-**Enlace al video:** [Google Drive — Videos del equipo](https://drive.google.com/drive/folders/1nH38g28IeEbZSu6ezcDFi0nh6URbGe9z?usp=sharing)
+*Figura 5.2.6-3. Ejecución de `GET /api/v1/devices` con lecturas de sensores.*
 
-**Pauta de contenido (timing estimado):**
+![GET transports](../assets/chapter-5/api-get-transports.png)
 
-| Sección | Inicio | Contenido |
+*Figura 5.2.6-4. Ejecución de `GET /api/v1/transports`.*
+
+**Integración con la Web Application**
+
+La Web Application consume la API mediante clientes HTTP por bounded context (`iam-api.js`, `establishment-api.js`, `monitoring-api.js`, `logistics-api.js`, `subscriptions-api.js`) que extienden `shared/infrastructure/base-api.js`. La URL base se obtiene de `VITE_API_BASE_URL`, por lo que el mismo código apunta al backend local en desarrollo y a Render en producción.
+
+**Repositorio del backend**
+
+El repositorio `KairoLabs-Platform` de la organización está destinado al código fuente del backend. Durante el Sprint 1 el servicio desplegado en Render corresponde a la versión estable del backend que ya consumía la Web Application; la publicación de su código fuente en `KairoLabs-Platform`, con el flujo GitFlow descrito en la sección 5.1.2, queda pendiente para el siguiente Sprint.
+
+---
+
+### 5.2.7. RESTful API documentation
+
+La documentación de la API se genera con **OpenAPI 3.0 / Swagger** y está disponible en:
+
+**https://medi-track-sensor-platform.onrender.com/swagger/index.html**
+
+Cada endpoint incluye un resumen, una descripción, los parámetros de ruta, el esquema del cuerpo de la solicitud con un ejemplo y los códigos de respuesta. A continuación se documentan los endpoints por recurso.
+
+#### Users (IAM)
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/users` | Lista todos los usuarios registrados. Útil para verificar IDs antes de crear operadores. | — | — | 200 OK |
+| POST | `/api/v1/users` | Registro (sign-up). Si `role = Admin` y se envía `entity_name`, crea también la entidad de salud en la misma transacción. | — | `SignUpResource` | 200 OK |
+| POST | `/api/v1/users/sign-in` | Inicio de sesión. Respuesta: `{ user, token }`. | — | `SignInResource` | 200 OK |
+| DELETE | `/api/v1/users/{id}` | Elimina un usuario por ID. | `id` | — | 204 No Content |
+
+![Users](../assets/chapter-5/api-tag-users.png)
+
+![Sign-in](../assets/chapter-5/api-sign-in.png)
+
+*Figura 5.2.7-1. Endpoints de Users y detalle de `POST /api/v1/users/sign-in`.*
+
+Ejemplo de solicitud de inicio de sesión:
+
+```http
+POST /api/v1/users/sign-in
+Content-Type: application/json
+
+{
+  "email": "pilsen@gmail.com",
+  "password": "tu_password_aqui"
+}
+```
+
+Ejemplo de registro de una entidad de salud:
+
+```json
+{
+  "name": "María García",
+  "dni": "87654321",
+  "email": "nuevo.admin@clinica.com",
+  "phone": "+51999999999",
+  "job_title": "Administrador",
+  "entry_date": "2026-07-06",
+  "role": "Admin",
+  "password": "********",
+  "photo": "",
+  "entity_name": "Clínica San Martín"
+}
+```
+
+#### Admins (IAM)
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/admins` | Lista las entidades de salud. Su `id` se usa para crear establecimientos y suscripciones. | — | — | 200 OK |
+| POST | `/api/v1/admins` | Crea un admin vinculado a un `user_id` existente. | — | `CreateAdminResource` | 200 OK |
+
+![Admins](../assets/chapter-5/api-tag-admins.png)
+
+*Figura 5.2.7-2. Endpoints de Admins.*
+
+#### Establishments
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/establishments` | Lista global de establecimientos. | — | — | 200 OK |
+| GET | `/api/v1/admins/{adminId}/establishments` | Establecimientos de un admin. | `adminId` | — | 200 OK |
+| POST | `/api/v1/admins/{adminId}/establishments` | Crea un establecimiento bajo el admin indicado en la ruta. | `adminId` | `CreateNestedEstablishmentResource` | 200 OK |
+| DELETE | `/api/v1/establishments/{id}` | Elimina un establecimiento. | `id` | — | 204 No Content |
+
+```json
+{
+  "establishment_name": "Farmacia Central",
+  "establishment_type": "Pharmacy",
+  "address": "Av. Principal 123",
+  "district": "Miraflores",
+  "city_region": "Lima",
+  "country": "PE",
+  "latitude": -12.1201,
+  "longitude": -77.0301,
+  "phone": "+5112345678",
+  "email": "central@farmacia.pe",
+  "website": "www.farmacia.pe"
+}
+```
+
+`establishment_type` admite: `Warehouse`, `Clinic`, `Hospital`, `Pharmacy`, `Laboratory`.
+
+![Establishments](../assets/chapter-5/api-tag-establishments.png)
+
+*Figura 5.2.7-3. Endpoints de Establishments.*
+
+#### Operators
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/operators` | Lista global de operadores. | — | — | 200 OK |
+| GET | `/api/v1/establishments/{establishmentId}/operators` | Operadores de un establecimiento. | `establishmentId` | — | 200 OK |
+| POST | `/api/v1/establishments/{establishmentId}/operators` | Asigna un operador (`users_id` de un usuario con rol Operator). | `establishmentId` | `CreateNestedOperatorResource` | 200 OK |
+| PUT | `/api/v1/establishments/{establishmentId}/operators/{operatorId}` | Actualiza el horario del operador. | `establishmentId`, `operatorId` | `UpdateNestedOperatorResource` | 200 OK |
+| PUT | `/api/v1/establishments/{establishmentId}/operators/{operatorId}/alert-answered` | Suma 1 al contador `alerts_answered`. Sin body. | `establishmentId`, `operatorId` | — | 200 OK |
+| DELETE | `/api/v1/establishments/{establishmentId}/operators/{operatorId}` | Elimina el operador del establecimiento. | `establishmentId`, `operatorId` | — | 204 No Content |
+| DELETE | `/api/v1/operators/{id}` | Elimina un operador por ID (ruta plana). | `id` | — | 204 No Content |
+
+![Operators](../assets/chapter-5/api-tag-operators.png)
+
+*Figura 5.2.7-4. Endpoints de Operators.*
+
+#### Devices (Monitoring)
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/devices` | Lista global de dispositivos. | — | — | 200 OK |
+| GET | `/api/v1/establishments/{establishmentId}/devices` | Dispositivos IoT de un establecimiento. | `establishmentId` | — | 200 OK |
+| POST | `/api/v1/establishments/{establishmentId}/devices` | Registra un dispositivo (`type_of_medication`: Refrigerated, Biological, Controlled). | `establishmentId` | `CreateNestedDeviceResource` | 200 OK |
+| PUT | `/api/v1/establishments/{establishmentId}/devices/{deviceId}/sensor-data` | Actualiza las lecturas del sensor (`door_status`: Open, Closed). | `establishmentId`, `deviceId` | `UpdateDeviceSensorDataResource` | 200 OK |
+| DELETE | `/api/v1/establishments/{establishmentId}/devices/{deviceId}` | Elimina el dispositivo del establecimiento. | `establishmentId`, `deviceId` | — | 204 No Content |
+| DELETE | `/api/v1/devices/{id}` | Elimina un dispositivo por ID (ruta plana). | `id` | — | 204 No Content |
+
+```json
+{
+  "temperature": 4.2,
+  "humidity": 55,
+  "light_intensity": 120.5,
+  "air_quality": 98,
+  "vibration": 0.1,
+  "atmospheric_pressure": 1013.25,
+  "suspended_particles": 12,
+  "door_status": "Closed"
+}
+```
+
+![Devices](../assets/chapter-5/api-tag-devices.png)
+
+*Figura 5.2.7-5. Endpoints de Devices.*
+
+#### Transports (Logistics)
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/transports` | Lista global de transportes. | — | — | 200 OK |
+| GET | `/api/v1/establishments/{establishmentId}/transports` | Transportes de un establecimiento. | `establishmentId` | — | 200 OK |
+| POST | `/api/v1/establishments/{establishmentId}/transports` | Registra una unidad de transporte con sensores. | `establishmentId` | `CreateNestedTransportResource` | 200 OK |
+| PUT | `/api/v1/establishments/{establishmentId}/transports/{transportId}/sensor-data` | Actualiza la telemetría de la unidad. | `establishmentId`, `transportId` | `UpdateTransportSensorDataResource` | 200 OK |
+| DELETE | `/api/v1/establishments/{establishmentId}/transports/{transportId}` | Elimina el transporte del establecimiento. | `establishmentId`, `transportId` | — | 204 No Content |
+| DELETE | `/api/v1/transports/{id}` | Elimina un transporte por ID (ruta plana). | `id` | — | 204 No Content |
+
+![Transports](../assets/chapter-5/api-tag-transports.png)
+
+*Figura 5.2.7-6. Endpoints de Transports.*
+
+#### Subscriptions
+
+| Método | Endpoint | Descripción | Parámetros | Request body | Respuesta |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| GET | `/api/v1/subscriptions` | Lista global de suscripciones. | — | — | 200 OK |
+| GET | `/api/v1/admins/{adminId}/subscriptions` | Suscripciones de un admin. | `adminId` | — | 200 OK |
+| POST | `/api/v1/admins/{adminId}/subscriptions` | Crea una suscripción (`plan`: Basic, Premium, Enterprise; fechas `YYYY-MM-DD`). | `adminId` | `CreateNestedSubscriptionResource` | 200 OK |
+| DELETE | `/api/v1/admins/{adminId}/subscriptions/{subscriptionId}` | Elimina la suscripción del admin. | `adminId`, `subscriptionId` | — | 204 No Content |
+| DELETE | `/api/v1/subscriptions/{id}` | Elimina una suscripción por ID (ruta plana). | `id` | — | 204 No Content |
+
+```json
+{
+  "plan": "Premium",
+  "start_date": "2026-07-01",
+  "end_date": "2027-06-30"
+}
+```
+
+![Subscriptions](../assets/chapter-5/api-tag-subscriptions.png)
+
+*Figura 5.2.7-7. Endpoints de Subscriptions.*
+
+#### Esquemas (Schemas)
+
+| Schema | Atributos |
+| :--- | :--- |
+| `SignUpResource` | `name`, `dni`, `email`, `phone`, `job_title`, `entry_date` (date), `role` (`UserRole`), `password`, `photo`, `entity_name` |
+| `SignInResource` | `email`, `password` |
+| `CreateAdminResource` | `entity_name`, `entity_code`, `schedule`, `user_id` (int) |
+| `CreateNestedEstablishmentResource` | `establishment_name`, `establishment_type` (`EstablishmentType`), `address`, `district`, `city_region`, `country`, `latitude`, `longitude`, `phone`, `email`, `website` |
+| `CreateNestedOperatorResource` | `schedule`, `users_id` (int) |
+| `UpdateNestedOperatorResource` | `schedule` |
+| `CreateNestedDeviceResource` | `exact_location`, `type_of_medication`, `enabled_sensors` (JSON en texto) |
+| `UpdateDeviceSensorDataResource` | `temperature`, `humidity`, `light_intensity`, `air_quality`, `vibration`, `atmospheric_pressure`, `suspended_particles`, `door_status` |
+| `CreateNestedTransportResource` | `type_of_transport`, `type_of_medication`, `enabled_sensors` |
+| `UpdateTransportSensorDataResource` | Mismos atributos que `UpdateDeviceSensorDataResource` |
+| `CreateNestedSubscriptionResource` | `plan`, `start_date` (date), `end_date` (date) |
+| `UserRole` (enum) | `Admin`, `Operator` |
+| `EstablishmentType` (enum) | `Warehouse`, `Clinic`, `Hospital`, `Pharmacy`, `Laboratory` |
+
+![Schemas](../assets/chapter-5/api-schemas.png)
+
+*Figura 5.2.7-8. Esquemas publicados en Swagger UI.*
+
+**Flujo de uso recomendado** (documentado en las descripciones de Swagger):
+
+1. `POST /api/v1/users`: registrar al gestor (`role = Admin`, con `entity_name`).
+2. `POST /api/v1/users/sign-in`: iniciar sesión y obtener `{ user, token }`.
+3. `POST /api/v1/admins/{adminId}/establishments`: crear el establecimiento.
+4. `POST /api/v1/establishments/{establishmentId}/devices`: registrar los dispositivos IoT.
+5. `PUT .../devices/{deviceId}/sensor-data`: enviar lecturas de los sensores.
+
+---
+
+### 5.2.8. Team Collaboration Insights
+
+El trabajo del Sprint 1 se distribuyó entre los cinco integrantes de Aether System. Los productos de software (Landing Page, Web Application y Mobile) concentraron su actividad entre el 13 y el 14 de setiembre, y el Project Report se trabajó durante todo el Sprint con ramas por capítulo.
+
+| Integrante | GitHub | Principales aportes en el Sprint 1 |
 | :--- | :--- | :--- |
-| Introducción del equipo | 00:00:00 | Presentación del equipo KairoLabs y el producto VITAL CARE |
-| Proceso de trabajo | 00:02:00 | Metodología ágil, Trello, GitHub y sesiones de equipo |
-| Evidencia de desarrollo | 00:05:00 | Recorrido por Landing Page, Frontend y Backend desplegados |
-| Testimonio — *(completar: integrante del equipo)* | 00:08:00 | Diseño, integración, despliegue y liderazgo de reporte |
-| Testimonio — Mallqui Vilca, Dhilsen Armil | 00:10:00 | Landing Page, frontend, integración API y despliegue Vercel |
-| Testimonio — *(completar: integrante del equipo)* | 00:12:00 | Arquitectura backend, base de datos, IAM y documentación Swagger |
-| Cierre y outcomes | 00:14:00 | Logro del ABET Student Outcome 5 y reflexiones finales |
+| **Mallqui Vilca, Dhilsen Armil** | [`Dhilsen18`](https://github.com/Dhilsen18) | Estructura del repositorio del informe, Capítulo III (User Stories, Product Backlog, scenario maps e Impact Mapping), rebranding y despliegue de la Landing Page, rediseño de la Web Application. |
+| **Diaz Mendoza, Sebastian Victor Andre** | [`DiazDeveloper`](https://github.com/DiazDeveloper) | Capítulo I (introducción, 5W2H, Lean UX, perfiles), revisión de entrevistas del Capítulo II, actualización de los Capítulos IV y V. |
+| **Ramirez Escalante, Carlo Patricio** | [`Carlo211`](https://github.com/Carlo211) | Documentación del diseño del producto (Capítulo IV), perfil en el Capítulo I y merge del Pull Request #1. |
+| **Oblitas Alcalde, Rodrigo** | [`Darkdren`](https://github.com/Darkdren) | Primer incremento de la aplicación móvil (`KairoLabs-Mobile`) y perfil en el Capítulo I. |
+| **Dinklange Arevalo, Sandro** | [`Sandro0406`](https://github.com/Sandro0406) | Capítulo II (requisitos), Capítulo I y Capítulo V (evidencias de implementación, Acuerdo SaaS y documentación de la API). |
 
-Cada integrante describe ante cámara las actividades realizadas por entrega (AV1, TB1, AV2, TB2), el desarrollo de competencias técnicas y el aporte al logro del Student Outcome 5.
+**Commits por integrante y repositorio (Sprint 1, sin merges)**
+
+| Integrante | Project Report | Landing Page | Web Application | Mobile | Total |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Mallqui Vilca, Dhilsen Armil | 14 | 6 | 3 | — | 23 |
+| Diaz Mendoza, Sebastian Victor Andre | 15 | — | — | — | 15 |
+| Dinklange Arevalo, Sandro | 7 | — | — | — | 7 |
+| Ramirez Escalante, Carlo Patricio | 2 | — | — | — | 2 |
+| Oblitas Alcalde, Rodrigo | 1 | — | — | 1 | 2 |
+
+**Insights del repositorio del informe**
+
+![Contributors Project Report](../assets/chapter-5/gh-report-contributors.png)
+
+*Figura 5.2.8-1. Insights → Contributors de `KairoLabs-Project-Report`.*
+
+![Commits Project Report](../assets/chapter-5/gh-report-commits.png)
+
+*Figura 5.2.8-2. Commits recientes del informe, incluido el merge del Pull Request #1 (`feature/chapter4`).*
+
+**Insights de los repositorios de producto**
+
+![Contributors Landing Page](../assets/chapter-5/gh-landing-contributors.png)
+
+*Figura 5.2.8-3. Insights → Contributors de `KairoLabs-Landing-Page`.*
+
+![Contributors Frontend](../assets/chapter-5/gh-frontend-contributors.png)
+
+*Figura 5.2.8-4. Insights → Contributors de `KairoLabs-Frontend`.*
+
+![Contributors Mobile](../assets/chapter-5/gh-mobile-contributors.png)
+
+*Figura 5.2.8-5. Insights → Contributors de `KairoLabs-Mobile`.*
+
+![Commits Mobile](../assets/chapter-5/gh-mobile-commits.png)
+
+*Figura 5.2.8-6. Commit inicial del repositorio móvil.*
+
+**Análisis de la colaboración**
+
+- **Trabajo por capítulos en paralelo.** Las ramas `feature/chapter-1` … `feature/chapter-5` permitieron que varios integrantes avanzaran el informe a la vez. El Capítulo IV se integró mediante el Pull Request #1, que dejó registro de la revisión.
+- **Commits más descriptivos.** Se propone que todos los commits sigan Conventional Commits.
+- **Integración continua del despliegue.** La conexión de los repositorios con Vercel permitió validar cada incremento en producción inmediatamente después del push.
+
+---
+
+## 5.3. Video About-the-Product
+
+El video About-the-Product presenta KairoLabs desde la perspectiva de sus segmentos objetivo y muestra los productos implementados en el Sprint 1.
+

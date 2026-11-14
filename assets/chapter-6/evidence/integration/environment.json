@@ -1,0 +1,18 @@
+{
+  "dotnet_sdk": "10.0.403",
+  "mysql_server": "8.4.13",
+  "node": "24.11.1",
+  "backend_framework": "net10.0",
+  "database_mode": "real MySQL, fresh disposable database",
+  "api_url": "http://127.0.0.1:5187",
+  "mysql_bind": "127.0.0.1:33079",
+  "runner": "Windows PowerShell via scripts/run-integration.mjs",
+  "mocks": false,
+  "secrets": "synthetic and redacted from HTTP evidence",
+  "backend_csharp_unchanged": false,
+  "backend_local_changes": [
+    "Program.cs: explicit KairoLabs CORS origin, JWT validation and authentication fallback policy",
+    "UsersController.cs: explicit public sign-up and sign-in"
+  ],
+  "published": false
+}
