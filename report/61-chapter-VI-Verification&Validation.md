@@ -1423,6 +1423,119 @@ Los doce hallazgos quedan abiertos para su revisión. El equipo debe registrar r
 - Auditoría recibida sobre KairoLabs, archivo proporcionado por el equipo: *Auditoria al grupo.docx*, periodo consignado 2–11 de noviembre de 2026. [Trazabilidad documental e imágenes](../assets/chapter-6/heuristicas/provenance.json).
 - Nielsen Norman Group. *10 Usability Heuristics for User Interface Design*. https://www.nngroup.com/articles/ten-usability-heuristics/
 
+## 6.4. Auditoría de Experiencias de Usuario
+
+### 6.4.2. Auditoría recibida
+
+Esta sección documenta la auditoría recibida sobre **KairoLabs**, producto de **Aether System**, y organiza su cronograma, contenido y seguimiento. Se utiliza exclusivamente la evaluación recibida de nuestro software, sin incorporar los hallazgos de la auditoría realizada a Ferova. La descripción detallada de los doce problemas, sus capturas y sus recomendaciones se presenta en [6.3.3. Evaluaciones según heurísticas](#633-evaluaciones-según-heurísticas).
+
+#### 6.4.2.1. Información del grupo auditor
+
+| Campo | Detalle |
+| :--- | :--- |
+| Grupo auditor | SANUVI, según la identificación confirmada por el equipo receptor. |
+| Grupo auditado | Aether System. |
+| Producto auditado | KairoLabs: Landing Page, aplicación web e incremento móvil documentado. |
+| Carrera | Ingeniería de Software. |
+| Curso | Diseño de Experimentos de Ingeniería de Software. |
+| Sección | 9082. |
+| Docente | Juan Fernando Ysen Paiba. |
+| Documento de referencia | Auditoría recibida, archivo *Auditoria al grupo.docx*. |
+
+*Nota.* La diferencia de denominación del auditor que presenta el archivo fuente se aclara en 6.3.3. Los integrantes individuales del equipo auditor y sus firmas no se inventan.
+
+#### 6.4.2.2. Cronograma de auditoría recibida
+
+La fuente recibida consigna un periodo de evaluación del **2 al 11 de noviembre de 2026**. Para organizar la entrega se adopta el **12 de noviembre de 2026** como fecha referencial de consolidación y priorización del informe, previa a la fecha de esta actualización. Esa última fecha es una referencia de planificación documental; no constituye un acta de reunión ni acredita ejecución de correcciones del software.
+
+| Fase | Periodo | Actividad | Producto o registro |
+| :--- | :--- | :--- | :--- |
+| 1. Inspección de la Landing Page | 02/11/2026–04/11/2026 | Revisión de propuesta de valor, mensajes de confianza, catálogo de planes, selector de idioma, equipo y navegación. | Observaciones de contenido, consistencia y destinos de la Landing. |
+| 2. Inspección del acceso y registro | 05/11/2026–07/11/2026 | Revisión de acceso, registro por perfil, código de entidad y pantalla de inicio con Centro de Control. | Observaciones de ayuda contextual, recuperación del acceso, etiquetas y organización del inicio. |
+| 3. Inspección de módulos operativos | 08/11/2026–09/11/2026 | Revisión de establecimientos, operadores, dispositivos, transportes y selección de plan. | Observaciones sobre acciones de eliminación, estados de sensores y catálogo de suscripción. |
+| 4. Revisión móvil y cierre de evaluación | 10/11/2026–11/11/2026 | Inspección del incremento móvil, consolidación de hallazgos, valoración de severidad y recomendaciones. | Documento recibido con doce hallazgos y fortalezas observadas. |
+| 5. Consolidación documental y priorización | 12/11/2026, fecha referencial | Organización de los hallazgos en la estructura del informe y definición de acciones y criterios de cierre. | Matriz de seguimiento de 6.4.2.4; la fecha no acredita cambios ya implementados. |
+
+*Nota.* Las fases 1–4 proceden del cronograma del documento recibido. La fase 5 es una referencia organizativa adoptada para esta entrega. La fuente no aporta duración por sesión, registro de asistencia ni actas; por ello no se asignan horas o participantes adicionales.
+
+#### 6.4.2.3. Contenido de auditoría recibida
+
+**Objetivo y alcance**
+
+La evaluación examinó si la interfaz y la información de KairoLabs facilitan las tareas de los dos segmentos objetivo: personal operativo de almacenes farmacéuticos y entidades de salud o gestores farmacéuticos. Se revisaron la Landing desplegada y las capturas y descripciones de las aplicaciones incluidas en los capítulos IV, V y VI.
+
+El procedimiento corresponde a una inspección heurística, no a una prueba experimental con una muestra nueva de usuarios. Se emplearon las heurísticas de Nielsen y criterios complementarios de diseño inclusivo y arquitectura de información. Las observaciones permiten priorizar mejoras, pero no prueban por sí solas una causa técnica ni el comportamiento de todos los recorridos.
+
+**Fortalezas identificadas**
+
+- **Coherencia visual:** uso consistente de azul marino y naranja, jerarquía y acciones primarias reconocibles entre Landing, acceso y aplicación web.
+- **Adaptación y opciones de idioma:** presencia de selector ES/EN y una presentación de la Landing adaptada a una vista de smartphone. Esto no equivale a una certificación completa de accesibilidad.
+- **Visibilidad del monitoreo:** estados e indicadores en el Centro de Control y en el detalle de lecturas que ayudan a reconocer condiciones OK, Atención y Crítico. La observación sobre dependencia del color se limita al listado documentado.
+
+**Hallazgos recibidos y prioridad**
+
+Los identificadores AR-01 a AR-12 corresponden, en el mismo orden, a los problemas #1 a #12 de 6.3.3. Se conserva la severidad recibida y se distingue lo observado de aquello que necesita un recorrido de confirmación.
+
+| ID | Área | Hallazgo | Severidad | Alcance de la evidencia |
+| :--- | :--- | :--- | :--- | :--- |
+| AR-01 | Operadores, dispositivos y transportes | Acciones de eliminación sin confirmación documentada. | 3 | Se ven las acciones; debe comprobarse el paso posterior al clic. |
+| AR-02 | Planes de suscripción | Diferencias de catálogo y precio entre Landing y aplicación. | 3 | Comparación documental de las ofertas; no demuestra un cobro incorrecto. |
+| AR-03 | Confianza institucional | Mensaje de respaldo que puede interpretarse como aval oficial. | 3 | Mensajes y logotipos visibles; falta documentación institucional para confirmar el alcance. |
+| AR-04 | Incremento móvil | Alcance informativo distinto del monitoreo móvil anunciado. | 3 | Versión descrita y capturada; no se generaliza a otros incrementos ni a una app nativa posterior. |
+| AR-05 | Registro operativo | Código de entidad sin explicación de cómo obtenerlo. | 3 | Pantalla de registro; la duda de entrevista se conserva como evidencia de otra actividad. |
+| AR-06 | Acceso | Recuperación de contraseña no visible. | 3 | Interfaz de acceso documentada; no descarta procedimientos administrativos externos. |
+| AR-07 | Registro de entidad | Botón «Ver planes» poco explícito sobre el avance del registro. | 2 | Texto visible; debe contrastarse con la acción efectiva. |
+| AR-08 | Listado de dispositivos | Interpretación de estados dependiente del color. | 2 | Presentación del listado; no implica que todas las pantallas carezcan de etiquetas. |
+| AR-09 | Inicio | Alta densidad informativa y aviso de bienvenida superpuesto. | 1 | Captura estática; no se midieron errores o tiempos de usuarios. |
+| AR-10 | Navegación de la Landing | Destinos de contacto y redes sociales no corroborados. | 3 | Comprobación comunicada por el auditor; pendiente de reproducir enlaces en la misma versión. |
+| AR-11 | Equipo | Información provisional o incompleta sobre integrantes. | 2 | Contenido publicado frente a la composición del equipo; las iniciales por sí solas no son un defecto. |
+| AR-12 | Contenido y afirmaciones técnicas | Métricas, resultados esperados y cifrado sin sustento adjunto. | 2 | Falta de respaldo en el material recibido; no prueba ausencia de cifrado ni resultados negativos. |
+
+*Nota.* La distribución es de **7 hallazgos de severidad 3, 4 de severidad 2 y 1 de severidad 1**. No se registraron hallazgos de severidad 4. La valoración expresa impacto estimado, no una medición experimental de frecuencia o gravedad.
+
+**Evidencias y límites**
+
+Las capturas asociadas a cada caso se encuentran en 6.3.3 y en [la carpeta de evidencias heurísticas](../assets/chapter-6/heuristicas/). Son imágenes preexistentes del capítulo V utilizadas como apoyo visual; el DOCX recibido no contiene imágenes incrustadas. Su [registro de procedencia](../assets/chapter-6/heuristicas/provenance.json) identifica el documento y el commit de origen de las capturas.
+
+La auditoría no acredita pruebas completas de teclado, lectores de pantalla, procesamiento de pagos, sensores físicos, recuperación de contraseña, autorización entre entidades o criptografía. Los hallazgos que dependen de navegación, interacción o documentos institucionales deberán confirmarse antes de cerrar una causa o implementar una solución definitiva.
+
+#### 6.4.2.4. Resumen de modificaciones para subsanar hallazgos
+
+**Modificaciones documentales efectuadas**
+
+Se amplió 6.3.3 con la ficha académica, el alcance, las tareas, la escala de severidad, una tabla resumen y doce descripciones con evidencia, recomendación y criterio de verificación. Se aclararon los casos que requieren confirmación y se registró la procedencia de las imágenes. Esta mejora documental está incorporada al informe; no significa que las funcionalidades de la aplicación hayan sido corregidas.
+
+**Modificaciones de software propuestas y condiciones de cierre**
+
+La matriz siguiente constituye el plan de subsanación. Se propone atender primero los casos de severidad 3 y después los de nivel 2 y 1, considerando el costo y los riesgos de cada cambio. Los responsables se expresan como roles sugeridos: no se atribuyen aprobaciones ni actividades a integrantes concretos sin un registro de asignación.
+
+| ID | Modificación propuesta | Rol responsable sugerido | Evidencia necesaria para cerrar | Estado |
+| :--- | :--- | :--- | :--- | :--- |
+| AR-01 | Confirmar el comportamiento de eliminación; si falta protección, incorporar confirmación identificando el registro y opción de cancelar. | Frontend y QA. | Recorrido donde cancelar no elimina y confirmar elimina solo el registro elegido; comprobación de persistencia. | Pendiente de corroboración e implementación si corresponde. |
+| AR-02 | Unificar catálogo, precios, periodicidad y beneficios entre Landing y aplicación. | Frontend y responsable del producto. | Comparación de ambas vistas con el mismo catálogo y prueba de que el plan seleccionado se conserva durante el registro. | Propuesto; sin cierre verificado. |
+| AR-03 | Verificar el alcance del respaldo; reformular el texto como referencia normativa si no existe aval acreditado. | Contenido y responsable del producto. | Texto publicado y documento de respaldo, o aclaración explícita que evite atribuir un aval inexistente. | Pendiente de aclaración y ajuste. |
+| AR-04 | Precisar el alcance móvil vigente y planificar acceso, dispositivos y alertas en el producto móvil correspondiente. | Equipo móvil y producto. | Descripción coherente y recorridos de las funcionalidades que se anuncien como disponibles. | Propuesto; no se acredita implementación nativa. |
+| AR-05 | Añadir ayuda junto al código de entidad y mensajes para sus estados de validación. | Frontend y UX. | Captura actualizada y prueba de comprensión con el segmento objetivo, sin ayuda del evaluador. | Propuesto; sin revalidación. |
+| AR-06 | Incorporar acceso visible a recuperación de contraseña y un mecanismo seguro de restablecimiento. | Frontend, backend y QA. | Solicitud, enlace válido, enlace vencido y posterior acceso; protección frente a enumeración de cuentas. | Propuesto; no se declara un flujo funcional. |
+| AR-07 | Ajustar la etiqueta del botón y explicar los pasos y el momento de creación de la cuenta. | Frontend y UX. | Recorrido del registro que coincida con el texto del botón y conserve los datos al avanzar. | Pendiente de confirmar la acción actual y modificarla. |
+| AR-08 | Complementar los colores con etiquetas, iconos y una leyenda comprensible. | Frontend y UX. | Listado actualizado y verificación de identificación del estado sin depender del color. | Propuesto; sin comprobación de accesibilidad. |
+| AR-09 | Reubicar la bienvenida y priorizar los elementos de monitoreo importantes. | Frontend y UX. | Capturas y recorrido en los tamaños objetivo, sin superposición sobre información o acciones. | Propuesto; sin medición posterior. |
+| AR-10 | Revisar cada destino y reparar contacto, registro por plan y redes sociales que no conduzcan a contenido real. | Landing Page y QA. | Matriz de enlaces con URL, versión, fecha, resultado esperado y resultado observado. | Pendiente de reproducción y corrección de los destinos afectados. |
+| AR-11 | Completar los perfiles con información confirmada y retirar mensajes provisionales que ya no correspondan. | Contenido y coordinación del equipo. | Comparación del sitio con la lista confirmada de cinco integrantes; revisión de cada tarjeta. | Propuesto; sin atribuir cambios de la Landing a ajustes del repositorio del informe. |
+| AR-12 | Separar metas de resultados y vincular afirmaciones técnicas con sus fuentes o verificaciones. | Producto, contenido y responsable técnico. | Fuente, método, periodo y alcance de cada afirmación; evidencia técnica para las propiedades de seguridad anunciadas. | Pendiente de sustento o reformulación. |
+
+*Nota.* «Propuesto» y «pendiente» indican que esta sección no adjunta un commit funcional ni una prueba posterior que acredite el cierre. La fecha referencial del 12/11/2026 no convierte estas acciones en trabajos ya ejecutados.
+
+**Procedimiento de revalidación**
+
+1. Confirmar el hallazgo en una versión identificada y descartar los casos que no se reproduzcan.
+2. Registrar responsable, requisito de aceptación y commit del cambio.
+3. Repetir la tarea afectada y las pruebas de regresión pertinentes, incluyendo escritorio y móvil cuando aplique.
+4. Guardar evidencia antes/después, resultado esperado, resultado observado y versión evaluada.
+5. Solicitar revisión del equipo y actualizar el estado a «Corregido y revalidado» únicamente cuando exista evidencia suficiente; conservar los casos abiertos y sus motivos.
+
+El cierre de estos hallazgos debe basarse en resultados verificables. La aprobación de las suites unitarias, de integración o BDD existentes no sustituye automáticamente la revalidación de cada observación de experiencia de usuario.
+
 **Referencias**
 
 American Psychological Association. (2021). *Figure setup*. https://apastyle.apa.org/style-grammar-guidelines/tables-figures/figures
