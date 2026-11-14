@@ -1,0 +1,6 @@
+﻿2026-11-14T01:45:00.9153140Z ##[group]Run npm ci --ignore-scripts --no-audit --no-fund
+2026-11-14T01:45:00.9153375Z [36;1mnpm ci --ignore-scripts --no-audit --no-fund[0m
+2026-11-14T01:45:00.9188531Z shell: /usr/bin/bash -e {0}
+2026-11-14T01:45:00.9188676Z ##[endgroup]
+2026-11-14T01:45:02.6021602Z 
+2026-11-14T01:45:02.6022289Z added 298 packages in 2s

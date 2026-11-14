@@ -70,9 +70,9 @@ Proyecto
 
 ---
 
-## Consolidación de capítulos I–VI
+## Consolidación de capítulos I–VII
 
-Esta versión integra las ramas de los capítulos I, II, III, IV, V y VI, junto con sus imágenes, auditorías y evidencias. El capítulo VII continúa en su rama de trabajo y queda fuera de esta integración.
+Esta rama parte de la integración de los capítulos I–VI en `develop` e incorpora el capítulo VII y sus evidencias desde `feature/chapter-7`, con el apartado 7.2 de Continuous Delivery desarrollado para revisión.
 
 # Contenido
 
@@ -124,6 +124,16 @@ Esta versión integra las ramas de los capítulos I, II, III, IV, V y VI, junto 
 - 6.2. Static testing & Verification
 - 6.3. Validation Interviews y evaluación heurística
 - 6.4. Auditoría de Experiencias de Usuario: realizada y recibida
+
+## Capítulo VII: DevOps Practices
+
+- [Capítulo VII](report/71-chapter-VII-devops-practices.md)
+- 7.1. Continuous Integration
+- [7.2. Continuous Delivery](report/71-chapter-VII-devops-practices.md#72-continuous-delivery)
+- [7.2.1. Tools and Practices](report/71-chapter-VII-devops-practices.md#721-tools-and-practices)
+- [7.2.2. Stages Deployment Pipeline Components](report/71-chapter-VII-devops-practices.md#722-stages-deployment-pipeline-components)
+- 7.3. Continuous Deployment
+- 7.4. Continuous Monitoring
 
 ## Avance de Conclusiones, Bibliografía y Anexos
 - [Bibliografía y Anexos](report/99-bibliography.md)
