@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: UT-DEV-01 conserva sede y lectura cero al construir el dispositivo
+ok 1 - UT-DEV-01 conserva sede y lectura cero al construir el dispositivo
+  ---
+  duration_ms: 0.593363
+  type: 'test'
+  ...
+# Subtest: UT-DEV-02 interpreta enabled_sensors recibido como JSON
+ok 2 - UT-DEV-02 interpreta enabled_sensors recibido como JSON
+  ---
+  duration_ms: 0.374913
+  type: 'test'
+  ...
+# Subtest: UT-DEV-03 tolera JSON incompleto sin interrumpir el dominio
+ok 3 - UT-DEV-03 tolera JSON incompleto sin interrumpir el dominio
+  ---
+  duration_ms: 0.091788
+  type: 'test'
+  ...
+# Subtest: UT-DEV-04 clasifica 4.5 grados como ok
+ok 4 - UT-DEV-04 clasifica 4.5 grados como ok
+  ---
+  duration_ms: 0.10628
+  type: 'test'
+  ...
+# Subtest: UT-DEV-05 clasifica 8.1 grados como critical
+ok 5 - UT-DEV-05 clasifica 8.1 grados como critical
+  ---
+  duration_ms: 0.0668
+  type: 'test'
+  ...
+# Subtest: UT-DEV-06 clasifica 1.9 grados como critical
+ok 6 - UT-DEV-06 clasifica 1.9 grados como critical
+  ---
+  duration_ms: 0.048933
+  type: 'test'
+  ...
+# Subtest: UT-DEV-07 clasifica 7.1 grados como warning
+ok 7 - UT-DEV-07 clasifica 7.1 grados como warning
+  ---
+  duration_ms: 0.066931
+  type: 'test'
+  ...
+# Subtest: UT-DEV-08 distingue los limites de warning y critical
+ok 8 - UT-DEV-08 distingue los limites de warning y critical
+  ---
+  duration_ms: 0.078648
+  type: 'test'
+  ...
+# Subtest: UT-DEV-09 identifica texto no numerico como unknown
+ok 9 - UT-DEV-09 identifica texto no numerico como unknown
+  ---
+  duration_ms: 0.065789
+  type: 'test'
+  ...
+# Subtest: UT-DEV-10 identifica temperatura null como unknown
+ok 10 - UT-DEV-10 identifica temperatura null como unknown
+  ---
+  duration_ms: 0.111918
+  type: 'test'
+  ...
+# Subtest: UT-DEV-11 identifica temperatura vacia como unknown
+ok 11 - UT-DEV-11 identifica temperatura vacia como unknown
+  ---
+  duration_ms: 0.091738
+  type: 'test'
+  ...
+# Subtest: UT-DEV-12 clasifica puerta abierta como critical
+ok 12 - UT-DEV-12 clasifica puerta abierta como critical
+  ---
+  duration_ms: 0.082344
+  type: 'test'
+  ...
+# Subtest: UT-DEV-13 clasifica puerta cerrada como ok
+ok 13 - UT-DEV-13 clasifica puerta cerrada como ok
+  ---
+  duration_ms: 0.064126
+  type: 'test'
+  ...
+# Subtest: UT-DEV-14 recupera luz desde el alias lux
+ok 14 - UT-DEV-14 recupera luz desde el alias lux
+  ---
+  duration_ms: 0.13319
+  type: 'test'
+  ...
+# Subtest: UT-SUB-01 traduce basic a BASIC
+ok 15 - UT-SUB-01 traduce basic a BASIC
+  ---
+  duration_ms: 0.12668
+  type: 'test'
+  ...
+# Subtest: UT-SUB-02 traduce PREMIUM al catalogo premium
+ok 16 - UT-SUB-02 traduce PREMIUM al catalogo premium
+  ---
+  duration_ms: 0.10624
+  type: 'test'
+  ...
+# Subtest: UT-SUB-03 traduce enterprise a ENTERPRISE
+ok 17 - UT-SUB-03 traduce enterprise a ENTERPRISE
+  ---
+  duration_ms: 0.058398
+  type: 'test'
+  ...
+# Subtest: UT-SUB-04 usa basic ante un plan desconocido
+ok 18 - UT-SUB-04 usa basic ante un plan desconocido
+  ---
+  duration_ms: 0.672331
+  type: 'test'
+  ...
+# Subtest: UT-IAM-01 normaliza espacios y mayusculas del correo
+ok 19 - UT-IAM-01 normaliza espacios y mayusculas del correo
+  ---
+  duration_ms: 0.082063
+  type: 'test'
+  ...
+# Subtest: UT-IAM-02 conserva exactamente la clave y el segmento
+ok 20 - UT-IAM-02 conserva exactamente la clave y el segmento
+  ---
+  duration_ms: 0.063776
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 44.042655

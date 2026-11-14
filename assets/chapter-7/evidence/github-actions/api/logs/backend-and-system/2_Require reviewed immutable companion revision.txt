@@ -1,0 +1,6 @@
+﻿2026-11-14T01:44:32.4736251Z ##[group]Run if ($env:FRONTEND_REF -notmatch '^[a-f0-9]{40}$') { throw 'Configurar CI_FRONTEND_REF con el SHA revisado del frontend tras aprobar/publicar ambos cambios.' }
+2026-11-14T01:44:32.4739442Z [36;1mif ($env:FRONTEND_REF -notmatch '^[a-f0-9]{40}$') { throw 'Configurar CI_FRONTEND_REF con el SHA revisado del frontend tras aprobar/publicar ambos cambios.' }[0m
+2026-11-14T01:44:32.5207041Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:44:32.5208263Z env:
+2026-11-14T01:44:32.5208767Z   FRONTEND_REF: 480c9211433c2e1ade09d18dd7cfd209f610bb6b
+2026-11-14T01:44:32.5209477Z ##[endgroup]

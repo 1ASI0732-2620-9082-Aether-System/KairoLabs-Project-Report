@@ -1,0 +1,17 @@
+﻿2026-11-14T01:45:37.6971067Z ##[group]Run Set-Location KairoLabs-Frontend
+2026-11-14T01:45:37.6971446Z [36;1mSet-Location KairoLabs-Frontend[0m
+2026-11-14T01:45:37.6971676Z [36;1mnode scripts/ci/guard-build.mjs[0m
+2026-11-14T01:45:37.6971924Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-14T01:45:37.6972208Z [36;1mnode scripts/ci/prepare-evidence.mjs[0m
+2026-11-14T01:45:37.6972461Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-14T01:45:37.6972716Z [36;1mSet-Location ../KairoLabs-Platform[0m
+2026-11-14T01:45:37.6972934Z [36;1mnode scripts/ci/guard-build.mjs[0m
+2026-11-14T01:45:37.6973162Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-14T01:45:37.6973402Z [36;1mnode scripts/ci/prepare-evidence.mjs[0m
+2026-11-14T01:45:37.6973612Z [36;1mexit $LASTEXITCODE[0m
+2026-11-14T01:45:37.7030931Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:45:37.7031275Z ##[endgroup]
+2026-11-14T01:45:37.9990220Z PASS: no se detectan los hooks init y patrones ofuscados conocidos. No es un escáner completo de malware.
+2026-11-14T01:45:38.0628048Z Evidencia histórica retirada del checkout CI; solo se publicarán resultados de esta ejecución.
+2026-11-14T01:45:38.1163829Z PASS: no se detectan los hooks init y patrones ofuscados conocidos. No es un escáner completo de malware.
+2026-11-14T01:45:38.1671343Z Evidencia histórica retirada del checkout CI; solo se publicarán resultados de esta ejecución.
