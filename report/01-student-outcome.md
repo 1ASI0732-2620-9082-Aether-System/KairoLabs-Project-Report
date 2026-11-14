@@ -23,17 +23,17 @@ En el marco del presente informe, el Student Outcome 4 se interpreta como la obl
 
 Esta actualización presenta reflexiones personales vinculadas a los criterios **4.c.1** (responsabilidades éticas y profesionales) y **4.c.2** (juicios informados sobre impactos globales, económicos, ambientales y sociales). Las conclusiones distinguen evidencia técnica, inspección y opinión de usuarios; no atribuyen mejoras clínicas o comerciales no medidas.
 
-Los aportes del capítulo VII se registran conforme a la distribución del equipo y permanecen en su [rama de trabajo](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Project-Report/tree/feature/chapter-7). No se incorpora el capítulo VII al índice ni se afirma que todos sus apartados estén concluidos. Los apartados no asignados inicialmente se distribuyeron como responsabilidad documental complementaria: 6.1 y 6.3.3 a Sebastián; 6.4 y sus subapartados a Rodrigo.
+Los aportes del capítulo VII se registran conforme a la distribución del equipo. El [capítulo VII](71-chapter-VII-devops-practices.md) está integrado al informe y enlazado desde el índice; sus notas distinguen implementación comprobada de planificación y evidencias todavía pendientes. Los apartados no asignados inicialmente se distribuyeron como responsabilidad documental complementaria: 6.1 y 6.3.3 a Sebastián; 6.4 y sus subapartados a Rodrigo.
 
 ### Distribución individual de aportes AV2
 
 | Integrante | Capítulo VI | Capítulo VII / estado |
 | :--- | :--- | :--- |
 | Mallqui Vilca, Dhilsen Armil | 6.1.3 y 6.1.4 | Participación de apoyo a la coherencia entre pruebas de aceptación y pipeline; no se asigna otra sección de VII como finalizada. |
-| Diaz Mendoza, Sebastian Victor Andre | 6.1, 6.1.1, 6.1.2 y 6.3.3 | 7.1, 7.1.1 y 7.1.2: CI documentado y ejecutado en GitHub Actions, conservado en feature/chapter-7. |
-| Ramirez Escalante, Carlo Patricio | 6.2.1, 6.2.1.1 y 6.2.1.2 | 7.4 a 7.4.4: documentación de monitoreo, alertas y notificaciones en la rama de trabajo. |
-| Oblitas Alcalde, Rodrigo | 6.4, 6.4.1 a 6.4.1.3 y 6.4.2 a 6.4.2.4 | 7.2, 7.2.1 y 7.2.2: aporte asignado a entrega continua; pendiente de completar y validar en la rama de trabajo. |
-| Dinklange Arevalo, Sandro | 6.2.2, 6.3, 6.3.1 y 6.3.2 | 7.3, 7.3.1 y 7.3.2: documentación de despliegue continuo en la rama de trabajo. |
+| Diaz Mendoza, Sebastian Victor Andre | 6.1, 6.1.1, 6.1.2 y 6.3.3 | 7.1, 7.1.1 y 7.1.2: CI documentado y ejecutado en GitHub Actions, integrado al informe. |
+| Ramirez Escalante, Carlo Patricio | 6.2.1, 6.2.1.1 y 6.2.1.2 | 7.4 a 7.4.4: documentación de monitoreo, alertas y notificaciones integrada al informe. |
+| Oblitas Alcalde, Rodrigo | 6.4, 6.4.1 a 6.4.1.3 y 6.4.2 a 6.4.2.4 | 7.2, 7.2.1 y 7.2.2: documentación de entrega continua integrada; el staging y la aprobación de entrega siguen pendientes de evidencia. |
+| Dinklange Arevalo, Sandro | 6.2.2, 6.3, 6.3.1 y 6.3.2 | 7.3, 7.3.1 y 7.3.2: documentación de despliegue continuo integrada al informe. |
 
 ### 4.c.1. Responsabilidades éticas y profesionales
 
@@ -42,7 +42,7 @@ Los aportes del capítulo VII se registran conforme a la distribución del equip
 | **Mallqui Vilca, Dhilsen Armil** | Desarrollé la documentación BDD y de pruebas de sistema de 6.1.3 y 6.1.4. Identifiqué escenarios, herramientas, resultados y límites de la emulación móvil para no presentar una prueba responsive como validación de un dispositivo físico. Conservo las fuentes y las evidencias para que otro integrante pueda revisar lo entregado. | Reconozco mi responsabilidad de comunicar qué se probó y qué falta comprobar. La trazabilidad y la atribución de fuentes permiten una revisión profesional sin confundir resultados funcionales con ausencia total de riesgos. |
 | **Diaz Mendoza, Sebastian Victor Andre** | Desarrollé las pruebas unitarias de 6.1.1 y las de integración de 6.1.2, y consolidé la estrategia de 6.1 y la evaluación heurística de 6.3.3. Documenté defectos y revalidación, manteniendo las expectativas de las pruebas y diferenciando hallazgos confirmados de observaciones pendientes. En 7.1 preparé y ejecuté CI con resultados y artefactos verificables. | Asumo la responsabilidad de no atribuir aprobación a actividades sin evidencia. Los resultados 20/20 unitarios y 14/14 de integración acreditan sus casos, pero no equivalen a certificar toda la aplicación ni a cerrar la seguridad pendiente. |
 | **Ramirez Escalante, Carlo Patricio** | Desarrollé el análisis estático, las convenciones de código y la evaluación de calidad y seguridad de 6.2.1 a 6.2.1.2. Identifiqué herramientas, métricas y avisos de dependencias sin presentar una compilación aprobada como ausencia de vulnerabilidades. Mi aporte de 7.4 organiza la documentación de monitoreo y sus componentes. | Reconozco que una presentación responsable debe conservar los hallazgos abiertos y explicar los criterios de cada herramienta. Las convenciones y métricas facilitan la colaboración y el mantenimiento, pero requieren revisión profesional contextual. |
-| **Oblitas Alcalde, Rodrigo** | Organicé la documentación de la auditoría realizada y recibida en 6.4, diferenciando equipos, productos y fuentes. Conservé las severidades preliminares y los casos que requieren confirmación, y separé las recomendaciones de modificaciones efectivamente verificadas. Tengo asignado 7.2 para documentar entrega continua y sus etapas. | Reconozco el deber de evaluar a otros equipos con criterios explícitos, respetar sus evidencias y no atribuirles cambios o resultados no comprobados. Registrar el origen de cada observación fortalece la originalidad y la rendición de cuentas del trabajo. |
+| **Oblitas Alcalde, Rodrigo** | Organicé la documentación de la auditoría realizada y recibida en 6.4, diferenciando equipos, productos y fuentes. Conservé las severidades preliminares y los casos que requieren confirmación, y separé las recomendaciones de modificaciones efectivamente verificadas. Documenté 7.2 sobre entrega continua y sus etapas, distinguiendo las pruebas existentes de la preparación de staging y aprobación aún no acreditadas. | Reconozco el deber de evaluar a otros equipos con criterios explícitos, respetar sus evidencias y no atribuirles cambios o resultados no comprobados. Registrar el origen de cada observación fortalece la originalidad y la rendición de cuentas del trabajo. |
 | **Dinklange Arevalo, Sandro** | Desarrollé la revisión de 6.2.2 y la documentación de validación de 6.3 a 6.3.2: diseño y registro de entrevistas. Distinguí la opinión de los participantes, los hallazgos documentales y las comprobaciones técnicas. En 7.3 organicé la descripción de herramientas y etapas del despliegue continuo. | Reconozco que debo representar fielmente las entrevistas y no inventar aprobación por pares, participantes o actas. La revisión debe dejar identificados sus límites y pendientes para permitir decisiones éticas e informadas. |
 
 ### 4.c.2. Evaluación de impactos y juicios informados
@@ -58,5 +58,5 @@ Los aportes del capítulo VII se registran conforme a la distribución del equip
 ### Evidencias de referencia
 
 - [Capítulo VI: verificación, validación, heurísticas y auditorías](61-chapter-VI-Verification%26Validation.md).
-- [Capítulo VII: aportes en desarrollo y evidencias CI](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Project-Report/blob/feature/chapter-7/report/71-chapter-VII-devops-practices.md).
+- [Capítulo VII: aportes y evidencias CI](71-chapter-VII-devops-practices.md).
 - Runs CI de 7.1: [frontend](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/actions/runs/43542409469) y [plataforma](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/actions/runs/43542367043).

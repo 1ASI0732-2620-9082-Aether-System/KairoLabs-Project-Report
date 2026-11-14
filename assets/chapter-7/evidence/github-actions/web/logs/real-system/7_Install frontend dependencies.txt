@@ -1,0 +1,6 @@
+﻿2026-11-14T01:45:38.3601177Z ##[group]Run npm ci --ignore-scripts --no-audit --no-fund
+2026-11-14T01:45:38.3601586Z [36;1mnpm ci --ignore-scripts --no-audit --no-fund[0m
+2026-11-14T01:45:38.3653704Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:45:38.3654049Z ##[endgroup]
+2026-11-14T01:45:48.9967533Z 
+2026-11-14T01:45:48.9968149Z added 296 packages in 9s

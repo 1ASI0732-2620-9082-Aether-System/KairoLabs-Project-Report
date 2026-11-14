@@ -1,0 +1,8 @@
+2026-11-14T01:44:50.8030000Z Requested labels: ubuntu-latest
+2026-11-14T01:44:50.8030000Z Job defined at: 1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/.github/workflows/core-ci.yml@refs/heads/master
+2026-11-14T01:44:50.8030000Z Waiting for a runner to pick up this job...
+2026-11-14T01:44:50.7990000Z Evaluating frontend-checks.if
+2026-11-14T01:44:50.7990000Z Evaluating: success()
+2026-11-14T01:44:50.7990000Z Result: true
+2026-11-14T01:44:51.2030000Z Job is about to start running on the hosted runner: GitHub Actions 1000000064
+2026-11-14T01:44:51.2030000Z Job is waiting for a hosted runner to come online.

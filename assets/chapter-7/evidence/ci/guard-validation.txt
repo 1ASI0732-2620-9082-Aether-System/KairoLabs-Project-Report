@@ -1,0 +1,20 @@
+Entradas limpias: exit 0
+Hook init simulado e inerte: exit 1
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: El archivo init no revisado debe retirarse antes del build.
+    at file:///C:/Users/Usuario/Documents/ChatGPT/Exp%20Software/output/chapter-7-review/KairoLabs-Frontend/scripts/ci/guard-build.mjs:5:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:671:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.11.1

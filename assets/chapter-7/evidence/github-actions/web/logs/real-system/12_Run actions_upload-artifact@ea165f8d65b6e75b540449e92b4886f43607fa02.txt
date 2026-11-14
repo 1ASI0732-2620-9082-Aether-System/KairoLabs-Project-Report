@@ -1,0 +1,28 @@
+﻿2026-11-14T01:47:59.7126667Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-14T01:47:59.7127153Z with:
+2026-11-14T01:47:59.7127361Z   name: real-system-43542409469
+2026-11-14T01:47:59.7127675Z   path: KairoLabs-Frontend/evidence/bdd/
+KairoLabs-Platform/evidence/
+
+2026-11-14T01:47:59.7128020Z   retention-days: 14
+2026-11-14T01:47:59.7128237Z   if-no-files-found: warn
+2026-11-14T01:47:59.7128441Z   compression-level: 6
+2026-11-14T01:47:59.7128648Z   overwrite: false
+2026-11-14T01:47:59.7128847Z   include-hidden-files: false
+2026-11-14T01:47:59.7129091Z ##[endgroup]
+2026-11-14T01:47:59.8726633Z (node:2648) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T01:47:59.8727366Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T01:47:59.8821970Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-14T01:47:59.8824357Z The least common ancestor is D:\a\KairoLabs-Frontend\KairoLabs-Frontend. This will be the root directory of the artifact
+2026-11-14T01:47:59.8825183Z With the provided path, there will be 20 files uploaded
+2026-11-14T01:47:59.8828898Z Artifact name is valid!
+2026-11-14T01:47:59.8829954Z Root directory input is valid!
+2026-11-14T01:48:00.0950507Z Beginning upload of artifact content to blob storage
+2026-11-14T01:48:00.4032650Z (node:2648) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-14T01:48:00.5085268Z Uploaded bytes 7295930
+2026-11-14T01:48:00.5201773Z Finished uploading artifact content to blob storage!
+2026-11-14T01:48:00.5203135Z SHA256 digest of uploaded artifact zip is 957593213e3601f6641f6a293f4e3445be8853ea7abbf7aa1f6309228cb71e9f
+2026-11-14T01:48:00.5204821Z Finalizing artifact upload
+2026-11-14T01:48:00.8483453Z Artifact real-system-43542409469.zip successfully finalized. Artifact ID 14092745775
+2026-11-14T01:48:00.8484705Z Artifact real-system-43542409469 has been successfully uploaded! Final size is 7295930 bytes. Artifact ID is 14092745775
+2026-11-14T01:48:00.8494261Z Artifact download URL: https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend/actions/runs/43542409469/artifacts/14092745775
