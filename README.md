@@ -110,6 +110,19 @@ Proyecto
 - 5.2. Product Implementation & Deployment
 - 5.3. Video About-the-Product
 
+## Capítulo VI: Product Verification & Validation
+- [Capítulo VI](report/61-chapter-VI-Verification&Validation.md)
+- 6.1. Testing Suites & Validation
+- 6.2. Static testing & Verification
+- 6.3. Validation Interviews
+
+## Capítulo VII: DevOps Practices
+- [Capítulo VII](report/71-chapter-VII-devops-practices.md)
+- 7.1. Continuous Integration
+- 7.2. Continuous Delivery
+- 7.3. Continuous deployment
+- 7.4. Continuous Monitoring
+
 ## Avance de Conclusiones, Bibliografía y Anexos
 - [Bibliografía y Anexos](report/99-bibliography.md)
 
