@@ -1,0 +1,5 @@
+﻿2026-11-14T01:45:00.8853803Z ##[group]Run node scripts/ci/prepare-evidence.mjs
+2026-11-14T01:45:00.8854035Z [36;1mnode scripts/ci/prepare-evidence.mjs[0m
+2026-11-14T01:45:00.8889712Z shell: /usr/bin/bash -e {0}
+2026-11-14T01:45:00.8889859Z ##[endgroup]
+2026-11-14T01:45:00.9111855Z Evidencia histórica retirada del checkout CI; solo se publicarán resultados de esta ejecución.

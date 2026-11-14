@@ -42,9 +42,9 @@ Carrera de Ingeniería de Software
 | :--- | :--- | :--- | :--- |
 | 1.0 | 06/09/2026 | Todos los integrantes | Desarrollo de los capítulos I, II, III y IV. |
 | 2.0 | 05/10/2026 | Todos los integrantes | Desarrollo del capítulo V y mejoras de capítulos previos. |
-| **3.0 — AV2** | **13/11/2026** | **Todos los integrantes** | **Desarrollo de los capítulos VI y VII y mejoras de capítulos previos.** El capítulo VII permanece en su rama de trabajo y no se incluye todavía en el índice ni en esta integración a main. |
+| **3.0 — AV2** | **13/11/2026** | **Todos los integrantes** | **Desarrollo de los capítulos VI y VII y mejoras de capítulos previos.** |
 
-La versión consolidada integra los capítulos I–VI con sus imágenes y evidencias. La asignación de aportes del capítulo VII se registra en ABET con su estado de trabajo, sin presentarlo como integrado o finalizado.
+La versión consolidada integra los capítulos I–VII con sus imágenes y evidencias. El capítulo VII distingue las ejecuciones verificadas de CI de las etapas de entrega y revisión todavía propuestas; integrarlo al informe no acredita automáticamente todas las configuraciones descritas.
 
 <div style="page-break-after: always;"></div>
 
@@ -171,6 +171,23 @@ La versión consolidada integra los capítulos I–VI con sus imágenes y eviden
     - [6.4.2.2. Cronograma de auditoría recibida](report/61-chapter-VI-Verification%26Validation.md#6422-cronograma-de-auditoría-recibida)
     - [6.4.2.3. Contenido de auditoría recibida](report/61-chapter-VI-Verification%26Validation.md#6423-contenido-de-auditoría-recibida)
     - [6.4.2.4. Resumen de modificaciones para subsanar hallazgos](report/61-chapter-VI-Verification%26Validation.md#6424-resumen-de-modificaciones-para-subsanar-hallazgos)
+
+## [Capítulo VII: DevOps Practices](report/71-chapter-VII-devops-practices.md)
+
+- [7.1. Continuous Integration](report/71-chapter-VII-devops-practices.md#71-continuous-integration)
+  - [7.1.1. Tools and Practices](report/71-chapter-VII-devops-practices.md#711-tools-and-practices)
+  - [7.1.2. Build & Test Suite Pipeline Components](report/71-chapter-VII-devops-practices.md#712-build--test-suite-pipeline-components)
+- [7.2. Continuous Delivery](report/71-chapter-VII-devops-practices.md#72-continuous-delivery)
+  - [7.2.1. Tools and Practices](report/71-chapter-VII-devops-practices.md#721-tools-and-practices)
+  - [7.2.2. Stages Deployment Pipeline Components](report/71-chapter-VII-devops-practices.md#722-stages-deployment-pipeline-components)
+- [7.3. Continuous Deployment](report/71-chapter-VII-devops-practices.md#73-continuous-deployment)
+  - [7.3.1. Tools and Practices](report/71-chapter-VII-devops-practices.md#731-tools-and-practices)
+  - [7.3.2. Production Deployment Pipeline Components](report/71-chapter-VII-devops-practices.md#732-production-deployment-pipeline-components)
+- [7.4. Continuous Monitoring](report/71-chapter-VII-devops-practices.md#74-continuous-monitoring)
+  - [7.4.1. Tools and Practices](report/71-chapter-VII-devops-practices.md#741-tools-and-practices)
+  - [7.4.2. Monitoring Pipeline Components](report/71-chapter-VII-devops-practices.md#742-monitoring-pipeline-components)
+  - [7.4.3. Alerting Pipeline Components](report/71-chapter-VII-devops-practices.md#743-alerting-pipeline-components)
+  - [7.4.4. Notification Pipeline Components](report/71-chapter-VII-devops-practices.md#744-notification-pipeline-components)
 
 ## Bibliografía y anexos
 

@@ -1,0 +1,712 @@
+﻿2026-11-14T01:44:31.3660632Z Current runner version: '2.338.2'
+2026-11-14T01:44:31.3687087Z ##[group]Runner Image Provisioner
+2026-11-14T01:44:31.3688024Z Hosted Compute Agent
+2026-11-14T01:44:31.3688888Z Version: 20261103.629
+2026-11-14T01:44:31.3690296Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-14T01:44:31.3691527Z Build Date: 2026-11-03T17:26:59Z
+2026-11-14T01:44:31.3692630Z Worker ID: {c7985d6d-ad74-465f-8af2-880ae57fd045}
+2026-11-14T01:44:31.3693791Z Region: centralus
+2026-11-14T01:44:31.3694656Z Cloud: Azure
+2026-11-14T01:44:31.3695576Z ##[endgroup]
+2026-11-14T01:44:31.3697759Z ##[group]Operating System
+2026-11-14T01:44:31.3698763Z Microsoft Windows Server 2025
+2026-11-14T01:44:31.3699803Z 10.0.26100
+2026-11-14T01:44:31.3700614Z Datacenter
+2026-11-14T01:44:31.3701403Z ##[endgroup]
+2026-11-14T01:44:31.3702283Z ##[group]Runner Image
+2026-11-14T01:44:31.3703264Z Image: windows-2025-vs2026
+2026-11-14T01:44:31.3704359Z Version: 20261103.298.1
+2026-11-14T01:44:31.3707334Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261103.298/images/windows/Windows2025-VS2026-Readme.md
+2026-11-14T01:44:31.3710800Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261103.298
+2026-11-14T01:44:31.3712558Z ##[endgroup]
+2026-11-14T01:44:31.3714421Z ##[group]GITHUB_TOKEN Permissions
+2026-11-14T01:44:31.3716984Z Contents: read
+2026-11-14T01:44:31.3717914Z Metadata: read
+2026-11-14T01:44:31.3718740Z ##[endgroup]
+2026-11-14T01:44:31.3721559Z Secret source: Actions
+2026-11-14T01:44:31.3722949Z Cache mode: write
+2026-11-14T01:44:31.3724158Z Prepare workflow directory
+2026-11-14T01:44:31.4229750Z Prepare all required actions
+2026-11-14T01:44:31.4277695Z Getting action download info
+2026-11-14T01:44:31.7038045Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-14T01:44:31.8328092Z Download action repository 'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-14T01:44:31.9919439Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-14T01:44:32.3393228Z Complete job name: backend-and-system
+2026-11-14T01:44:32.4736305Z ##[group]Run if ($env:FRONTEND_REF -notmatch '^[a-f0-9]{40}$') { throw 'Configurar CI_FRONTEND_REF con el SHA revisado del frontend tras aprobar/publicar ambos cambios.' }
+2026-11-14T01:44:32.4739450Z [36;1mif ($env:FRONTEND_REF -notmatch '^[a-f0-9]{40}$') { throw 'Configurar CI_FRONTEND_REF con el SHA revisado del frontend tras aprobar/publicar ambos cambios.' }[0m
+2026-11-14T01:44:32.5207075Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:44:32.5208272Z env:
+2026-11-14T01:44:32.5208771Z   FRONTEND_REF: 480c9211433c2e1ade09d18dd7cfd209f610bb6b
+2026-11-14T01:44:32.5209481Z ##[endgroup]
+2026-11-14T01:44:34.5679546Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-11-14T01:44:34.5680088Z with:
+2026-11-14T01:44:34.5680425Z   repository: 1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend
+2026-11-14T01:44:34.5680847Z   ref: 480c9211433c2e1ade09d18dd7cfd209f610bb6b
+2026-11-14T01:44:34.5681180Z   path: KairoLabs-Frontend
+2026-11-14T01:44:34.5681459Z   persist-credentials: false
+2026-11-14T01:44:34.5683929Z   token: ***
+2026-11-14T01:44:34.5684166Z   ssh-strict: true
+2026-11-14T01:44:34.5684409Z   ssh-user: git
+2026-11-14T01:44:34.5684629Z   clean: true
+2026-11-14T01:44:34.5684869Z   sparse-checkout-cone-mode: true
+2026-11-14T01:44:34.5685155Z   fetch-depth: 1
+2026-11-14T01:44:34.5685374Z   fetch-tags: false
+2026-11-14T01:44:34.5685602Z   show-progress: true
+2026-11-14T01:44:34.5685832Z   lfs: false
+2026-11-14T01:44:34.5686056Z   submodules: false
+2026-11-14T01:44:34.5743493Z   set-safe-directory: true
+2026-11-14T01:44:34.5743922Z   allow-unsafe-pr-checkout: false
+2026-11-14T01:44:34.5744226Z ##[endgroup]
+2026-11-14T01:44:34.7102764Z Syncing repository: 1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend
+2026-11-14T01:44:34.7104245Z ##[group]Getting Git version info
+2026-11-14T01:44:34.7104787Z Working directory is 'D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend'
+2026-11-14T01:44:34.7997245Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-14T01:44:35.0513148Z git version 2.56.0.windows.4
+2026-11-14T01:44:35.0565526Z ##[endgroup]
+2026-11-14T01:44:35.0583600Z Temporarily overriding HOME='D:\a\_temp\6963c71a-c117-4af5-ad4b-40c4f34b7acd' before making global git config changes
+2026-11-14T01:44:35.0584726Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T01:44:35.0594923Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend
+2026-11-14T01:44:35.1153460Z ##[group]Initializing the repository
+2026-11-14T01:44:35.1162530Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend
+2026-11-14T01:44:35.1867392Z Initialized empty Git repository in D:/a/KairoLabs-Platform/KairoLabs-Platform/KairoLabs-Frontend/.git/
+2026-11-14T01:44:35.1913341Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend
+2026-11-14T01:44:35.2536513Z ##[endgroup]
+2026-11-14T01:44:35.2536942Z ##[group]Disabling automatic garbage collection
+2026-11-14T01:44:35.2551323Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-14T01:44:35.2940190Z ##[endgroup]
+2026-11-14T01:44:35.2940784Z ##[group]Setting up auth
+2026-11-14T01:44:35.2952938Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T01:44:35.3392792Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-14T01:44:36.5358844Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T01:44:36.5746654Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-14T01:44:37.1284076Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T01:44:37.1660229Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-14T01:44:37.7420338Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-14T01:44:37.7858513Z ##[endgroup]
+2026-11-14T01:44:37.7859383Z ##[group]Fetching the repository
+2026-11-14T01:44:37.7872676Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 480c9211433c2e1ade09d18dd7cfd209f610bb6b
+2026-11-14T01:44:39.3244094Z From https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend
+2026-11-14T01:44:39.3245053Z  * branch            480c9211433c2e1ade09d18dd7cfd209f610bb6b -> FETCH_HEAD
+2026-11-14T01:44:39.3286841Z ##[endgroup]
+2026-11-14T01:44:39.3287419Z ##[group]Determining the checkout info
+2026-11-14T01:44:39.3289121Z ##[endgroup]
+2026-11-14T01:44:39.3298452Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-14T01:44:39.3805861Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-14T01:44:39.4207363Z ##[group]Checking out the ref
+2026-11-14T01:44:39.4218489Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force 480c9211433c2e1ade09d18dd7cfd209f610bb6b
+2026-11-14T01:44:39.7257784Z Note: switching to '480c9211433c2e1ade09d18dd7cfd209f610bb6b'.
+2026-11-14T01:44:39.7258524Z 
+2026-11-14T01:44:39.7258837Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-14T01:44:39.7259328Z changes and commit them, and you can discard any commits you make in this
+2026-11-14T01:44:39.7260085Z state without impacting any branches by switching back to a branch.
+2026-11-14T01:44:39.7260551Z 
+2026-11-14T01:44:39.7260859Z If you want to create a new branch to retain commits you create, you may
+2026-11-14T01:44:39.7261957Z do so (now or later) by using -c with the switch command. Example:
+2026-11-14T01:44:39.7262806Z 
+2026-11-14T01:44:39.7262943Z   git switch -c <new-branch-name>
+2026-11-14T01:44:39.7263152Z 
+2026-11-14T01:44:39.7263249Z Or undo this operation with:
+2026-11-14T01:44:39.7263435Z 
+2026-11-14T01:44:39.7263518Z   git switch -
+2026-11-14T01:44:39.7263640Z 
+2026-11-14T01:44:39.7263993Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-14T01:44:39.7264553Z 
+2026-11-14T01:44:39.7264847Z HEAD is now at 480c921 fix(build): remove unreviewed init hooks and guard CI entry points
+2026-11-14T01:44:39.7429516Z ##[endgroup]
+2026-11-14T01:44:39.7907261Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-14T01:44:39.8247295Z 480c9211433c2e1ade09d18dd7cfd209f610bb6b
+2026-11-14T01:44:39.8290043Z ##[group]Removing auth
+2026-11-14T01:44:39.8297723Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T01:44:39.8665006Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-14T01:44:40.4108009Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T01:44:40.4436923Z http.https://github.com/.extraheader
+2026-11-14T01:44:40.4481330Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-14T01:44:40.4867324Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-14T01:44:41.0457344Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T01:44:41.0849637Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-14T01:44:41.6444786Z ##[endgroup]
+2026-11-14T01:44:41.6861264Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-11-14T01:44:41.6861677Z with:
+2026-11-14T01:44:41.6861865Z   path: KairoLabs-Platform
+2026-11-14T01:44:41.6862121Z   persist-credentials: false
+2026-11-14T01:44:41.6862438Z   repository: 1ASI0732-2620-9082-Aether-System/KairoLabs-Platform
+2026-11-14T01:44:41.6864901Z   token: ***
+2026-11-14T01:44:41.6865083Z   ssh-strict: true
+2026-11-14T01:44:41.6865255Z   ssh-user: git
+2026-11-14T01:44:41.6865415Z   clean: true
+2026-11-14T01:44:41.6865595Z   sparse-checkout-cone-mode: true
+2026-11-14T01:44:41.6865832Z   fetch-depth: 1
+2026-11-14T01:44:41.6866002Z   fetch-tags: false
+2026-11-14T01:44:41.6866182Z   show-progress: true
+2026-11-14T01:44:41.6866359Z   lfs: false
+2026-11-14T01:44:41.6866518Z   submodules: false
+2026-11-14T01:44:41.6866697Z   set-safe-directory: true
+2026-11-14T01:44:41.6866916Z   allow-unsafe-pr-checkout: false
+2026-11-14T01:44:41.6867138Z ##[endgroup]
+2026-11-14T01:44:41.7959604Z Syncing repository: 1ASI0732-2620-9082-Aether-System/KairoLabs-Platform
+2026-11-14T01:44:41.7967675Z ##[group]Getting Git version info
+2026-11-14T01:44:41.7968381Z Working directory is 'D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Platform'
+2026-11-14T01:44:41.8789558Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-14T01:44:41.9134469Z git version 2.56.0.windows.4
+2026-11-14T01:44:41.9180011Z ##[endgroup]
+2026-11-14T01:44:41.9197266Z Temporarily overriding HOME='D:\a\_temp\cb95790a-30ed-4f0b-8e86-7e1d8880f023' before making global git config changes
+2026-11-14T01:44:41.9198202Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T01:44:41.9208265Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Platform
+2026-11-14T01:44:41.9570566Z ##[group]Initializing the repository
+2026-11-14T01:44:41.9581187Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Platform
+2026-11-14T01:44:42.0016528Z Initialized empty Git repository in D:/a/KairoLabs-Platform/KairoLabs-Platform/KairoLabs-Platform/.git/
+2026-11-14T01:44:42.0069031Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform
+2026-11-14T01:44:42.0505477Z ##[endgroup]
+2026-11-14T01:44:42.0505847Z ##[group]Disabling automatic garbage collection
+2026-11-14T01:44:42.0515924Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-14T01:44:42.0888128Z ##[endgroup]
+2026-11-14T01:44:42.0888461Z ##[group]Setting up auth
+2026-11-14T01:44:42.0900948Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T01:44:42.1278329Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-14T01:44:42.7064499Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T01:44:42.7449705Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-14T01:44:43.3000723Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T01:44:43.3396905Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-14T01:44:43.8980035Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-14T01:44:43.9363292Z ##[endgroup]
+2026-11-14T01:44:43.9367005Z ##[group]Fetching the repository
+2026-11-14T01:44:43.9377038Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5576268dc92ec24008292d2dedf7a45c25293da0:refs/remotes/origin/main
+2026-11-14T01:44:44.5107593Z From https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform
+2026-11-14T01:44:44.5108161Z  * [new ref]         5576268dc92ec24008292d2dedf7a45c25293da0 -> origin/main
+2026-11-14T01:44:44.5154758Z ##[endgroup]
+2026-11-14T01:44:44.5155504Z ##[group]Determining the checkout info
+2026-11-14T01:44:44.5157911Z ##[endgroup]
+2026-11-14T01:44:44.5166746Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-14T01:44:44.5571512Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-14T01:44:44.5933061Z ##[group]Checking out the ref
+2026-11-14T01:44:44.5942726Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-14T01:44:44.7676584Z Switched to a new branch 'main'
+2026-11-14T01:44:44.7694518Z branch 'main' set up to track 'origin/main'.
+2026-11-14T01:44:44.7742448Z ##[endgroup]
+2026-11-14T01:44:44.8140813Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-14T01:44:44.8477415Z 5576268dc92ec24008292d2dedf7a45c25293da0
+2026-11-14T01:44:44.8521345Z ##[group]Removing auth
+2026-11-14T01:44:44.8529108Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T01:44:44.8898019Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-14T01:44:45.4380102Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T01:44:45.4709544Z http.https://github.com/.extraheader
+2026-11-14T01:44:45.4757867Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-14T01:44:45.5158464Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-14T01:44:46.0711684Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T01:44:46.1089502Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-14T01:44:46.6452991Z ##[endgroup]
+2026-11-14T01:44:46.6789476Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-11-14T01:44:46.6789903Z with:
+2026-11-14T01:44:46.6790078Z   node-version: 24.11.1
+2026-11-14T01:44:46.6790281Z   always-auth: false
+2026-11-14T01:44:46.6790481Z   check-latest: false
+2026-11-14T01:44:46.6792815Z   token: ***
+2026-11-14T01:44:46.6792990Z ##[endgroup]
+2026-11-14T01:44:46.8483752Z Attempting to download 24.11.1...
+2026-11-14T01:44:46.8661975Z (node:2612) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T01:44:46.8662988Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T01:44:47.5572509Z Acquiring 24.11.1 - x64 from https://github.com/actions/node-versions/releases/download/24.11.1-19282993875/node-24.11.1-win32-x64.7z
+2026-11-14T01:44:48.0801589Z Extracting ...
+2026-11-14T01:44:50.5588816Z Adding to the cache ...
+2026-11-14T01:44:54.7089873Z ##[group]Environment details
+2026-11-14T01:44:55.8496774Z node: v24.11.1
+2026-11-14T01:44:55.8497014Z npm: 11.6.2
+2026-11-14T01:44:55.8497180Z yarn: 1.22.22
+2026-11-14T01:44:55.8497608Z ##[endgroup]
+2026-11-14T01:44:55.8798500Z ##[group]Run Set-Location KairoLabs-Frontend
+2026-11-14T01:44:55.8798926Z [36;1mSet-Location KairoLabs-Frontend[0m
+2026-11-14T01:44:55.8799217Z [36;1mnode scripts/ci/guard-build.mjs[0m
+2026-11-14T01:44:55.8799538Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-14T01:44:55.8800320Z [36;1mnode scripts/ci/prepare-evidence.mjs[0m
+2026-11-14T01:44:55.8800651Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-14T01:44:55.8800968Z [36;1mSet-Location ../KairoLabs-Platform[0m
+2026-11-14T01:44:55.8801252Z [36;1mnode scripts/ci/guard-build.mjs[0m
+2026-11-14T01:44:55.8801547Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-14T01:44:55.8801860Z [36;1mnode scripts/ci/prepare-evidence.mjs[0m
+2026-11-14T01:44:55.8802130Z [36;1mexit $LASTEXITCODE[0m
+2026-11-14T01:44:55.8871459Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:44:55.8871870Z ##[endgroup]
+2026-11-14T01:44:56.2339038Z PASS: no se detectan los hooks init y patrones ofuscados conocidos. No es un escáner completo de malware.
+2026-11-14T01:44:56.3025388Z Evidencia histórica retirada del checkout CI; solo se publicarán resultados de esta ejecución.
+2026-11-14T01:44:56.3608704Z PASS: no se detectan los hooks init y patrones ofuscados conocidos. No es un escáner completo de malware.
+2026-11-14T01:44:56.4201321Z Evidencia histórica retirada del checkout CI; solo se publicarán resultados de esta ejecución.
+2026-11-14T01:44:56.4625252Z ##[group]Run npm ci --ignore-scripts --no-audit --no-fund
+2026-11-14T01:44:56.4625724Z [36;1mnpm ci --ignore-scripts --no-audit --no-fund[0m
+2026-11-14T01:44:56.4692988Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:44:56.4693401Z ##[endgroup]
+2026-11-14T01:45:07.4289155Z 
+2026-11-14T01:45:07.4289774Z added 296 packages in 10s
+2026-11-14T01:45:09.1624537Z ##[group]Run npm run lint
+2026-11-14T01:45:09.1624965Z [36;1mnpm run lint[0m
+2026-11-14T01:45:09.1625370Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-14T01:45:09.1625835Z [36;1mnpm run test:unit[0m
+2026-11-14T01:45:09.1626242Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-14T01:45:09.1626688Z [36;1mnpm run build[0m
+2026-11-14T01:45:09.1627027Z [36;1mexit $LASTEXITCODE[0m
+2026-11-14T01:45:09.1725447Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:45:09.1726121Z ##[endgroup]
+2026-11-14T01:45:09.8707332Z 
+2026-11-14T01:45:09.8708194Z > meditrack-sensor-frontend@0.0.0 lint
+2026-11-14T01:45:09.8708696Z > eslint src
+2026-11-14T01:45:09.8708873Z 
+2026-11-14T01:45:11.9162541Z 
+2026-11-14T01:45:11.9164046Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\application\establishment.store.js
+2026-11-14T01:45:11.9188795Z ##[warning]  86:27  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9194771Z 
+2026-11-14T01:45:11.9195348Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\domain\model\establishment.entity.js
+2026-11-14T01:45:11.9197561Z ##[warning]  10:5  warning  Constructor has a complexity of 16. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9198354Z 
+2026-11-14T01:45:11.9198849Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\domain\model\operator.entity.js
+2026-11-14T01:45:11.9199929Z ##[warning]  23:16  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:11.9201247Z ##[warning]  36:96  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9202547Z ##[warning]  50:21  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:11.9203928Z ##[warning]  63:5   warning  Static method 'formatSchedule' has a complexity of 22. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9205255Z ##[warning]  64:22  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:11.9205964Z 
+2026-11-14T01:45:11.9206533Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\presentation\components\establishment-inspect-flow.vue
+2026-11-14T01:45:11.9207808Z ##[warning]   77:12  warning  Expected '!==' and instead saw '!='         eqeqeq
+2026-11-14T01:45:11.9208934Z ##[warning]   86:34  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:11.9209998Z ##[warning]   91:43  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:11.9211068Z ##[warning]   96:43  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:11.9212129Z ##[warning]  101:43  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:11.9213189Z ##[warning]  106:43  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:11.9214228Z ##[warning]  138:48  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:11.9215262Z ##[warning]  152:46  warning  Expected '===' and instead saw '=='         eqeqeq
+2026-11-14T01:45:11.9217067Z ##[warning]  215:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9218241Z 
+2026-11-14T01:45:11.9218738Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\presentation\views\assign-operator.vue
+2026-11-14T01:45:11.9219836Z ##[warning]  43:15  warning  Expected '===' and instead saw '=='  eqeqeq
+2026-11-14T01:45:11.9220919Z ##[warning]  98:73  warning  Expected '!==' and instead saw '!='  eqeqeq
+2026-11-14T01:45:11.9221554Z 
+2026-11-14T01:45:11.9222058Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\presentation\views\map-of-establishments.vue
+2026-11-14T01:45:11.9225160Z ##[warning]  37:29  warning  'index' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+2026-11-14T01:45:11.9226857Z ##[warning]  40:11  warning  Expected '!==' and instead saw '!='                                      eqeqeq
+2026-11-14T01:45:11.9228213Z ##[warning]  40:26  warning  Expected '!==' and instead saw '!='                                      eqeqeq
+2026-11-14T01:45:11.9228963Z 
+2026-11-14T01:45:11.9229538Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\presentation\views\view-establishment-device-detail.vue
+2026-11-14T01:45:11.9230647Z ##[warning]  61:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9231422Z 
+2026-11-14T01:45:11.9231922Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\presentation\views\view-operator-detail.vue
+2026-11-14T01:45:11.9232815Z ##[warning]  32:42  warning  Expected '!==' and instead saw '!='  eqeqeq
+2026-11-14T01:45:11.9233450Z 
+2026-11-14T01:45:11.9233926Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\establishment\presentation\views\view-operators.vue
+2026-11-14T01:45:11.9234789Z ##[warning]  80:23  warning  Expected '===' and instead saw '=='  eqeqeq
+2026-11-14T01:45:11.9235496Z 
+2026-11-14T01:45:11.9235874Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\iam\application\iam.store.js
+2026-11-14T01:45:11.9237970Z ##[warning]  130:5  warning  Async function 'loadProfileFromSession' has a complexity of 21. Maximum allowed is 15            complexity
+2026-11-14T01:45:11.9239785Z ##[warning]  286:5  warning  Async function 'completeHealthEntityRegistration' has a complexity of 25. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9240679Z 
+2026-11-14T01:45:11.9241106Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\iam\infrastructure\authentication.guard.js
+2026-11-14T01:45:11.9242339Z ##[warning]  11:41  warning  'from' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+2026-11-14T01:45:11.9243134Z 
+2026-11-14T01:45:11.9243569Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\iam\presentation\views\billing-checkout.vue
+2026-11-14T01:45:11.9244738Z ##[warning]  114:9   warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9245959Z ##[warning]  114:51  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9247175Z ##[warning]  118:36  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9247936Z 
+2026-11-14T01:45:11.9248328Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\iam\presentation\views\profile.vue
+2026-11-14T01:45:11.9249201Z ##[warning]  37:21  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9249909Z 
+2026-11-14T01:45:11.9250296Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\iam\presentation\views\register.vue
+2026-11-14T01:45:11.9251318Z ##[warning]  35:1  warning  Async function 'onSubmit' has a complexity of 16. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9252081Z 
+2026-11-14T01:45:11.9252493Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\logistics\application\logistics.store.js
+2026-11-14T01:45:11.9253586Z ##[warning]  78:37  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9255033Z ##[warning]  78:66  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9255751Z 
+2026-11-14T01:45:11.9256171Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\logistics\domain\model\transport.entity.js
+2026-11-14T01:45:11.9258090Z ##[warning]  10:5  warning  Constructor has a complexity of 22. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9258887Z 
+2026-11-14T01:45:11.9260105Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\logistics\presentation\views\view-transport-detail.vue
+2026-11-14T01:45:11.9261556Z ##[warning]  48:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9262944Z ##[warning]  60:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9263698Z 
+2026-11-14T01:45:11.9264159Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\logistics\presentation\views\view-transports.vue
+2026-11-14T01:45:11.9265095Z ##[warning]  92:7   warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9266293Z ##[warning]  92:39  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9267002Z 
+2026-11-14T01:45:11.9267428Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\monitoring\application\monitoring.store.js
+2026-11-14T01:45:11.9268562Z ##[warning]  80:37  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9269780Z ##[warning]  80:63  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9270492Z 
+2026-11-14T01:45:11.9270924Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\monitoring\domain\model\device.entity.js
+2026-11-14T01:45:11.9272175Z ##[warning]    7:5   warning  Constructor has a complexity of 22. Maximum allowed is 15                     complexity
+2026-11-14T01:45:11.9273529Z ##[warning]   74:15  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:11.9274787Z ##[warning]   86:21  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9276175Z ##[warning]   88:23  warning  Variable Assigned to Object Injection Sink                                    security/detect-object-injection
+2026-11-14T01:45:11.9278208Z ##[warning]   89:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9279602Z ##[warning]   96:5   warning  Static method 'evaluateMetric' has a complexity of 16. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9280942Z ##[warning]  103:19  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:11.9282344Z ##[warning]  104:19  warning  Variable Assigned to Object Injection Sink                                    security/detect-object-injection
+2026-11-14T01:45:11.9283704Z ##[warning]  106:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9284946Z ##[warning]  107:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9286214Z ##[warning]  108:25  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9287485Z ##[warning]  109:25  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9288853Z ##[warning]  120:16  warning  Generic Object Injection Sink                                                 security/detect-object-injection
+2026-11-14T01:45:11.9290311Z ##[warning]  124:19  warning  Variable Assigned to Object Injection Sink                                    security/detect-object-injection
+2026-11-14T01:45:11.9291890Z ##[warning]  128:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9293161Z ##[warning]  129:19  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9295447Z ##[warning]  139:19  warning  Expected '===' and instead saw '=='                                           eqeqeq
+2026-11-14T01:45:11.9296921Z ##[warning]  163:35  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9298476Z ##[warning]  177:34  warning  Expected '!==' and instead saw '!='                                           eqeqeq
+2026-11-14T01:45:11.9299280Z 
+2026-11-14T01:45:11.9299827Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\monitoring\presentation\components\control-center-panel.vue
+2026-11-14T01:45:11.9301218Z ##[warning]   64:38  warning  Function Call Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9302453Z ##[warning]   80:13  warning  Expected '===' and instead saw '=='  eqeqeq
+2026-11-14T01:45:11.9303497Z ##[warning]  128:22  warning  Expected '!==' and instead saw '!='  eqeqeq
+2026-11-14T01:45:11.9304134Z 
+2026-11-14T01:45:11.9304672Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\monitoring\presentation\components\sensor-readings-grid.vue
+2026-11-14T01:45:11.9305840Z ##[warning]  37:17  warning  Variable Assigned to Object Injection Sink                     security/detect-object-injection
+2026-11-14T01:45:11.9307157Z ##[warning]  38:16  warning  Expected '!==' and instead saw '!='                            eqeqeq
+2026-11-14T01:45:11.9308441Z ##[warning]  41:1   warning  Function 'tick' has a complexity of 19. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9309677Z ##[warning]  74:12  warning  Expected '===' and instead saw '=='                            eqeqeq
+2026-11-14T01:45:11.9310376Z 
+2026-11-14T01:45:11.9310874Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\monitoring\presentation\views\view-device-detail.vue
+2026-11-14T01:45:11.9312280Z ##[warning]  72:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9313867Z 
+2026-11-14T01:45:11.9314618Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\monitoring\presentation\views\view-devices.vue
+2026-11-14T01:45:11.9315826Z ##[warning]   90:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9317438Z ##[warning]  107:15  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9318459Z 
+2026-11-14T01:45:11.9318788Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\router.js
+2026-11-14T01:45:11.9319727Z ##[warning]  82:9  warning  'baseTitle' is never reassigned. Use 'const' instead  prefer-const
+2026-11-14T01:45:11.9320481Z 
+2026-11-14T01:45:11.9320926Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\shared\infrastructure\mocks\mock-database.js
+2026-11-14T01:45:11.9322399Z ##[warning]  525:8  warning  Function 'addMockUser' has a complexity of 17. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9323578Z 
+2026-11-14T01:45:11.9324277Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\shared\infrastructure\profile-demo.facade.js
+2026-11-14T01:45:11.9325868Z ##[warning]  26:8   warning  Async function 'fetchProfileDemoFromApis' has a complexity of 16. Maximum allowed is 15  complexity
+2026-11-14T01:45:11.9327400Z ##[warning]  49:47  warning  Expected '!==' and instead saw '!='                                                      eqeqeq
+2026-11-14T01:45:11.9328824Z ##[warning]  53:50  warning  Expected '!==' and instead saw '!='                                                      eqeqeq
+2026-11-14T01:45:11.9329573Z 
+2026-11-14T01:45:11.9330047Z D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend\src\subscriptions\domain\model\subscription.entity.js
+2026-11-14T01:45:11.9332450Z ##[warning]  55:16  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9334436Z ##[warning]  61:21  warning  Generic Object Injection Sink  security/detect-object-injection
+2026-11-14T01:45:11.9335268Z 
+2026-11-14T01:45:11.9335666Z ✖ 77 problems (0 errors, 77 warnings)
+2026-11-14T01:45:11.9336068Z   0 errors and 1 warning potentially fixable with the `--fix` option.
+2026-11-14T01:45:11.9336338Z 
+2026-11-14T01:45:15.3851349Z 
+2026-11-14T01:45:15.3852892Z > meditrack-sensor-frontend@0.0.0 test:unit
+2026-11-14T01:45:15.3854106Z > node --test --test-reporter=spec tests/unit/core-entities.test.mjs
+2026-11-14T01:45:15.3854723Z 
+2026-11-14T01:45:15.5206475Z ✔ UT-DEV-01 conserva sede y lectura cero al construir el dispositivo (1.2756ms)
+2026-11-14T01:45:15.5210818Z ✔ UT-DEV-02 interpreta enabled_sensors recibido como JSON (0.8431ms)
+2026-11-14T01:45:15.5213612Z ✔ UT-DEV-03 tolera JSON incompleto sin interrumpir el dominio (0.226ms)
+2026-11-14T01:45:15.5214988Z ✔ UT-DEV-04 clasifica 4.5 grados como ok (0.2405ms)
+2026-11-14T01:45:15.5216092Z ✔ UT-DEV-05 clasifica 8.1 grados como critical (0.1875ms)
+2026-11-14T01:45:15.5217416Z ✔ UT-DEV-06 clasifica 1.9 grados como critical (0.1317ms)
+2026-11-14T01:45:15.5219317Z ✔ UT-DEV-07 clasifica 7.1 grados como warning (0.1426ms)
+2026-11-14T01:45:15.5221079Z ✔ UT-DEV-08 distingue los limites de warning y critical (0.1209ms)
+2026-11-14T01:45:15.5261416Z ✔ UT-DEV-09 identifica texto no numerico como unknown (0.2091ms)
+2026-11-14T01:45:15.5262482Z ✔ UT-DEV-10 identifica temperatura null como unknown (0.2436ms)
+2026-11-14T01:45:15.5263476Z ✔ UT-DEV-11 identifica temperatura vacia como unknown (0.1753ms)
+2026-11-14T01:45:15.5264447Z ✔ UT-DEV-12 clasifica puerta abierta como critical (0.1234ms)
+2026-11-14T01:45:15.5265361Z ✔ UT-DEV-13 clasifica puerta cerrada como ok (0.0965ms)
+2026-11-14T01:45:15.5266216Z ✔ UT-DEV-14 recupera luz desde el alias lux (0.1693ms)
+2026-11-14T01:45:15.5267010Z ✔ UT-SUB-01 traduce basic a BASIC (1.0215ms)
+2026-11-14T01:45:15.5267840Z ✔ UT-SUB-02 traduce PREMIUM al catalogo premium (0.2013ms)
+2026-11-14T01:45:15.5268645Z ✔ UT-SUB-03 traduce enterprise a ENTERPRISE (0.0911ms)
+2026-11-14T01:45:15.5269426Z ✔ UT-SUB-04 usa basic ante un plan desconocido (0.1282ms)
+2026-11-14T01:45:15.5270415Z ✔ UT-IAM-01 normaliza espacios y mayusculas del correo (0.2653ms)
+2026-11-14T01:45:15.5271355Z ✔ UT-IAM-02 conserva exactamente la clave y el segmento (0.2008ms)
+2026-11-14T01:45:15.5396948Z ℹ tests 20
+2026-11-14T01:45:15.5397363Z ℹ suites 0
+2026-11-14T01:45:15.5397713Z ℹ pass 20
+2026-11-14T01:45:15.5398059Z ℹ fail 0
+2026-11-14T01:45:15.5398398Z ℹ cancelled 0
+2026-11-14T01:45:15.5398900Z ℹ skipped 0
+2026-11-14T01:45:15.5399193Z ℹ todo 0
+2026-11-14T01:45:15.5399902Z ℹ duration_ms 98.0498
+2026-11-14T01:45:15.8360060Z 
+2026-11-14T01:45:15.8360722Z > meditrack-sensor-frontend@0.0.0 build
+2026-11-14T01:45:15.8361283Z > vite build
+2026-11-14T01:45:15.8361522Z 
+2026-11-14T01:45:16.2139858Z [36mvite v8.0.11 [32mbuilding client environment for production...[36m[39m
+2026-11-14T01:45:16.2886918Z [2K
+2026-11-14T01:45:16.9218726Z transforming...✓ 738 modules transformed.
+2026-11-14T01:45:17.0559946Z rendering chunks...
+2026-11-14T01:45:17.1972246Z computing gzip size...
+2026-11-14T01:45:17.2109988Z dist/index.html                                               2.45 kB │ gzip:   0.84 kB
+2026-11-14T01:45:17.2110956Z dist/assets/primeicons-C6QP2o4f.woff2                        35.14 kB
+2026-11-14T01:45:17.2111863Z dist/assets/primeicons-MpK4pl85.ttf                          84.98 kB
+2026-11-14T01:45:17.2112780Z dist/assets/primeicons-WjwUDZjB.woff                         85.05 kB
+2026-11-14T01:45:17.2113669Z dist/assets/primeicons-DMOk5skT.eot                          85.15 kB
+2026-11-14T01:45:17.2114815Z dist/assets/primeicons-Dr5RGzOO.svg                         342.52 kB │ gzip: 108.35 kB
+2026-11-14T01:45:17.2116087Z dist/assets/view-operators-BPhaesOT.css                       0.05 kB │ gzip:   0.07 kB
+2026-11-14T01:45:17.2118072Z dist/assets/transport-form-Cj-5HQ7R.css                       0.06 kB │ gzip:   0.08 kB
+2026-11-14T01:45:17.2119408Z dist/assets/monitoring-dashboard-D7AQIcBJ.css                 0.13 kB │ gzip:   0.12 kB
+2026-11-14T01:45:17.2120782Z dist/assets/view-transport-detail-DMVBC3aC.css                0.32 kB │ gzip:   0.22 kB
+2026-11-14T01:45:17.2122423Z dist/assets/device-form-Ci1n8R4d.css                          0.40 kB │ gzip:   0.26 kB
+2026-11-14T01:45:17.2124993Z dist/assets/auth-session-layout-BeySGX89.css                  0.58 kB │ gzip:   0.19 kB
+2026-11-14T01:45:17.2126513Z dist/assets/not-assigned-establishment-ACvlyrfa.css           0.65 kB │ gzip:   0.32 kB
+2026-11-14T01:45:17.2127817Z dist/assets/plans-selection-Bt3Atzua.css                      0.87 kB │ gzip:   0.42 kB
+2026-11-14T01:45:17.2129019Z dist/assets/page-not-found-DcKlDtTq.css                       1.28 kB │ gzip:   0.57 kB
+2026-11-14T01:45:17.2130292Z dist/assets/register-BVjBhQk-.css                             1.78 kB │ gzip:   0.66 kB
+2026-11-14T01:45:17.2131517Z dist/assets/assign-operator-Dsuh1Zvp.css                      1.82 kB │ gzip:   0.71 kB
+2026-11-14T01:45:17.2132793Z dist/assets/establishment-form-wMmzAsI_.css                   4.62 kB │ gzip:   1.25 kB
+2026-11-14T01:45:17.2134028Z dist/assets/billing-checkout-fhr_HDfQ.css                     5.71 kB │ gzip:   1.70 kB
+2026-11-14T01:45:17.2135203Z dist/assets/profile-CBzfblbf.css                              6.17 kB │ gzip:   1.58 kB
+2026-11-14T01:45:17.2136401Z dist/assets/control-center-panel-C6LStPit.css                 7.80 kB │ gzip:   1.97 kB
+2026-11-14T01:45:17.2137768Z dist/assets/map-of-establishments-BHrhxlX3.css                9.10 kB │ gzip:   2.18 kB
+2026-11-14T01:45:17.2139053Z dist/assets/auth-panel-DM42zngj.css                          10.34 kB │ gzip:   2.53 kB
+2026-11-14T01:45:17.2140221Z dist/assets/index-BrKLX6lV.css                              403.32 kB │ gzip:  46.65 kB
+2026-11-14T01:45:17.2149940Z dist/assets/_plugin-vue_export-helper-S3RvzygF.js             0.08 kB │ gzip:   0.09 kB
+2026-11-14T01:45:17.2151313Z dist/assets/auth-layout-DUrlGM2D.js                           0.24 kB │ gzip:   0.20 kB
+2026-11-14T01:45:17.2152520Z dist/assets/dashboard-payload-BaXwwfUG.js                     0.68 kB │ gzip:   0.38 kB
+2026-11-14T01:45:17.2154433Z dist/assets/monitoring-dashboard-BNMNBHt8.js                  0.70 kB │ gzip:   0.45 kB
+2026-11-14T01:45:17.2155402Z dist/assets/auth-session-DBm0Xghl.js                          0.80 kB │ gzip:   0.27 kB
+2026-11-14T01:45:17.2157203Z dist/assets/auth-session-layout-B9wCCgg_.js                   0.81 kB │ gzip:   0.47 kB
+2026-11-14T01:45:17.2158565Z dist/assets/page-not-found-D33LLI2I.js                        0.88 kB │ gzip:   0.50 kB
+2026-11-14T01:45:17.2159907Z dist/assets/not-assigned-establishment-B5MklRAY.js            0.99 kB │ gzip:   0.56 kB
+2026-11-14T01:45:17.2162237Z dist/assets/establishment-api-C3CVFoNS.js                     1.48 kB │ gzip:   0.56 kB
+2026-11-14T01:45:17.2163803Z dist/assets/subscriptions.store-acE3De5l.js                   2.04 kB │ gzip:   0.94 kB
+2026-11-14T01:45:17.2166186Z dist/assets/mt-confirm-dialog-BaAix2z4.js                     2.52 kB │ gzip:   1.09 kB
+2026-11-14T01:45:17.2169356Z dist/assets/auth-panel-CqaXxx_R.js                            3.04 kB │ gzip:   1.43 kB
+2026-11-14T01:45:17.2170598Z dist/assets/register-plans-BHl2dReA.js                        3.07 kB │ gzip:   1.34 kB
+2026-11-14T01:45:17.2171705Z dist/assets/monitoring.store-Cobckehe.js                      3.52 kB │ gzip:   1.48 kB
+2026-11-14T01:45:17.2173313Z dist/assets/view-establishment-device-detail-Dkp2k0kI.js      3.74 kB │ gzip:   1.38 kB
+2026-11-14T01:45:17.2174548Z dist/assets/device.entity-CxVqQjBN.js                         3.94 kB │ gzip:   1.59 kB
+2026-11-14T01:45:17.2175695Z dist/assets/view-transport-detail-Ds6cqcnm.js                 4.06 kB │ gzip:   1.55 kB
+2026-11-14T01:45:17.2177123Z dist/assets/logistics.store-C1mwh6Vf.js                       4.32 kB │ gzip:   1.71 kB
+2026-11-14T01:45:17.2179574Z dist/assets/view-establishment-team-BNKIFkz6.js               4.32 kB │ gzip:   1.48 kB
+2026-11-14T01:45:17.2180761Z dist/assets/view-device-detail-DKKjOTLD.js                    4.51 kB │ gzip:   1.66 kB
+2026-11-14T01:45:17.2182122Z dist/assets/establishment.store-B2CJz_Q4.js                   4.52 kB │ gzip:   1.63 kB
+2026-11-14T01:45:17.2183249Z dist/assets/sensor-readings-grid-BrdzyMBA.js                  4.82 kB │ gzip:   1.98 kB
+2026-11-14T01:45:17.2185367Z dist/assets/view-establishment-detail-DkprBtem.js             5.17 kB │ gzip:   1.48 kB
+2026-11-14T01:45:17.2186807Z dist/assets/view-establishments-DUxHj8gE.js                   5.48 kB │ gzip:   1.87 kB
+2026-11-14T01:45:17.2188036Z dist/assets/assign-operator-DLe0SsV2.js                       5.55 kB │ gzip:   1.99 kB
+2026-11-14T01:45:17.2189156Z dist/assets/device-form-C_20E2HL.js                           5.81 kB │ gzip:   2.23 kB
+2026-11-14T01:45:17.2190115Z dist/assets/view-establishment-operator-detail-9qI_AVTI.js    5.85 kB │ gzip:   1.97 kB
+2026-11-14T01:45:17.2191070Z dist/assets/plans-selection-CtVQtFen.js                       5.86 kB │ gzip:   2.08 kB
+2026-11-14T01:45:17.2191955Z dist/assets/register-DnYlTS7d.js                              6.15 kB │ gzip:   1.96 kB
+2026-11-14T01:45:17.2192825Z dist/assets/billing-checkout-vRRTHbbE.js                      7.02 kB │ gzip:   2.53 kB
+2026-11-14T01:45:17.2193724Z dist/assets/establishment-form-D3FbRYW5.js                    7.24 kB │ gzip:   2.53 kB
+2026-11-14T01:45:17.2194636Z dist/assets/view-operator-detail-Ce6iJT9Y.js                  7.33 kB │ gzip:   2.23 kB
+2026-11-14T01:45:17.2195528Z dist/assets/transport-form-56e1_Y3o.js                        8.55 kB │ gzip:   2.74 kB
+2026-11-14T01:45:17.2196369Z dist/assets/profile-mRLlRmBs.js                               8.57 kB │ gzip:   2.54 kB
+2026-11-14T01:45:17.2197223Z dist/assets/view-devices-eOaXruVi.js                         10.33 kB │ gzip:   3.24 kB
+2026-11-14T01:45:17.2198086Z dist/assets/iam.store-BMQpKxqH.js                            10.62 kB │ gzip:   3.32 kB
+2026-11-14T01:45:17.2198968Z dist/assets/view-transports-_ZhCcvv3.js                      11.02 kB │ gzip:   3.56 kB
+2026-11-14T01:45:17.2199912Z dist/assets/map-of-establishments-M3E8bTWT.js                13.63 kB │ gzip:   4.44 kB
+2026-11-14T01:45:17.2200843Z dist/assets/view-operators-CvIk1r5Z.js                       14.06 kB │ gzip:   4.14 kB
+2026-11-14T01:45:17.2202116Z dist/assets/establishment-inspect-flow-CHttYaET.js           19.47 kB │ gzip:   4.56 kB
+2026-11-14T01:45:17.2203142Z dist/assets/vue-router-BEUpv4El.js                           24.98 kB │ gzip:   9.63 kB
+2026-11-14T01:45:17.2204012Z dist/assets/vue-i18n-DAZUE9_g.js                             55.20 kB │ gzip:  18.07 kB
+2026-11-14T01:45:17.2206692Z dist/assets/mock-api.service-DO5Sk_OA.js                     58.59 kB │ gzip:  21.92 kB
+2026-11-14T01:45:17.2208923Z dist/assets/vue.runtime.esm-bundler-Ce6oHuNQ.js             109.73 kB │ gzip:  42.06 kB
+2026-11-14T01:45:17.2209871Z dist/assets/control-center-panel-DyZ6-G7o.js                204.42 kB │ gzip:  70.51 kB
+2026-11-14T01:45:17.2210560Z dist/assets/index-DlStGCTH.js                               907.43 kB │ gzip: 190.81 kB
+2026-11-14T01:45:17.2210872Z 
+2026-11-14T01:45:17.2211148Z [33m[plugin builtin:vite-reporter] 
+2026-11-14T01:45:17.2211584Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-11-14T01:45:17.2212055Z - Using dynamic import() to code-split the application
+2026-11-14T01:45:17.2212830Z - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+2026-11-14T01:45:17.2213690Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-11-14T01:45:17.2215357Z [33m[33m[INEFFECTIVE_DYNAMIC_IMPORT] Warning:[0m src/shared/presentation/views/home-health-entity.vue is dynamically imported by src/iam/presentation/iam-routes.js but also statically imported by src/shared/presentation/views/home.vue, dynamic import will not move module into another chunk.
+2026-11-14T01:45:17.2216751Z [39m
+2026-11-14T01:45:17.2218188Z [33m[33m[INEFFECTIVE_DYNAMIC_IMPORT] Warning:[0m src/shared/presentation/views/home-operational-staff.vue is dynamically imported by src/iam/presentation/iam-routes.js but also statically imported by src/shared/presentation/views/home.vue, dynamic import will not move module into another chunk.
+2026-11-14T01:45:17.2219329Z [39m
+2026-11-14T01:45:17.2219873Z [32m✓ built in 1.00s[39m
+2026-11-14T01:45:17.7841052Z ##[group]Run npm run setup
+2026-11-14T01:45:17.7841371Z [36;1mnpm run setup[0m
+2026-11-14T01:45:17.7910082Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:45:17.7910497Z ##[endgroup]
+2026-11-14T01:45:18.4851198Z 
+2026-11-14T01:45:18.4851706Z > kairolabs-core-integration-tests@1.0.0 setup
+2026-11-14T01:45:18.4852362Z > powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/setup-tools.ps1
+2026-11-14T01:45:18.4852711Z 
+2026-11-14T01:45:18.9244749Z Descargando herramientas oficiales dentro de .runtime, sin instalacion global...
+2026-11-14T01:45:18.9298653Z Descargando SDK .NET...
+2026-11-14T01:45:19.1639787Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+2026-11-14T01:45:19.1640713Z                                  Dload  Upload  Total   Spent   Left   Speed
+2026-11-14T01:45:19.1641046Z 
+2026-11-14T01:45:20.1637281Z   0      0   0      0   0      0      0      0                              0
+2026-11-14T01:45:20.6555642Z  62 286.8M  62 180.0M   0      0 154.1M      0   00:01   00:01         180.1M
+2026-11-14T01:45:20.6556772Z 100 286.8M 100 286.8M   0      0 172.7M      0   00:01   00:01         180.1M
+2026-11-14T01:45:20.6557775Z 100 286.8M 100 286.8M   0      0 172.7M      0   00:01   00:01         180.1M
+2026-11-14T01:45:20.6559037Z 100 286.8M 100 286.8M   0      0 172.7M      0   00:01   00:01         180.1M
+2026-11-14T01:45:21.5313244Z Extrayendo SDK .NET...
+2026-11-14T01:45:25.1092671Z Descargando MySQL...
+2026-11-14T01:45:25.4543696Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+2026-11-14T01:45:25.4544961Z                                  Dload  Upload  Total   Spent   Left   Speed
+2026-11-14T01:45:25.4545269Z 
+2026-11-14T01:45:26.4558685Z   0      0   0      0   0      0      0      0                              0
+2026-11-14T01:45:27.4679142Z  40 268.1M  40 109.2M   0      0 81.84M      0   00:03   00:01   00:02 109.0M
+2026-11-14T01:45:27.5479674Z  94 268.1M  94 254.2M   0      0 108.3M      0   00:02   00:02         126.2M
+2026-11-14T01:45:27.5481182Z 100 268.1M 100 268.1M   0      0 110.4M      0   00:02   00:02         126.2M
+2026-11-14T01:45:27.5483313Z 100 268.1M 100 268.1M   0      0 110.4M      0   00:02   00:02         126.2M
+2026-11-14T01:45:27.5484201Z 100 268.1M 100 268.1M   0      0 110.4M      0   00:02   00:02         126.2M
+2026-11-14T01:45:28.3072855Z Extrayendo MySQL...
+2026-11-14T01:45:30.4970356Z Herramientas listas. Ejecutar F5 o npm test.
+2026-11-14T01:45:30.5605927Z ##[group]Run npm test
+2026-11-14T01:45:30.5606219Z [36;1mnpm test[0m
+2026-11-14T01:45:30.5699923Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:45:30.5700677Z ##[endgroup]
+2026-11-14T01:45:31.3191883Z 
+2026-11-14T01:45:31.3192658Z > kairolabs-core-integration-tests@1.0.0 test
+2026-11-14T01:45:31.3193352Z > node scripts/run-integration.mjs
+2026-11-14T01:45:31.3193546Z 
+2026-11-14T01:45:31.8336852Z [1/5] Compilando backend ASP.NET Core 10...
+2026-11-14T01:45:48.2433946Z 
+2026-11-14T01:45:48.2434449Z added 125 packages in 4s
+2026-11-14T01:45:48.6931581Z [2/5] Iniciando MySQL aislado en 127.0.0.1:33079...
+2026-11-14T01:45:53.1810442Z [3/5] Iniciando API local y aplicando migraciones...
+2026-11-14T01:46:06.9014309Z [4/5] Ejecutando suite integration con API y MySQL reales...
+2026-11-14T01:46:10.0869537Z ✔ IT-IAM-01 login valido integra API, BCrypt y MySQL sin exponer credenciales (3010.5646ms)
+2026-11-14T01:46:10.6286814Z ✔ IT-IAM-02 clave incorrecta devuelve 401 y no emite token (542.2211ms)
+2026-11-14T01:46:10.7191887Z ✔ IT-EST-01 sedes creadas se recuperan por administrador y por SQL independiente (90.2492ms)
+2026-11-14T01:46:10.8094925Z ✔ IT-OP-01 asignacion de operador no mezcla sedes (91.0675ms)
+2026-11-14T01:46:10.8401123Z ✔ IT-DEV-01 dispositivo se recupera con su sede, ubicacion y tipo (30.0812ms)
+2026-11-14T01:46:10.9154001Z ✔ IT-DEV-02 lectura persiste en MySQL y se recupera en otra solicitud (75.2828ms)
+2026-11-14T01:46:10.9266299Z ✔ IT-DEV-03 actualizar desde otra sede devuelve 404 sin modificar la lectura (11.3634ms)
+2026-11-14T01:46:10.9359390Z ✔ IT-DEV-04 DoorStatus invalido devuelve 400 sin persistencia parcial (9.4548ms)
+2026-11-14T01:46:10.9443234Z ✔ IT-DEV-05 tipo de medicamento invalido devuelve 400 sin crear dispositivo (7.936ms)
+2026-11-14T01:46:11.1027136Z ✔ IT-LOG-01 transporte guarda lectura y rechaza identificador inexistente (158.123ms)
+2026-11-14T01:46:11.3537026Z ✔ IT-SUB-01 suscripcion completa ciclo crear consultar eliminar y nueva consulta (135.5184ms)
+2026-11-14T01:46:11.6210115Z ✔ IT-WEB-01 gateways Axios y assemblers reales consumen API y datos persistidos (382.8816ms)
+2026-11-14T01:46:11.6249265Z ✔ IT-WEB-02 CORS permite origen local rechaza ajeno y admite dominio KairoLabs (4.4738ms)
+2026-11-14T01:46:11.6760359Z ✔ IT-SEC-01 API exige autenticacion para listar datos operativos (16.1095ms)
+2026-11-14T01:46:11.6901532Z ℹ tests 14
+2026-11-14T01:46:11.6901802Z ℹ suites 0
+2026-11-14T01:46:11.6903085Z ℹ pass 14
+2026-11-14T01:46:11.6903476Z ℹ fail 0
+2026-11-14T01:46:11.6904678Z ℹ cancelled 0
+2026-11-14T01:46:11.6905388Z ℹ skipped 0
+2026-11-14T01:46:11.6907012Z ℹ todo 0
+2026-11-14T01:46:11.6908172Z ℹ duration_ms 4731.8891
+2026-11-14T01:46:11.7045908Z [5/5] Cerrando procesos y eliminando exclusivamente la base temporal...
+2026-11-14T01:46:12.3014221Z ##[group]Run npx --no-install playwright install chromium
+2026-11-14T01:46:12.3014707Z [36;1mnpx --no-install playwright install chromium[0m
+2026-11-14T01:46:12.3083549Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:46:12.3084149Z ##[endgroup]
+2026-11-14T01:46:13.9439570Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/win64/chrome-win64.zip[22m
+2026-11-14T01:46:14.4470183Z |                                                                                |   0% of 197.5 MiB
+2026-11-14T01:46:14.8947141Z |■■■■■■■■                                                                        |  10% of 197.5 MiB
+2026-11-14T01:46:15.1088643Z |■■■■■■■■■■■■■■■■                                                                |  20% of 197.5 MiB
+2026-11-14T01:46:15.3001052Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 197.5 MiB
+2026-11-14T01:46:15.5312637Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 197.5 MiB
+2026-11-14T01:46:15.7582842Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 197.5 MiB
+2026-11-14T01:46:16.0007778Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 197.5 MiB
+2026-11-14T01:46:16.2053740Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 197.5 MiB
+2026-11-14T01:46:16.4399551Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 197.5 MiB
+2026-11-14T01:46:16.6486407Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 197.5 MiB
+2026-11-14T01:46:16.8365353Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 197.5 MiB
+2026-11-14T01:46:23.9858776Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\chromium-1248
+2026-11-14T01:46:23.9866937Z Downloading FFmpeg (playwright ffmpeg v1013)[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-win64.zip[22m
+2026-11-14T01:46:24.4128123Z |                                                                                |   0% of 1.6 MiB
+2026-11-14T01:46:24.4253475Z |■■■■■■■■                                                                        |  10% of 1.6 MiB
+2026-11-14T01:46:24.4356943Z |■■■■■■■■■■■■■■■■                                                                |  20% of 1.6 MiB
+2026-11-14T01:46:24.4403858Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 1.6 MiB
+2026-11-14T01:46:24.4449509Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 1.6 MiB
+2026-11-14T01:46:24.4484424Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 1.6 MiB
+2026-11-14T01:46:24.4511478Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 1.6 MiB
+2026-11-14T01:46:24.4534699Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 1.6 MiB
+2026-11-14T01:46:24.4566976Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 1.6 MiB
+2026-11-14T01:46:24.4592372Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 1.6 MiB
+2026-11-14T01:46:24.4614915Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 1.6 MiB
+2026-11-14T01:46:24.5445987Z FFmpeg (playwright ffmpeg v1013) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\ffmpeg-1013
+2026-11-14T01:46:24.5454616Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/win64/chrome-headless-shell-win64.zip[22m
+2026-11-14T01:46:25.0314460Z |                                                                                |   0% of 118.1 MiB
+2026-11-14T01:46:25.3683842Z |■■■■■■■■                                                                        |  10% of 118.1 MiB
+2026-11-14T01:46:25.4965080Z |■■■■■■■■■■■■■■■■                                                                |  20% of 118.1 MiB
+2026-11-14T01:46:25.5974228Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 118.1 MiB
+2026-11-14T01:46:25.7318031Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 118.1 MiB
+2026-11-14T01:46:25.8520241Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 118.1 MiB
+2026-11-14T01:46:25.9690241Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 118.1 MiB
+2026-11-14T01:46:26.1173035Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 118.1 MiB
+2026-11-14T01:46:26.2415077Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 118.1 MiB
+2026-11-14T01:46:26.3417737Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 118.1 MiB
+2026-11-14T01:46:26.4611856Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 118.1 MiB
+2026-11-14T01:46:31.2721449Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\chromium_headless_shell-1248
+2026-11-14T01:46:31.2728576Z Downloading Winldd (playwright winldd v1007)[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/winldd/1007/winldd-win64.zip[22m
+2026-11-14T01:46:31.7012323Z |■■■■■■■■                                                                        |  12% of 0.1 MiB
+2026-11-14T01:46:31.7015846Z |■■■■■■■■■■■■■■■■                                                                |  25% of 0.1 MiB
+2026-11-14T01:46:31.7027524Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  38% of 0.1 MiB
+2026-11-14T01:46:31.7084871Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  51% of 0.1 MiB
+2026-11-14T01:46:31.7094318Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 0.1 MiB
+2026-11-14T01:46:31.7117235Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  89% of 0.1 MiB
+2026-11-14T01:46:31.7123009Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 0.1 MiB
+2026-11-14T01:46:31.7401822Z Winldd (playwright winldd v1007) downloaded to C:\Users\runneradmin\AppData\Local\ms-playwright\winldd-1007
+2026-11-14T01:46:31.9544532Z ##[group]Run npm run test:bdd
+2026-11-14T01:46:31.9544868Z [36;1mnpm run test:bdd[0m
+2026-11-14T01:46:31.9614500Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:46:31.9615210Z ##[endgroup]
+2026-11-14T01:46:32.6549575Z 
+2026-11-14T01:46:32.6550180Z > meditrack-sensor-frontend@0.0.0 test:bdd
+2026-11-14T01:46:32.6550876Z > powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-bdd.ps1
+2026-11-14T01:46:32.6551276Z 
+2026-11-14T01:46:33.4062616Z [1/5] Compilando backend ASP.NET Core 10...
+2026-11-14T01:46:35.4750632Z [2/5] Iniciando MySQL aislado en 127.0.0.1:33079...
+2026-11-14T01:46:36.5808364Z [3/5] Iniciando API local y aplicando migraciones...
+2026-11-14T01:46:49.6769935Z [4/5] Ejecutando suite bdd con API y MySQL reales...
+2026-11-14T01:47:17.1122633Z ......................
+2026-11-14T01:47:17.1136549Z 
+2026-11-14T01:47:17.1289406Z 4 scenarios (4 passed)
+2026-11-14T01:47:17.1290219Z 22 steps (22 passed)
+2026-11-14T01:47:17.1290687Z 0m 23.210s (0m 23.184s executing your code)
+2026-11-14T01:47:37.4569193Z ......................
+2026-11-14T01:47:37.4585325Z 
+2026-11-14T01:47:37.4728957Z 4 scenarios (4 passed)
+2026-11-14T01:47:37.4729702Z 22 steps (22 passed)
+2026-11-14T01:47:37.4730357Z 0m 19.428s (0m 19.404s executing your code)
+2026-11-14T01:47:37.5464969Z [5/5] Cerrando procesos y eliminando exclusivamente la base temporal...
+2026-11-14T01:47:38.0352443Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-14T01:47:38.0352906Z with:
+2026-11-14T01:47:38.0353106Z   name: real-system-43542367043
+2026-11-14T01:47:38.0353457Z   path: KairoLabs-Frontend/evidence/bdd/
+KairoLabs-Platform/evidence/
+
+2026-11-14T01:47:38.0353827Z   retention-days: 14
+2026-11-14T01:47:38.0354028Z   if-no-files-found: warn
+2026-11-14T01:47:38.0354243Z   compression-level: 6
+2026-11-14T01:47:38.0354450Z   overwrite: false
+2026-11-14T01:47:38.0354648Z   include-hidden-files: false
+2026-11-14T01:47:38.0354913Z ##[endgroup]
+2026-11-14T01:47:38.2429897Z (node:4724) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T01:47:38.2431308Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T01:47:38.2563056Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-14T01:47:38.2567733Z The least common ancestor is D:\a\KairoLabs-Platform\KairoLabs-Platform. This will be the root directory of the artifact
+2026-11-14T01:47:38.2568972Z With the provided path, there will be 20 files uploaded
+2026-11-14T01:47:38.2573917Z Artifact name is valid!
+2026-11-14T01:47:38.2575415Z Root directory input is valid!
+2026-11-14T01:47:38.5536812Z Beginning upload of artifact content to blob storage
+2026-11-14T01:47:38.9172367Z (node:4724) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-14T01:47:39.4067805Z Uploaded bytes 7195720
+2026-11-14T01:47:39.4454549Z Finished uploading artifact content to blob storage!
+2026-11-14T01:47:39.4456734Z SHA256 digest of uploaded artifact zip is 95bb55c90f4d9d5ea63a96fb66bf8419b13a0d235059dfaaed4735038debc4ea
+2026-11-14T01:47:39.4458723Z Finalizing artifact upload
+2026-11-14T01:47:39.7796723Z Artifact real-system-43542367043.zip successfully finalized. Artifact ID 14092278350
+2026-11-14T01:47:39.7798121Z Artifact real-system-43542367043 has been successfully uploaded! Final size is 7195720 bytes. Artifact ID is 14092278350
+2026-11-14T01:47:39.7809309Z Artifact download URL: https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform/actions/runs/43542367043/artifacts/14092278350
+2026-11-14T01:47:39.8174568Z Post job cleanup.
+2026-11-14T01:47:39.9634722Z (node:7104) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T01:47:39.9636065Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T01:47:39.9950982Z Post job cleanup.
+2026-11-14T01:47:40.2051185Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-14T01:47:40.2402542Z git version 2.56.0.windows.4
+2026-11-14T01:47:40.2468134Z Temporarily overriding HOME='D:\a\_temp\2772b461-e812-4584-ba6b-256dd2e9c0a1' before making global git config changes
+2026-11-14T01:47:40.2469520Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T01:47:40.2478866Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Platform
+2026-11-14T01:47:40.2852960Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T01:47:40.3226750Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-14T01:47:40.8940066Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T01:47:40.9308516Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-14T01:47:41.5065614Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T01:47:41.5454832Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-14T01:47:42.1438180Z Post job cleanup.
+2026-11-14T01:47:42.3441652Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-14T01:47:42.3785376Z git version 2.56.0.windows.4
+2026-11-14T01:47:42.3856949Z Temporarily overriding HOME='D:\a\_temp\bfe9b371-1cc5-42a8-a94c-78905e1e3915' before making global git config changes
+2026-11-14T01:47:42.3858302Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T01:47:42.3867665Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\KairoLabs-Platform\KairoLabs-Platform\KairoLabs-Frontend
+2026-11-14T01:47:42.4253175Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T01:47:42.4631081Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-14T01:47:43.0042872Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T01:47:43.0419940Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-14T01:47:43.5999610Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T01:47:43.6369650Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-14T01:47:44.2010202Z Cleaning up orphan processes
+2026-11-14T01:47:44.2277433Z Terminate orphan process: pid (8676) (VBCSCompiler)
+2026-11-14T01:47:44.2373583Z Terminate orphan process: pid (208) (conhost)
+2026-11-14T01:47:44.2444795Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

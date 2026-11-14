@@ -1,0 +1,5 @@
+﻿2026-11-14T01:45:00.8527841Z ##[group]Run node scripts/ci/guard-build.mjs
+2026-11-14T01:45:00.8528170Z [36;1mnode scripts/ci/guard-build.mjs[0m
+2026-11-14T01:45:00.8573818Z shell: /usr/bin/bash -e {0}
+2026-11-14T01:45:00.8574140Z ##[endgroup]
+2026-11-14T01:45:00.8813570Z PASS: no se detectan los hooks init y patrones ofuscados conocidos. No es un escáner completo de malware.

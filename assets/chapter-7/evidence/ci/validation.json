@@ -1,0 +1,142 @@
+{
+  "date": "2026-11-13",
+  "timezone": "America/Lima",
+  "status": "LOCAL_REVIEW_ONLY_NOT_PUBLISHED",
+  "actions_run_url": null,
+  "unit": {
+    "passed": 20,
+    "failed": 0
+  },
+  "integration": {
+    "passed": 14,
+    "failed": 0
+  },
+  "bdd": {
+    "desktop": {
+      "scenarios": 4,
+      "steps": 22,
+      "failed": 0
+    },
+    "mobile": {
+      "scenarios": 4,
+      "steps": 22,
+      "failed": 0
+    }
+  },
+  "lint": {
+    "errors": 0,
+    "warnings": 77
+  },
+  "buildExitCode": 0,
+  "audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 3,
+    "high": 14,
+    "critical": 0,
+    "total": 17
+  },
+  "productionAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 13,
+    "critical": 0,
+    "total": 13
+  },
+  "actionlint": {
+    "version": "1.7.12",
+    "exitCode": 0
+  },
+  "installation": "Local dependencies reused from existing installation. Clean GitHub hosted npm ci not yet verified.",
+  "repositories": [
+    {
+      "repository": "KairoLabs-Frontend",
+      "base_commit": "5a0b620524e479f78b02f16187fb0f4924e26dd1",
+      "files": [
+        {
+          "path": "package.json",
+          "status": "modified",
+          "sha256": "966e7ec2541d380bc5edb3099f4889ac1512997ae9ef4334c1e975429437bbf8"
+        },
+        {
+          "path": "vite.config.js",
+          "status": "modified",
+          "sha256": "9bd6019da83fb3160a06825ef94e94a013d3651df6012954f3cd091dc6c71f42"
+        },
+        {
+          "path": "init",
+          "status": "deleted",
+          "sha256": null
+        },
+        {
+          "path": ".github/workflows/core-ci.yml",
+          "status": "added",
+          "sha256": "e24c0b6ad027a6e464458fcefe63b7da7213ec95ae8a42390bfc70db9ba1199b"
+        },
+        {
+          "path": "scripts/ci/guard-build.mjs",
+          "status": "added",
+          "sha256": "7f5648595f87d9e1c86c955cafba8892bb64a9b1b14152bbc413880c3eeb3ff4"
+        },
+        {
+          "path": "scripts/ci/prepare-evidence.mjs",
+          "status": "added",
+          "sha256": "1f86da037720666665bb8082ed209d241b1fc5ae8d62c96918f5bf88ff5ab461"
+        }
+      ]
+    },
+    {
+      "repository": "KairoLabs-Platform",
+      "base_commit": "2d736783eaea70ec2e352a002c2e71e7ecb7113e",
+      "files": [
+        {
+          "path": "frontend/package.json",
+          "status": "modified",
+          "sha256": "ed2da1bc6d13ffcd42b07bcb93362c85dfe846142e9c6a0c86888e54bd5dd1eb"
+        },
+        {
+          "path": "frontend/vite.integration.config.js",
+          "status": "modified",
+          "sha256": "c2fe62d0cd71f016d1a30f36f8dbc0136c3cfdc8230ade66858bf5e6eeea90cc"
+        },
+        {
+          "path": "frontend/init",
+          "status": "deleted",
+          "sha256": null
+        },
+        {
+          "path": "scripts/run-integration.ps1",
+          "status": "modified",
+          "sha256": "8ce8be214d3cc89911913446d39c865a10bd7060c93773ba109a5f54ae2fe2ca"
+        },
+        {
+          "path": ".github/workflows/core-ci.yml",
+          "status": "added",
+          "sha256": "8818d26eda6a65d09dc8f40c1abf8d1d825d1c2af09f8ce4e47165c08f7e917c"
+        },
+        {
+          "path": "scripts/ci/guard-build.mjs",
+          "status": "added",
+          "sha256": "7f5648595f87d9e1c86c955cafba8892bb64a9b1b14152bbc413880c3eeb3ff4"
+        },
+        {
+          "path": "scripts/ci/prepare-evidence.mjs",
+          "status": "added",
+          "sha256": "1f86da037720666665bb8082ed209d241b1fc5ae8d62c96918f5bf88ff5ab461"
+        }
+      ]
+    },
+    {
+      "repository": "KairoLabs-Project-Report",
+      "base_commit": "8346a6c1600cf4164344cf94c262b2171d0f9c43",
+      "files": [
+        {
+          "path": "report/71-chapter-VII-devops-practices.md",
+          "status": "modified",
+          "sha256": "b4ef93ef328e6e6f4b6b8b33c173d35bc4f6ff4ae1fca80b00cf5db4c714401d"
+        }
+      ]
+    }
+  ]
+}

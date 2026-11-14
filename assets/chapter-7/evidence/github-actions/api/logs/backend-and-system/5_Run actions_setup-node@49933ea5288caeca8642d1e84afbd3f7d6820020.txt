@@ -1,0 +1,18 @@
+﻿2026-11-14T01:44:46.6789455Z ##[group]Run actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+2026-11-14T01:44:46.6789900Z with:
+2026-11-14T01:44:46.6790076Z   node-version: 24.11.1
+2026-11-14T01:44:46.6790278Z   always-auth: false
+2026-11-14T01:44:46.6790474Z   check-latest: false
+2026-11-14T01:44:46.6792813Z   token: ***
+2026-11-14T01:44:46.6792988Z ##[endgroup]
+2026-11-14T01:44:46.8483709Z Attempting to download 24.11.1...
+2026-11-14T01:44:46.8661939Z (node:2612) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T01:44:46.8662984Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T01:44:47.5572463Z Acquiring 24.11.1 - x64 from https://github.com/actions/node-versions/releases/download/24.11.1-19282993875/node-24.11.1-win32-x64.7z
+2026-11-14T01:44:48.0801544Z Extracting ...
+2026-11-14T01:44:50.5588777Z Adding to the cache ...
+2026-11-14T01:44:54.7089573Z ##[group]Environment details
+2026-11-14T01:44:55.8496735Z node: v24.11.1
+2026-11-14T01:44:55.8497011Z npm: 11.6.2
+2026-11-14T01:44:55.8497178Z yarn: 1.22.22
+2026-11-14T01:44:55.8497606Z ##[endgroup]

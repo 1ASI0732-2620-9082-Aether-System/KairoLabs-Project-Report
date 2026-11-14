@@ -1,0 +1,37 @@
+﻿2026-11-14T01:46:04.5504225Z ##[group]Run npm test
+2026-11-14T01:46:04.5504608Z [36;1mnpm test[0m
+2026-11-14T01:46:04.5561696Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-14T01:46:04.5562038Z ##[endgroup]
+2026-11-14T01:46:05.1225835Z 
+2026-11-14T01:46:05.1226683Z > kairolabs-core-integration-tests@1.0.0 test
+2026-11-14T01:46:05.1227074Z > node scripts/run-integration.mjs
+2026-11-14T01:46:05.1227232Z 
+2026-11-14T01:46:05.5477990Z [1/5] Compilando backend ASP.NET Core 10...
+2026-11-14T01:46:20.9660462Z 
+2026-11-14T01:46:20.9661127Z added 125 packages in 3s
+2026-11-14T01:46:21.6234101Z [2/5] Iniciando MySQL aislado en 127.0.0.1:33079...
+2026-11-14T01:46:26.2092840Z [3/5] Iniciando API local y aplicando migraciones...
+2026-11-14T01:46:39.6934719Z [4/5] Ejecutando suite integration con API y MySQL reales...
+2026-11-14T01:46:41.9868467Z ✔ IT-IAM-01 login valido integra API, BCrypt y MySQL sin exponer credenciales (2158.6333ms)
+2026-11-14T01:46:42.3602765Z ✔ IT-IAM-02 clave incorrecta devuelve 401 y no emite token (374.133ms)
+2026-11-14T01:46:42.4364334Z ✔ IT-EST-01 sedes creadas se recuperan por administrador y por SQL independiente (75.6705ms)
+2026-11-14T01:46:42.5157360Z ✔ IT-OP-01 asignacion de operador no mezcla sedes (79.9872ms)
+2026-11-14T01:46:42.5422519Z ✔ IT-DEV-01 dispositivo se recupera con su sede, ubicacion y tipo (25.9351ms)
+2026-11-14T01:46:42.6055124Z ✔ IT-DEV-02 lectura persiste en MySQL y se recupera en otra solicitud (63.6342ms)
+2026-11-14T01:46:42.6164790Z ✔ IT-DEV-03 actualizar desde otra sede devuelve 404 sin modificar la lectura (11.193ms)
+2026-11-14T01:46:42.6252800Z ✔ IT-DEV-04 DoorStatus invalido devuelve 400 sin persistencia parcial (8.3925ms)
+2026-11-14T01:46:42.6326662Z ✔ IT-DEV-05 tipo de medicamento invalido devuelve 400 sin crear dispositivo (7.3466ms)
+2026-11-14T01:46:42.7657745Z ✔ IT-LOG-01 transporte guarda lectura y rechaza identificador inexistente (132.9463ms)
+2026-11-14T01:46:42.9621804Z ✔ IT-SUB-01 suscripcion completa ciclo crear consultar eliminar y nueva consulta (114.3748ms)
+2026-11-14T01:46:43.3204629Z ✔ IT-WEB-01 gateways Axios y assemblers reales consumen API y datos persistidos (440.1275ms)
+2026-11-14T01:46:43.3237938Z ✔ IT-WEB-02 CORS permite origen local rechaza ajeno y admite dominio KairoLabs (3.9627ms)
+2026-11-14T01:46:43.3665734Z ✔ IT-SEC-01 API exige autenticacion para listar datos operativos (13.0587ms)
+2026-11-14T01:46:43.3784879Z ℹ tests 14
+2026-11-14T01:46:43.3785239Z ℹ suites 0
+2026-11-14T01:46:43.3785463Z ℹ pass 14
+2026-11-14T01:46:43.3785709Z ℹ fail 0
+2026-11-14T01:46:43.3786540Z ℹ cancelled 0
+2026-11-14T01:46:43.3786848Z ℹ skipped 0
+2026-11-14T01:46:43.3787609Z ℹ todo 0
+2026-11-14T01:46:43.3788018Z ℹ duration_ms 3638.0544
+2026-11-14T01:46:43.3911169Z [5/5] Cerrando procesos y eliminando exclusivamente la base temporal...
