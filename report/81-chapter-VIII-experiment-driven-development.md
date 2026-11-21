@@ -325,23 +325,27 @@ Las señales técnicas de UptimeRobot, Vercel y Axios son **indicadores de conte
 
 **4. Auditoría técnica de la aplicación con Lighthouse**
 
-Se ejecutó Lighthouse en modo **Mobile** sobre la ruta de inicio de sesión del [frontend de KairoLabs](https://kairo-labs-frontend.vercel.app/login). La captura constituye una medición técnica puntual de esa ruta; sus puntuaciones no se interpretan como resultados de las hipótesis de negocio ni representan una auditoría de la Landing Page o del Centro de Control.
+Se ejecutó Lighthouse sobre la ruta de inicio de sesión del [frontend de KairoLabs](https://kairo-labs-frontend.vercel.app/login), en perfiles **Mobile** y **Desktop**. Los puntajes son una medición técnica de esa ruta bajo las condiciones de cada perfil; no se interpretan como resultados de las hipótesis de negocio ni representan una auditoría de la Landing Page o del Centro de Control.
 
-| Indicador técnico de Lighthouse | Resultado observado | Lectura para el producto |
-| :--- | :--- | :--- |
-| Performance | **60/100** | Hay oportunidad de mejorar la carga de la ruta de inicio de sesión. |
-| First Contentful Paint (FCP) | **3,7 s** | El primer contenido tarda en aparecer en la auditoría móvil. |
-| Largest Contentful Paint (LCP) | **4,6 s** | El contenido principal aparece después del umbral deseable de carga rápida. |
-| Speed Index | **4,6 s** | Resume el tiempo que tarda en mostrarse visualmente el contenido de la página. |
-| Total Blocking Time (TBT) | **550 ms** | El hilo principal presenta bloqueo durante la carga. |
-| Cumulative Layout Shift (CLS) | **0** | No se observa desplazamiento acumulado del diseño en esta ejecución. |
-| Accessibility | **95/100** | Lighthouse señala una oportunidad de mejora en contraste entre fondo y primer plano. |
-| Best Practices | **100/100** | La auditoría automática no reporta hallazgos en esta categoría. |
-| SEO | **91/100** | Lighthouse reporta `robots.txt` inválido (40 errores); el hallazgo se interpreta considerando que `/login` es una ruta de acceso a la aplicación. |
+| Indicador técnico de Lighthouse | Mobile | Desktop |
+| :--- | :---: | :---: |
+| Performance | **60/100** | **86/100** |
+| Accessibility | **95/100** | **95/100** |
+| Best Practices | **100/100** | **100/100** |
+| SEO | **91/100** | **92/100** |
+| First Contentful Paint (FCP) | **3,7 s** | **1,1 s** |
+| Largest Contentful Paint (LCP) | **4,6 s** | **1,1 s** |
+| Speed Index | **4,6 s** | **7,0 s** |
+| Total Blocking Time (TBT) | **550 ms** | **30 ms** |
+| Cumulative Layout Shift (CLS) | **0** | **0** |
 
-La ejecución también reporta solicitudes que bloquean el renderizado, demora de fuentes, trabajo prolongado en el hilo principal y recursos JavaScript/CSS no utilizados. Estos hallazgos orientan la revisión técnica; no se mezclan con MD-01 a MD-08 ni se usan como evidencia de impacto sobre conservación, alertas o pérdidas.
+El perfil Desktop presenta mejores puntajes de Performance y valores menores de FCP, LCP y TBT; el Speed Index reportado es **7,0 s**, por lo que lo conservamos como indicador independiente. En ambos perfiles Lighthouse señala una oportunidad de mejora en el contraste. En Mobile también reporta trabajo prolongado en el hilo principal y recursos JavaScript/CSS no utilizados; en Desktop identifica solicitudes que bloquean el renderizado, demora de fuentes y un payload total de **31 434 KB**. El SEO reporta `robots.txt` inválido (40 errores) en ambas capturas; al tratarse de `/login`, este indicador se interpreta como diagnóstico técnico, no como KPI de negocio.
 
-![Resumen de auditoría Lighthouse en la ruta de inicio de sesión](../assets/lightouse-1.png)
+Estos hallazgos orientan la revisión técnica; no se mezclan con MD-01 a MD-08 ni se usan como evidencia de impacto sobre conservación, alertas o pérdidas.
+
+**Evidencia Lighthouse Mobile**
+
+![Resumen de auditoría Lighthouse Mobile en la ruta de inicio de sesión](../assets/lightouse-1.png)
 
 *Figura 8.2.7-1. Resumen Lighthouse Mobile de `/login`: Performance 60, Accessibility 95, Best Practices 100 y SEO 91.*
 
@@ -360,6 +364,28 @@ La ejecución también reporta solicitudes que bloquean el renderizado, demora d
 ![Detalle de buenas prácticas y SEO de Lighthouse](../assets/lightouse-5.png)
 
 *Figura 8.2.7-5. Detalle de Best Practices y SEO para la ruta auditada; Lighthouse señala observaciones de `robots.txt`.*
+
+**Evidencia Lighthouse Desktop**
+
+![Resumen de auditoría Lighthouse Desktop en la ruta de inicio de sesión](../assets/lightouse--desktop-1.png)
+
+*Figura 8.2.7-6. Resumen Lighthouse Desktop de `/login`: Performance 86, Accessibility 95, Best Practices 100 y SEO 92.*
+
+![Diagnósticos de rendimiento Lighthouse Desktop](../assets/lightouse--desktop-2.png)
+
+*Figura 8.2.7-7. Diagnósticos Desktop de fuentes, solicitudes que bloquean el renderizado, recursos no utilizados y tamaño de la página.*
+
+![Detalle de accesibilidad Lighthouse Desktop](../assets/lightouse--desktop-3.png)
+
+*Figura 8.2.7-8. Auditoría Desktop de accesibilidad: observaciones de contraste y subtítulos del elemento de video.*
+
+![Detalle de buenas prácticas Lighthouse Desktop](../assets/lightouse--desktop-4.png)
+
+*Figura 8.2.7-9. Auditoría Desktop de buenas prácticas y observación sobre source maps.*
+
+![Detalle SEO Lighthouse Desktop](../assets/lightouse--desktop-5.png)
+
+*Figura 8.2.7-10. Auditoría SEO Desktop: `robots.txt` inválido y 40 errores reportados.*
 
 **5. Economía del rastreo**
 
