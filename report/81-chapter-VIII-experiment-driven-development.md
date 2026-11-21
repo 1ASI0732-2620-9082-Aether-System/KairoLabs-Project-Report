@@ -195,6 +195,95 @@ En todos los experimentos, los establecimientos, responsables, tareas y criterio
 
 ### 8.2.6. Methods Selection
 
+Para recoger las medidas definidas en **8.2.3** y evaluarlas con la escala de **8.2.5**, distinguimos la pregunta que investigamos del método que usamos para responderla. Seleccionamos técnicas de campo, tareas comparativas y lecturas emparejadas, procurando usar la cosa más simple y útil (*Simplest Useful Thing*) para obtener evidencia pertinente en el contexto de almacenes farmacéuticos.
+
+**Hipótesis 1: Impacto del monitoreo continuo**
+
+**Método: Piloto de campo con comparación antes-después (*Field Trial*)**
+
+- **Propósito:** evaluar si el monitoreo continuo se relaciona con una reducción de al menos **30 %** en la tasa de incidentes de deterioro.
+- **Ejecución:** se comparan, por establecimiento, los lotes monitoreados y los incidentes confirmados durante una línea base de tres meses y tres meses de uso del monitoreo KairoLabs. La tasa se ajusta por el volumen de lotes.
+- **Herramientas:** [aplicación web KairoLabs](https://kairo-labs-frontend.vercel.app), [API de sensores en Swagger](https://medi-track-sensor-platform.onrender.com/swagger/index.html), inventario y registro de incidentes del establecimiento.
+
+![Detalle de dispositivo con lecturas y estados ambientales](../assets/chapter-5/web-dispositivo-detalle.png)
+
+*Figura 8.2.6-1. Referencia de la interfaz utilizada para observar lecturas ambientales y sus estados.*
+
+**Hipótesis 2: Eficacia de las alertas automáticas**
+
+**Método: Piloto de campo con comparación de periodos**
+
+- **Propósito:** determinar si las alertas automáticas reducen al menos **25 %** el tiempo mediano entre una desviación y la respuesta registrada.
+- **Ejecución:** se contrastan las marcas de tiempo del proceso habitual con las de desviaciones atendidas mediante notificaciones automáticas. Los casos se comparan por tipo y severidad; se estima la diferencia de medianas y su intervalo de confianza mediante remuestreo.
+- **Herramientas:** [aplicación web KairoLabs](https://kairo-labs-frontend.vercel.app), [API de sensores en Swagger](https://medi-track-sensor-platform.onrender.com/swagger/index.html) y registro de detección y atención de alertas.
+
+![Vista de transportes y alertas críticas](../assets/chapter-5/web-transportes.png)
+
+*Figura 8.2.6-2. Interfaz de transportes con indicadores de alertas críticas de cadena de frío.*
+
+**Hipótesis 3: Eficacia del historial digital para auditorías**
+
+**Método: Prueba comparativa de tareas con solicitudes equivalentes**
+
+- **Propósito:** medir si el historial digital reduce al menos **20 %** el tiempo promedio para reunir evidencia de auditoría.
+- **Ejecución:** el personal responsable completa solicitudes equivalentes de lecturas para una sede, dispositivo y periodo mediante búsqueda manual y consulta digital. Se registra el tiempo hasta entregar el conjunto solicitado y se comprueba que ambas búsquedas cubran los mismos datos.
+- **Herramientas:** [aplicación web KairoLabs](https://kairo-labs-frontend.vercel.app), [documentación de la API](https://medi-track-sensor-platform.onrender.com/swagger/index.html) y planilla de registro de solicitudes y tiempos.
+
+![Listado de dispositivos de KairoLabs](../assets/chapter-5/web-dispositivos.png)
+
+*Figura 8.2.6-3. Listado de dispositivos que sirve de referencia para localizar una sede y delimitar una solicitud de registros.*
+
+**Hipótesis 4: Precisión del registro mediante sensores**
+
+**Método: Validación de campo con lecturas pareadas**
+
+- **Propósito:** determinar si el registro mediante sensores mejora al menos **25 %** la proporción de lecturas correctas respecto del método manual.
+- **Ejecución:** en las mismas ubicaciones y momentos se registran la lectura del sensor, la lectura manual y la de un instrumento de referencia. Cada par se clasifica según la tolerancia definida para su variable; el análisis compara las proporciones pareadas y considera el establecimiento y dispositivo de origen.
+- **Herramientas:** dispositivos y sensores de KairoLabs, instrumento de referencia calibrado, [API de sensores en Swagger](https://medi-track-sensor-platform.onrender.com/swagger/index.html) y planilla de lecturas pareadas.
+
+![Respuesta de la API con lecturas de dispositivos](../assets/chapter-5/api-get-devices.png)
+
+*Figura 8.2.6-4. Evidencia de consulta de lecturas ambientales mediante el endpoint de dispositivos.*
+
+**Hipótesis 5: Eficiencia de la supervisión multisede**
+
+**Método: Prueba comparativa de tareas y análisis de registros de campo**
+
+- **Propósito:** evaluar la reducción de al menos **30 %** en el tiempo de revisión multisede y, como resultado de negocio complementario, de **20 %** en las pérdidas económicas documentadas.
+- **Ejecución:** los gestores completan tareas equivalentes de revisión con el proceso habitual y con el dashboard. Por separado, se comparan durante seis meses las tasas de pérdidas documentadas y su exposición por establecimiento; los resultados de tiempo y pérdidas se interpretan con sus MDE respectivos.
+- **Herramientas:** [dashboard de KairoLabs](https://kairo-labs-frontend.vercel.app), [API de establecimientos y dispositivos](https://medi-track-sensor-platform.onrender.com/swagger/index.html), registros de incidentes y documentos de baja, devolución o cuarentena.
+
+![Centro de Control de KairoLabs](../assets/chapter-5/web-centro-control.png)
+
+*Figura 8.2.6-5. Centro de Control con indicadores y sensores organizados por sede.*
+
+**Resumen de métodos seleccionados**
+
+| Método | Hipótesis que valida | Tipo de evidencia | Herramientas principales |
+| :--- | :---: | :--- | :--- |
+| Piloto de campo con comparación antes-después | H1 | Cuantitativa, tasas de incidentes y exposición por lote | Aplicación web, API de sensores, inventario e incidentes |
+| Piloto de campo con comparación de periodos | H2 | Cuantitativa, tiempos medianos de respuesta | Aplicación web, API y registro de alertas |
+| Prueba comparativa de tareas con solicitudes equivalentes | H3 | Cuantitativa, tiempos de búsqueda y completitud del conjunto | Aplicación web, Swagger y planilla de registro |
+| Validación de campo con lecturas pareadas | H4 | Cuantitativa, proporciones dentro de tolerancia | Sensores, instrumento de referencia, API y planilla |
+| Prueba comparativa de tareas y análisis de registros de campo | H5 | Cuantitativa, tiempos de revisión y pérdidas documentadas | Dashboard, API, registros de incidentes y documentos de inventario |
+
+**Herramientas y fuentes de evidencia**
+
+| Herramienta o fuente | Uso en los métodos | Referencia |
+| :--- | :--- | :--- |
+| Aplicación web KairoLabs | Ejecutar las tareas de monitoreo, consulta de dispositivos y supervisión multisede. | [Abrir aplicación web](https://kairo-labs-frontend.vercel.app) · [Repositorio del frontend](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Frontend) |
+| API MediTrack Sensor | Consultar establecimientos, dispositivos y lecturas disponibles para las medidas de campo. | [Abrir Swagger UI](https://medi-track-sensor-platform.onrender.com/swagger/index.html) · [Repositorio de la API](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Platform) |
+| Planilla de registro | Anotar horas de solicitud, detección y respuesta, lecturas manuales y de referencia, y evidencia documental asociada. | Plantilla de captura del experimento, con los campos de MD-01 a MD-08. |
+| Instrumento ambiental de referencia | Contrastar las lecturas de sensores y registros manuales bajo la tolerancia de cada variable. | Instrumento calibrado del establecimiento. |
+
+Se priorizan las funciones y fuentes existentes de KairoLabs y registros operativos pertinentes; la planilla y el instrumento se limitan a las variables necesarias para cada comparación. Las capturas de esta sección documentan las interfaces y fuentes usadas para preparar los métodos; no representan resultados de los experimentos.
+
+**Control de interferencias y ética**
+
+Los experimentos se ejecutan de forma secuencial por tema y módulo. Un mismo participante no realiza al mismo tiempo tareas de dos experimentos que puedan alterar su comportamiento o contaminar las observaciones; si participa en más de uno, las sesiones se programan por separado y se registran por experimento.
+
+El personal conserva los procedimientos habituales para proteger los medicamentos y atender desviaciones. No se retiran controles ni alertas preventivas para formar un grupo de control, no se provocan condiciones ambientales fuera de rango y no se manipulan inventarios reales para generar pérdidas. Las pruebas de consulta y supervisión usan registros autorizados; las tareas pueden emplear escenarios y datos de prueba. Los resultados se presentan de forma agregada y el acceso a los registros se limita a lo necesario para el análisis.
+
 ### 8.2.7. Data Analytics: Goals, KPIs and Metrics Selection
 
 ### 8.2.8. Web and Mobile Tracking Plan
