@@ -42,9 +42,90 @@ Para interpretar los resultados:
 
 ### 8.2.2. Domain Business Metrics
 
+Las métricas de dominio permiten determinar si KairoLabs aporta valor a la conservación de medicamentos, la respuesta ante desviaciones, la trazabilidad y la eficiencia de los almacenes. Cada experimento se evaluará con las métricas definidas en esta tabla y sus metas se compararán con una línea base del mismo contexto de uso. Las visitas, impresiones o clics podrán describir la interacción con la plataforma, pero no se considerarán por sí solos evidencia de impacto de negocio.
+
+| ID / nombre de la métrica | Descripción y vínculo con el objetivo de negocio | Fórmula de cálculo | Técnica de recolección | Meta deseada |
+| :--- | :--- | :--- | :--- | :--- |
+| **MD-01. Tasa de incidentes de deterioro** | Mide la frecuencia de incidentes en los que un medicamento se deteriora por una desviación ambiental. Se vincula con la meta de proteger la conservación y reducir pérdidas de productos farmacéuticos. | `Tasa = (incidentes confirmados de deterioro / lotes monitoreados) × 100`.<br>`Reducción = ((tasa base − tasa piloto) / tasa base) × 100`. | Consolidamos los incidentes con sede, fecha, condición ambiental, dispositivo y lote afectado; contrastamos cada caso con las lecturas y el registro de disposición del producto. | Reducir la tasa al menos **30 %** frente a la línea base durante los primeros tres meses. |
+| **MD-02. Tiempo de respuesta a desviaciones** | Mide cuánto tarda el personal en registrar una acción desde la primera lectura fuera del rango de conservación. Refleja la capacidad de reaccionar oportunamente ante alertas. | `Mediana(hora de registro de la acción − hora de la primera lectura fuera de rango)`, en minutos. | Comparamos las marcas de tiempo de las lecturas con las del registro de atención de la alerta o incidente en la plataforma. | Reducir el tiempo de referencia de **15 a 10 minutos o menos** (mejora de **33,3 %**), superando el umbral experimental de 25 %. |
+| **MD-03. Tiempo de preparación de evidencia para auditoría** | Mide el tiempo requerido para reunir el historial de conservación solicitado para revisar una sede, dispositivo o periodo. Se vincula con la trazabilidad y la eficiencia de las auditorías sanitarias. | `Tiempo promedio = suma de minutos de solicitudes completadas / número de solicitudes completadas`.<br>`Reducción = ((promedio manual − promedio digital) / promedio manual) × 100`. | Registramos el inicio de cada solicitud de evidencia y el momento en que se entrega el conjunto de lecturas requerido; comparamos solicitudes equivalentes por búsqueda manual y consulta digital. | Reducir el tiempo promedio al menos **20 %** frente al proceso manual. |
+| **MD-04. Precisión de lecturas ambientales** | Mide la concordancia de las lecturas almacenadas por KairoLabs con un instrumento de referencia. La precisión de los datos respalda decisiones confiables sobre la conservación. | `Precisión = (pares de lecturas dentro de tolerancia / pares válidos) × 100`.<br>`Mejora relativa = ((precisión con sensores − precisión manual) / precisión manual) × 100`. | Registramos lecturas simultáneas del sensor y del instrumento de referencia en condiciones comparables; clasificamos cada par según la tolerancia establecida para la variable. | Aumentar la proporción de lecturas correctas al menos **25 %** en términos relativos frente al método manual. |
+| **MD-05. Tiempo de supervisión multisede** | Mide el tiempo para revisar el estado de todos los establecimientos asignados a un gestor e identificar cuáles requieren atención. Se vincula con la eficiencia operativa y la supervisión centralizada. | `Tiempo promedio = suma del tiempo de revisión de establecimientos / número de revisiones completadas`.<br>`Reducción = ((tiempo base − tiempo con dashboard) / tiempo base) × 100`. | Cronometramos tareas equivalentes: localizar todas las sedes, identificar su estado y reconocer los casos que requieren atención. Registramos inicio, finalización y tarea completada. | Reducir **20 %** los tiempos de gestión operativa de los almacenes y, específicamente, al menos **30 %** el tiempo de revisión multisede durante los primeros seis meses. |
+| **MD-06. Tasa de pérdidas económicas por almacenamiento** | Cuantifica el valor de los medicamentos dañados o descartados por incidentes ambientales en relación con el valor del inventario monitoreado. Complementa la tasa de incidentes con su impacto económico. | `Tasa = (valor de productos dañados o descartados por incidentes / valor del inventario monitoreado) × 100`.<br>`Reducción = ((tasa base − tasa piloto) / tasa base) × 100`. | Contrastamos los registros de incidentes con actas de baja, devolución o cuarentena y con el valor documentado de los productos afectados y del inventario monitoreado. | Reducir las pérdidas al menos **30 %** a nivel general y **20 %** en establecimientos con supervisión multisede, frente a sus respectivas líneas base. |
+| **MD-07. Cobertura de establecimientos monitoreados** | Mide la proporción de establecimientos del alcance con dispositivos activos que reportan lecturas vigentes. Refleja la cobertura y continuidad del monitoreo multisede. | `Cobertura = (establecimientos con dispositivo activo y lectura vigente / establecimientos incluidos) × 100`. | Revisamos el inventario de establecimientos y dispositivos junto con la marca de tiempo de la última lectura recibida por cada dispositivo. | Mantener conectados y monitoreados en tiempo real al menos **80 %** de los establecimientos incluidos durante los primeros seis meses. |
+| **MD-08. Controles de conservación conformes y trazables** | Mide la proporción de controles programados con evidencia completa y lecturas dentro del rango configurado. Cada registro identifica fecha y lugar, dispositivo, variable, valor y estado; así se puede revisar el cumplimiento documentado de las condiciones de almacenamiento. | `Controles conformes y trazables = (controles con lectura dentro del rango y registro completo / controles programados) × 100`. | Contrastamos el calendario de controles con el historial de lecturas y verificamos fecha, hora, establecimiento, dispositivo, variable, valor, rango aplicable y estado. | Alcanzar **100 %** de controles programados conformes y trazables durante los primeros seis meses de uso. |
+
+Estas métricas conforman el marco común para evaluar los experimentos de KairoLabs: cada resultado se interpreta junto con su línea base, su periodo de observación y la meta correspondiente, evitando tomar actividad digital aislada como prueba de valor para el negocio.
+
 ### 8.2.3. Measures
 
+Las medidas especifican qué evidencia recogeremos para responder las preguntas de los cinco experimentos. Seleccionamos como medidas principales los resultados de negocio definidos en **8.2.2**; las medidas secundarias aportan contexto para interpretar esos resultados y comprobar que las funciones de monitoreo, alertas, trazabilidad y supervisión multisede estuvieron disponibles durante la observación. Cada medida es representativa del cambio que plantea su hipótesis y se limita a los datos necesarios para evaluarlo.
+
+| Hipótesis | Medida principal | Evidencia secundaria | Recolección y alcance |
+| :--- | :--- | :--- | :--- |
+| **H1. Monitoreo continuo y deterioro** | **MD-01. Tasa de incidentes de deterioro:** comparar la tasa del piloto con la línea base de los mismos establecimientos durante los primeros tres meses. | **MD-07. Cobertura de establecimientos monitoreados** y **MD-08. Controles de conservación conformes y trazables**. Permiten interpretar la tasa considerando qué proporción del entorno estuvo efectivamente monitoreada y documentada. | Consolidar incidentes confirmados, lotes monitoreados y registros de lectura con sede y fecha. Revisar únicamente establecimientos incluidos en el piloto y el periodo de comparación establecido. |
+| **H2. Alertas y tiempo de respuesta** | **MD-02. Tiempo de respuesta a desviaciones:** medir la mediana entre la primera lectura fuera de rango y el registro de la acción, y compararla con el proceso sin notificación automática. | **MD-07. Cobertura de establecimientos monitoreados** y **MD-08. Controles de conservación conformes y trazables**, para identificar si la lectura y el registro de atención están disponibles para la comparación. | Usar las marcas de tiempo de lecturas y atenciones de alertas vinculadas al mismo incidente. Incluir solo desviaciones con hora de detección y respuesta registradas en el periodo del piloto. |
+| **H3. Historial digital y evidencia de auditoría** | **MD-03. Tiempo de preparación de evidencia para auditoría:** comparar el tiempo promedio para completar solicitudes equivalentes mediante búsqueda manual y consulta del historial digital. | **MD-08. Controles de conservación conformes y trazables**, para confirmar que el conjunto solicitado contiene los datos necesarios para revisar el periodo, la sede y el dispositivo. | Registrar el inicio de cada solicitud y la entrega de los registros requeridos. Medir solicitudes comparables y limitar la revisión a los historiales y periodos incluidos en la prueba. |
+| **H4. Sensores y precisión de lecturas** | **MD-04. Precisión de lecturas ambientales:** comparar la proporción de lecturas dentro de tolerancia con el instrumento de referencia frente a la proporción correcta del registro manual. | **MD-07. Cobertura de establecimientos monitoreados** y **MD-08. Controles de conservación conformes y trazables**, para contextualizar las lecturas recibidas y verificar su integridad. | Recoger pares de lecturas del sensor y del instrumento de referencia, junto con los registros manuales correspondientes, en condiciones y momentos comparables. Evaluar las variables y tolerancias definidas para la prueba; excluir pares incompletos o no comparables. |
+| **H5. Supervisión multisede y pérdidas** | **MD-05. Tiempo de supervisión multisede:** comparar el tiempo promedio para revisar todas las sedes e identificar las que requieren atención. | **MD-06. Tasa de pérdidas económicas por almacenamiento**, como resultado de negocio complementario, y **MD-07. Cobertura de establecimientos monitoreados**, para interpretar el alcance de la supervisión. | Cronometrar revisiones equivalentes con la línea base y el dashboard. Para las pérdidas, contrastar incidentes con documentos de baja, devolución o cuarentena y el valor registrado de los productos afectados, durante el periodo de comparación. |
+
+La recolección se restringe a lecturas ambientales, incidentes, acciones sobre alertas, solicitudes de evidencia, revisiones multisede y documentos que sustentan pérdidas. Conservamos las marcas de tiempo y los datos de sede, dispositivo y lote solo cuando son necesarios para relacionar una observación con su contexto. No usamos impresiones, clics ni actividad general como evidencia de éxito: las señales técnicas de registros y trazas sirven para explicar interrupciones o datos incompletos, mientras que la decisión sobre cada hipótesis se basa en las medidas de negocio anteriores.
+
 ### 8.2.4. Conditions
+
+Las condiciones describen el escenario en que recogeremos cada medida y permiten distinguir el efecto de la propuesta de otros factores del entorno. Para cada hipótesis establecemos una condición experimental, que incorpora la función evaluada, y una condición de control, que conserva el proceso de referencia asociado a **H0**. En cada comparación mantenemos equivalentes, en lo posible, los establecimientos, periodos, tareas y criterios de registro, de modo que las diferencias observadas puedan relacionarse con el cambio evaluado.
+
+**Hipótesis 1. Monitoreo continuo y deterioro**
+
+| Elemento | Condición |
+| :--- | :--- |
+| **Question** | ¿El monitoreo continuo ayuda a reducir los incidentes de deterioro de medicamentos? |
+| **Condición Experimental** | Los establecimientos utilizan las lecturas ambientales continuas de KairoLabs para observar las condiciones de conservación y reconocer desviaciones. |
+| **Condición de Control** | El personal mantiene el proceso habitual de rondas y registros manuales, sin consultar el monitoreo continuo de KairoLabs para detectar desviaciones. |
+
+La comparación considera los mismos establecimientos o establecimientos equivalentes, periodos de tres meses y criterios comunes para registrar lotes, desviaciones e incidentes confirmados.
+
+**Hipótesis 2. Alertas automáticas y tiempo de respuesta**
+
+| Elemento | Condición |
+| :--- | :--- |
+| **Question** | ¿Las alertas automáticas ayudan al personal a responder más rápido ante una desviación? |
+| **Condición Experimental** | Ante una lectura fuera de rango, el personal recibe la notificación automática y registra en KairoLabs la acción tomada y su hora. |
+| **Condición de Control** | El personal sigue el proceso habitual de revisión y atención, sin recibir la notificación automática de KairoLabs; registra la detección y la acción con el mismo criterio temporal. |
+
+Se comparan desviaciones equivalentes por tipo y severidad, con los mismos rangos ambientales y criterios para registrar la detección y la respuesta.
+
+**Hipótesis 3. Historial digital y evidencia de auditoría**
+
+| Elemento | Condición |
+| :--- | :--- |
+| **Question** | ¿El historial digital facilita reunir evidencia para una auditoría sanitaria? |
+| **Condición Experimental** | El responsable consulta el historial digital de KairoLabs para reunir las lecturas solicitadas de una sede, dispositivo y periodo. |
+| **Condición de Control** | El responsable busca los mismos datos en los registros manuales disponibles, sin utilizar el historial digital de KairoLabs. |
+
+Las solicitudes son equivalentes en contenido y alcance, y utilizan el mismo perfil de responsable, periodo de registros y criterio para determinar cuándo la búsqueda está completa.
+
+**Hipótesis 4. Sensores y precisión de lecturas**
+
+| Elemento | Condición |
+| :--- | :--- |
+| **Question** | ¿El registro automático mediante sensores mejora la precisión de las lecturas ambientales? |
+| **Condición Experimental** | Las lecturas ambientales se capturan automáticamente con los sensores integrados en KairoLabs. |
+| **Condición de Control** | Las lecturas se obtienen mediante el procedimiento manual utilizado como referencia, sin sustituirlo por la captura automática. |
+
+Se registran las mismas variables y ubicaciones en momentos y condiciones ambientales comparables. Ambos registros se contrastan con el mismo instrumento de referencia y la tolerancia establecida para cada variable.
+
+**Hipótesis 5. Supervisión multisede y pérdidas**
+
+| Elemento | Condición |
+| :--- | :--- |
+| **Question** | ¿La gestión centralizada mejora la eficiencia de supervisión y reduce las pérdidas entre varias sedes? |
+| **Condición Experimental** | El gestor consulta el dashboard de KairoLabs para revisar en una sola vista el estado de las sedes asignadas e identificar cuáles requieren atención. |
+| **Condición de Control** | El gestor revisa la información de cada sede por separado mediante el proceso y los registros habituales, sin el dashboard multisede. |
+
+Se mantienen equivalentes las sedes asignadas, el periodo de información, las tareas de revisión y los criterios para identificar una sede que requiere atención. Para comparar pérdidas, se consideran periodos y registros de incidentes equivalentes.
+
+En todas las comparaciones, el personal mantiene las prácticas necesarias para conservar los medicamentos y atender desviaciones; la condición de control representa el proceso habitual y no implica omitir acciones de seguridad. La población de interés está formada por personal operativo que registra o atiende condiciones de almacenamiento y gestores responsables de uno o más almacenes farmacéuticos. Estas condiciones delimitan la interpretación de los resultados al contexto de uso de KairoLabs.
 
 ### 8.2.5. Scale Calculations and Decisions
 
