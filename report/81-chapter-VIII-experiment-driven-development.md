@@ -393,6 +393,136 @@ La recolección se activa para los establecimientos, participantes, variables y 
 
 ### 8.2.8. Web and Mobile Tracking Plan
 
+Este plan especifica cómo registrar las observaciones de cada experimento en la aplicación web de KairoLabs y en su vista móvil. Los eventos se relacionan con las métricas **MD-01 a MD-08** y con las condiciones de control, experimental o pareada definidas previamente. La instrumentación captura acciones y datos necesarios para responder las hipótesis, no navegación general ni clics sin relación con ellas.
+
+| Plataforma | Evento o acción rastreada | Métrica / KPI asociado | Condición / contexto de captura | Herramienta / fuente |
+| :--- | :--- | :--- | :--- | :--- |
+| Web y vista móvil | Lectura ambiental recibida; lote incorporado al monitoreo; incidente confirmado; control de conservación registrado. | **MD-01**, **MD-07**, **MD-08** | Sedes elegibles del piloto; condición de referencia o monitoreo KairoLabs; solo lecturas, lotes y controles vinculados al periodo. | Web Vue/Vite, API MediTrack y registro operativo del establecimiento. |
+| Web y vista móvil | Alerta generada y respuesta registrada por el operador. | **MD-02**, **MD-08** | Una lectura fuera de rango; se registra la condición y las marcas de tiempo de detección y primera acción. | Web KairoLabs, API ASP.NET Core y MySQL. |
+| Web y vista móvil | Solicitud de evidencia iniciada y conjunto de registros preparado. | **MD-03**, **MD-08** | Tarea equivalente bajo consulta manual o digital; se registra el mismo alcance de sede, dispositivo y periodo. | Web KairoLabs y planilla de tareas para la condición manual. |
+| API y registro de campo | Par de lectura del sensor, lectura manual e instrumento de referencia. | **MD-04** | Misma variable, ubicación y momento; se identifica condición pareada y tolerancia aplicable. | API de sensores, instrumento de referencia y formulario controlado de captura. |
+| Web y vista móvil | Revisión multisede iniciada y completada; documento de pérdida validado. | **MD-05**, **MD-06**, **MD-07** | Tarea con conjunto de sedes definido; las pérdidas se registran solo con sustento de baja, devolución o cuarentena. | Dashboard KairoLabs, API y registro documental del establecimiento. |
+| Web — auditoría técnica | Reporte Lighthouse guardado para la ruta auditada; sondeo de disponibilidad y respuesta. | Indicadores técnicos de **8.2.7**: puntuaciones Lighthouse, Web Vitals, disponibilidad, TTFB y errores HTTP. | Auditoría puntual de `/login` en perfiles Mobile y Desktop; sondeos del servicio según su intervalo configurado. | Reportes Lighthouse, UptimeRobot y Vercel Analytics & Logs. |
+
+En el campo **Plataforma**, “vista móvil” identifica la aplicación web usada desde un navegador en dispositivo móvil; conserva los mismos nombres de evento y reglas que la vista de escritorio. `platform` distingue `web_desktop`, `web_mobile`, `api` y `manual`, para poder segmentar la captura sin duplicar métricas ni eventos por cada formato de pantalla.
+
+| Hipótesis | Método de 8.2.6 | Plataforma de ejecución | Captura de datos |
+| :--- | :--- | :--- | :--- |
+| **H1 — Monitoreo continuo** | Piloto de campo antes-después. | Aplicación web y API en contexto de establecimiento. | Lecturas por API; lotes e incidentes confirmados mediante registros del piloto. |
+| **H2 — Alertas automáticas** | Piloto de campo con comparación de periodos. | Aplicación web y API. | Eventos automáticos de alerta y acción, relacionados por `alert_id`. |
+| **H3 — Historial digital** | Prueba de tareas con solicitudes equivalentes. | Aplicación web y condición manual de comparación. | Eventos de inicio y entrega de evidencia, más tiempos de búsqueda manual. |
+| **H4 — Precisión de sensores** | Validación de campo con lecturas pareadas. | API, navegador web/móvil y captura de campo. | Lectura automática enlazada con valor manual y de referencia. |
+| **H5 — Supervisión multisede** | Tareas comparativas y análisis de registros. | Dashboard web usado en escritorio o navegador móvil. | Eventos de inicio/fin de tarea y registro documental de pérdidas. |
+
+Las mediciones de Lighthouse son informes puntuales y se conservan como evidencia técnica de **8.2.7**, no como eventos de usuario ni como filas de `experiment_events`. La disponibilidad, TTFB y errores de Vercel/UptimeRobot se consultan en sus fuentes operativas y solo ayudan a interpretar interrupciones de la plataforma.
+
+**Catálogo de eventos de seguimiento**
+
+| Hipótesis | Evento | Disparador | Datos mínimos del evento |
+| :--- | :--- | :--- | :--- |
+| **H1** | `monitoring_reading_received` | La API recibe y almacena una lectura ambiental válida. | `establishment_id`, `device_id`, `reading_id`, `metric_name`, `value`, `unit`, `threshold_status`, `occurred_at`. |
+| **H1** | `monitored_lot_recorded` | Un lote se incorpora al conjunto de lotes monitoreados del piloto. | `establishment_id`, `lot_key`, `condition_name`, `monitoring_start`, `monitoring_end`. |
+| **H1** | `storage_incident_confirmed` | El responsable confirma un incidente de deterioro con evidencia del establecimiento. | `incident_key`, `establishment_id`, `lot_key`, `incident_type`, `evidence_ref`, `occurred_at`. |
+| **H1** | `conservation_control_recorded` | Se registra un control programado de conservación con lectura y rango aplicable. | `control_id`, `establishment_id`, `device_id`, `reading_id`, `range_status`, `record_complete`, `occurred_at`. |
+| **H2** | `alert_triggered` | Una lectura supera el rango configurado y genera una alerta. | `alert_id`, `establishment_id`, `device_id`, `severity`, `reading_id`, `occurred_at`. |
+| **H2** | `alert_response_recorded` | El operador registra la primera acción para atender una alerta. | `alert_id`, `action_type`, `subject_key`, `occurred_at`. |
+| **H3** | `audit_request_started` | El responsable inicia una solicitud de registros. | `request_id`, `establishment_id`, `device_id`, `period_start`, `period_end`, `condition_name`, `occurred_at`. |
+| **H3** | `audit_evidence_ready` | El conjunto solicitado queda preparado para revisión. | `request_id`, `record_count`, `subject_key`, `occurred_at`. |
+| **H4** | `sensor_accuracy_pair_recorded` | Se completa un par comparable de mediciones. | `reading_id`, `establishment_id`, `device_id`, `metric_name`, `sensor_value`, `manual_value`, `reference_value`, `tolerance`, `unit`, `occurred_at`. |
+| **H5** | `multisite_review_started` | El gestor inicia una tarea de revisión del conjunto de sedes definido. | `review_id`, `subject_key`, `site_count`, `condition_name`, `occurred_at`. |
+| **H5** | `multisite_review_completed` | El gestor completa la revisión y marca las sedes que requieren atención. | `review_id`, `sites_needing_attention`, `occurred_at`. |
+| **H5** | `storage_loss_documented` | Se valida un importe de pérdida a partir de un documento operativo. | `incident_key`, `establishment_id`, `amount`, `currency`, `evidence_ref`, `occurred_at`. |
+
+Los eventos de `monitoring_reading_received` y `alert_triggered` se originan en la API y se relacionan por `reading_id`, `device_id` y `alert_id`. Las acciones que no se generan dentro de la aplicación —confirmación documental de incidentes, lecturas manuales o de referencia, solicitudes manuales y pérdidas económicas— se capturan en el registro controlado del piloto con los mismos identificadores y nombres de evento. Así se conserva un esquema común sin atribuir a la telemetría automática datos que provienen de observación de campo.
+
+**Estructura lógica de almacenamiento**
+
+El flujo de captura envía los eventos del cliente web o de la vista móvil a la API ASP.NET Core para validación y almacenamiento en MySQL. El plan define `POST /api/v1/experiment-events` como ruta de recepción; los eventos originados por lecturas de sensores o documentos de campo se incorporan con el mismo esquema y sus fuentes identificadas. `experiment_events` organiza los datos para consultar por hipótesis, condición, plataforma y periodo. El `payload` contiene únicamente los campos específicos del evento; las consultas experimentales no requieren copiar nombres, correos, credenciales ni tokens de autenticación.
+
+```sql
+CREATE TABLE experiment_events (
+    event_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    experiment_id VARCHAR(8) NOT NULL,
+    event_name VARCHAR(64) NOT NULL,
+    platform ENUM('web_desktop', 'web_mobile', 'api', 'manual') NOT NULL,
+    condition_name ENUM('baseline', 'control', 'experimental', 'paired') NOT NULL,
+    subject_key CHAR(64) NULL,
+    session_id CHAR(36) NULL,
+    establishment_id BIGINT NULL,
+    device_id BIGINT NULL,
+    occurred_at DATETIME(3) NOT NULL,
+    payload JSON NOT NULL,
+    environment ENUM('test', 'pilot') NOT NULL,
+    PRIMARY KEY (event_id),
+    KEY idx_experiment_event_time (experiment_id, event_name, occurred_at),
+    KEY idx_establishment_device (establishment_id, device_id),
+    KEY idx_session (session_id)
+);
+```
+
+Los tiempos se normalizan a UTC; `subject_key` es un identificador seudónimo y `session_id` agrupa acciones de una misma sesión de evaluación. `environment` separa datos de prueba de los del piloto y `condition_name` mantiene la comparación sin inferir el grupo a partir de la interfaz.
+
+**Consultas de análisis**
+
+La mediana de respuesta de H2 se obtiene emparejando cada alerta con su primera acción registrada:
+
+```sql
+WITH first_response AS (
+    SELECT
+        t.event_id AS trigger_event_id,
+        MIN(r.occurred_at) AS response_at
+    FROM experiment_events AS t
+    JOIN experiment_events AS r
+      ON JSON_UNQUOTE(JSON_EXTRACT(t.payload, '$.alert_id')) =
+         JSON_UNQUOTE(JSON_EXTRACT(r.payload, '$.alert_id'))
+     AND r.experiment_id = t.experiment_id
+     AND r.event_name = 'alert_response_recorded'
+     AND r.environment = 'pilot'
+     AND r.occurred_at >= t.occurred_at
+    WHERE t.experiment_id = 'H2'
+      AND t.event_name = 'alert_triggered'
+      AND t.environment = 'pilot'
+    GROUP BY t.event_id
+), response_times AS (
+    SELECT TIMESTAMPDIFF(SECOND, t.occurred_at, f.response_at) AS response_seconds
+    FROM first_response AS f
+    JOIN experiment_events AS t ON t.event_id = f.trigger_event_id
+), ranked AS (
+    SELECT response_seconds,
+           ROW_NUMBER() OVER (ORDER BY response_seconds) AS row_num,
+           COUNT(*) OVER () AS total_rows
+    FROM response_times
+)
+SELECT AVG(response_seconds) AS median_response_seconds
+FROM ranked
+WHERE row_num IN (FLOOR((total_rows + 1) / 2), FLOOR((total_rows + 2) / 2));
+```
+
+La precisión de H4 se calcula con el mismo conjunto de pares y tolerancia para el sensor y el registro manual:
+
+```sql
+SELECT
+    COUNT(*) AS valid_pairs,
+    ROUND(100 * AVG(
+        ABS(CAST(JSON_UNQUOTE(JSON_EXTRACT(payload, '$.sensor_value')) AS DECIMAL(12,4)) -
+            CAST(JSON_UNQUOTE(JSON_EXTRACT(payload, '$.reference_value')) AS DECIMAL(12,4))) <=
+        CAST(JSON_UNQUOTE(JSON_EXTRACT(payload, '$.tolerance')) AS DECIMAL(12,4))
+    ), 2) AS sensor_accuracy_pct,
+    ROUND(100 * AVG(
+        ABS(CAST(JSON_UNQUOTE(JSON_EXTRACT(payload, '$.manual_value')) AS DECIMAL(12,4)) -
+            CAST(JSON_UNQUOTE(JSON_EXTRACT(payload, '$.reference_value')) AS DECIMAL(12,4))) <=
+        CAST(JSON_UNQUOTE(JSON_EXTRACT(payload, '$.tolerance')) AS DECIMAL(12,4))
+    ), 2) AS manual_accuracy_pct
+FROM experiment_events
+WHERE experiment_id = 'H4'
+  AND event_name = 'sensor_accuracy_pair_recorded'
+  AND environment = 'pilot';
+```
+
+**Economía y control de datos**
+
+La captura se limita a las sedes, periodos y eventos incluidos en cada experimento. No se registran vistas generales, clics sin relación con una tarea, datos personales innecesarios ni contenido de documentos de auditoría; se conserva una referencia al sustento autorizado. Los eventos de control, experimentales y pareados se identifican explícitamente, y los registros de prueba se excluyen de los análisis del piloto. El esquema se consulta mediante SQL para generar MD-01 a MD-08 y los resultados se presentan agregados.
+
 ## 8.3. Experimentation
 
 ### 8.3.1. To-Be User Stories
