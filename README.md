@@ -38,13 +38,44 @@ Carrera de Ingeniería de Software
 
 # Registro de Versiones del Informe
 
-| Versión | Fecha | Autor(es) | Descripción de cambios |
+| Versión | Fecha | Equipo | Cambios principales |
 | :--- | :--- | :--- | :--- |
-| 1.0 | 06/09/2026 | Todos los integrantes | Desarrollo de los capítulos I, II, III y IV. |
-| 2.0 | 05/10/2026 | Todos los integrantes | Desarrollo del capítulo V y mejoras de capítulos previos. |
-| **3.0 — AV2** | **13/11/2026** | **Todos los integrantes** | **Desarrollo de los capítulos VI y VII y mejoras de capítulos previos.** |
+| 1.0 | 06/09/2026 | Aether System | Capítulos I–IV. |
+| 2.0 | 05/10/2026 | Aether System | Capítulo V y mejoras previas. |
+| 3.0 — AV2 | 13/11/2026 | Aether System | Capítulos VI–VII y mejoras previas. |
 
-La versión consolidada integra los capítulos I–VII con sus imágenes y evidencias. El capítulo VII distingue las ejecuciones verificadas de CI de las etapas de entrega y revisión todavía propuestas; integrarlo al informe no acredita automáticamente todas las configuraciones descritas.
+## Project Report Collaboration Insights
+
+**Organización:** [Aether System en GitHub](https://github.com/1ASI0732-2620-9082-Aether-System)
+
+**Repositorio del informe:** [KairoLabs-Project-Report](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Project-Report)
+
+| Integrante | GitHub | Principales aportes al proyecto |
+| :--- | :--- | :--- |
+| Mallqui Vilca, Dhilsen Armil | [Dhilsen18](https://github.com/Dhilsen18) | Estructura del informe, capítulos III y mejoras de la Landing Page y Web Application. |
+| Diaz Mendoza, Sebastian Victor Andre | [DiazDeveloper](https://github.com/DiazDeveloper) | Capítulo I, entrevistas del capítulo II y actualización de los capítulos IV y V. |
+| Ramirez Escalante, Carlo Patricio | [Carlo211](https://github.com/Carlo211) | Diseño del producto, perfil del equipo y revisión de integración del capítulo IV. |
+| Oblitas Alcalde, Rodrigo | [Darkdren](https://github.com/Darkdren) | Primer incremento de la aplicación móvil y perfil del equipo. |
+| Dinklange Arevalo, Sandro | [Sandro0406](https://github.com/Sandro0406) | Capítulos I, II y V; evidencias de implementación y documentación de la API. |
+
+**Ramas del Proyecto (GitFlow):**
+
+- `main`
+- `develop`
+- `feature/introduction`
+- `feature/chapter-I`
+- `feature/chapter-II`
+- `feature/chapter-III`
+- `feature/chapter-IV`
+- `feature/chapter-V`
+- `feature/chapter-VI`
+- `feature/chapter-VII`
+- `feature/chapter-VIII`
+- `feature/conclusions`
+- `feature/bibliography`
+- `feature/anexos`
+
+Las capturas y el detalle de colaboración del Sprint 1 están en [5.2.8. Team Collaboration Insights](report/51-chapter-V-implementation.md#528-team-collaboration-insights).
 
 <div style="page-break-after: always;"></div>
 
@@ -53,6 +84,7 @@ La versión consolidada integra los capítulos I–VII con sus imágenes y evide
 - [Student Outcome: ABET SO4 — AV2](report/01-student-outcome.md#av2--student-outcome-4-aportes-personales)
 
 ## [Capítulo I: Introducción](report/11-chapter-I-introduction.md)
+
 - [1.1. Startup Profile](report/11-chapter-I-introduction.md#11-startup-profile)
   - [1.1.1. Descripción de la Startup](report/11-chapter-I-introduction.md#111-descripción-de-la-startup)
   - [1.1.2. Perfiles de integrantes del equipo](report/11-chapter-I-introduction.md#112-perfiles-de-integrantes-del-equipo)
@@ -66,6 +98,7 @@ La versión consolidada integra los capítulos I–VII con sus imágenes y evide
 - [1.3. Segmentos objetivo](report/11-chapter-I-introduction.md#13-segmentos-objetivo)
 
 ## [Capítulo II: Requirements Elicitation & Analysis](report/21-chapter-II-requirements.md)
+
 - [2.1. Competidores](report/21-chapter-II-requirements.md#21-competidores)
   - [2.1.1. Análisis competitivo](report/21-chapter-II-requirements.md#211-análisis-competitivo)
   - [2.1.2. Estrategias y tácticas frente a competidores](report/21-chapter-II-requirements.md#212-estrategias-y-tácticas-frente-a-competidores)
@@ -82,12 +115,14 @@ La versión consolidada integra los capítulos I–VII con sus imágenes y evide
 - [2.4. Ubiquitous Language](report/21-chapter-II-requirements.md#24-ubiquitous-language)
 
 ## [Capítulo III: Requirements Specification](report/31-chapter-III-specifications.md)
+
 - [3.1. To-Be Scenario Mapping](report/31-chapter-III-specifications.md#31-to-be-scenario-mapping)
 - [3.2. User Stories](report/31-chapter-III-specifications.md#32-user-stories)
 - [3.3. Product Backlog](report/31-chapter-III-specifications.md#33-product-backlog)
 - [3.4. Impact Mapping](report/31-chapter-III-specifications.md#34-impact-mapping)
 
 ## [Capítulo IV: Product Design](report/41-chapter-IV-design.md)
+
 - [4.1. Style Guidelines](report/41-chapter-IV-design.md#41-style-guidelines)
   - [4.1.1. General Style Guidelines](report/41-chapter-IV-design.md#411-general-style-guidelines)
   - [4.1.2. Web Style Guidelines](report/41-chapter-IV-design.md#412-web-style-guidelines)
@@ -128,6 +163,7 @@ La versión consolidada integra los capítulos I–VII con sus imágenes y evide
   - [4.10.1. Relational/Non-Relational Database Diagram](report/41-chapter-IV-design.md#4101-relationalnon-relational-database-diagram)
 
 ## [Capítulo V: Product Implementation](report/51-chapter-V-implementation.md)
+
 - [5.1. Software Configuration Management](report/51-chapter-V-implementation.md#51-software-configuration-management)
   - [5.1.1. Software Development Environment Configuration](report/51-chapter-V-implementation.md#511-software-development-environment-configuration)
   - [5.1.2. Source Code Management](report/51-chapter-V-implementation.md#512-source-code-management)
@@ -144,9 +180,8 @@ La versión consolidada integra los capítulos I–VII con sus imágenes y evide
   - [5.2.8. Team Collaboration Insights](report/51-chapter-V-implementation.md#528-team-collaboration-insights)
 - [5.3. Video About-the-Product](report/51-chapter-V-implementation.md#53-video-about-the-product)
 
-# Part II: Verification, Validation & Pipeline
-
 ## [Capítulo VI: Product Verification & Validation](report/61-chapter-VI-Verification%26Validation.md)
+
 - [6.1. Testing Suites & Validation](report/61-chapter-VI-Verification%26Validation.md#61-testing-suites--validation)
   - [6.1.1. Core Entities Unit Tests](report/61-chapter-VI-Verification%26Validation.md#611-core-entities-unit-tests)
   - [6.1.2. Core Integration Tests](report/61-chapter-VI-Verification%26Validation.md#612-core-integration-tests)
@@ -189,8 +224,55 @@ La versión consolidada integra los capítulos I–VII con sus imágenes y evide
   - [7.4.3. Alerting Pipeline Components](report/71-chapter-VII-devops-practices.md#743-alerting-pipeline-components)
   - [7.4.4. Notification Pipeline Components](report/71-chapter-VII-devops-practices.md#744-notification-pipeline-components)
 
-## Bibliografía y anexos
+## [Capítulo VIII: Experiment-Driven Development](report/81-chapter-VIII-experiment-driven-development.md)
 
-- [Bibliografía y anexos](report/99-bibliography.md)
+Estructura prevista; el documento del capítulo todavía no está en el repositorio.
+
+- [8.1. Experiment Planning](report/81-chapter-VIII-experiment-driven-development.md#81-experiment-planning)
+  - [8.1.1. As-Is Summary](report/81-chapter-VIII-experiment-driven-development.md#811-as-is-summary)
+  - [8.1.2. Raw Material: Assumptions, Knowledge Gaps, Ideas, Claims](report/81-chapter-VIII-experiment-driven-development.md#812-raw-material-assumptions-knowledge-gaps-ideas-claims)
+  - [8.1.3. Experiment-Ready Questions](report/81-chapter-VIII-experiment-driven-development.md#813-experiment-ready-questions)
+  - [8.1.4. Question Backlog](report/81-chapter-VIII-experiment-driven-development.md#814-question-backlog)
+  - [8.1.5. Experiment Cards](report/81-chapter-VIII-experiment-driven-development.md#815-experiment-cards)
+- [8.2. Experiment Design](report/81-chapter-VIII-experiment-driven-development.md#82-experiment-design)
+  - [8.2.1. Hypotheses](report/81-chapter-VIII-experiment-driven-development.md#821-hypotheses)
+  - [8.2.2. Domain Business Metrics](report/81-chapter-VIII-experiment-driven-development.md#822-domain-business-metrics)
+  - [8.2.3. Measures](report/81-chapter-VIII-experiment-driven-development.md#823-measures)
+  - [8.2.4. Conditions](report/81-chapter-VIII-experiment-driven-development.md#824-conditions)
+  - [8.2.5. Scale Calculations and Decisions](report/81-chapter-VIII-experiment-driven-development.md#825-scale-calculations-and-decisions)
+  - [8.2.6. Methods Selection](report/81-chapter-VIII-experiment-driven-development.md#826-methods-selection)
+  - [8.2.7. Data Analytics: Goals, KPIs and Metrics Selection](report/81-chapter-VIII-experiment-driven-development.md#827-data-analytics-goals-kpis-and-metrics-selection)
+  - [8.2.8. Web and Mobile Tracking Plan](report/81-chapter-VIII-experiment-driven-development.md#828-web-and-mobile-tracking-plan)
+- [8.3. Experimentation](report/81-chapter-VIII-experiment-driven-development.md#83-experimentation)
+  - [8.3.1. To-Be User Stories](report/81-chapter-VIII-experiment-driven-development.md#831-to-be-user-stories)
+  - [8.3.2. To-Be Product Backlog](report/81-chapter-VIII-experiment-driven-development.md#832-to-be-product-backlog)
+  - [8.3.3. Pipeline-supported, Experiment-Driven To-Be Software Platform Lifecycle](report/81-chapter-VIII-experiment-driven-development.md#833-pipeline-supported-experiment-driven-to-be-software-platform-lifecycle)
+    - [8.3.3.1. To-Be Sprint Backlogs](report/81-chapter-VIII-experiment-driven-development.md#8331-to-be-sprint-backlogs)
+    - [8.3.3.2. Implemented To-Be Landing Page Evidence](report/81-chapter-VIII-experiment-driven-development.md#8332-implemented-to-be-landing-page-evidence)
+    - [8.3.3.3. Implemented To-Be Frontend-Web Application Evidence](report/81-chapter-VIII-experiment-driven-development.md#8333-implemented-to-be-frontend-web-application-evidence)
+    - [8.3.3.4. Implemented To-Be Native-Mobile Application Evidence](report/81-chapter-VIII-experiment-driven-development.md#8334-implemented-to-be-native-mobile-application-evidence)
+    - [8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence](report/81-chapter-VIII-experiment-driven-development.md#8335-implemented-to-be-restful-api-andor-serverless-backend-evidence)
+    - [8.3.3.6. Team Collaboration Insights](report/81-chapter-VIII-experiment-driven-development.md#8336-team-collaboration-insights)
+  - [8.3.4. To-Be Validation Interviews](report/81-chapter-VIII-experiment-driven-development.md#834-to-be-validation-interviews)
+    - [8.3.4.1. Diseño de Entrevistas](report/81-chapter-VIII-experiment-driven-development.md#8341-diseño-de-entrevistas)
+    - [8.3.4.2. Registro de Entrevistas](report/81-chapter-VIII-experiment-driven-development.md#8342-registro-de-entrevistas)
+- [8.4. Experiment Aftermath & Analysis](report/81-chapter-VIII-experiment-driven-development.md#84-experiment-aftermath--analysis)
+  - [8.4.1. Analysis and Interpretation of Results](report/81-chapter-VIII-experiment-driven-development.md#841-analysis-and-interpretation-of-results)
+  - [8.4.2. Re-scored and Re-prioritized Question Backlog](report/81-chapter-VIII-experiment-driven-development.md#842-re-scored-and-re-prioritized-question-backlog)
+- [8.5. Continuous Learning](report/81-chapter-VIII-experiment-driven-development.md#85-continuous-learning)
+  - [8.5.1. Shareback Session Artifacts: Learning Workflow](report/81-chapter-VIII-experiment-driven-development.md#851-shareback-session-artifacts-learning-workflow)
+- [8.6. To-Be Software Platform Pre-launch](report/81-chapter-VIII-experiment-driven-development.md#86-to-be-software-platform-pre-launch)
+  - [8.6.1. About-the-Product Intro Video](report/81-chapter-VIII-experiment-driven-development.md#861-about-the-product-intro-video)
+  - [8.6.2. Resumen usando Gees Framework](report/81-chapter-VIII-experiment-driven-development.md#862-resumen-usando-gees-framework)
+
+## Conclusiones (pendiente de incorporar)
+
+## Bibliografía
+
+- [Bibliografía](report/99-bibliography.md#bibliografía)
+
+## Anexos
+
+- [Anexos](report/99-bibliography.md#anexos)
 
 <div style="page-break-after: always;"></div>
