@@ -38,11 +38,15 @@ Carrera de Ingeniería de Software
 
 # Registro de Versiones del Informe
 
+<div align="center">
+
 | Versión | Fecha | Equipo | Cambios principales |
-| :--- | :--- | :--- | :--- |
+| :---: | :---: | :---: | :---: |
 | 1.0 | 06/09/2026 | Aether System | Capítulos I–IV. |
 | 2.0 | 05/10/2026 | Aether System | Capítulo V y mejoras previas. |
 | 3.0 — AV2 | 13/11/2026 | Aether System | Capítulos VI–VII y mejoras previas. |
+
+</div>
 
 ## Project Report Collaboration Insights
 
@@ -50,13 +54,17 @@ Carrera de Ingeniería de Software
 
 **Repositorio del informe:** [KairoLabs-Project-Report](https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Project-Report)
 
+<div align="center">
+
 | Integrante | GitHub | Principales aportes al proyecto |
-| :--- | :--- | :--- |
+| :---: | :---: | :---: |
 | Mallqui Vilca, Dhilsen Armil | [Dhilsen18](https://github.com/Dhilsen18) | Estructura del informe, capítulos III y mejoras de la Landing Page y Web Application. |
 | Diaz Mendoza, Sebastian Victor Andre | [DiazDeveloper](https://github.com/DiazDeveloper) | Capítulo I, entrevistas del capítulo II y actualización de los capítulos IV y V. |
 | Ramirez Escalante, Carlo Patricio | [Carlo211](https://github.com/Carlo211) | Diseño del producto, perfil del equipo y revisión de integración del capítulo IV. |
 | Oblitas Alcalde, Rodrigo | [Darkdren](https://github.com/Darkdren) | Primer incremento de la aplicación móvil y perfil del equipo. |
 | Dinklange Arevalo, Sandro | [Sandro0406](https://github.com/Sandro0406) | Capítulos I, II y V; evidencias de implementación y documentación de la API. |
+
+</div>
 
 **Ramas del Proyecto (GitFlow):**
 
