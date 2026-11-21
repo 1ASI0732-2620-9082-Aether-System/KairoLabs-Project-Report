@@ -323,15 +323,45 @@ La analítica permitirá al equipo:
 
 Las señales técnicas de UptimeRobot, Vercel y Axios son **indicadores de contexto y calidad de datos**, no sustituyen los KPIs de negocio ni se usan para declarar una hipótesis validada. El capítulo VII describe el pipeline de monitoreo y la telemetría de la plataforma; aquí se emplean esas fuentes para reconocer interrupciones y poner en contexto las observaciones experimentales.
 
-![Centro de Control de KairoLabs con indicadores y sensores por sede](../assets/chapter-5/web-centro-control.png)
+**4. Auditoría técnica de la aplicación con Lighthouse**
 
-*Figura 8.2.7-1. Vista de Centro de Control que contextualiza los indicadores operativos y ambientales observables en KairoLabs.*
+Se ejecutó Lighthouse en modo **Mobile** sobre la ruta de inicio de sesión del [frontend de KairoLabs](https://kairo-labs-frontend.vercel.app/login). La captura constituye una medición técnica puntual de esa ruta; sus puntuaciones no se interpretan como resultados de las hipótesis de negocio ni representan una auditoría de la Landing Page o del Centro de Control.
 
-![Pipeline de monitoreo continuo de KairoLabs](../assets/chapter-7/figures/CONTINUOUS-MONITORING-PIPELINE.jpg)
+| Indicador técnico de Lighthouse | Resultado observado | Lectura para el producto |
+| :--- | :--- | :--- |
+| Performance | **60/100** | Hay oportunidad de mejorar la carga de la ruta de inicio de sesión. |
+| First Contentful Paint (FCP) | **3,7 s** | El primer contenido tarda en aparecer en la auditoría móvil. |
+| Largest Contentful Paint (LCP) | **4,6 s** | El contenido principal aparece después del umbral deseable de carga rápida. |
+| Speed Index | **4,6 s** | Resume el tiempo que tarda en mostrarse visualmente el contenido de la página. |
+| Total Blocking Time (TBT) | **550 ms** | El hilo principal presenta bloqueo durante la carga. |
+| Cumulative Layout Shift (CLS) | **0** | No se observa desplazamiento acumulado del diseño en esta ejecución. |
+| Accessibility | **95/100** | Lighthouse señala una oportunidad de mejora en contraste entre fondo y primer plano. |
+| Best Practices | **100/100** | La auditoría automática no reporta hallazgos en esta categoría. |
+| SEO | **91/100** | Lighthouse reporta `robots.txt` inválido (40 errores); el hallazgo se interpreta considerando que `/login` es una ruta de acceso a la aplicación. |
 
-*Figura 8.2.7-2. Flujo de observabilidad técnica utilizado como fuente contextual para disponibilidad, solicitudes y errores.*
+La ejecución también reporta solicitudes que bloquean el renderizado, demora de fuentes, trabajo prolongado en el hilo principal y recursos JavaScript/CSS no utilizados. Estos hallazgos orientan la revisión técnica; no se mezclan con MD-01 a MD-08 ni se usan como evidencia de impacto sobre conservación, alertas o pérdidas.
 
-**4. Economía del rastreo**
+![Resumen de auditoría Lighthouse en la ruta de inicio de sesión](../assets/lightouse-1.png)
+
+*Figura 8.2.7-1. Resumen Lighthouse Mobile de `/login`: Performance 60, Accessibility 95, Best Practices 100 y SEO 91.*
+
+![Oportunidades de mejora de carga en Lighthouse](../assets/lightouse-2.png)
+
+*Figura 8.2.7-2. Diagnósticos de carga: solicitudes que bloquean el renderizado, fuentes y descubrimiento del contenido principal.*
+
+![Diagnósticos de rendimiento y recursos](../assets/lightouse-3.png)
+
+*Figura 8.2.7-3. Trabajo del hilo principal, JavaScript y CSS no utilizados y tamaño de recursos identificados en la auditoría.*
+
+![Detalle de accesibilidad de Lighthouse](../assets/lightouse-4.png)
+
+*Figura 8.2.7-4. Auditoría de accesibilidad: oportunidad de mejora en contraste de colores.*
+
+![Detalle de buenas prácticas y SEO de Lighthouse](../assets/lightouse-5.png)
+
+*Figura 8.2.7-5. Detalle de Best Practices y SEO para la ruta auditada; Lighthouse señala observaciones de `robots.txt`.*
+
+**5. Economía del rastreo**
 
 La recolección se activa para los establecimientos, participantes, variables y periodos que corresponden a cada experimento. Registramos identificadores de sede y dispositivo, marcas de tiempo y datos de resultado solo cuando hacen falta para calcular las métricas MD-01 a MD-08; excluimos clics generales, impresiones y datos personales que no aporten a esas mediciones. El equipo revisa los datos por experimento y conserva el acceso restringido a los registros operativos, presentando los resultados de forma agregada.
 
