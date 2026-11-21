@@ -286,6 +286,55 @@ El personal conserva los procedimientos habituales para proteger los medicamento
 
 ### 8.2.7. Data Analytics: Goals, KPIs and Metrics Selection
 
+En esta sección definimos qué conocimiento esperamos obtener de los experimentos y qué datos usaremos para obtenerlo. La analítica de KairoLabs se enfoca en resultados de conservación farmacéutica y operación: detectar incidentes, responder a desviaciones, preparar evidencia, confiar en las lecturas y supervisar varias sedes. Seleccionamos indicadores que ya tienen fórmula, fuente y meta en **8.2.2**; la actividad digital general no se interpreta como valor de negocio por sí sola.
+
+**1. Metas de análisis (Goals)**
+
+La analítica permitirá al equipo:
+
+- Evaluar si el monitoreo y las alertas se asocian con menos incidentes y respuestas más oportunas (**H1–H2**).
+- Medir si el historial digital facilita reunir evidencia de conservación para auditoría (**H3**).
+- Comprobar la precisión de las lecturas automáticas frente a un instrumento de referencia y al registro manual (**H4**).
+- Estimar la eficiencia de la supervisión multisede y contextualizarla con la cobertura y las pérdidas documentadas (**H5**).
+- Distinguir resultados de negocio de señales técnicas que permiten identificar interrupciones, errores o datos incompletos durante la observación.
+
+**2. Selección de KPIs y métricas**
+
+| Nivel | KPI / indicador | Métrica atómica (dato registrado) | Fuente | Justificación de selección y economía de rastreo |
+| :--- | :--- | :--- | :--- | :--- |
+| Negocio — conservación | **MD-01. Tasa de incidentes de deterioro** | Incidentes confirmados y lotes monitoreados, vinculados por sede, fecha y lote. | Registro de incidentes, inventario e historial de lecturas. | Responde directamente a H1; solo se registran incidentes confirmados y la exposición necesaria para calcular la tasa. |
+| Negocio — pérdidas | **MD-06. Tasa de pérdidas económicas por almacenamiento** | Valor de productos dañados o descartados y valor del inventario monitoreado. | Incidentes y documentos de baja, devolución o cuarentena. | Cuantifica el impacto económico asociado a H5 sin registrar actividad ajena al deterioro ambiental. |
+| Operación — respuesta | **MD-02. Tiempo de respuesta a desviaciones** | Hora de la primera lectura fuera de rango y hora de la acción registrada. | Lecturas y registro de atención de alertas. | Mide el intervalo necesario para H2; se conservan solo marcas de tiempo asociadas con una desviación. |
+| Operación — trazabilidad | **MD-03. Tiempo de preparación de evidencia** | Inicio de la solicitud y entrega del conjunto de registros requerido. | Planilla de tareas y consulta del historial. | Mide H3 con solicitudes equivalentes; no requiere rastrear navegación general del usuario. |
+| Producto — precisión de datos | **MD-04. Precisión de lecturas ambientales** | Lectura del sensor, lectura manual y lectura de referencia, junto con variable, ubicación, momento y tolerancia. | Sensores, instrumento de referencia y registros manuales. | Evalúa H4 directamente; se recogen pares comparables, no telemetría adicional sin relación con la lectura. |
+| Operación — gestión multisede | **MD-05. Tiempo de supervisión multisede** | Inicio y fin de la tarea de revisión, sedes incluidas y tarea completada. | Planilla de tareas y dashboard de KairoLabs. | Responde al componente de eficiencia de H5 mediante tareas equivalentes y delimitadas. |
+| Cobertura — disponibilidad de datos | **MD-07. Cobertura de establecimientos monitoreados** | Establecimientos incluidos, dispositivo activo y marca de tiempo de la última lectura. | Inventario de sedes y lecturas de la API. | Permite interpretar los resultados según la proporción realmente cubierta, sin contar visitas o impresiones. |
+| Calidad — integridad del registro | **MD-08. Controles de conservación conformes y trazables** | Controles programados y registros completos con lectura, rango, sede, dispositivo, fecha y hora. | Calendario de controles e historial de lecturas. | Verifica que la evidencia usada para los experimentos sea interpretable y trazable. |
+
+**3. Fuentes de analítica y observabilidad**
+
+| Fuente / herramienta | Datos que aporta | Uso en el análisis |
+| :--- | :--- | :--- |
+| [Aplicación web KairoLabs](https://kairo-labs-frontend.vercel.app) y [API MediTrack Sensor](https://medi-track-sensor-platform.onrender.com/swagger/index.html) | Estado de sedes y dispositivos, lecturas ambientales y registros relacionados con alertas. | Fuente operativa para MD-01, MD-02, MD-04, MD-07 y MD-08. |
+| **UptimeRobot** | Disponibilidad, tiempo de conexión/TTFB y códigos HTTP mediante sondeos sintéticos. | Identifica periodos de indisponibilidad que podrían explicar lecturas ausentes o interrumpidas. |
+| **Vercel Analytics & Logs** | Indicadores técnicos web —Core Web Vitals—, solicitudes y errores registrados en la infraestructura. | Ayuda a contextualizar fallos de carga o degradaciones durante las sesiones de prueba. |
+| **Axios Runtime Interceptors** | Errores del cliente, interrupciones de red y fallos de autenticación en la aplicación web. | Ayuda a diagnosticar registros incompletos o tareas que no se pudieron terminar por un error técnico. |
+| **Planilla de tareas y documentos operativos** | Tiempos de búsqueda y revisión, acciones registradas e importes sustentados de pérdidas. | Complementa los datos de plataforma para MD-02, MD-03, MD-05 y MD-06. |
+
+Las señales técnicas de UptimeRobot, Vercel y Axios son **indicadores de contexto y calidad de datos**, no sustituyen los KPIs de negocio ni se usan para declarar una hipótesis validada. El capítulo VII describe el pipeline de monitoreo y la telemetría de la plataforma; aquí se emplean esas fuentes para reconocer interrupciones y poner en contexto las observaciones experimentales.
+
+![Centro de Control de KairoLabs con indicadores y sensores por sede](../assets/chapter-5/web-centro-control.png)
+
+*Figura 8.2.7-1. Vista de Centro de Control que contextualiza los indicadores operativos y ambientales observables en KairoLabs.*
+
+![Pipeline de monitoreo continuo de KairoLabs](../assets/chapter-7/figures/CONTINUOUS-MONITORING-PIPELINE.jpg)
+
+*Figura 8.2.7-2. Flujo de observabilidad técnica utilizado como fuente contextual para disponibilidad, solicitudes y errores.*
+
+**4. Economía del rastreo**
+
+La recolección se activa para los establecimientos, participantes, variables y periodos que corresponden a cada experimento. Registramos identificadores de sede y dispositivo, marcas de tiempo y datos de resultado solo cuando hacen falta para calcular las métricas MD-01 a MD-08; excluimos clics generales, impresiones y datos personales que no aporten a esas mediciones. El equipo revisa los datos por experimento y conserva el acceso restringido a los registros operativos, presentando los resultados de forma agregada.
+
 ### 8.2.8. Web and Mobile Tracking Plan
 
 ## 8.3. Experimentation
