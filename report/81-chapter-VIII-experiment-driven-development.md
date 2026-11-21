@@ -129,6 +129,70 @@ En todas las comparaciones, el personal mantiene las prácticas necesarias para 
 
 ### 8.2.5. Scale Calculations and Decisions
 
+La escala se define para cada experimento según su variable, unidad de análisis y periodo de observación. En las cinco comparaciones usamos **α = 5 %** como nivel de significancia y **80 %** como potencia estadística objetivo. El MDE corresponde al umbral cuantitativo de cada H1; el tamaño de muestra se calcula con la tasa base o la variabilidad observada en la condición de control, evitando asignar el mismo número de observaciones a resultados diferentes.
+
+**Experimento 1 — Validación del monitoreo continuo**
+
+| Parámetro | Valor | Justificación |
+| :--- | :--- | :--- |
+| Nivel de significancia (α) | **5 %** | Limita la probabilidad de concluir que el monitoreo reduce los incidentes cuando la diferencia observada se debe al azar. |
+| Potencia estadística (1−β) | **80 %** | Proporciona una probabilidad objetivo de detectar la reducción planteada si el efecto existe. |
+| MDE | **30 % de reducción** en la tasa de incidentes de deterioro. | Corresponde al umbral definido para respaldar H1. |
+| Duración | **Tres meses** de piloto, comparados con una línea base de igual duración. | Permite contrastar periodos equivalentes en los mismos establecimientos o en establecimientos comparables. |
+| Tamaño de muestra | Todos los lotes monitoreados y todos los incidentes confirmados en los establecimientos elegibles durante el periodo. El número de lotes requerido se calcula con la tasa basal, la razón objetivo **0,70**, α y potencia, con ajuste por establecimiento. | La unidad de exposición es el lote monitoreado; considerar el agrupamiento por establecimiento evita tratar observaciones correlacionadas como independientes. |
+
+**Decisión:** respaldamos H1 si la reducción estimada alcanza el MDE y la comparación es compatible con el nivel de significancia establecido. Si la precisión del intervalo no permite distinguir el umbral, el resultado se interpreta como inconcluso.
+
+**Experimento 2 — Validación de las alertas automáticas**
+
+| Parámetro | Valor | Justificación |
+| :--- | :--- | :--- |
+| Nivel de significancia (α) | **5 %** | Limita los falsos positivos al atribuir a las alertas una reducción del tiempo de respuesta. |
+| Potencia estadística (1−β) | **80 %** | Define la probabilidad objetivo de detectar el cambio esperado en los tiempos de respuesta. |
+| MDE | **25 % de reducción** en el tiempo mediano de respuesta. | Coincide con el umbral de H1 para comparar la notificación automática con el proceso habitual. |
+| Duración | **Tres meses** de observación del piloto. | Recoge desviaciones a lo largo de un periodo común con los experimentos de monitoreo y sensores. |
+| Tamaño de muestra | Todas las desviaciones elegibles que tengan hora de detección y hora de respuesta registradas en ambas condiciones. El número requerido se estima mediante simulación o remuestreo de la distribución de tiempos, con α y potencia establecidos. | La medida es una mediana; la escala se basa en la distribución de tiempos y no en una suposición de normalidad de medias. |
+
+**Decisión:** respaldamos H1 si el tiempo mediano disminuye al menos 25 % frente al proceso habitual. Desviaciones sin marcas de tiempo comparables no forman parte del análisis.
+
+**Experimento 3 — Validación del historial digital**
+
+| Parámetro | Valor | Justificación |
+| :--- | :--- | :--- |
+| Nivel de significancia (α) | **5 %** | Limita los falsos positivos en la comparación del tiempo de preparación de evidencia. |
+| Potencia estadística (1−β) | **80 %** | Establece la probabilidad objetivo de detectar la reducción esperada. |
+| MDE | **20 % de reducción** en el tiempo promedio para reunir evidencia. | Corresponde al umbral de H1 frente a la búsqueda manual. |
+| Duración | **Tres meses** de observación. | Permite recoger solicitudes de evidencia en el mismo periodo de comparación del piloto. |
+| Tamaño de muestra | Solicitudes equivalentes de registros, medidas tanto con búsqueda manual como con consulta digital. `n = ((Z₁₋α + Z₁₋β) × σd / Δ)²`, donde `σd` es la desviación estándar de las diferencias pareadas y `Δ` equivale al 20 % del tiempo medio de referencia. | La comparación de las mismas solicitudes controla diferencias en sede, dispositivo, periodo y contenido requerido. |
+
+**Decisión:** respaldamos H1 si el tiempo promedio de consulta digital disminuye al menos 20 % frente a la búsqueda manual y la precisión de la estimación es suficiente para distinguir ese umbral.
+
+**Experimento 4 — Validación de las lecturas de sensores**
+
+| Parámetro | Valor | Justificación |
+| :--- | :--- | :--- |
+| Nivel de significancia (α) | **5 %** | Limita los falsos positivos al atribuir a los sensores una mejora de precisión. |
+| Potencia estadística (1−β) | **80 %** | Define la probabilidad objetivo de detectar la mejora planteada. |
+| MDE | **25 % de mejora relativa** en la proporción de lecturas correctas respecto del registro manual. | Mantiene el criterio cuantitativo de H1 y de MD-04. |
+| Duración | **Tres meses** de lecturas emparejadas. | Abarca las variables y ubicaciones consideradas durante el piloto. |
+| Tamaño de muestra | Todos los pares válidos de lecturas del sensor y del método manual, contrastados con el mismo instrumento de referencia. El número requerido se calcula para proporciones pareadas (prueba de McNemar), usando la proporción esperada de pares discordantes, α y potencia. | El emparejamiento y la tolerancia común permiten comparar la precisión de ambos métodos en condiciones equivalentes. |
+
+**Decisión:** respaldamos H1 si la proporción de lecturas correctas con sensores mejora al menos 25 % en términos relativos. Los pares incompletos o tomados bajo condiciones no comparables se excluyen con el mismo criterio en ambas condiciones.
+
+**Experimento 5 — Validación de la supervisión multisede**
+
+| Parámetro | Valor | Justificación |
+| :--- | :--- | :--- |
+| Nivel de significancia (α) | **5 %** | Limita los falsos positivos para los resultados de tiempo y pérdidas económicas. |
+| Potencia estadística (1−β) | **80 %** | Es la probabilidad objetivo de detectar cada cambio mínimo planteado. |
+| MDE | **30 % de reducción** en tiempo de revisión y **20 % de reducción** en la tasa de pérdidas económicas. | Son los dos umbrales de H1 y corresponden a MD-05 y MD-06. |
+| Duración | **Seis meses** de observación multisede. | Corresponde al periodo establecido para evaluar supervisión y pérdidas económicas. |
+| Tamaño de muestra | Todas las revisiones multisede comparables y todos los incidentes con pérdidas documentadas en los establecimientos incluidos. Se calcula por separado el número requerido para el tiempo de revisión y para la tasa de pérdidas, usando la variabilidad o tasa basal correspondiente. | Los dos resultados tienen unidades distintas; cada uno debe alcanzar su propia escala objetivo para evaluar H1. |
+
+**Decisión:** respaldamos H1 solo si ambos resultados alcanzan sus MDE respectivos. Si uno no alcanza su umbral o no tiene precisión suficiente, se informa por separado y la hipótesis conjunta no se considera respaldada.
+
+En todos los experimentos, los establecimientos, responsables, tareas y criterios de inclusión se mantienen representativos del uso de KairoLabs en almacenes farmacéuticos. Se informan el número de observaciones válidas, el efecto estimado y su intervalo de confianza. La cantidad de registros por sí sola no confirma una hipótesis: la decisión depende de la calidad de la comparación, la precisión alcanzada y el MDE definido.
+
 ### 8.2.6. Methods Selection
 
 ### 8.2.7. Data Analytics: Goals, KPIs and Metrics Selection
