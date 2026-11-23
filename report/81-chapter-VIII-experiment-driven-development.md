@@ -525,13 +525,208 @@ La captura se limita a las sedes, periodos y eventos incluidos en cada experimen
 
 ## 8.3. Experimentation
 
+La fase de experimentación constituye el núcleo operativo del enfoque *Experiment-Driven Development* (EDD) para KairoLabs. En esta etapa, el equipo traduce las necesidades identificadas, los vacíos de conocimiento y las cinco hipótesis de negocio formuladas en la sección 8.2 en artefactos de software tangibles y medibles. 
+
+A diferencia de los ciclos tradicionales de desarrollo basados exclusivamente en la entrega de requerimientos funcionales, el proceso de experimentación en KairoLabs está orientado a validar empíricamente el impacto del producto en escenarios reales de almacenamiento farmacéutico. Para ello, se definen especificaciones de software bajo el paradigma **To-Be** (estado futuro deseado), donde cada historia de usuario, tarea de desarrollo y despliegue en producción responde de forma directa a la contrastación de una hipótesis, garantizando la recolección sistemática de métricas de dominio (MD-01 a MD-08) y de analítica web/móvil.
+
 ### 8.3.1. To-Be User Stories
+
+A partir de las hipótesis de trabajo ($H_1$ a $H_5$) establecidas en el diseño experimental, se especificaron cuatro Historias de Usuario de Experimentación (**To-Be User Stories**). Estas historias capturan el comportamiento esperado de la plataforma ante desviaciones críticas de temperatura/humedad, la visualización en tiempo real de telemetría de sensores IoT, la consolidación de evidencia digital para auditorías regulatorias y la supervisión centralizada entre múltiples sedes farmacéuticas.
+
+Todas las historias se estructuraron bajo el estándar ágil de la industria y definen sus criterios de aceptación mediante el lenguaje formal **Gherkin** (*Given - When - Then*), abarcando tanto el flujo principal exitoso (*Happy Path*) como escenarios de contingencia o error (*Unhappy Path*).
+
+---
+
+#### **US-EXP01: Notificaciones y alertas automáticas en tiempo real ante desviaciones de temperatura**
+
+* **User Story ID:** `US-EXP01`
+* **Epic asociada:** `EP04 - Gestión de Alertas y Notificaciones`
+* **Hipótesis asociada:** `H2` (Reducción de al menos 25% en el tiempo mediano de respuesta ante lecturas fuera de rango mediante avisos automáticos).
+* **Story Points:** 5
+* **Prioridad:** Must Have (Alta)
+
+> **Descripción:**  
+> **Como** personal operativo de almacenes farmacéuticos,  
+> **deseo** recibir alertas automáticas e inmediatas en la interfaz web y móvil cuando los sensores IoT detecten lecturas fuera de los rangos críticos de conservación (menor a 2 °C o mayor a 8 °C para cadena de frío; fuera de 15 °C a 25 °C para temperatura ambiente),  
+> **para** tomar acciones correctivas inmediatas y registrar la atención antes de que se produzca el deterioro físico o químico de los medicamentos.
+
+* **Criterios de Aceptación (Gherkin):**
+
+```gherkin
+Scenario: Notificación inmediata y despliegue visual por temperatura fuera de rango (Happy Path)
+  Given que el sensor IoT asignado a una zona de almacenamiento registra una temperatura de 9.5 °C
+  And el rango seguro parametrizado para dicho lote de medicamentos es de 2.0 °C a 8.0 °C
+  When el sistema ingiere la lectura a través del endpoint telemétrico
+  Then el sistema debe generar una alerta crítica en menos de 10 segundos
+  And la interfaz del operador debe mostrar un indicador visual prominente de advertencia (color rojo)
+  And el sistema debe registrar la marca de tiempo exacta de detección para el cómputo de la métrica MD-02.
+
+Scenario: Registro de acción correctiva y mitigación de alerta por el operador (Happy Path)
+  Given que existe una alerta crítica activa en el establecimiento asignado al operador
+  When el operador visualiza la alerta y presiona el botón "Atender Desviación"
+  And ingresa la acción realizada ("Ajuste de termostato y verificación de sellado de puerta de cámara")
+  Then el sistema debe actualizar el estado de la alerta a "Atendida"
+  And registrar la marca de tiempo de resolución, calculando la latencia de respuesta para contrastar H2.
+
+Scenario: Falla de conectividad o sensor inalcanzable (Unhappy Path)
+  Given que un sensor IoT deja de emitir telemetría por más de 15 minutos consecutivos
+  When el servicio de monitoreo en segundo plano evalúa la frecuencia de pulsos
+  Then el sistema debe disparar una alerta técnica de tipo "Sensor Desconectado / Sin Señal"
+  And notificar al operador para que realice la inspección física inmediata del dispositivo.
+```
+
+---
+
+#### **US-EXP02: Visualización continua de lecturas y telemetría de sensores en Dashboard**
+
+* **User Story ID:** `US-EXP02`
+* **Epic asociada:** `EP03 - Monitoreo Ambiental y Telemetría`
+* **Hipótesis asociada:** `H1` (Reducción de al menos 30% en incidentes de deterioro) y `H4` (Aumento de al menos 25% en lecturas correctas automatizadas vs. manuales).
+* **Story Points:** 5
+* **Prioridad:** Must Have (Alta)
+
+> **Descripción:**  
+> **Como** personal operativo y gestor farmacéutico,  
+> **deseo** visualizar en un panel interactivo el estado térmico y de humedad en tiempo real de cada dispositivo sensor asignado a mi sede,  
+> **para** identificar tendencias graduales de calentamiento o enfriamiento sin tener que esperar a realizar una ronda física manual de inspección con planillas en papel.
+
+* **Criterios de Aceptación (Gherkin):**
+
+```gherkin
+Scenario: Consulta y actualización continua de telemetría ambiental (Happy Path)
+  Given que el operador ha iniciado sesión y se encuentra en el Dashboard principal de su establecimiento
+  When los sensores IoT transmiten nuevas lecturas de temperatura y humedad
+  Then la interfaz debe refrescar los valores en pantalla sin requerir la recarga manual de la página
+  And debe presentar un gráfico cronológico de las últimas 24 horas señalando las bandas de tolerancia seguras.
+
+Scenario: Filtrado de telemetría por dispositivo y rango horario (Happy Path)
+  Given que el usuario se encuentra en el módulo de visualización de telemetría
+  When selecciona un sensor específico y define un rango horario de interés
+  Then el sistema debe renderizar la serie temporal correspondiente con sus valores máximos, mínimos y media calculada.
+
+Scenario: Ingesta de datos anómalos o fuera de escala física (Unhappy Path)
+  Given que un sensor defectuoso envía una lectura físicamente inconsistente (ej. -99 °C o 150 °C)
+  When el backend procesa la carga útil (payload)
+  Then debe marcar la lectura como "Inválida / Anómala"
+  And no debe alterar la curva de tendencia histórica, notificando al usuario sobre la necesidad de calibración.
+```
+
+---
+
+#### **US-EXP03: Historial digital y exportación de reportes de trazabilidad para auditorías sanitarias**
+
+* **User Story ID:** `US-EXP03`
+* **Epic asociada:** `EP06 - Trazabilidad, Auditoría y Cumplimiento Regulatorio`
+* **Hipótesis asociada:** `H3` (Reducción de al menos 20% en el tiempo promedio requerido para reunir evidencia en auditorías sanitarias frente al proceso manual).
+* **Story Points:** 3
+* **Prioridad:** Should Have (Media-Alta)
+
+> **Descripción:**  
+> **Como** gestor farmacéutico y responsable de cumplimiento normativo (Compliance Manager),  
+> **deseo** consultar y exportar en formato digital consolidado (PDF / CSV) el historial inalterable de lecturas ambientales e incidentes por sede y periodo,  
+> **para** presentar evidencia fidedigna de conservación durante auditorías e inspecciones sanitarias regulatorias de DIGEMID/CENARES sin demoras por búsqueda manual de archivos físicos.
+
+* **Criterios de Aceptación (Gherkin):**
+
+```gherkin
+Scenario: Generación y descarga de reporte consolidado de trazabilidad (Happy Path)
+  Given que el gestor se encuentra en la sección de "Reportes y Auditoría"
+  When selecciona una sede, un rango de fechas de 30 días y presiona "Exportar Reporte Oficial"
+  Then el sistema debe compilar los registros ambientales, eventos de calibración y bitácora de alertas
+  And generar un archivo descargable con código de verificación e integridad digital en un tiempo inferior a 15 segundos.
+
+Scenario: Búsqueda sin registros en el periodo seleccionado (Unhappy Path)
+  Given que el gestor selecciona un rango de fechas en el que la sede aún no tenía sensores instalados
+  When solicita la exportación del reporte
+  Then el sistema debe mostrar un mensaje informativo indicando "No se encontraron registros de telemetría para el periodo indicado"
+  And sugerir al usuario ajustar el intervalo de fechas.
+```
+
+---
+
+#### **US-EXP04: Gestión centralizada multisede y supervisión operativa**
+
+* **User Story ID:** `US-EXP04`
+* **Epic asociada:** `EP07 - Supervisión Multisede y Operaciones`
+* **Hipótesis asociada:** `H5` (Reducción de al menos 30% en el tiempo de supervisión de sedes y 20% de pérdidas económicas acumuladas).
+* **Story Points:** 5
+* **Prioridad:** Must Have (Alta)
+
+> **Descripción:**  
+> **Como** gestor farmacéutico a cargo de múltiples establecimientos de salud,  
+> **deseo** contar con una vista matriz que consolide el estado de conservación de todas las sedes a mi cargo y permita asignar operadores responsables,  
+> **para** optimizar el tiempo de supervisión general, intervenir proactivamente en sedes vulnerables y prevenir pérdidas de inventario por falta de control.
+
+* **Criterios de Aceptación (Gherkin):**
+
+```gherkin
+Scenario: Supervisión integral de múltiples almacenes en una única vista (Happy Path)
+  Given que el gestor administra 3 establecimientos farmacéuticos activos
+  When accede a la vista matriz multisede
+  Then debe visualizar el semáforo de estado de cada sede (Verde: Óptimo, Amarillo: Advertencia, Rojo: Crítico)
+  And identificar en menos de 30 segundos qué almacén requiere intervención prioritaria.
+
+Scenario: Asignación de operadores a un establecimiento (Happy Path)
+  Given que el gestor registra una nueva sede farmacéutica
+  When selecciona a un operador del personal operativo disponible y le asigna el rol de custodio
+  Then el operador debe quedar vinculado a la sede y comenzar a recibir las alertas generadas por los sensores de ese local.
+```
+
+---
 
 ### 8.3.2. To-Be Product Backlog
 
+El **To-Be Product Backlog** consolida y prioriza los ítems de trabajo necesarios para ejecutar la experimentación. Se empleó el esquema de estimación ágil basado en la serie de Fibonacci para Story Points y la técnica MoSCoW para priorización, vinculando explícitamente cada requerimiento con su correspondiente hipótesis experimental.
+
+| Backlog ID | Epic ID | Título de la Historia de Usuario | Story Points | Prioridad | Hipótesis Validada | Criterio de Aceptación Resumen |
+| :---: | :---: | :--- | :---: | :---: | :---: | :--- |
+| **US-EXP01** | EP04 | Notificaciones y alertas automáticas ante desviaciones de temperatura | 5 | Must Have | $H_2$ | Emisión de alerta visual/push en $\le 10$ s ante lecturas críticas y registro de atención. |
+| **US-EXP02** | EP03 | Monitoreo continuo y telemetría de sensores en Dashboard | 5 | Must Have | $H_1, H_4$ | Gráfico interactivo en vivo con bandas de conservación y actualización reactiva. |
+| **US-EXP03** | EP06 | Historial digital y exportación de reportes para auditoría sanitaria | 3 | Should Have | $H_3$ | Descarga de PDF/CSV con bitácora inalterable y sellos de tiempo en $\le 15$ s. |
+| **US-EXP04** | EP07 | Gestión centralizada multisede y asignación de operadores | 5 | Must Have | $H_5$ | Vista matriz multisede con semaforización de estado y vinculación de custodios. |
+
+---
+
 ### 8.3.3. Pipeline-supported, Experiment-Driven To-Be Software Platform Lifecycle
 
+Para garantizar que los experimentos sean reproducibles, verificables y desplegados sin fricción, KairoLabs implementa un ciclo de vida de plataforma soportado íntegramente por canalizaciones (*pipelines*) de Integración Continua y Despliegue Continuo (CI/CD):
+
+1. **Gestión de Versiones y Trazabilidad:** Todo cambio experimental se desarrolla en ramas de tipo `feature/` vinculadas a un ítem del backlog de experimentación. La integración a la rama principal (`main`) se rige mediante *Pull Requests* con revisión colaborativa entre pares.
+2. **Pipeline de Construcción y Verificación:** Se ejecutan flujos automatizados de validación de sintaxis, análisis estático y pruebas BDD (Behavior-Driven Development) basadas en los escenarios Gherkin definidos en el punto 8.3.1.
+3. **Despliegue Continuo (CD) en Entornos Productivos:**
+   * **Landing Page y Frontend Web:** Desplegados de forma automatizada en **Vercel** ante cada fusión validada en la rama principal, ofreciendo distribución global vía CDN y certificados SSL/TLS activos.
+   * **Backend API & Web Services:** Desplegados en contenedores mediante **Render**, asegurando disponibilidad de endpoints RESTful bajo HTTPS y conectividad persistente con la base de datos relacional PostgreSQL.
+4. **Instrumentación de Telemetría:** Cada despliegue incorpora el etiquetado y rastreo de eventos de usuario (Google Analytics / Lighthouse) y registros de telemetría de base de datos para medir el comportamiento de las métricas MD-01 a MD-08.
+
+---
+
 #### 8.3.3.1. To-Be Sprint Backlogs
+
+Para la ejecución del ciclo experimental se planificó el **Sprint de Experimentación (Sprint To-Be)**. El equipo utilizó un tablero Kanban/Scrum en **Trello** para orquestar la descomposición de las historias de usuario en tareas técnicas específicas de frontend, backend y configuración de telemetría.
+
+* **Sprint Goal:**  
+  *"Implementar, integrar y desplegar en producción las capacidades To-Be de alertas automáticas en tiempo real, monitoreo continuo de sensores IoT en dashboard interactivo y reportería digital multisede, garantizando la instrumentación telemétrica necesaria para contrastar las hipótesis H1 a H5 en condiciones operativas."*
+
+* **Enlace del Tablero de Gestión (Trello):**  
+  [Tablero de Sprint de Experimentación KairoLabs](https://trello.com/invite/b/6a4aec825530c3b6ab9db1b7/ATTI2034d17571ccf6acbefeae2e9ecfb71e4BAC22E5/sprint-4)
+
+A continuación, se detalla la descomposición técnica de tareas (*Work-Items / Tasks*) ejecutadas durante el Sprint To-Be, distribuidas equitativamente entre los integrantes del equipo:
+
+| User Story | Task ID | Título de la Tarea Técnica | Descripción de Implementación | Estimación (Horas) | Asignado a | Estado |
+| :---: | :---: | :--- | :--- | :---: | :--- | :---: |
+| **US-EXP01** | T-EXP01 | Maquetación del banner y modal de alerta crítica | Diseñar en React/Vite el componente visual de alerta con semaforización cromática (rojo de peligro) y selector de acciones correctivas. | 4 | Diaz Mendoza, Sebastian Victor Andre | **Done** |
+| **US-EXP01** | T-EXP02 | Lógica de detección de umbrales y registro de resolución | Implementar en el frontend el cálculo de desvíos térmicos y el envío del payload de atención de alerta con timestamp a la API. | 5 | Ramirez Escalante, Carlo Patricio | **Done** |
+| **US-EXP01** | T-EXP03 | Endpoint backend para ingesta de alertas telemétricas | Desarrollar endpoint REST `POST /api/v1/devices/{id}/alerts` para registrar eventos de alerta y calcular latencia de atención. | 6 | Mallqui Vilca, Dhilsen Armil | **Done** |
+| **US-EXP02** | T-EXP04 | Gráfico cronológico de telemetría de 24 horas | Integrar librería de gráficos interactivos para renderizar las lecturas de temperatura y humedad con bandas de seguridad. | 6 | Dinklange Arevalo, Sandro | **Done** |
+| **US-EXP02** | T-EXP05 | Integración del flujo de datos en tiempo real | Conectar el estado del dashboard con los servicios de telemetría para actualización reactiva de lecturas ambientales. | 5 | Ramirez Escalante, Carlo Patricio | **Done** |
+| **US-EXP02** | T-EXP06 | Endpoint backend para consulta de telemetría por dispositivo | Optimizar el endpoint `GET /api/v1/devices/{id}/sensor-data` para retornar lecturas agregadas por rango temporal. | 5 | Oblitas Alcalde, Rodrigo | **Done** |
+| **US-EXP03** | T-EXP07 | Módulo de generación y exportación de reportes | Construir la interfaz de selección de rango de fechas y generación de reportes de auditoría en formato exportable (CSV/PDF). | 4 | Diaz Mendoza, Sebastian Victor Andre | **Done** |
+| **US-EXP03** | T-EXP08 | Servicio backend de consolidación de trazabilidad | Desarrollar consulta optimizada para agregar historial de lecturas, incidencias resueltas y metadatos de calibración. | 5 | Mallqui Vilca, Dhilsen Armil | **Done** |
+| **US-EXP04** | T-EXP09 | Vista matriz multisede con semáforos de estado | Implementar vista consolidadora de múltiples establecimientos farmacéuticos con indicadores rápidos de salud térmica. | 6 | Ramirez Escalante, Carlo Patricio | **Done** |
+| **US-EXP04** | T-EXP10 | Asignación y vinculación de operadores por sede | Desarrollar funcionalidad de interfaz para vincular operadores a establecimientos mediante llamadas al endpoint de profiles. | 4 | Dinklange Arevalo, Sandro | **Done** |
+| **US-EXP01 a 04** | T-EXP11 | Configuración de pipeline CI/CD y despliegue To-Be | Validar build automatizado en GitHub Actions, auto-deploy en Vercel (frontend) y Render (backend), y verificar variables de entorno. | 4 | Oblitas Alcalde, Rodrigo | **Done** |
+
+---
 
 #### 8.3.3.2. Implemented To-Be Landing Page Evidence
 
