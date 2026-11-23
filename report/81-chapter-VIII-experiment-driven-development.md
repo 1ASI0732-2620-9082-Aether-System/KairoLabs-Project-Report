@@ -907,16 +907,73 @@ A continuación, se detalla la descomposición técnica de tareas (*Work-Items /
 
 ---
 
-#### 8.3.3.2. Implemented To-Be Landing Page Evidence
+##### 8.3.3.2. Implemented To-Be Landing Page Evidence
 
-#### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
+Landing Page desplegada en Vercel: https://landing-page-kairolabs.vercel.app
 
-#### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
+![Landing Page - Inicio](../assets/chapter-5/landing-hero.jpg)
 
-#### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
+![Landing Page - Tecnología](../assets/chapter-5/landing-tecnologia.jpg)
 
-#### 8.3.3.6. Team Collaboration Insights
+![Landing Page - Sectores](../assets/chapter-5/landing-sectores.jpg)
 
+![Landing Page - Planes](../assets/chapter-5/landing-planes.png)
+
+<p align="center">
+  <img src="../assets/chapter-5/landing-responsive-mobile.jpg" alt="Landing Page en smartphone" width="300">
+</p>
+
+##### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
+
+Web Application desplegada en Vercel: https://kairo-labs-frontend.vercel.app
+
+![Web App - Login](../assets/chapter-5/web-login.jpg)
+
+![Web App - Registro](../assets/chapter-5/web-register-entidad.jpg)
+
+![Web App - Inicio](../assets/chapter-5/web-home-entidad.png)
+
+![Web App - Establecimientos](../assets/chapter-5/web-establecimientos.png)
+
+![Web App - Mapa de establecimientos](../assets/chapter-5/web-mapa-establecimientos.jpg)
+
+![Web App - Dispositivos](../assets/chapter-5/web-dispositivos.png)
+
+![Web App - Detalle de dispositivo](../assets/chapter-5/web-dispositivo-detalle.png)
+
+![Web App - Transportes](../assets/chapter-5/web-transportes.png)
+
+![Web App - Planes](../assets/chapter-5/web-planes.png)
+
+##### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
+
+Versión móvil de KairoLabs: https://github.com/1ASI0732-2620-9082-Aether-System/KairoLabs-Mobile
+
+![App móvil - Inicio, menú, Nosotros y Tecnología](../assets/chapter-5/mobile-overview-1.png)
+
+![App móvil - Sectores, Planes y Contacto](../assets/chapter-5/mobile-overview-2.png)
+
+##### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
+
+https://medi-track-sensor-platform.onrender.com/swagger/index.html
+
+![Swagger UI](../assets/chapter-5/api-swagger-overview.png)
+
+![GET establishments](../assets/chapter-5/api-get-establishments.png)
+
+![GET devices](../assets/chapter-5/api-get-devices.png)
+
+##### 8.3.3.6. Team Collaboration Insights
+
+El equipo Aether System trabajó de forma colaborativa en la organización de GitHub `1ASI0732-2620-9082-Aether-System`, distribuyendo el desarrollo entre los repositorios del informe, la Landing Page, la Web Application y la aplicación móvil.
+
+![Contributors - Project Report](../assets/chapter-5/gh-report-contributors.png)
+
+![Contributors - Landing Page](../assets/chapter-5/gh-landing-contributors.png)
+
+![Contributors - Web Application](../assets/chapter-5/gh-frontend-contributors.png)
+
+![Contributors - Mobile](../assets/chapter-5/gh-mobile-contributors.png)
 ### 8.3.4. To-Be Validation Interviews
 
 #### 8.3.4.1. Diseño de Entrevistas
