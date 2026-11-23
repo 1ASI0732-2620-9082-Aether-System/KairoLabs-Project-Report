@@ -4,15 +4,194 @@
 
 ## 8.1. Experiment Planning
 
+La planificación experimental de KairoLabs transforma las creencias de valor del producto en preguntas que puedan responderse mediante evidencia. El propósito es decidir qué necesitamos aprender antes de ampliar la solución, considerando a los dos segmentos objetivo: personal operativo de almacenes farmacéuticos y entidades de salud o gestores farmacéuticos. La unidad de planificación es la pregunta, no la funcionalidad que se desea implementar.
+
+Se parte de las hipótesis Lean UX del capítulo I, las necesidades del capítulo II, las evidencias de implementación del capítulo V y las validaciones del capítulo VI. El proceso comprende cinco actividades: resumir el estado actual, identificar material bruto, formular preguntas experimentables, priorizar el aprendizaje y preparar las tarjetas de experimento. Las tarjetas se vinculan con las hipótesis y métricas de 8.2 para evitar criterios de éxito definidos después de observar los datos.
+
+**Estado de esta planificación:** propuesta documental preparada el 23 de noviembre de 2026. Las prioridades, escalas iniciales y criterios de decisión son decisiones propuestas; no constituyen resultados ni actas de aprobación del equipo. Las ejecuciones técnicas de capítulos anteriores no se presentan como experimentos de impacto de negocio. Los pilotos de tres y seis meses se cuentan desde una futura fecha de inicio autorizada y no se consideran realizados dentro del plazo académico.
+
 ### 8.1.1. As-Is Summary
+
+KairoLabs propone apoyar la conservación de productos termosensibles mediante el registro y consulta de condiciones ambientales, identificación de estados críticos y supervisión de establecimientos. El problema de partida es la dependencia de rondas, anotaciones y consolidaciones manuales que podrían demorar la identificación de desviaciones o la preparación de evidencia. Esta descripción proviene del planteamiento y de las entrevistas del proyecto; todavía no representa una línea base cuantificada en establecimientos reales.
+
+| Dimensión | Estado documentado | Evidencia disponible | Incertidumbre que permanece |
+| :--- | :--- | :--- | :--- |
+| Usuarios y contexto | Se identificaron personal operativo y gestores con necesidades de monitoreo, trazabilidad y supervisión multisede. | Capítulos I y II; entrevistas de validación de 6.3.2. | Frecuencia de tareas, diferencias entre turnos y condiciones efectivas de adopción. |
+| Producto | Se documentaron una aplicación web Vue, una API ASP.NET Core con MySQL y módulos de establecimientos, operadores, dispositivos, transportes y suscripciones. | Capítulo V y alcance de las suites de 6.1. | Qué funciones están disponibles en la versión y entorno que se utilizarán para experimentar. |
+| Verificación técnica | Se reportaron 20 pruebas unitarias y 14 de integración aprobadas; se añadieron escenarios BDD y de sistema en escritorio y móvil emulado. | 6.1 y evidencias enlazadas del capítulo VI. | Los casos aprobados no demuestran ahorro de tiempo, reducción de pérdidas ni desempeño general en campo. |
+| Necesidades observadas | Un participante operativo pidió avisos en el celular y registrar acciones; un gestor sugirió historial exportable y alertas por WhatsApp. | Resúmenes de entrevistas en 6.3.2. | Esas preferencias no prueban que un canal reduzca el tiempo de respuesta ni que una exportación mejore una auditoría. |
+| Riesgos de uso | Se documentaron hallazgos de navegación, comprensión y accesibilidad en evaluaciones y auditorías. | 6.3.3 y 6.4. | Cuáles siguen presentes en la versión experimental y cuánto interfieren con las tareas. |
+| Datos y operación | Se describieron lecturas, dispositivos, establecimientos y estados ambientales. | Capítulos V y VI. | Disponibilidad de registros longitudinales, identificadores comunes, relojes sincronizados, sensores e instrumentos de referencia. |
+| Resultados de negocio | Se formularon metas sobre deterioro, respuesta, auditoría, precisión y supervisión. | 1.2.2.3 y 8.2.1–8.2.2. | No se dispone aquí de una línea base medida ni de resultados de los pilotos de tres o seis meses. |
+
+El estado actual permite preparar pruebas de tareas y revisar la viabilidad de la captura de datos. La evaluación de deterioro o pérdidas requiere además acceso autorizado a establecimientos y registros operativos. El uso de datos sintéticos sirve para verificar el procedimiento de medición; no permite estimar incidentes ni pérdidas reales.
+
+**Fuentes internas:** [hipótesis Lean UX](11-chapter-I-introduction.md#1223-lean-ux-hypothesis-statements), [necesidades de usuarios](21-chapter-II-requirements.md), [implementación](51-chapter-V-implementation.md), [verificación y validación](61-chapter-VI-Verification%26Validation.md) y [diseño experimental](#82-experiment-design).
 
 ### 8.1.2. Raw Material: Assumptions, Knowledge Gaps, Ideas, Claims
 
+El material bruto se clasifica según su naturaleza. Una **suposición** es una creencia todavía no contrastada; una **brecha** señala información ausente; una **idea** propone una intervención y debe descomponerse en sus premisas; una **afirmación** recoge una declaración del proyecto o de participantes. Las afirmaciones de entrevistas se presentan como paráfrasis, no como citas textuales ni como opiniones representativas de toda la población.
+
+| ID | Tipo | Material bruto | Origen | Premisa o conocimiento que debe examinarse | Pregunta vinculada |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| RM-01 | Suposición | Consultar condiciones continuamente permitiría reducir deterioro frente a rondas manuales. | 1.2.2.3; hipótesis de monitoreo. | La detección oportuna conduce a acciones capaces de modificar los incidentes, y estos pueden atribuirse documentalmente al almacenamiento. | Q-01 |
+| RM-02 | Idea | Incorporar avisos automáticos y un registro de atención. | Entrevista operativa de 6.3.2; propuesta de alertas. | El personal recibe un aviso útil, puede actuar y deja una marca temporal comparable. Se prueba esa premisa antes de elegir WhatsApp u otro canal. | Q-02 |
+| RM-03 | Afirmación de participante | Un gestor sugirió un historial exportable para auditorías. | Entrevista del segmento 2 en 6.3.2. | Reunir evidencia completa mediante registros digitales toma menos tiempo que mediante registros manuales equivalentes. | Q-03 |
+| RM-04 | Suposición | Automatizar lecturas reduce errores de transcripción y mejora su concordancia. | 1.2.2.3; integración IoT propuesta. | La lectura capturada concuerda con un instrumento de referencia, no solamente con lo que muestra la interfaz. | Q-04 |
+| RM-05 | Afirmación del proyecto | La supervisión centralizada permitiría mayor eficiencia y menores pérdidas. | Hipótesis multisede de 1.2.2.3 y 8.2.1. | La información consolidada cambia decisiones y resultados; un menor tiempo de consulta no demuestra por sí solo menores pérdidas. | Q-05 |
+| RM-06 | Brecha de conocimiento | No se ha medido la continuidad real de lecturas ni la completitud de los controles programados del piloto. | Diferencia entre pruebas técnicas de 6.1 y datos exigidos en 8.2.2. | Es necesario saber qué datos faltan y si existe exposición suficiente para interpretar los resultados. | Q-06 |
+| RM-07 | Brecha de conocimiento | Se desconoce qué combinaciones de turno, conectividad y disponibilidad del responsable dificultan atender las alertas. | Límites de entrevistas y de pruebas con móvil emulado. | Una demora puede deberse al contexto y no a la interfaz o al canal elegido. | Q-07 |
+| RM-08 | Brecha de conocimiento | No están establecidos los tiempos basales, la tasa de deterioro ni la variabilidad de las medidas para los establecimientos elegibles. | Insumos necesarios para 8.2.5. | Los umbrales y tamaños de muestra requieren datos basales; una meta no debe tratarse como observación. | Q-08 |
+
+**Tratamiento del material:** se conserva el vínculo con su fuente; se separan observaciones, inferencias y propuestas; y se evita convertir cada solicitud de funcionalidad en una decisión de implementación inmediata. Por ejemplo, la propuesta de WhatsApp origina primero una pregunta sobre oportunidad y atención de avisos, no una conclusión favorable a ese canal.
+
 ### 8.1.3. Experiment-Ready Questions
+
+Se formulan preguntas **impulsadas por creencias** (*belief-led*) cuando existe una expectativa contrastable y preguntas **exploratorias** cuando falta conocimiento para definir o interpretar una comparación. Las cinco preguntas principales conservan los objetivos de 8.2.1. Las exploratorias permiten comprobar si se puede ejecutar ese diseño.
+
+| ID | Tipo | Pregunta preparada para investigación | Por qué necesitamos responderla | Evidencia que permitiría responder |
+| :--- | :--- | :--- | :--- | :--- |
+| Q-01 | Belief-led | En establecimientos elegibles, ¿el uso del monitoreo continuo se asocia con una reducción de al menos 30 % en MD-01 durante tres meses frente a una línea base comparable de tres meses? | Determinar si el beneficio esperado sobre deterioro tiene respaldo operativo. | Incidentes confirmados y lotes expuestos por sede y periodo; contexto de MD-07 y MD-08. |
+| Q-02 | Belief-led | Para desviaciones comparables, ¿las notificaciones automáticas reducen al menos 25 % el tiempo mediano entre la primera lectura fuera de rango y la respuesta registrada durante tres meses? | Contrastar si la alerta modifica la atención y no solo produce una notificación. | MD-02 con marcas temporales vinculadas; contexto de MD-07 y MD-08. |
+| Q-03 | Belief-led | Ante solicitudes equivalentes de una sede, dispositivo y periodo, ¿el historial digital reduce al menos 20 % el tiempo promedio necesario para entregar evidencia completa frente a la búsqueda manual? | Valorar la utilidad del historial para una tarea concreta de auditoría. | MD-03 en solicitudes completas de ambas condiciones durante el periodo de tres meses de 8.2.5. |
+| Q-04 | Belief-led | En mediciones pareadas por variable, lugar y momento, ¿la captura con sensores aumenta al menos 25 % de forma relativa la proporción de lecturas dentro de tolerancia frente al método manual durante tres meses? | Comprobar la confiabilidad de los datos que sustentan las decisiones del producto. | MD-04, con instrumento de referencia y tolerancia predefinida por variable. |
+| Q-05 | Belief-led | Durante seis meses, ¿la supervisión multisede reduce al menos 30 % MD-05 y al menos 20 % MD-06 frente al proceso habitual en sedes comparables? | Separar la eficiencia de consulta del impacto económico; se necesitan ambos resultados para respaldar la hipótesis conjunta. | MD-05 en tareas equivalentes y MD-06 en registros de inventario e incidentes; contexto de MD-07. |
+| Q-06 | Exploratoria | Durante la preparación del piloto, ¿qué cobertura de establecimientos y qué controles completos y conformes podemos documentar, y en qué situaciones se interrumpe su registro? | Determinar si el sistema y los registros permiten observar lo que las hipótesis requieren. | MD-07 y MD-08, registros de última lectura y observaciones de las causas de ausencia. |
+| Q-07 | Exploratoria | ¿Qué barreras de turno, conectividad y disponibilidad aparecen en la secuencia entre una desviación y su atención? | Identificar explicaciones alternativas para MD-02 y delimitar condiciones comparables. | Recorrido contextual de casos de MD-02 y notas de observación; sin crear un indicador de negocio adicional. |
+| Q-08 | Exploratoria | ¿Cuáles son los valores basales y la variabilidad de MD-01 a MD-06 en los establecimientos elegibles antes de intervenir? | Calcular escala y factibilidad sin inventar un tamaño de muestra o un beneficio previo. | Registros basales autorizados, denominadores, tiempos y distribución por sede y periodo. |
+
+**Uso de las cinco W y una H.** Para Q-02, **Who** es el personal operativo autorizado; **What**, la atención de desviaciones comparables; **Where**, los establecimientos incluidos; **When**, desde la primera lectura fuera de rango hasta la acción registrada durante el periodo del piloto; **Why**, aprender si las alertas aceleran la respuesta; y **How**, comparar MD-02 entre proceso habitual y proceso con notificación, registrando tipo, severidad y contexto. Este desglose hace explícitas premisas como la disponibilidad del responsable, la conectividad y la sincronización de relojes. Q-07 permite explorar esas premisas antes de atribuir una diferencia a la notificación.
 
 ### 8.1.4. Question Backlog
 
+El backlog organiza preguntas de aprendizaje. Su puntuación es una estimación inicial propuesta para discusión del equipo; no proviene de una votación o medición ya realizada.
+
+Se utiliza una escala de 1 a 5:
+
+- **Confianza (C):** 1 significa evidencia pertinente muy limitada; 5, evidencia consistente para responder la pregunta. Las pruebas funcionales no elevan automáticamente la confianza en un beneficio de negocio.
+- **Riesgo (R):** 1 representa un costo acotado si la premisa es incorrecta; 5, una consecuencia alta sobre conservación, decisiones o confiabilidad de datos.
+- **Impacto (I):** 1 indica que la respuesta cambia una decisión menor; 5, que puede cambiar una decisión central del producto o del experimento.
+- **Interés (T):** 1 expresa baja urgencia de aprendizaje y 5, alta urgencia para el siguiente paso del proyecto. Representa interés de investigación del equipo, no popularidad de la función.
+
+La prioridad se calcula como **P = (6 − C) + R + I + T**. Invertir C da mayor prioridad a lo que todavía conocemos menos. Un valor mayor se investiga antes; en empate se elige primero el mayor riesgo. Si también coincide, se atiende la dependencia que desbloquea otras preguntas. La puntuación no reemplaza los requisitos de acceso, medición ni seguridad.
+
+| Orden | Pregunta | C | R | I | T | P | Motivo de priorización y dependencia | Estado propuesto |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- | :--- |
+| 1 | Q-04. Concordancia de lecturas | 2 | 5 | 5 | 5 | 19 | Una decisión basada en una lectura incorrecta compromete los demás experimentos. Requiere instrumento y tolerancia. | Deep: preparar EXP-04. |
+| 2 | Q-02. Respuesta a alertas | 2 | 5 | 5 | 4 | 18 | Es central para el beneficio operativo. Requiere Q-06 y datos basales de Q-08. | Deep: preparar EXP-02; ejecución condicionada. |
+| 3 | Q-06. Cobertura y controles | 1 | 4 | 5 | 4 | 18 | Desbloquea la captura para otras preguntas; queda detrás de Q-02 por el desempate de riesgo, pero se ejecuta antes como dependencia. | Deep: preparar EXP-06. |
+| 4 | Q-01. Incidentes de deterioro | 1 | 5 | 5 | 2 | 17 | Alto valor y riesgo, pero necesita acceso a registros y seguimiento de tres meses. | Broad: tarjeta EXP-01 preparada; piloto pendiente. |
+| 5 | Q-08. Línea base y variabilidad | 1 | 4 | 4 | 4 | 17 | Insumo de escala para todas las comparaciones. Requiere autorización de acceso y registros utilizables. | Deep: actividad basal de las tarjetas principales. |
+| 6 | Q-03. Evidencia para auditoría | 2 | 3 | 4 | 5 | 16 | Permite una comparación de tareas acotada. Requiere historial consultable y solicitudes equivalentes. | Deep: preparar EXP-03; confirmar versión. |
+| 7 | Q-05. Supervisión y pérdidas | 2 | 4 | 4 | 3 | 15 | Requiere varias sedes y seguimiento económico de seis meses; depende de Q-06 y Q-08. | Broad: tarjeta EXP-05 preparada; piloto pendiente. |
+| 8 | Q-07. Barreras de atención | 1 | 3 | 4 | 3 | 15 | Ayuda a explicar diferencias de respuesta. Se explora al preparar EXP-02 y delimitar sus condiciones. | Broad: guía contextual, pendiente de detalle. |
+
+**Broad backlog:** conserva las ocho preguntas y admite nuevas brechas. Q-01, Q-05 y Q-07 mantienen visible el aprendizaje de mayor alcance o menor preparación inmediata. **Deep backlog:** detalla Q-04, Q-02, Q-06, Q-08 y Q-03 hasta identificar responsables, fuentes, condiciones y restricciones. La tarjeta preparada de una pregunta broad no significa que su ejecución esté autorizada o lista.
+
+**Secuencia propuesta:** revisar viabilidad de medición con EXP-06; recoger la línea base de Q-08 y preparar instrumento y tolerancias para EXP-04; ensayar los procedimientos de EXP-02 y EXP-03; y activar los pilotos principales solo cuando estén disponibles sus requisitos y escala. EXP-01 y EXP-05 necesitan compromisos de seguimiento que exceden una sesión de clase. Los ensayos con datos de prueba no sustituyen esos pilotos.
+
+**Mantenimiento:** cada tarjeta tendrá un responsable asignado por el equipo y un revisor distinto antes de ejecutarse. Se conservarán versión del producto, fecha de decisión, protocolo y enlace a evidencia. Tras cada ejecución se actualizarán confianza, estado y prioridad en 8.4.2. La confianza solo aumenta con evidencia pertinente a la pregunta; una ejecución fallida o inconclusa también se registra.
+
 ### 8.1.5. Experiment Cards
+
+Las tarjetas registran el diseño mínimo antes de ejecutar. El **frente** captura pregunta, por qué, hipótesis y la *Simplest Useful Thing* (SUT, la cosa más simple y útil). El **reverso** especifica medidas, condiciones y escala. Las cinco primeras se corresponden con las cinco hipótesis de 8.2.1; EXP-06 es exploratoria y comprueba la viabilidad de observarlas.
+
+Se referencian exclusivamente las métricas **MD-01 a MD-08 de 8.2.2**. Los identificadores, las causas de ausencia y las verificaciones de completitud son datos o controles del protocolo, no métricas de negocio nuevas. La escala definitiva se calculará como indica 8.2.5; los periodos de observación no equivalen a tamaños de muestra suficientes.
+
+#### EXP-01. Monitoreo continuo e incidentes de deterioro
+
+| Lado | Campo | Contenido |
+| :--- | :--- | :--- |
+| Frente | Pregunta y trazabilidad | Q-01; RM-01; primera hipótesis de 8.2.1. |
+| Frente | Por qué | Decidir si el monitoreo aporta evidencia de menor deterioro y si merece ampliar el piloto. |
+| Frente | Hipótesis | H1: reducción de MD-01 de al menos 30 % frente a la línea base comparable. H0 operativa: reducción menor al 30 %. No alcanzar el umbral no demuestra ausencia de cualquier efecto. |
+| Frente | SUT | Usar la consulta de lecturas y un registro controlado de lotes e incidentes en los establecimientos elegibles, antes de construir analítica adicional. |
+| Reverso | Medidas | Principal: MD-01. Contexto: MD-07 y MD-08. Comparar tasas con sus denominadores por sede y periodo. |
+| Reverso | Condiciones | Línea base del proceso habitual frente a uso de monitoreo continuo. Mantener criterios de incidente, lotes y comparabilidad; documentar cambios de inventario, personal y almacenamiento. |
+| Reverso | Escala | Tres meses de piloto y tres meses basales comparables. Lotes e incidentes elegibles; tamaño requerido pendiente de tasa basal y cálculo de 8.2.5 con ajuste por establecimiento. |
+| Reverso | Decisión y límites | Evaluar el umbral con el intervalo de incertidumbre y el plan de 8.2.5. Si no hay eventos, denominador suficiente o precisión, informar resultado inconcluso. La comparación antes-después aporta una asociación y tiene limitaciones de atribución causal. |
+| Reverso | Requisitos y estado | Acceso autorizado a registros; definición de incidente confirmada; Q-06 y Q-08 resueltas lo suficiente para medir. **Planificado; no ejecutado en esta sección.** |
+
+#### EXP-02. Alertas y tiempo de respuesta
+
+| Lado | Campo | Contenido |
+| :--- | :--- | :--- |
+| Frente | Pregunta y trazabilidad | Q-02; RM-02; segunda hipótesis de 8.2.1. |
+| Frente | Por qué | Decidir si la notificación ayuda a actuar oportunamente y qué aspectos del flujo necesitan revisión. |
+| Frente | Hipótesis | H1: reducción de MD-02 de al menos 25 %. H0 operativa: reducción menor al 25 %. La referencia de 15 a 10 minutos de 8.2.2 es una meta de planificación; no una línea base ya medida. |
+| Frente | SUT | Un flujo verificable de aviso y registro de acción vinculado a la lectura. Comprobar primero su disponibilidad en la versión experimental; no presuponer que WhatsApp o un canal móvil ya están implementados. |
+| Reverso | Medidas | Principal: MD-02. Contexto: MD-07 y MD-08. Capturar lectura inicial fuera de rango, identificador de alerta y acción; sincronizar relojes. |
+| Reverso | Condiciones | Proceso habitual frente a proceso con notificación automática; comparar tipo y severidad equivalentes y registrar turno y conectividad. No retirar controles de conservación ni alertas obligatorias. |
+| Reverso | Escala | Piloto de tres meses. Tamaño requerido según distribución basal de tiempos y remuestreo de 8.2.5, considerando dependencia por operador y sede. |
+| Reverso | Decisión y límites | Evaluar la reducción de medianas con su incertidumbre. Conservar las desviaciones no atendidas y registros incompletos como incidencias del protocolo; no eliminarlos silenciosamente ni usar únicamente respuestas rápidas. Si impiden una comparación confiable, declarar el límite o resultado inconcluso. |
+| Reverso | Requisitos y estado | Notificación y registro trazables; reglas previas para elegibilidad, seguimiento y datos faltantes; Q-06, Q-07 y Q-08. **Planificado; no ejecutado en esta sección.** |
+
+#### EXP-03. Historial digital y preparación de auditoría
+
+| Lado | Campo | Contenido |
+| :--- | :--- | :--- |
+| Frente | Pregunta y trazabilidad | Q-03; RM-03; tercera hipótesis de 8.2.1. |
+| Frente | Por qué | Decidir si el historial resuelve la búsqueda de evidencia requerida por los gestores. |
+| Frente | Hipótesis | H1: reducción de MD-03 de al menos 20 %. H0 operativa: reducción menor al 20 %. |
+| Frente | SUT | Consultar el historial disponible para responder solicitudes acotadas por sede, dispositivo y periodo. No desarrollar una exportación completa antes de comprobar la utilidad de la tarea básica. |
+| Reverso | Medidas | MD-03. La entrega debe contener el conjunto solicitado en ambas condiciones; una búsqueda incompleta no se cuenta como una respuesta rápida satisfactoria. |
+| Reverso | Condiciones | Solicitudes equivalentes mediante registros manuales y consulta digital. Usar conjuntos distintos pero comparables y contrabalancear el orden para reducir aprendizaje; registrar experiencia previa. |
+| Reverso | Escala | Observación prevista de tres meses según 8.2.5. Número de participantes y solicitudes pendiente de variabilidad basal y diseño pareado; varias tareas de una persona no equivalen a varios participantes independientes. |
+| Reverso | Decisión y límites | Comparar tiempos y su incertidumbre solo con el protocolo de completitud y fallos predefinido. Si la versión no permite recuperar el historial requerido, registrar la falta de preparación; una maqueta no acredita la eficacia del producto implementado. |
+| Reverso | Requisitos y estado | Historial accesible, datos autorizados y solicitudes preparadas antes de medir. **Planificado; no ejecutado en esta sección.** |
+
+#### EXP-04. Concordancia del registro mediante sensores
+
+| Lado | Campo | Contenido |
+| :--- | :--- | :--- |
+| Frente | Pregunta y trazabilidad | Q-04; RM-04; cuarta hipótesis de 8.2.1. |
+| Frente | Por qué | Decidir si las lecturas almacenadas son una base confiable para interpretar alertas y resultados posteriores. |
+| Frente | Hipótesis | H1: aumento relativo de MD-04 de al menos 25 % frente al registro manual. H0 operativa: aumento relativo menor al 25 %. |
+| Frente | SUT | Registrar lecturas pareadas del sensor, del procedimiento manual y de un instrumento de referencia, con variable, lugar, instante y tolerancia identificados. |
+| Reverso | Medidas | MD-04 según 8.2.2. Definir la tolerancia por variable antes de recoger datos y registrar la evidencia de calibración del instrumento. |
+| Reverso | Condiciones | Captura automática y manual bajo condiciones comparables, contrastadas con el mismo instrumento. La transmisión correcta por la API no demuestra concordancia física. No provocar desviaciones en inventario real. |
+| Reverso | Escala | Tres meses previstos; pares de lecturas según cálculo de 8.2.5. Considerar agrupamiento por dispositivo y establecimiento y correlación temporal; lecturas consecutivas no son réplicas independientes. |
+| Reverso | Decisión y límites | Calcular mejora relativa e incertidumbre. Si la precisión basal supera 80 %, mejorarla 25 % de forma relativa exigiría superar 100 % y el objetivo no sería factible. Revisar y versionar el umbral junto con 8.2 antes de la prueba; si la base es cero, no calcular mejora relativa. |
+| Reverso | Requisitos y estado | Sensores e instrumento disponibles; tolerancias, tasa basal y factibilidad del umbral revisadas. **Planificado; no ejecutado en esta sección.** |
+
+#### EXP-05. Supervisión multisede y pérdidas documentadas
+
+| Lado | Campo | Contenido |
+| :--- | :--- | :--- |
+| Frente | Pregunta y trazabilidad | Q-05; RM-05; quinta hipótesis de 8.2.1. |
+| Frente | Por qué | Decidir si centralizar información mejora la revisión operativa y si existe evidencia separada de beneficio económico. |
+| Frente | Hipótesis | H1: reducción de al menos 30 % en MD-05 y 20 % en MD-06. H0 operativa: al menos uno de los dos umbrales no se alcanza. |
+| Frente | SUT | Tareas equivalentes con el dashboard existente y un registro autorizado de pérdidas e inventario, sin construir un módulo financiero adicional. |
+| Reverso | Medidas | MD-05 y MD-06 como resultados separados; MD-07 como contexto de cobertura. No inferir pérdidas evitadas a partir de clics, consultas o tiempo de tarea. |
+| Reverso | Condiciones | Revisión centralizada frente a revisión habitual de las mismas sedes o de sedes comparables. Contrabalancear las tareas y documentar diferencias de inventario, periodo y personal para el componente económico. |
+| Reverso | Escala | Seis meses según 8.2.5. Número de gestores, sedes, tareas y registros pendiente de la línea base; estimar escala para ambos resultados y considerar agrupamiento por sede. |
+| Reverso | Decisión y límites | Evaluar cada umbral con su incertidumbre. Si solo mejora el tiempo, documentar respaldo parcial para la eficiencia, sin afirmar reducción de pérdidas ni aprobación de la hipótesis conjunta. Base económica nula o registros insuficientes impiden estimar una reducción relativa confiable. |
+| Reverso | Requisitos y estado | Varias sedes elegibles, acceso a inventarios e incidentes, capacidad de seguimiento y Q-06/Q-08. **Planificado; no ejecutado en esta sección.** |
+
+#### EXP-06. Exploración de cobertura y viabilidad de captura
+
+| Lado | Campo | Contenido |
+| :--- | :--- | :--- |
+| Frente | Pregunta y trazabilidad | Q-06; RM-06; exploración previa a los cinco experimentos de impacto. |
+| Frente | Por qué | Aprender si se pueden observar establecimientos y controles de forma suficiente antes de comprometer pilotos extensos. |
+| Frente | Hipótesis | No aplica una H1 direccional: se busca conocer cobertura, registros disponibles y causas de ausencia. No se interpreta esta exploración como prueba de las cinco hipótesis. |
+| Frente | SUT | Revisar inventario de dispositivos, última lectura y calendario de controles; observar un recorrido de captura y cotejarlo con la API y el registro autorizado. |
+| Reverso | Medidas | MD-07 y MD-08. Registrar también el motivo documental de un control no trazable, distinguiendo ausencia de lectura de una lectura existente fuera de rango. |
+| Reverso | Condiciones | Entorno de preparación autorizado, con establecimientos y dispositivos identificados. Definir vigencia de lectura, controles programados y datos completos antes de aplicar las fórmulas. |
+| Reverso | Escala | Una semana inicial de observación propuesta, con los establecimientos elegibles disponibles. Es una exploración de factibilidad sin pretensión de potencia estadística ni generalización poblacional. |
+| Reverso | Decisión y límites | Describir MD-07 y MD-08 y las restricciones encontradas. Preparar los pilotos cuando cada campo esencial pueda capturarse y vincularse; si no, revisar instrumentación y volver a observar. Las metas de seis meses de 8.2.2 no se declaran alcanzadas por observar una semana. |
+| Reverso | Requisitos y estado | Acceso de lectura, inventario y calendario acordados, responsable y revisor designados. **Propuesto; no ejecutado en esta sección.** |
+
+**Reglas comunes antes de ejecutar**
+
+1. Asignar responsable y revisor, fijar versión de la aplicación y verificar que estén disponibles las funciones utilizadas. La validación con móvil emulado no acredita una aplicación móvil nativa ni pruebas en dispositivos físicos.
+2. Registrar consentimiento cuando participen usuarios, limitar los datos a los necesarios y usar identificadores seudónimos. Conservar los procedimientos habituales de conservación; no inducir deterioro ni retirar medidas de protección para construir un control.
+3. Versionar hipótesis, métricas, condiciones, reglas de exclusión y análisis antes de observar resultados. Usar el cálculo de 8.2.5 con datos basales; el 5 % de significancia y el 80 % de potencia son objetivos de diseño, no garantías ya demostradas.
+4. Distinguir el umbral de relevancia práctica de la prueba estadística de ausencia de efecto. Las H0 operativas de 8.2.1 son criterios de negocio; no se obtiene un valor p comparando solamente un porcentaje con una meta. La especificación inferencial debe corresponder a la unidad de análisis y a los umbrales antes de ejecutar.
+5. Conservar registros incompletos, incidencias y diferencias entre periodos en el informe de ejecución. Un resultado inconcluso no equivale a confirmar ni refutar automáticamente una creencia.
+6. Documentar el aprendizaje y la decisión de continuar, ajustar o detener en 8.4, y actualizar las prioridades en 8.4.2. Las capturas previas de la aplicación solo acreditan interfaces y contexto; los resultados de estos experimentos requieren sus propios registros.
+
+**Correspondencia con el diseño:** EXP-01 a EXP-05 mantienen las cinco preguntas, los umbrales y los periodos previstos en 8.2. EXP-06 prepara su viabilidad. Antes de ejecutar debe revisarse la consistencia del capítulo completo: los 15 minutos de MD-02 requieren medición basal; el aumento relativo de 25 % de MD-04 requiere comprobar su factibilidad; y las metas generales de MD-05 y MD-06 deben distinguirse de los umbrales específicos de EXP-05. No se modifican silenciosamente esas definiciones después de medir.
 
 ## 8.2. Experiment Design
 
