@@ -976,15 +976,194 @@ El equipo Aether System trabajó de forma colaborativa en la organización de Gi
 ![Contributors - Mobile](../assets/chapter-5/gh-mobile-contributors.png)
 ### 8.3.4. To-Be Validation Interviews
 
+Se desarrolla un escenario de validación simulado de KairoLabs con seis participantes ficticios, tres por segmento. Los nombres, edades, respuestas y resultados de 8.3.4 a 8.4.2 pertenecen a este ejercicio. Los seis enlaces proporcionados se asocian a los registros en el mismo orden.
+
 #### 8.3.4.1. Diseño de Entrevistas
+
+**Objetivo.** Revisar si las mejoras To-Be ayudan a interpretar una alerta, consultar el historial y supervisar los establecimientos. El interés está en conocer qué entiende la persona, dónde necesita ayuda y qué cambiaría para usar la plataforma en su trabajo.
+
+**Participantes y dinámica.** El diseño considera tres personas de almacenes farmacéuticos y tres gestores de establecimientos de salud. Cada sesión se plantea como una entrevista semiestructurada de 20 a 25 minutos: presentación del contexto, recorrido por tareas y preguntas de cierre. Se utiliza el mismo conjunto de dispositivos, lecturas y sedes de prueba. El entrevistador primero deja que la persona intente resolver cada tarea y después registra las ayudas solicitadas.
+
+| Tarea | Segmento | Qué se observa | Relación con el diseño experimental |
+| :--- | :--- | :--- | :--- |
+| Identificar una alerta fuera de rango y explicar su prioridad. | Ambos. | Si reconoce el establecimiento, el dispositivo y la condición que requiere atención. | Q-02; EXP-02; MD-02. |
+| Diferenciar una lectura vigente de un sensor sin comunicación. | Ambos. | Si consulta la hora de la última lectura y evita interpretar un dato antiguo como una condición actual. | Q-06 y Q-07; EXP-06; MD-07 y MD-08. |
+| Recuperar el historial de una sede, dispositivo y periodo. | Ambos. | Si encuentra el conjunto solicitado y aplica los filtros adecuados. | Q-03; EXP-03; MD-03. |
+| Registrar la acción tomada ante una alerta. | Personal operativo. | Si entiende la diferencia entre visualizar la alerta y registrar su atención. | Q-02 y Q-07; US-EXP01. |
+| Revisar varias sedes e identificar cuál requiere atención. | Gestores. | Si puede comparar estados y entrar al establecimiento correspondiente. | Q-05; EXP-05; MD-05. |
+
+**Preguntas comunes**
+
+1. ¿Qué información miraste primero y por qué?
+2. ¿Qué harías al encontrar esta alerta?
+3. ¿Cómo comprobarías si la lectura que ves sigue siendo actual?
+4. ¿Cómo buscarías lo ocurrido con este dispositivo durante un periodo concreto?
+5. ¿Qué parte te hizo dudar o te obligó a pedir ayuda?
+
+**Preguntas para personal operativo**
+
+- ¿Qué necesitarías registrar después de atender una desviación?
+- ¿Qué harías si cambia el turno mientras una alerta sigue abierta?
+- ¿Podrías realizar este recorrido desde el celular durante tu jornada?
+
+**Preguntas para gestores**
+
+- ¿Cómo decidirías qué sede revisar primero?
+- ¿Qué datos tendría que incluir el historial para que te sirva en una auditoría?
+- ¿Qué comprobarías antes de confiar en una lectura o comparar dos establecimientos?
+
+En cada registro se distingue entre una tarea completada sin ayuda y una que requirió orientación. Los comentarios sobre utilidad se usan para revisar la experiencia; no equivalen a medir reducción de deterioro, precisión física del sensor o pérdidas económicas.
 
 #### 8.3.4.2. Registro de Entrevistas
 
+**Segmento 1: Personal operativo de almacenes farmacéuticos**
+
+##### Entrevista TV-01
+
+| Campo | Registro |
+| :--- | :--- |
+| Nombre y apellidos | Lucía Paredes Huamán |
+| Edad | 29 años |
+| Ocupación | Técnica de farmacia encargada de recepción y conservación. |
+| Contexto | Almacén farmacéutico en Lima; seis años de experiencia. |
+| Enlace asociado | [Video 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c630_upc_edu_pe/IQDai321wS-vQI5NkwqzffbFAXzp9qMoHxmiW24EyAcCOvA?e=bFRsDw) |
+| Imagen | |
+
+Lucía identificó la alerta y registró una acción sin orientación. También encontró el historial solicitado. Su principal duda apareció al revisar un dispositivo sin comunicación: interpretó primero el último valor visible como una lectura actual y necesitó ayuda para revisar su hora. Comentó: «Si el dato es de hace rato, necesito darme cuenta antes de tomar una decisión». Propuso mostrar la antigüedad de la lectura junto a la temperatura y resaltar el estado de desconexión.
+
+##### Entrevista TV-02
+
+| Campo | Registro |
+| :--- | :--- |
+| Nombre y apellidos | Marco Antonio Salazar Rojas |
+| Edad | 38 años |
+| Ocupación | Auxiliar de almacén y responsable de controles por turno. |
+| Contexto | Distribuidora farmacéutica en Callao; doce años de experiencia. |
+| Enlace asociado | [Video 2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c630_upc_edu_pe/IQDbmsfyIXK3QqaaOqt_aeWGAV4e-Il19oqA99QkHEzMAc8?e=KhGQHk) |
+| Imagen | |
+
+Marco reconoció la alerta fuera de rango y pudo registrar la atención. Necesitó orientación para diferenciar una interrupción de comunicación de una condición normal y para seleccionar el dispositivo correcto en el historial. En la vista móvil le costó ubicar los filtros. Señaló: «En el cambio de turno quiero saber qué se atendió y qué sigue abierto». Sugirió destacar los filtros activos y mantener visible el estado de cada alerta durante el relevo.
+
+##### Entrevista TV-03
+
+| Campo | Registro |
+| :--- | :--- |
+| Nombre y apellidos | Rosa Elena Quispe Medina |
+| Edad | 46 años |
+| Ocupación | Técnica de farmacia responsable de cadena de frío. |
+| Contexto | Almacén de una clínica en Arequipa; dieciocho años de experiencia. |
+| Enlace asociado | [Video 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c630_upc_edu_pe/IQDi-cMMD4MVQrnh6pxjUCJPATF1jBzFOBvFA2QWanMa6Bk?e=eXblQH) |
+| Imagen | |
+
+Rosa interpretó la alerta, distinguió el sensor desconectado y recuperó el historial sin ayuda. Al registrar una acción, confundió cerrar el detalle de la alerta con marcarla como atendida. Después de una indicación completó el recorrido. Consideró útil el gráfico para revisar lo sucedido durante el turno anterior y comentó: «Me sirve ver la tendencia, pero también quiero saber qué hizo la persona que atendió el caso». Recomendó aclarar el botón de registro y conservar la acción asociada al incidente.
+
+**Segmento 2: Entidades de salud y gestores farmacéuticos**
+
+##### Entrevista TV-04
+
+| Campo | Registro |
+| :--- | :--- |
+| Nombre y apellidos | Daniela Ramos Cáceres |
+| Edad | 35 años |
+| Ocupación | Química farmacéutica y coordinadora de establecimientos. |
+| Contexto | Red de tres centros de salud en Lima; nueve años de experiencia. |
+| Enlace asociado | [Video 4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c630_upc_edu_pe/IQC8tnB_rovTQ6DGnwt7bVdEAZMAWnBciSuIPmpKYlqED_k?e=M53Mg7) |
+| Imagen | |
+
+Daniela completó sin ayuda la interpretación de la alerta, la revisión de vigencia, la consulta del historial y la comparación de sedes. Encontró útil que el panel reuniera los establecimientos, aunque pidió que los filtros de sede, dispositivo y periodo también quedaran identificados en el reporte. Explicó: «Si comparto el archivo, la otra persona tiene que entender de dónde salió cada registro». Propuso mantener esos datos visibles al revisar y exportar el historial.
+
+##### Entrevista TV-05
+
+| Campo | Registro |
+| :--- | :--- |
+| Nombre y apellidos | Eduardo Cruz Valverde |
+| Edad | 42 años |
+| Ocupación | Jefe de operaciones de una distribuidora farmacéutica. |
+| Contexto | Supervisión de cinco almacenes en Trujillo; dieciséis años de experiencia. |
+| Enlace asociado | [Video 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c630_upc_edu_pe/IQDvP5TKmSk_TLsAtGPOdS5lAd9DDPyxtxPe-1W3nFx0nrY?e=DG2LHg) |
+| Imagen | |
+
+Eduardo identificó la sede con una alerta activa y distinguió las lecturas vigentes sin orientación. En el historial eligió inicialmente un dispositivo de otra sede y pidió ayuda para corregir el filtro. Consideró que la supervisión centralizada podía facilitar su trabajo, pero señaló que una vista rápida no bastaba para estimar pérdidas evitadas. Comentó: «Primero necesito ubicar el problema y luego revisar el lote y el registro del incidente». Sugirió mostrar la relación entre sede y dispositivo al filtrar.
+
+##### Entrevista TV-06
+
+| Campo | Registro |
+| :--- | :--- |
+| Nombre y apellidos | Patricia Mercedes Vega Soto |
+| Edad | 51 años |
+| Ocupación | Directora técnica de una red de farmacias. |
+| Contexto | Supervisión de cuatro establecimientos en Cusco; veinticuatro años de experiencia. |
+| Enlace asociado | [Video 6](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c630_upc_edu_pe/IQD68cRq-kvTS7_eY1zC5UBlAS3K_fwehZNaR4SP538y6C4?e=FQjYcr) |
+| Imagen | |
+
+Patricia consultó el historial y comparó los establecimientos sin ayuda. Necesitó orientación para diferenciar una alerta ambiental de un sensor sin comunicación y revisar la antigüedad del dato. Pidió que los estados tuvieran texto además de colores. Señaló: «Verde debería decirme que el dato es actual, no solamente que la última temperatura estuvo bien». Propuso separar con claridad los estados normal, fuera de rango y sin comunicación.
+
 ## 8.4. Experiment Aftermath & Analysis
+
+El análisis reúne los seis registros simulados y los relaciona con las preguntas de 8.1 y las hipótesis de 8.2. Se revisa la comprensión de las tareas y se proponen decisiones para la siguiente iteración de KairoLabs.
 
 ### 8.4.1. Analysis and Interpretation of Results
 
+**Resumen del recorrido simulado**
+
+| Registro | Interpreta la alerta | Distingue una lectura vigente | Recupera el historial solicitado | Registra una acción | Compara varias sedes |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| TV-01 — Lucía | Sin ayuda | Con ayuda | Sin ayuda | Sin ayuda | — |
+| TV-02 — Marco | Sin ayuda | Con ayuda | Con ayuda | Sin ayuda | — |
+| TV-03 — Rosa | Sin ayuda | Sin ayuda | Sin ayuda | Con ayuda | — |
+| TV-04 — Daniela | Sin ayuda | Sin ayuda | Sin ayuda | — | Sin ayuda |
+| TV-05 — Eduardo | Sin ayuda | Sin ayuda | Con ayuda | — | Sin ayuda |
+| TV-06 — Patricia | Con ayuda | Con ayuda | Sin ayuda | — | Sin ayuda |
+
+El guion asigna el registro de acciones al segmento operativo y la comparación de sedes al segmento gestor; el guion largo indica que esa tarea no formó parte del recorrido de ese perfil.
+
+Cinco de los seis perfiles interpretan la alerta sin orientación, pero solo tres distinguen por sí mismos si el dato sigue vigente. Es el hallazgo que más afecta la lectura del panel: un valor antiguo dentro de rango puede confundirse con una situación actual normal. La siguiente iteración debe mostrar la hora de la última lectura y separar visualmente la desconexión de una desviación ambiental.
+
+Cuatro perfiles recuperan el historial sin ayuda. Marco y Eduardo necesitan corregir la selección del dispositivo, por lo que conviene revisar la relación entre sede y dispositivo y hacer visibles los filtros activos. En el registro de acciones, dos de los tres perfiles operativos completan el recorrido sin orientación; el caso de Rosa muestra que cerrar un detalle y registrar la atención deben ser acciones claramente distintas.
+
+Los tres gestores comparan las sedes sin ayuda. Sus comentarios destacan la utilidad de centralizar la revisión y conservar el contexto de los reportes. Esto orienta mejoras de navegación y trazabilidad, sin convertir la preferencia por el panel en una estimación de ahorro o de pérdidas evitadas.
+
+**Interpretación por hipótesis**
+
+| Hipótesis y métrica | Lectura del ejercicio | Decisión para la siguiente iteración |
+| :--- | :--- | :--- |
+| H1 — Monitoreo continuo; MD-01. | Los perfiles valoran consultar tendencias y revisar lo ocurrido entre turnos. El recorrido no mide una reducción del 30 % en incidentes de deterioro. | Mantener la hipótesis de campo y relacionar las lecturas con lotes e incidentes confirmados, como establece EXP-01. |
+| H2 — Respuesta a alertas; MD-02. | La mayoría reconoce la alerta, pero aparecen dudas sobre desconexión, relevo de turno y registro de atención. La comprensión de la interfaz no demuestra una reducción del 25 % en la mediana de respuesta. | Aclarar los estados y el registro de acciones; después comparar detección y primera respuesta con marcas de tiempo equivalentes. |
+| H3 — Evidencia para auditoría; MD-03. | El historial resulta comprensible para cuatro perfiles; los otros dos requieren ayuda con los filtros. No se cronometró una comparación manual-digital para evaluar el umbral del 20 %. | Revisar filtros de sede y dispositivo y conservar el periodo consultado en el reporte. Retomar la comparación de solicitudes completas de EXP-03. |
+| H4 — Concordancia de lecturas; MD-04. | Revisar un valor en pantalla permite evaluar su interpretación, pero no su exactitud física ni una mejora relativa del 25 %. | Conservar la validación pareada con instrumento de referencia y tolerancias definidas en EXP-04. |
+| H5 — Supervisión multisede y pérdidas; MD-05 y MD-06. | Los tres gestores completan la revisión de sedes. Esto permite revisar el recorrido, pero no acredita los umbrales de 30 % en tiempo y 20 % en pérdidas. | Mantener separados el tiempo de revisión y el resultado económico; aplicar las tareas comparativas y los registros documentales de EXP-05. |
+
+**Ajustes propuestos para el producto**
+
+| Ajuste | Registros que lo motivan | Historia relacionada | Cómo revisar el cambio |
+| :--- | :--- | :--- | :--- |
+| Mostrar última actualización y diferenciar normal, fuera de rango y sin comunicación mediante texto y color. | TV-01, TV-02 y TV-06. | US-EXP01 y US-EXP02. | Repetir el recorrido con lecturas vigentes y antiguas y comprobar su interpretación sin ayuda. |
+| Aclarar la acción para registrar atención y mantener visible el estado durante el cambio de turno. | TV-02 y TV-03. | US-EXP01. | Pedir al operador que registre una acción y vuelva a consultar el incidente. |
+| Vincular el filtro de dispositivo con la sede seleccionada y mostrar los filtros activos. | TV-02 y TV-05. | US-EXP03. | Solicitar el historial de una sede y dispositivo concretos y verificar el conjunto recuperado. |
+| Conservar sede, dispositivo y periodo al consultar y exportar el historial. | TV-04 y TV-05. | US-EXP03 y US-EXP04. | Revisar que el reporte conserve el contexto de la consulta y sus registros. |
+
+Estos ajustes se proponen a partir de la simulación; no se registran como cambios implementados ni como confirmación de las cinco hipótesis de negocio.
+
 ### 8.4.2. Re-scored and Re-prioritized Question Backlog
+
+Se conserva la fórmula de 8.1.4: **P = (6 − C) + R + I + T**, con valores de 1 a 5 para confianza, riesgo, impacto e interés. Al tratarse de registros ficticios, **C mantiene su puntuación inicial**: la simulación no aumenta la evidencia real disponible. Los cambios en R, I y T representan una propuesta de planificación a partir de los problemas explorados.
+
+| Orden | Pregunta | C | R | I | T | P anterior | P actual | Decisión propuesta |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| 1 | Q-06. Cobertura y controles. | 1 | 5 | 5 | 5 | 18 | 20 | Comprobar vigencia, completitud y estados de comunicación antes de interpretar las demás medidas. Mantener EXP-06 en deep backlog. |
+| 2 | Q-04. Concordancia de lecturas. | 2 | 5 | 5 | 5 | 19 | 19 | Conservar la prioridad de EXP-04: una lectura comprensible también debe ser confiable. Preparar instrumento, tolerancias y pares comparables. |
+| 3 | Q-07. Barreras de atención. | 1 | 5 | 4 | 5 | 15 | 19 | Pasar de broad a deep backlog por las dudas sobre desconexión, relevo y registro de acciones. Detallar estos recorridos junto con EXP-02. |
+| 4 | Q-02. Respuesta a alertas. | 2 | 5 | 5 | 4 | 18 | 18 | Mantener EXP-02 en deep backlog y separar la generación del aviso de la primera acción registrada. |
+| 5 | Q-08. Línea base y variabilidad. | 1 | 4 | 4 | 5 | 17 | 18 | Dar mayor urgencia a los registros basales que permiten calcular la escala e interpretar las comparaciones. |
+| 6 | Q-03. Evidencia para auditoría. | 2 | 4 | 5 | 5 | 16 | 18 | Mantener EXP-03 en deep backlog; revisar filtros y contexto del reporte antes de comparar tiempos de solicitudes completas. |
+| 7 | Q-01. Incidentes de deterioro. | 1 | 5 | 5 | 2 | 17 | 17 | Mantener EXP-01 en broad backlog y conservar el seguimiento de tres meses con lotes e incidentes documentados. |
+| 8 | Q-05. Supervisión y pérdidas. | 2 | 4 | 4 | 3 | 15 | 15 | Mantener EXP-05 en broad backlog y el seguimiento de seis meses. Distinguir la facilidad de revisar sedes del efecto económico. |
+
+Q-06 sube por el riesgo de interpretar datos antiguos como actuales. Q-07 gana detalle por las dudas que aparecen durante la atención y el relevo. Q-03 aumenta por la importancia de recuperar el historial correcto, y Q-08 por la necesidad de contar con una referencia para las comparaciones.
+
+En los empates se aplica primero el mayor riesgo y luego las dependencias de 8.1.4: Q-02 precede a Q-08 y Q-03 por riesgo; Q-08 precede a Q-03 porque aporta la línea base para su comparación. Cuando no hay una dependencia directa que resuelva el empate, se conserva el orden anterior, como en Q-04 y Q-07.
+
+La secuencia de ejecución propuesta comienza con Q-06 y la recolección basal de Q-08; continúa con la preparación de Q-04 y la exploración de Q-07; después retoma EXP-02 y EXP-03. La posición en la tabla expresa prioridad de aprendizaje, mientras que esta secuencia respeta los requisitos necesarios para ejecutar cada comparación.
 
 ## 8.5. Continuous Learning
 
