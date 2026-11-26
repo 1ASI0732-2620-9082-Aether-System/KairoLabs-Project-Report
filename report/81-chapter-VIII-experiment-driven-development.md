@@ -1230,6 +1230,14 @@ El alcance presentado comprende Landing Page, frontend web, backend y documentac
 
 **Nombre de presentación:** *KairoLabs — Video final del producto: ecosistema integrado de Landing Page, frontend y backend*.
 
+<p align="center">
+  <img src="../assets/chapter-8/about-the-product-dashboard.png" alt="Vista del panel de KairoLabs mostrada en la demostración del producto" width="900">
+</p>
+
+*Figura 8.6.1-1. Panel de inicio de KairoLabs con accesos de gestión y Centro de Control Operativo.*
+
+*Nota.* Captura proporcionada por el equipo como referencia visual del video. Presenta la aplicación ejecutada localmente con datos de demostración; no acredita resultados de los experimentos de negocio.
+
 **Enlace al video final del producto:** [Abrir carpeta del video integrado de KairoLabs en Google Drive](https://drive.google.com/drive/folders/17UCreuvhtV31VfqfocBDZ8wOHEVsYKmO?usp=sharing).
 
 El enlace proporcionado corresponde a una carpeta de Google Drive; el nombre anterior identifica la presentación en este informe y no afirma que sea el nombre exacto del archivo almacenado. La descripción del recorrido corresponde a la información aportada por el equipo.
