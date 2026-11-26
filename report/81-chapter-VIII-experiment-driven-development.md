@@ -1,7 +1,5 @@
 # Capítulo VIII: Experiment-Driven Development
 
-> Plantilla de estructura para completar el capítulo VIII.
-
 ## 8.1. Experiment Planning
 
 La planificación experimental de KairoLabs transforma las creencias de valor del producto en preguntas que puedan responderse mediante evidencia. El propósito es decidir qué necesitamos aprender antes de ampliar la solución, considerando a los dos segmentos objetivo: personal operativo de almacenes farmacéuticos y entidades de salud o gestores farmacéuticos. La unidad de planificación es la pregunta, no la funcionalidad que se desea implementar.
