@@ -1167,10 +1167,101 @@ La secuencia de ejecución propuesta comienza con Q-06 y la recolección basal d
 
 ## 8.5. Continuous Learning
 
+El aprendizaje continuo de KairoLabs conecta las preguntas de 8.1, el diseño de 8.2, los recorridos de 8.3 y las decisiones de 8.4 con la siguiente iteración del producto. El objetivo es conservar qué se examinó, con qué evidencia, qué interpretación admite esa evidencia y qué decisión corresponde tomar. Cada ciclo debe permitir revisar o mantener una creencia, incluso cuando el resultado sea inconcluso.
+
+En esta entrega, el insumo de 8.4 son **seis registros simulados**. Sus patrones permiten ensayar el análisis y proponer mejoras, pero no constituyen observaciones de usuarios reales ni resultados de los pilotos. Por ello, se mantiene la confianza inicial del backlog y se conservan como pendientes las comparaciones de negocio de EXP-01 a EXP-05. Los resultados de pruebas técnicas, las mediciones de Lighthouse y la demostración del producto se interpretan dentro de sus respectivos alcances.
+
 ### 8.5.1. Shareback Session Artifacts: Learning Workflow
+
+La sesión de *shareback* es el espacio propuesto para compartir evidencia, contrastar interpretaciones y acordar el siguiente paso. Los siguientes artefactos se preparan a partir del informe para apoyar esa sesión. **No se registra una reunión como celebrada ni se atribuyen acuerdos, asistencia o aprobaciones sin un acta que los sustente.**
+
+**Paquete de artefactos para el shareback**
+
+| Artefacto | Contenido preparado y referencia | Uso en la sesión | Estado |
+| :--- | :--- | :--- | :--- |
+| Preguntas y tarjetas | Q-01 a Q-08 y EXP-01 a EXP-06 de 8.1. | Recordar qué se busca aprender y los criterios definidos antes de ejecutar. | Documentado. |
+| Protocolo y medidas | Hipótesis, MD-01 a MD-08, condiciones, escala y seguimiento de 8.2. | Revisar si la captura permite responder cada pregunta sin cambiar las metas después de medir. | Documentado; requisitos de ejecución por confirmar. |
+| Resumen del ejercicio | Matriz de los seis recorridos simulados de 8.4.1. | Examinar problemas de vigencia, atención, filtros y contexto de reportes. | Simulación documental; no evidencia de campo. |
+| Registro de aprendizajes y decisiones | Matriz LC-01 a LC-05 incluida a continuación. | Separar observación del ejercicio, interpretación y propuesta de acción. | Preparado para revisión. |
+| Backlog revisado | Puntuaciones y secuencia de 8.4.2. | Contrastar prioridades y dependencias conservando la confianza inicial. | Propuesta de repriorización. |
+| Demostración integrada | Video enlazado en 8.6.1. | Presentar los recorridos del producto y discutir su relación con el protocolo. | Enlace aportado por el equipo; no sustituye resultados experimentales. |
+| Acta de shareback | Fecha efectiva, participantes, versión revisada, decisiones, responsable, plazo y discrepancias. | Dejar trazabilidad de los acuerdos que efectivamente se adopten. | Pendiente de celebración y registro. |
+
+**Registro de aprendizajes y decisiones propuestas**
+
+| ID | Insumo del ejercicio de 8.4 | Interpretación y límite | Siguiente acción propuesta | Pregunta e historia relacionadas | Comprobación posterior |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| LC-01 | Tres de los seis perfiles simulados distinguen sin ayuda una lectura vigente. | La vigencia merece revisión en el escenario ensayado; la proporción no estima el comportamiento de usuarios reales. | Mostrar última lectura y diferenciar normal, fuera de rango y sin comunicación con texto y color. | Q-06 y Q-07; US-EXP01 y US-EXP02. | Preparar EXP-06 y observar recorridos reales autorizados con lecturas vigentes, antiguas y ausentes. |
+| LC-02 | Dos de los tres perfiles operativos simulados completan el registro de una acción sin orientación. | El cierre de un detalle y la atención de una alerta deben distinguirse. No se ha medido MD-02. | Revisar la acción de atención, su confirmación y la continuidad entre turnos. | Q-02 y Q-07; US-EXP01. | Verificar el flujo y las marcas temporales antes de la comparación de EXP-02. |
+| LC-03 | Dos perfiles simulados requieren ayuda para recuperar el historial por sede y dispositivo. | La selección de filtros puede afectar la tarea; no se conoce todavía el ahorro de tiempo. | Vincular los dispositivos con su sede y mantener visibles los filtros activos. | Q-03; US-EXP03. | Repetir solicitudes equivalentes, comprobar completitud y aplicar MD-03 con el protocolo de EXP-03. |
+| LC-04 | Los tres gestores simulados completan la comparación de sedes. | El ejercicio permite revisar el recorrido, pero no acredita menores tiempos ni pérdidas. | Conservar la supervisión centralizada y preparar la captura separada de tiempos y pérdidas documentadas. | Q-05; US-EXP04. | Aplicar MD-05 y MD-06 por separado en EXP-05. |
+| LC-05 | El ejercicio no incluye instrumentos de referencia, tasas basales ni observación longitudinal. | No permite contrastar precisión física, deterioro o impacto económico. | Preparar Q-08, instrumentos, tolerancias, acceso a registros y cálculo de escala antes de iniciar los pilotos. | Q-01, Q-04 y Q-08; EXP-01 y EXP-04. | Revisar requisitos y protocolo; conservar el estado pendiente cuando falte evidencia. |
+
+**Learning Workflow**
+
+1. **Recuperar la pregunta y el protocolo.** Identificar Q, EXP, hipótesis, métrica y versión del producto. Definir si se revisa una simulación, una comprobación técnica o una observación de campo.
+2. **Preparar la evidencia.** Reunir registros autorizados, condiciones de captura e incidencias. Identificar datos faltantes y mantener separados los entornos de prueba y piloto.
+3. **Compartir e interpretar.** Presentar el hallazgo junto con su fuente y límites. Examinar explicaciones alternativas, como conectividad, experiencia previa, aprendizaje o diferencias entre sedes.
+4. **Tomar una decisión trazable.** Proponer continuar, ajustar, repetir, posponer o detener. Registrar qué evidencia motivaría reconsiderar la decisión; una ausencia de medición no equivale a un resultado favorable.
+5. **Actualizar el trabajo.** Vincular la decisión con el question backlog de 8.4.2 y, cuando corresponda, con las historias y tareas To-Be de 8.3. Un cambio propuesto no pasa a implementado sin su evidencia.
+6. **Verificar y aprender nuevamente.** Repetir la tarea o comparación adecuada después del cambio, conservar la versión del protocolo y preparar el siguiente shareback. Aumentar la confianza únicamente con evidencia pertinente a la pregunta.
+
+**Agenda sugerida y registro de cierre**
+
+Se propone una sesión de 30 minutos: cinco para recordar preguntas y alcance, diez para revisar evidencia, diez para discutir decisiones y cinco para registrar responsables y próximos pasos. La duración es una propuesta de organización, no una sesión ya ejecutada.
+
+| Campo del acta | Información que se registrará al realizar la sesión |
+| :--- | :--- |
+| Identificación | Fecha, participantes efectivos, facilitador y versión del informe/producto. |
+| Evidencia revisada | Enlaces a registros, protocolo y artefactos; tipo de evidencia y restricciones. |
+| Decisión | Pregunta, aprendizaje, decisión adoptada y desacuerdos relevantes. |
+| Seguimiento | Responsable y revisor asignados, plazo acordado y comprobación requerida. |
+| Cierre del ciclo | Resultado de la comprobación y enlace al backlog actualizado. |
+
+Este flujo permite que la siguiente iteración responda al aprendizaje disponible y no solamente a una lista de funcionalidades. La sesión y su acta quedan como actividad pendiente; los artefactos anteriores ya organizan el material documental para realizarla.
 
 ## 8.6. To-Be Software Platform Pre-launch
 
+La preparación previa al lanzamiento reúne la presentación del producto integrado y una revisión de sus implicaciones globales, económicas, ambientales y sociales. Para KairoLabs, la demostración del ecosistema desplegado permite comunicar sus recorridos principales; la evaluación GEES ayuda a distinguir las capacidades documentadas de los impactos que requieren observación posterior.
+
+El alcance presentado comprende Landing Page, frontend web, backend y documentación de la API. La vista móvil del frontend debe distinguirse de una aplicación nativa. La disponibilidad de una demostración no acredita por sí sola operación clínica, exactitud de sensores, cumplimiento normativo, disponibilidad sostenida ni ejecución de los pilotos previstos.
+
 ### 8.6.1. About-the-Product Intro Video
 
+**Nombre de presentación:** *KairoLabs — Video final del producto: ecosistema integrado de Landing Page, frontend y backend*.
+
+**Enlace al video final del producto:** [Abrir carpeta del video integrado de KairoLabs en Google Drive](https://drive.google.com/drive/folders/17UCreuvhtV31VfqfocBDZ8wOHEVsYKmO?usp=sharing).
+
+El enlace proporcionado corresponde a una carpeta de Google Drive; el nombre anterior identifica la presentación en este informe y no afirma que sea el nombre exacto del archivo almacenado. La descripción del recorrido corresponde a la información aportada por el equipo.
+
+El video demuestra el funcionamiento del ecosistema desplegado: Landing Page, flujo de autenticación, dashboard de monitoreo, gestión de establecimientos y dispositivos, y documentación Swagger de la API. La presentación conecta la propuesta de valor de KairoLabs con las tareas del personal operativo y de los gestores farmacéuticos.
+
+| Componente del recorrido | Contenido presentado | Relación con el proyecto |
+| :--- | :--- | :--- |
+| Landing Page | Presentación de KairoLabs y acceso al ecosistema. | Comunica la solución y sus segmentos objetivo. |
+| Autenticación | Acceso a la aplicación mediante el flujo de inicio de sesión. | Introduce el entorno de trabajo del usuario. |
+| Dashboard de monitoreo | Consulta de condiciones y estados disponibles en el panel. | Contextualiza las preguntas de monitoreo y supervisión de 8.1. |
+| Establecimientos | Recorrido de gestión de sedes. | Muestra la organización operativa relacionada con la supervisión multisede. |
+| Dispositivos | Consulta y gestión de dispositivos y su información. | Presenta el contexto de las lecturas utilizadas por la plataforma. |
+| API y Swagger | Presentación de la documentación y operaciones expuestas por el backend. | Explica el componente de servicios que soporta la aplicación integrada. |
+
+**Alcance de la evidencia:** la demostración presenta recorridos funcionales. No se utiliza para declarar cumplidas las reducciones de deterioro, respuesta, preparación de auditoría o pérdidas de 8.2. Tampoco sustituye los datos de calibración, los registros longitudinales, las pruebas de seguridad ni las entrevistas reales. No se asignan duración ni marcas de tiempo porque no se han documentado en esta sección.
+
+Antes de la entrega, el equipo debe comprobar que la carpeta y el archivo de video permitan visualización al evaluador. Si se obtiene un enlace directo al archivo, podrá sustituirse el enlace de carpeta sin cambiar el alcance de la evidencia.
+
 ### 8.6.2. Resumen usando Gees Framework
+
+El marco **GEES** organiza la revisión en cuatro lentes: **Global, Economic, Environmental y Social**, conforme a la matriz de resumen del sistema informático de la guía del curso. Se aplica al contexto de KairoLabs sin trasladar como resultados propios los ejemplos de ahorro, energía o certificación que aparecen en el modelo referencial.
+
+| Lente GEES | Indicador o criterio clave | Hallazgo o estado documentado de KairoLabs | Aprendizaje y acción previa al lanzamiento | Estándar o marco de referencia |
+| :--- | :--- | :--- | :--- | :--- |
+| **Global** | Interoperabilidad, dependencias tecnológicas y tratamiento de datos. | El informe describe una aplicación web Vue y una API ASP.NET Core con MySQL, servicios desplegados y documentación Swagger. Las consultas integradas y el video presentan el intercambio entre componentes; no acreditan residencia de datos, arquitectura multirregión ni conformidad transfronteriza. | Precisar proveedores, ubicación y acceso a datos, contratos de API y configuración por entorno. Revisar las discrepancias tecnológicas del capítulo antes de asumir una nueva arquitectura. Relacionar la disponibilidad de datos con Q-06. | ISO/IEC 27001 e ISO/IEC 27701, citadas por la guía como referencias de seguridad y privacidad; sin afirmar certificación. |
+| **Economic** | Eficiencia operativa, costo total de propiedad y resultados de conservación. | Se plantean MD-03 para preparar evidencia, MD-05 para supervisión y MD-06 para pérdidas. No se presentan aquí costos consolidados, ROI, ahorro medido ni resultados de los pilotos de tres o seis meses. Los recorridos simulados no prueban esos beneficios. | Recoger la línea base de Q-08, documentar costos de alojamiento, dispositivos y mantenimiento, y evaluar EXP-03 y EXP-05 con sus propios datos. Mantener separadas eficiencia de consulta y pérdidas económicas. | ISO/IEC 25010 y marcos de gestión financiera de TI, como referencias de calidad y evaluación del valor indicadas en la guía. |
+| **Environmental** | Conservación de productos, consumo de recursos y ciclo de vida de dispositivos. | Reducir deterioro podría disminuir descarte farmacéutico, pero es un beneficio esperado de MD-01, no un resultado demostrado. No se dispone aquí de mediciones de energía, emisiones, PUE, origen renovable del alojamiento ni gestión certificada de residuos electrónicos. | Ejecutar EXP-01 con incidentes y lotes documentados; recopilar información verificable de infraestructura y dispositivos si se evalúa impacto ambiental. No convertir una reducción monetaria en emisiones evitadas sin un método y datos específicos. | ISO 14001 y GHG Protocol, incluidos en el modelo de la guía como referencias de gestión ambiental y emisiones; no como conformidades acreditadas. |
+| **Social** | Comprensión, accesibilidad, protección del usuario y responsabilidad profesional. | El capítulo VI documenta evaluaciones heurísticas y el 8.2.7 incluye diagnósticos de accesibilidad de Lighthouse. Los recorridos simulados de 8.4 destacan la vigencia del dato, los estados y los filtros; no representan evidencia adicional de usuarios reales ni conformidad integral de accesibilidad. | Priorizar estados con texto y color, hora de última lectura y filtros claros según LC-01 a LC-03. Revalidar con participantes reales autorizados; proteger los registros y mantener mecanismos de revisión humana de decisiones operativas. | ISO 26000, WCAG 2.2 y los Objetivos de Desarrollo Sostenible, como referencias sociales y de accesibilidad recogidas por la guía; sin afirmar cumplimiento o impacto medido. |
+
+**Balance para el pre-launch**
+
+KairoLabs dispone de una propuesta integrada documentada y de un enlace de demostración para comunicar sus recorridos principales. El siguiente paso consiste en revisar las condiciones de medición y las mejoras propuestas, comprobar acceso a la evidencia y preparar los experimentos que todavía requieren datos de campo. La priorización de Q-06, Q-04 y Q-07 de 8.4.2 orienta esa preparación hacia vigencia de datos, confiabilidad e interpretación de alertas.
+
+La matriz GEES no certifica el sistema ni declara un lanzamiento productivo autorizado. Resume qué se conoce, qué se espera conseguir y qué evidencia falta para juzgar los impactos del producto. Sus referencias proceden de la **Matriz de Resumen del Sistema Informático (Framework GEES)** de la guía del curso; utilizarlas como lentes de revisión no sustituye una evaluación formal de conformidad.
